@@ -17,7 +17,7 @@
             <field name="name">amnus.audit.log.tree</field>
             <field name="model">amnus.audit.log</field>
             <field name="arch" type="xml">
-                <tree string="AMNUS Audit Logs">
+                <list string="AMNUS Audit Logs">
                     <field name="date"/>
                     <field name="name"/>
                     <field name="user_id"/>
@@ -25,7 +25,7 @@
                     <field name="model_name"/>
                     <field name="record_id"/>
                     <field name="company_id"/>
-                </tree>
+                </list>
             </field>
         </record>
 
@@ -65,13 +65,6 @@
                     <field name="model_name"/>
                     <field name="date"/>
                     <field name="company_id"/>
-                    <filter name="today" string="Today" domain="[('date','&gt;=',context_today())]"/>
-                    <group expand="0" string="Group By">
-                        <field name="user_id"/>
-                        <field name="action"/>
-                        <field name="model_name"/>
-                        <field name="company_id"/>
-                    </group>
                 </search>
             </field>
         </record>

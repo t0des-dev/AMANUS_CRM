@@ -1,0 +1,217 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: AMNUS Core 19.0.1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-13\n"
+"PO-Revision-Date: 2026-11-13\n"
+"Last-Translator: \n"
+"Language-Team: French\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "AMNUS Core"
+msgstr "AMNUS — Cœur"
+
+msgid "AMNUS Platform — Core Foundation"
+msgstr "Plateforme AMNUS — Fondation centrale"
+
+msgid "Shared infrastructure for all AMNUS (Odoo Project Lifecycle Management Platform) modules."
+msgstr "Infrastructure partagée pour tous les modules AMNUS (plateforme de gestion du cycle de vie des projets Odoo)."
+
+msgid "Reusable tags (``amnus.tag``) for classifying records across AMNUS modules."
+msgstr "Étiquettes réutilisables (``amnus.tag``) pour classer les enregistrements entre les modules AMNUS."
+
+msgid "A shared audit log (``amnus.audit.log``) for recording important business operations."
+msgstr "Journal d'audit partagé (``amnus.audit.log``) pour enregistrer les opérations métier importantes."
+
+msgid "Foundational AMNUS configuration via ``res.config.settings``."
+msgstr "Configuration fondamentale AMNUS via ``res.config.settings``."
+
+msgid "The AMNUS root menu and security groups (AMNUS User, Manager, Administrator)."
+msgstr "Menu racine AMNUS et groupes de sécurité (Utilisateur, Gestionnaire, Administrateur AMNUS)."
+
+msgid "It is the foundation layer of the AMNUS platform and must be installed before any"
+msgstr "C'est la couche fondation de la plateforme AMNUS et doit être installée avant toute"
+
+msgid "other AMNUS addon."
+msgstr "autre module AMNUS."
+
+msgid "Odoo 19 Community Edition only. No Enterprise dependencies."
+msgstr "Odoo 19 Community Edition uniquement. Aucune dépendance Enterprise."
+
+msgid "AMNUS Tag"
+msgstr "Étiquette AMNUS"
+
+msgid "Name"
+msgstr "Nom"
+
+msgid "Color Index"
+msgstr "Indice de couleur"
+
+msgid "Active"
+msgstr "Actif"
+
+msgid "Category"
+msgstr "Catégorie"
+
+msgid "General"
+msgstr "Général"
+
+msgid "Project"
+msgstr "Projet"
+
+msgid "Analysis"
+msgstr "Analyse"
+
+msgid "Agile"
+msgstr "Agile"
+
+msgid "Development"
+msgstr "Développement"
+
+msgid "Quality Assurance"
+msgstr "Assurance qualité"
+
+msgid "Support"
+msgstr "Support"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Company"
+msgstr "Société"
+
+msgid "Leave empty for a global tag shared across all companies."
+msgstr "Laisser vide pour une étiquette globale partagée entre toutes les sociétés."
+
+msgid "A tag with the same name and category already exists for this company."
+msgstr "Une étiquette portant le même nom et la même catégorie existe déjà pour cette société."
+
+msgid "The tag name cannot be empty."
+msgstr "Le nom de l'étiquette ne peut pas être vide."
+
+msgid "A tag with the name '%(name)s' and category '%(category)s' already exists in this scope."
+msgstr "Une étiquette nommée '%(name)s' de catégorie '%(category)s' existe déjà dans ce périmètre."
+
+msgid "AMNUS Audit Log"
+msgstr "Journal d'audit AMNUS"
+
+msgid "Event"
+msgstr "Événement"
+
+msgid "Date"
+msgstr "Date"
+
+msgid "User"
+msgstr "Utilisateur"
+
+msgid "Model"
+msgstr "Modèle"
+
+msgid "Record ID"
+msgstr "ID enregistrement"
+
+msgid "Action"
+msgstr "Action"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Create"
+msgstr "Création"
+
+msgid "Update"
+msgstr "Mise à jour"
+
+msgid "Delete"
+msgstr "Suppression"
+
+msgid "State Change"
+msgstr "Changement d'état"
+
+msgid "Login"
+msgstr "Connexion"
+
+msgid "Export"
+msgstr "Exportation"
+
+msgid "Other"
+msgstr "Autre"
+
+msgid "Audit log records cannot be modified."
+msgstr "Les enregistrements du journal d'audit ne peuvent pas être modifiés."
+
+msgid "Audit log records cannot be deleted."
+msgstr "Les enregistrements du journal d'audit ne peuvent pas être supprimés."
+
+msgid "AMNUS"
+msgstr "AMNUS"
+
+msgid "Overview"
+msgstr "Vue d'ensemble"
+
+msgid "Configuration"
+msgstr "Configuration"
+
+msgid "Tags"
+msgstr "Étiquettes"
+
+msgid "Settings"
+msgstr "Paramètres"
+
+msgid "Administration"
+msgstr "Administration"
+
+msgid "Audit Logs"
+msgstr "Journaux d'audit"
+
+msgid "AMNUS Tags"
+msgstr "Étiquettes AMNUS"
+
+msgid "AMNUS Tag"
+msgstr "Étiquette AMNUS"
+
+msgid "Create tags to classify AMNUS records across modules."
+msgstr "Créer des étiquettes pour classer les enregistrements AMNUS entre les modules."
+
+msgid "AMNUS Audit Logs"
+msgstr "Journaux d'audit AMNUS"
+
+msgid "Audit trail of important AMNUS business operations."
+msgstr "Piste d'audit des opérations métier importantes d'AMNUS."
+
+msgid "AMNUS Settings"
+msgstr "Paramètres AMNUS"
+
+msgid "AMNUS Core"
+msgstr "Cœur AMNUS"
+
+msgid "Enable or disable the AMNUS platform globally."
+msgstr "Activer ou désactiver la plateforme AMNUS globalement."
+
+msgid "Enable or disable audit logging for AMNUS business operations."
+msgstr "Activer ou désactiver la journalisation d'audit pour les opérations métier AMNUS."
+
+msgid "AMNUS Enabled"
+msgstr "AMNUS activé"
+
+msgid "Audit Logging Enabled"
+msgstr "Journalisation d'audit activée"
+
+msgid "AMNUS User"
+msgstr "Utilisateur AMNUS"
+
+msgid "AMNUS Manager"
+msgstr "Gestionnaire AMNUS"
+
+msgid "AMNUS Administrator"
+msgstr "Administrateur AMNUS"
+
+msgid "AMNUS Tag — company isolation"
+msgstr "Étiquette AMNUS — isolation par société"
+
+msgid "AMNUS Audit Log — company isolation"
+msgstr "Journal d'audit AMNUS — isolation par société"

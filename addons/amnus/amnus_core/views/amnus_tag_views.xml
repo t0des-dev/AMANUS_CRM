@@ -17,13 +17,13 @@
             <field name="name">amnus.tag.tree</field>
             <field name="model">amnus.tag</field>
             <field name="arch" type="xml">
-                <tree string="AMNUS Tags">
+                <list string="AMNUS Tags">
                     <field name="name"/>
                     <field name="category"/>
                     <field name="color"/>
                     <field name="active"/>
                     <field name="company_id"/>
-                </tree>
+                </list>
             </field>
         </record>
 
@@ -59,12 +59,6 @@
                     <field name="category"/>
                     <field name="active"/>
                     <field name="company_id"/>
-                    <filter name="active" string="Active" domain="[('active','=',True)]"/>
-                    <filter name="inactive" string="Inactive" domain="[('active','=',False)]"/>
-                    <group expand="0" string="Group By">
-                        <field name="category"/>
-                        <field name="company_id"/>
-                    </group>
                 </search>
             </field>
         </record>

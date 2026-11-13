@@ -1,5 +1,44 @@
 # Changelog — AMNUS
 
+## Version 19.0.1.1.0 — Sprint 01.1 (Core Runtime Validation & Security Hardening)
+
+### Changed
+- Manifest: added `base_setup` dependency (required for settings view inheritance)
+- `amnus.tag`: replaced `_sql_constraints` with `models.Constraint` (Odoo 19 convention)
+- `amnus.tag`: NULL-safe uniqueness constraint (global tags + company-specific tags)
+- `amnus.audit.log`: renamed `log_event()` → `_log_event()` (non-RPC-callable)
+- `amnus.audit.log`: identity (user/company) now derived from environment (not forgeable)
+- `amnus.tag` and `amnus.audit.log`: added company isolation record rules
+- `security.xml`: reorganized (groups before ACLs), removed `category_id` (not available in Odoo 19 `res.groups`)
+- ACLs moved from CSV to XML for proper load ordering
+- Views: `<tree>` → `<list>` (Odoo 19 view type name)
+- Views: settings xpath updated to Odoo 19 pattern (`//form` with `<app>`/`<block>`/`<setting>`)
+- `amnus_menus.xml`: `target="inline"` → `target="new"` (valid Odoo 19 value)
+- Tests: expanded with global/company uniqueness, cross-company access, audit API protection, config persistence, menu visibility, security group inheritance
+- Tests: `groups_id` → `group_ids` (Odoo 19 field name), `tree` → `list`
+- i18n: added `amnus_core.pot`, `fr_FR.po`, `ar_SA.po`
+
+### Fixed
+- `_sql_constraints` no longer supported in Odoo 19 → `models.Constraint`
+- `base_setup` dependency missing → added
+- `category_id` field not on `res.groups` in Odoo 19 → removed
+- `ir.model.access.csv` processed before groups defined → moved ACLs to XML
+- `log_event()` RPC-callable → renamed to `_log_event()`
+- Tag uniqueness not NULL-safe → added ORM constraint
+- No record rules for multi-company → added company isolation rules
+- `tree` view type invalid in Odoo 19 → changed to `list`
+
+### Runtime validation
+- Database: `amnus_test_19` created (PostgreSQL 16.14, owned by `amanus`, UTF8)
+- Module installed: `amnus_core` state = installed
+- Tests: 34 at_install tests, 0 failures, 0 errors
+- All Python files compile, all XML files valid
+
+### Environment (unchanged, verified)
+- Odoo 19.0.0 Community at `C:\Program Files\AmanusERP\odoo\`
+- Python 3.12.10 (Odoo-bundled); system Python 3.14.4
+- PostgreSQL 16.14, service `AmanusERPPostgreSQL16` running
+
 ## Version 19.0.1.0.0 — Sprint 01 (Core Foundation)
 
 ### Added

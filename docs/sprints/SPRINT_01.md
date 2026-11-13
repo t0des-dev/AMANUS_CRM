@@ -73,10 +73,19 @@ platform on Odoo 19 Community Edition.
 14. Documentation updated — Yes
 15. Installation and test status — Not executed against a database (pending test DB approval)
 
-## Installation status
-Not yet installed against an Odoo database. A dedicated disposable test database must be
-created and approved before running installation or tests (see Sprint 01, section 15 of the
-sprint specification).
+## Installation status (updated in Sprint 01.1)
+
+**Installed and validated** against dedicated test database `amnus_test_19` (PostgreSQL 16.14).
+
+- Database: `amnus_test_19` created (UTF8, template0, owned by `amanus`)
+- Module state: `installed`
+- Python compile: OK (Odoo-bundled Python 3.12.10)
+- XML validation: OK (all files well-formed)
+- Manifest validation: OK
+- Automated tests: 34 at_install tests, 0 failures, 0 errors
+- No Enterprise dependencies
+- Existing `amanus_*` modules untouched
+- Existing databases (`amanus`, `postgres`) untouched
 
 ## Readiness for Sprint 02
 Ready to proceed to Sprint 02 (next domain addon) once `amnus_core` installation and tests

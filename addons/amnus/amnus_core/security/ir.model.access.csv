@@ -1,5 +1,0 @@
-id,name,model_id:id,group_id:id,perm_create,perm_read,perm_write,perm_unlink
-access_amnus_tag_user,amnus.tag.user,model_amnus_tag,group_amnus_user,1,1,1,0
-access_amnus_tag_manager,amnus.tag.manager,model_amnus_tag,group_amnus_manager,1,1,1,1
-access_amnus_audit_log_manager,amnus.audit.log.manager,model_amnus_audit_log,group_amnus_manager,0,1,0,0
-access_amnus_audit_log_admin,amnus.audit.log.admin,model_amnus_audit_log,group_amnus_admin,0,1,0,0

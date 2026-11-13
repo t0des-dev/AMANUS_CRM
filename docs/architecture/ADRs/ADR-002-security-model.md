@@ -22,12 +22,20 @@ Three AMNUS security groups with an implication hierarchy:
 | amnus.tag | ✓ | ✓ | ✓ | yes | yes | yes | no |
 | amnus.audit.log | — | ✓ | ✓ | no | yes | no | no |
 
-## Audit log immutability
+## Audit log API (Sprint 01.1)
+- Renamed `log_event()` to `_log_event()` (underscore-prefixed, non-RPC-callable).
+- Identity (user_id, company_id) derived from `self.env.user` / `self.env.company`,
+  never from caller arguments (not forgeable).
 - `amnus.audit.log.write()` and `unlink()` always raise `AccessError`.
-- Creation goes through the internal API `log_event()`, which uses controlled
+- Creation goes through the internal API `_log_event()`, which uses controlled
   `sudo()` only inside the implementation so business users can generate audit
-  entries without direct write access to the model.
+  entries without direct write access to the log model.
 - No unrestricted public method allows forging arbitrary audit records.
+
+## Multi-company record rules (Sprint 01.1)
+- `amnus.tag`: visible where company is global (NULL) or in user's allowed companies.
+- `amnus.audit.log`: readable by managers/administrators, limited to global + their companies.
+- Domain: `['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]`.
 
 ## Multi-company
 `company_id` present on `amnus.tag` and `amnus.audit.log`; default is

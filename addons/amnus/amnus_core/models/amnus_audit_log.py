@@ -42,33 +42,42 @@ class AmnusAuditLog(models.Model):
     )
 
     @api.model
-    def log_event(
+    def _log_event(
         self,
         name,
         action,
         description="",
         model_name=None,
         record_id=None,
-        user_id=None,
-        company_id=None,
     ):
         """Internal API to record an audit event.
 
-        Intended to be called by future AMNUS business addons for explicitly defined
-        business events (create, update, delete, state change, login, export, other).
+        Intended to be called by AMNUS business addons for explicitly defined
+        business events (create, update, delete, state change, login, export,
+        other).
 
-        The record is created with ``sudo()`` so that a business user triggering an
-        auditable event can generate an audit trail entry without needing write access
-        to the audit log model itself. The record is then immutable: ordinary users,
-        managers and administrators cannot modify or delete audit records.
+        The leading underscore makes this method non-callable through Odoo's
+        XML-RPC / JSON-RPC interface (``execute_kw`` rejects underscore-prefixed
+        methods), so ordinary users cannot trigger arbitrary audit records
+        remotely.
+
+        The audit record is created with ``sudo()`` because the ACL on
+        ``amnus.audit.log`` denies create/write/unlink to every AMNUS group:
+        business code triggering an auditable event must be able to write the
+        trail entry without granting users direct write access to the log. This
+        ``sudo()`` is scoped to this single, controlled create call and the
+        sensitive fields (user, company, date) are derived from the
+        authenticated environment, never from caller arguments.
+
+        Caller-supplied ``user_id`` / ``company_id`` are intentionally NOT
+        accepted: identity is always derived from ``self.env.user`` and
+        ``self.env.company`` so it cannot be forged.
 
         :param name: Short event name/label.
         :param action: One of the selection values on ``action``.
         :param description: Optional free-text description.
         :param model_name: Technical name of the related model (if any).
         :param record_id: Database id of the related record (if any).
-        :param user_id: User responsible for the event (defaults to current user).
-        :param company_id: Company context (defaults to current company).
         :return: The created ``amnus.audit.log`` record.
         """
         vals = {
@@ -77,11 +86,10 @@ class AmnusAuditLog(models.Model):
             "description": description or "",
             "model_name": model_name or "",
             "record_id": record_id or 0,
+            # Identity derived from the authenticated environment (never forged).
+            "user_id": self.env.user.id,
+            "company_id": self.env.company.id,
         }
-        if user_id:
-            vals["user_id"] = user_id
-        if company_id:
-            vals["company_id"] = company_id
         return self.sudo().create(vals)
 
     def write(self, vals):
