@@ -45,7 +45,7 @@ amnus/
 | Addon | Status | Responsibility |
 |-------|--------|----------------|
 | amnus_core | **Implemented (Sprint 01)** | Core foundation, shared models, security base |
-| amnus_crm | Planned | Customer acquisition, leads, opportunities |
+| amnus_crm | **Implemented (Sprint 02)** | CRM & customer relationship management |
 | amnus_projects | Planned | Project lifecycle, phases, deliverables |
 | amnus_analysis | Planned | Requirements analysis, specs, functional analysis |
 | amnus_agile | Planned | Agile ceremonies, sprints, backlogs |

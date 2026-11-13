@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_create,perm_read,perm_write,perm_unlink
+access_amnus_crm_project_request_user,amnus.crm.project.request.user,model_amnus_crm_project_request,amnus_core.group_amnus_user,1,1,1,0
+access_amnus_crm_project_request_manager,amnus.crm.project.request.manager,model_amnus_crm_project_request,amnus_core.group_amnus_manager,1,1,1,1
+access_amnus_crm_project_request_admin,amnus.crm.project.request.admin,model_amnus_crm_project_request,amnus_core.group_amnus_admin,1,1,1,1

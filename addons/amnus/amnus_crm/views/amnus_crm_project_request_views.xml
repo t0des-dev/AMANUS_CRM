@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- List View -->
+        <record id="view_amnus_crm_project_request_list" model="ir.ui.view">
+            <field name="name">amnus.crm.project.request.list</field>
+            <field name="model">amnus.crm.project.request</field>
+            <field name="arch" type="xml">
+                <list string="Implementation Requests">
+                    <field name="name"/>
+                    <field name="lead_id"/>
+                    <field name="partner_id"/>
+                    <field name="request_type"/>
+                    <field name="expected_start_date"/>
+                    <field name="expected_go_live"/>
+                    <field name="estimated_users"/>
+                    <field name="state" widget="badge"/>
+                    <field name="user_id"/>
+                    <field name="company_id"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="view_amnus_crm_project_request_form" model="ir.ui.view">
+            <field name="name">amnus.crm.project.request.form</field>
+            <field name="model">amnus.crm.project.request</field>
+            <field name="arch" type="xml">
+                <form string="Implementation Request">
+                    <header>
+                        <button name="action_submit" type="object" string="Submit" class="btn-primary" invisible="state != 'draft'"/>
+                        <button name="action_review" type="object" string="Review" class="btn-primary" invisible="state != 'submitted'"/>
+                        <button name="action_approve" type="object" string="Approve" class="btn-primary" invisible="state not in ('submitted', 'reviewed')"/>
+                        <button name="action_reject" type="object" string="Reject" class="btn-secondary" invisible="state not in ('submitted', 'reviewed')"/>
+                        <button name="action_cancel" type="object" string="Cancel" class="btn-secondary" invisible="state in ('approved', 'rejected', 'cancelled')"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,submitted,reviewed,approved"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1><field name="name" readonly="1"/></h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="lead_id"/>
+                                <field name="partner_id" readonly="1"/>
+                                <field name="contact_id" readonly="1"/>
+                                <field name="request_type"/>
+                            </group>
+                            <group>
+                                <field name="expected_start_date"/>
+                                <field name="expected_go_live"/>
+                                <field name="estimated_users"/>
+                                <field name="user_id"/>
+                                <field name="company_id"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Description" name="description">
+                                <field name="description"/>
+                            </page>
+                            <page string="Scope" name="scope">
+                                <field name="scope_summary"/>
+                            </page>
+                            <page string="Notes" name="notes">
+                                <field name="notes"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+        <!-- Search View -->
+        <record id="view_amnus_crm_project_request_search" model="ir.ui.view">
+            <field name="name">amnus.crm.project.request.search</field>
+            <field name="model">amnus.crm.project.request</field>
+            <field name="arch" type="xml">
+                <search string="Search Implementation Requests">
+                    <field name="name"/>
+                    <field name="lead_id"/>
+                    <field name="partner_id"/>
+                    <field name="request_type"/>
+                    <field name="state"/>
+                    <field name="user_id"/>
+                    <field name="company_id"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_amnus_crm_project_request" model="ir.actions.act_window">
+            <field name="name">Implementation Requests</field>
+            <field name="res_model">amnus.crm.project.request</field>
+            <field name="view_mode">list,form</field>
+            <field name="target">current</field>
+            <field name="help" type="html">
+                <p class="o_view_nocenter_empty_smiley">
+                    Create implementation requests from CRM opportunities.
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,5 +1,39 @@
 # Changelog — AMNUS
 
+## Version 19.0.2.0.0 — Sprint 02 (CRM & Customer Relationship Management)
+
+### Added
+- `addons/amnus/amnus_crm` addon (implemented)
+  - Manifest: name "AMNUS CRM", version 19.0.1.0.0, depends `amnus_core`, `crm`, `contacts`, `mail`, LGPL-3
+  - `crm.lead` extension: AMNUS implementation flag, request type, project summary, current system, expected dates, estimated users, company size, technical notes, AMNUS tags
+  - Model `amnus.crm.project.request`: structured implementation request with controlled workflow
+  - Sequence: `AMNUS-CRM-YYYY-XXXX` for request references
+  - Security: ACLs (CSV) + company isolation record rules
+  - Views: CRM lead form/search inheritance, request list/form/search, AMNUS CRM menu
+  - Automated tests: 23 at_install tests (installation, lead fields, project requests, security)
+  - README, static description
+- Documentation: `docs/technical/amnus_crm.md`, `docs/sprints/SPRINT_02.md`
+
+### Changed
+- README.md: `amnus_crm` status updated to implemented
+- CHANGELOG.md: Sprint 02 entry added
+
+### Environment (unchanged, verified)
+- Odoo 19.0.0 Community at `C:\Program Files\AmanusERP\odoo\`
+- Python 3.12.10 (Odoo-bundled); system Python 3.14.4
+- PostgreSQL 16.14, service `AmanusERPPostgreSQL16` running
+- Test database: `amnus_test_19`
+
+### Runtime validation
+- `amnus_crm` installed on `amnus_test_19`: state = installed
+- Python compile: OK
+- XML validation: OK (all files well-formed)
+- Manifest validation: OK
+- Automated tests: 23 at_install tests, 0 failures, 0 errors
+- `amnus_core` regression: 34 at_install tests, 0 failures, 0 errors
+- No Enterprise dependencies
+- Existing `amanus_*` modules untouched
+
 ## Version 19.0.1.1.0 — Sprint 01.1 (Core Runtime Validation & Security Hardening)
 
 ### Changed

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- AMNUS CRM Root Menu (under AMNUS) -->
+        <menuitem id="menu_amnus_crm" name="CRM" parent="amnus_core.menu_amnus_root" sequence="15" groups="amnus_core.group_amnus_user"/>
+
+        <!-- Implementation Requests -->
+        <menuitem id="menu_amnus_crm_requests" name="Implementation Requests" parent="menu_amnus_crm" sequence="10" action="action_amnus_crm_project_request" groups="amnus_core.group_amnus_user"/>
+    </data>
+</odoo>

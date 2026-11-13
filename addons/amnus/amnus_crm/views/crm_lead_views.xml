@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit CRM Lead Form View -->
+        <record id="view_crm_lead_form_amnus" model="ir.ui.view">
+            <field name="name">crm.lead.form.amnus</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='tag_ids']" position="after">
+                    <field name="amnus_is_implementation" widget="boolean_toggle"/>
+                    <field name="amnus_request_type" invisible="not amnus_is_implementation"/>
+                </xpath>
+                <xpath expr="//notebook" position="inside">
+                    <page string="AMNUS Implementation" name="amnus_implementation" invisible="not amnus_is_implementation">
+                        <group>
+                            <group>
+                                <field name="amnus_project_summary"/>
+                                <field name="amnus_current_system"/>
+                                <field name="amnus_company_size"/>
+                            </group>
+                            <group>
+                                <field name="amnus_expected_start_date"/>
+                                <field name="amnus_expected_go_live"/>
+                                <field name="amnus_estimated_users"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="amnus_technical_notes"/>
+                        </group>
+                        <group>
+                            <field name="amnus_tag_ids" widget="many2many_tags"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Inherit CRM Lead Search View -->
+        <record id="view_crm_lead_search_amnus" model="ir.ui.view">
+            <field name="name">crm.lead.search.amnus</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.view_crm_case_opportunities_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='activities_upcoming_all']" position="before">
+                    <filter name="amnus_implementation" string="AMNUS Implementation" domain="[('amnus_is_implementation', '=', True)]"/>
+                </xpath>
+                <xpath expr="//group" position="inside">
+                    <filter name="group_amnus_request_type" string="Request Type" context="{'group_by': 'amnus_request_type'}"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
