@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_amnus_tag" model="ir.actions.act_window">
+            <field name="name">AMNUS Tags</field>
+            <field name="res_model">amnus.tag</field>
+            <field name="view_mode">list,form</field>
+            <field name="target">current</field>
+            <field name="help" type="html">
+                <p class="o_view_nocenter_empty_smiley">
+                    Create tags to classify AMNUS records across modules.
+                </p>
+            </field>
+        </record>
+
+        <record id="view_amnus_tag_tree" model="ir.ui.view">
+            <field name="name">amnus.tag.tree</field>
+            <field name="model">amnus.tag</field>
+            <field name="arch" type="xml">
+                <tree string="AMNUS Tags">
+                    <field name="name"/>
+                    <field name="category"/>
+                    <field name="color"/>
+                    <field name="active"/>
+                    <field name="company_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_amnus_tag_form" model="ir.ui.view">
+            <field name="name">amnus.tag.form</field>
+            <field name="model">amnus.tag</field>
+            <field name="arch" type="xml">
+                <form string="AMNUS Tag">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="category"/>
+                                <field name="color" widget="color"/>
+                                <field name="active"/>
+                                <field name="company_id"/>
+                            </group>
+                            <group>
+                                <field name="description"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_amnus_tag_search" model="ir.ui.view">
+            <field name="name">amnus.tag.search</field>
+            <field name="model">amnus.tag</field>
+            <field name="arch" type="xml">
+                <search string="Search Tags">
+                    <field name="name"/>
+                    <field name="category"/>
+                    <field name="active"/>
+                    <field name="company_id"/>
+                    <filter name="active" string="Active" domain="[('active','=',True)]"/>
+                    <filter name="inactive" string="Inactive" domain="[('active','=',False)]"/>
+                    <group expand="0" string="Group By">
+                        <field name="category"/>
+                        <field name="company_id"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>

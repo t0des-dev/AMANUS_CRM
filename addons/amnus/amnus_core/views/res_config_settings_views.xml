@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_amnus_res_config_settings" model="ir.ui.view">
+            <field name="name">amnus.res.config.settings.form.inherit</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='database_parameters']" position="after">
+                    <div class="settings" name="amnus_core_settings">
+                        <h2>AMNUS Core</h2>
+                        <div class="mt16 o_settings_container">
+                            <div class="o_setting_box">
+                                <div class="o_setting_name_label">
+                                    <field name="amnus_enabled"/>
+                                </div>
+                                <div class="o_setting_value">
+                                    <field name="amnus_enabled" widget="boolean_toggle"/>
+                                </div>
+                                <div class="o_setting_help">
+                                    Enable or disable the AMNUS platform globally.
+                                </div>
+                            </div>
+                            <div class="o_setting_box">
+                                <div class="o_setting_name_label">
+                                    <field name="amnus_audit_logging"/>
+                                </div>
+                                <div class="o_setting_value">
+                                    <field name="amnus_audit_logging" widget="boolean_toggle"/>
+                                </div>
+                                <div class="o_setting_help">
+                                    Enable or disable audit logging for AMNUS business operations.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

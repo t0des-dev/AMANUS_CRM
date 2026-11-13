@@ -1,0 +1,83 @@
+# AMNUS — Git ignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+parts/
+var/
+sdist/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
+.env/
+.venv/
+
+# Odoo
+filestore/
+*.log
+odoo.log
+server.log
+*.filestore
+.session
+
+# Database dumps
+*.dump
+*.sql
+*.backup
+*.db
+backups/
+dumps/
+
+# Local configuration containing secrets
+config/*.conf
+config/*.example.local
+!config/*.example
+*.cfg
+.env
+.env.local
+.env.*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Testing artifacts
+.pytest_cache/
+.tox/
+.coverage
+htmlcov/
+tests/**/__pycache__/
+
+# Temporary
+tmp/
+temp/
+*.tmp
+
+# Node / frontend
+node_modules/
+.npm/
+.yarn/
+
+# OS
+desktop.ini

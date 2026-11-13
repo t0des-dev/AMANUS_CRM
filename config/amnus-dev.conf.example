@@ -1,0 +1,27 @@
+# AMNUS Development Configuration (example)
+
+Copy this file to `config/amnus-dev.conf` (not committed) and adapt the paths
+and credentials for your local environment. Never commit real passwords.
+
+[options]
+# AMNUS addons path — point at the AMNUS repository addons root
+addons_path = C:/Program Files/AmanusERP/odoo/addons,C:/Program Files/AmanusERP/custom_addons,C:/Users/PC/Desktop/workflow/ModuleOdoo19/amnus/addons/amnus
+
+# Odoo installation python interpreter
+# python = C:/Program Files/AmanusERP/python/python.exe
+
+db_host = localhost
+db_port = 5432
+db_user = amanus
+db_name = amanus_dev
+http_port = 8079
+dev_mode = reload
+workers = 0
+max_cron_threads = 1
+logfile = logs/odoo_amnus_dev.log
+log_level = warn
+admin_passwd = CHANGE_ME_DEV_MASTER_PASSWORD
+db_filter = amanus_dev
+
+# Activate with:
+# C:/Program Files/AmanusERP/python/python.exe C:/Program Files/AmanusERP/odoo/odoo-bin -c config/amnus-dev.conf
