@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_create,perm_read,perm_write,perm_unlink
+access_amnus_project_deliverable_user,amnus.project.deliverable.user,model_amnus_project_deliverable,amnus_projects.group_amnus_project_user,1,1,1,0
+access_amnus_project_deliverable_manager,amnus.project.deliverable.manager,model_amnus_project_deliverable,amnus_projects.group_amnus_project_manager,1,1,1,1
+access_amnus_project_deliverable_admin,amnus.project.deliverable.admin,model_amnus_project_deliverable,amnus_projects.group_amnus_project_admin,1,1,1,1

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- ==================== AMNUS PROJECT SECURITY GROUPS ====================
+             These groups are intentionally NOT assigned to any existing user.
+             Assignment is an explicit administrative decision (Users form or
+             an onboarding script), so installing this addon never widens the
+             access of the existing user base.
+
+             Implied groups reuse the standard Odoo Project groups instead of
+             duplicating project security:
+               * Project User    -> standard project user + stages
+               * Project Manager -> standard project manager (CRUD on projects)
+               * Project Admin   -> AMNUS Project Manager
+
+             ``amnus_core`` groups are implied so AMNUS tags and audit logs are
+             usable by the project roles. The core groups are noupdate="1" and
+             are only referenced here, never modified.
+        -->
+        <record id="group_amnus_project_user" model="res.groups">
+            <field name="name">AMNUS Project User</field>
+            <field name="comment">Use AMNUS projects, deliverables and linked tasks.</field>
+            <field name="implied_ids" eval="[
+                (4, ref('amnus_core.group_amnus_user')),
+                (4, ref('project.group_project_user')),
+                (4, ref('project.group_project_stages')),
+            ]"/>
+        </record>
+
+        <record id="group_amnus_project_manager" model="res.groups">
+            <field name="name">AMNUS Project Manager</field>
+            <field name="comment">Manage AMNUS projects, handover requests and deliverable sign-off.</field>
+            <field name="implied_ids" eval="[
+                (4, ref('amnus_projects.group_amnus_project_user')),
+                (4, ref('project.group_project_manager')),
+            ]"/>
+        </record>
+
+        <record id="group_amnus_project_admin" model="res.groups">
+            <field name="name">AMNUS Project Administrator</field>
+            <field name="comment">Full AMNUS project administration.</field>
+            <field name="implied_ids" eval="[
+                (4, ref('amnus_projects.group_amnus_project_manager')),
+            ]"/>
+        </record>
+    </data>
+</odoo>

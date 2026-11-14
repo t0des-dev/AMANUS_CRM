@@ -1,0 +1,725 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * amnus_projects
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-14 10:25+0000\n"
+"PO-Revision-Date: 2026-11-14 10:25+0000\n"
+"Last-Translator: \n"
+"Language: fr_FR\n"
+"Language-Team: French\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.10.3\n"
+
+#. module: amnus_projects
+msgid "<span class=\"o_stat_text\">Implementation Request</span>"
+msgstr "<span class=\"o_stat_text\">Demande de mise en œuvre</span>"
+
+#. module: amnus_projects
+msgid ""
+"A deliverable is submitted by its responsible, then accepted or rejected\n"
+"                    by an AMNUS Project Manager. Sign-off identity and dates are recorded\n"
+"                    server-side."
+msgstr ""
+"Un livrable est soumis par son responsable, puis accepté ou refusé\n"
+"                    par un Gestionnaire de projet AMNUS. L'identité et les dates de validation sont enregistrées\n"
+"                    côté serveur."
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+msgid "A deliverable must be created in Draft state."
+msgstr "Un livrable doit être créé à l'état Brouillon."
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/project_project.py
+msgid "A project can only be created from an approved implementation request."
+msgstr "Un projet ne peut être créé qu'à partir d'une demande de mise en œuvre approuvée."
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_crm_project_request.py
+msgid "A project can only be linked through the handover action."
+msgstr "Un projet ne peut être lié que via l'action de transfert."
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+msgid "A rejection reason is required to reject a deliverable."
+msgstr "Un motif de refus est requis pour refuser un livrable."
+
+#. module: amnus_projects
+msgid "AMNUS CRM Project Implementation Request"
+msgstr "Demande de mise en œuvre de projet CRM AMNUS"
+
+#. module: amnus_projects
+msgid "AMNUS Deliverable Tasks"
+msgstr "Tâches de livrable AMNUS"
+
+#. module: amnus_projects
+msgid "AMNUS Implementation"
+msgstr "Mise en œuvre AMNUS"
+
+#. module: amnus_projects
+msgid "AMNUS Project"
+msgstr "Projet AMNUS"
+
+#. module: amnus_projects
+msgid "AMNUS Project Administrator"
+msgstr "Administrateur de projet AMNUS"
+
+#. module: amnus_projects
+msgid "AMNUS Project Deliverable"
+msgstr "Livrable de projet AMNUS"
+
+#. module: amnus_projects
+msgid "AMNUS Project Manager"
+msgstr "Gestionnaire de projet AMNUS"
+
+#. module: amnus_projects
+msgid "AMNUS Project User"
+msgstr "Utilisateur de projet AMNUS"
+
+#. module: amnus_projects
+msgid "AMNUS Projects"
+msgstr "Projets AMNUS"
+
+#. module: amnus_projects
+msgid "AMNUS Request Type"
+msgstr "Type de demande AMNUS"
+
+#. module: amnus_projects
+msgid "AMNUS Tags"
+msgstr "Étiquettes AMNUS"
+
+#. module: amnus_projects
+msgid "Accept"
+msgstr "Accepter"
+
+#. module: amnus_projects
+msgid "Accepted"
+msgstr "Accepté"
+
+#. module: amnus_projects
+msgid "Accepted By"
+msgstr "Accepté par"
+
+#. module: amnus_projects
+msgid "Accepted On"
+msgstr "Accepté le"
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+msgid "Accepted deliverables cannot be deleted. Archive them instead."
+msgstr "Les livrables acceptés ne peuvent pas être supprimés. Archivez-les à la place."
+
+#. module: amnus_projects
+msgid "Action Needed"
+msgstr "Action requise"
+
+#. module: amnus_projects
+msgid "Active"
+msgstr "Actif"
+
+#. module: amnus_projects
+msgid "Actual Go-Live"
+msgstr "Mise en production réelle"
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+msgid "An accepted deliverable can only be modified by an AMNUS Project Manager."
+msgstr "Un livrable accepté ne peut être modifié que par un Gestionnaire de projet AMNUS."
+
+#. module: amnus_projects
+msgid "Approved CRM implementation request this project originates from."
+msgstr "Demande de mise en œuvre CRM approuvée à l'origine de ce projet."
+
+#. module: amnus_projects
+msgid "Approved, Not Handed Over"
+msgstr "Approuvée, non transférée"
+
+#. module: amnus_projects
+msgid "Archived"
+msgstr "Archivé"
+
+#. module: amnus_projects
+msgid "Attachment Count"
+msgstr "Nombre de pièces jointes"
+
+#. module: amnus_projects
+msgid "Company"
+msgstr "Société"
+
+#. module: amnus_projects
+msgid "Configuration"
+msgstr "Configuration"
+
+#. module: amnus_projects
+msgid "Create Project"
+msgstr "Créer un projet"
+
+#. module: amnus_projects
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_crm_project_request.py
+#, python-format
+msgid "Created from implementation request %(request)s for customer %(customer)s."
+msgstr "Créé à partir de la demande de mise en œuvre %(request)s pour le client %(customer)s."
+
+#. module: amnus_projects
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: amnus_projects
+msgid "Data Migration"
+msgstr "Migration de données"
+
+#. module: amnus_projects
+msgid "Date on which the delivered solution actually went live."
+msgstr "Date à laquelle la solution livrée est réellement entrée en production."
+
+#. module: amnus_projects
+msgid "Decision"
+msgstr "Décision"
+
+#. module: amnus_projects
+msgid "Deliverable"
+msgstr "Livrable"
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+#, python-format
+msgid "Deliverable %(name)s accepted."
+msgstr "Livrable %(name)s accepté."
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+#, python-format
+msgid "Deliverable %(name)s rejected."
+msgstr "Livrable %(name)s refusé."
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+#, python-format
+msgid "Deliverable %(name)s reset to draft."
+msgstr "Livrable %(name)s remis en brouillon."
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+#, python-format
+msgid "Deliverable %(name)s submitted."
+msgstr "Livrable %(name)s soumis."
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+msgid "Deliverable Accepted"
+msgstr "Livrable accepté"
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+msgid "Deliverable Rejected"
+msgstr "Livrable refusé"
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+msgid "Deliverable Reset to Draft"
+msgstr "Livrable remis en brouillon"
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+msgid "Deliverable Submitted"
+msgstr "Livrable soumis"
+
+#. module: amnus_projects
+msgid "Deliverable this task contributes to (optional)."
+msgstr "Livrable auquel cette tâche contribue (facultatif)."
+
+#. module: amnus_projects
+msgid "Deliverables"
+msgstr "Livrables"
+
+#. module: amnus_projects
+msgid "Describe the expected output and acceptance criteria..."
+msgstr "Décrivez le résultat attendu et les critères d'acceptation..."
+
+#. module: amnus_projects
+msgid "Description"
+msgstr "Description"
+
+#. module: amnus_projects
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: amnus_projects
+msgid "Document"
+msgstr "Document"
+
+#. module: amnus_projects
+msgid "Draft"
+msgstr "Brouillon"
+
+#. module: amnus_projects
+msgid "Due Date"
+msgstr "Date d'échéance"
+
+#. module: amnus_projects
+msgid "Followers"
+msgstr "Abonnés"
+
+#. module: amnus_projects
+msgid "Followers (Partners)"
+msgstr "Abonnés (partenaires)"
+
+#. module: amnus_projects
+msgid "Full AMNUS project administration."
+msgstr "Administration complète des projets AMNUS."
+
+#. module: amnus_projects
+msgid "Has Message"
+msgstr "A un message"
+
+#. module: amnus_projects
+msgid "ID"
+msgstr "ID"
+
+#. module: amnus_projects
+msgid "If checked, new messages require your attention."
+msgstr "Si coché, les nouveaux messages requièrent votre attention."
+
+#. module: amnus_projects
+msgid "If checked, some messages have a delivery error."
+msgstr "Si coché, certains messages ont une erreur de livraison."
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/project_project.py
+msgid "Implementation Request"
+msgstr "Demande de mise en œuvre"
+
+#. module: amnus_projects
+msgid "Integration"
+msgstr "Intégration"
+
+#. module: amnus_projects
+msgid "Is Follower"
+msgstr "Est abonné"
+
+#. module: amnus_projects
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: amnus_projects
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: amnus_projects
+msgid "Manage AMNUS projects, handover requests and deliverable sign-off."
+msgstr "Gérer les projets AMNUS, les demandes de transfert et la validation des livrables."
+
+#. module: amnus_projects
+msgid "Message Delivery error"
+msgstr "Erreur de livraison de message"
+
+#. module: amnus_projects
+msgid "Messages"
+msgstr "Messages"
+
+#. module: amnus_projects
+msgid "My Deliverables"
+msgstr "Mes livrables"
+
+#. module: amnus_projects
+msgid "Name"
+msgstr "Nom"
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_crm_project_request.py
+msgid "No project is linked to this implementation request."
+msgstr "Aucun projet n'est lié à cette demande de mise en œuvre."
+
+#. module: amnus_projects
+msgid "Number of Actions"
+msgstr "Nombre d'actions"
+
+#. module: amnus_projects
+msgid "Number of errors"
+msgstr "Nombre d'erreurs"
+
+#. module: amnus_projects
+msgid "Number of messages requiring action"
+msgstr "Nombre de messages nécessitant une action"
+
+#. module: amnus_projects
+msgid "Number of messages with delivery error"
+msgstr "Nombre de messages avec erreur de livraison"
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_crm_project_request.py
+msgid "Only an AMNUS Project Manager can create a project from a request."
+msgstr "Seul un Gestionnaire de projet AMNUS peut créer un projet à partir d'une demande."
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+msgid "Only an AMNUS Project Manager can perform this action."
+msgstr "Seul un Gestionnaire de projet AMNUS peut effectuer cette action."
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_crm_project_request.py
+msgid "Only approved implementation requests can be converted into a project."
+msgstr "Seules les demandes de mise en œuvre approuvées peuvent être converties en projet."
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+msgid "Only draft or rejected deliverables can be submitted."
+msgstr "Seuls les livrables en brouillon ou refusés peuvent être soumis."
+
+#. module: amnus_projects
+msgid "Only one project can be linked to an implementation request."
+msgstr "Un seul projet peut être lié à une demande de mise en œuvre."
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+msgid "Only submitted deliverables can be accepted."
+msgstr "Seuls les livrables soumis peuvent être acceptés."
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+msgid "Only submitted deliverables can be rejected."
+msgstr "Seuls les livrables soumis peuvent être refusés."
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+msgid "Only submitted or rejected deliverables can be reset to draft."
+msgstr "Seuls les livrables soumis ou refusés peuvent être remis en brouillon."
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+msgid "Only the responsible user or an AMNUS Project Manager can submit this deliverable."
+msgstr "Seul l'utilisateur responsable ou un Gestionnaire de projet AMNUS peut soumettre ce livrable."
+
+#. module: amnus_projects
+msgid "Other"
+msgstr "Autre"
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_crm_project_request.py
+msgid "Project"
+msgstr "Projet"
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_crm_project_request.py
+#, python-format
+msgid "Project %(project)s created from implementation request %(request)s."
+msgstr "Projet %(project)s créé à partir de la demande de mise en œuvre %(request)s."
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_crm_project_request.py
+msgid "Project Created from Implementation Request"
+msgstr "Projet créé à partir d'une demande de mise en œuvre"
+
+#. module: amnus_projects
+msgid "Project Stages"
+msgstr "Étapes de projet"
+
+#. module: amnus_projects
+msgid "Project created from this implementation request."
+msgstr "Projet créé à partir de cette demande de mise en œuvre."
+
+#. module: amnus_projects
+msgid "Projects"
+msgstr "Projets"
+
+#. module: amnus_projects
+msgid "Ratings"
+msgstr "Évaluations"
+
+#. module: amnus_projects
+msgid "Reject"
+msgstr "Refuser"
+
+#. module: amnus_projects
+msgid "Rejected"
+msgstr "Refusé"
+
+#. module: amnus_projects
+msgid "Rejected By"
+msgstr "Refusé par"
+
+#. module: amnus_projects
+msgid "Rejected On"
+msgstr "Refusé le"
+
+#. module: amnus_projects
+msgid "Rejection Reason"
+msgstr "Motif du refus"
+
+#. module: amnus_projects
+msgid "Request Type"
+msgstr "Type de demande"
+
+#. module: amnus_projects
+msgid "Required when rejecting a deliverable"
+msgstr "Requis lors du refus d'un livrable"
+
+#. module: amnus_projects
+msgid "Reset to Draft"
+msgstr "Remettre en brouillon"
+
+#. module: amnus_projects
+msgid "Responsible"
+msgstr "Responsable"
+
+#. module: amnus_projects
+msgid "Search Deliverables"
+msgstr "Rechercher des livrables"
+
+#. module: amnus_projects
+msgid "Sequence"
+msgstr "Séquence"
+
+#. module: amnus_projects
+msgid "Sign-off"
+msgstr "Validation"
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+msgid "Sign-off information cannot be modified directly."
+msgstr "Les informations de validation ne peuvent pas être modifiées directement."
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+msgid "Sign-off information cannot be set when creating a deliverable."
+msgstr "Les informations de validation ne peuvent pas être définies lors de la création d'un livrable."
+
+#. module: amnus_projects
+msgid "Software"
+msgstr "Logiciel"
+
+#. module: amnus_projects
+msgid "Status"
+msgstr "Statut"
+
+#. module: amnus_projects
+msgid "Submission"
+msgstr "Soumission"
+
+#. module: amnus_projects
+msgid "Submit"
+msgstr "Soumettre"
+
+#. module: amnus_projects
+msgid "Submitted"
+msgstr "Soumis"
+
+#. module: amnus_projects
+msgid "Submitted By"
+msgstr "Soumis par"
+
+#. module: amnus_projects
+msgid "Submitted On"
+msgstr "Soumis le"
+
+#. module: amnus_projects
+msgid "Task"
+msgstr "Tâche"
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+msgid "Tasks"
+msgstr "Tâches"
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_crm_project_request.py
+msgid "The customer company does not match the request company."
+msgstr "La société du client ne correspond pas à la société de la demande."
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/project_task.py
+msgid "The deliverable must belong to the same project as the task."
+msgstr "Le livrable doit appartenir au même projet que la tâche."
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+msgid "The deliverable status can only be changed through the workflow buttons."
+msgstr "Le statut du livrable ne peut être modifié que via les boutons du workflow."
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_crm_project_request.py
+msgid "The implementation request has no company."
+msgstr "La demande de mise en œuvre n'a pas de société."
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/project_project.py
+msgid "The implementation request link cannot be modified directly."
+msgstr "Le lien vers la demande de mise en œuvre ne peut pas être modifié directement."
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_crm_project_request.py
+msgid "The implementation request no longer exists."
+msgstr "La demande de mise en œuvre n'existe plus."
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_crm_project_request.py
+msgid "The linked project is not attached to this implementation request."
+msgstr "Le projet lié n'est pas rattaché à cette demande de mise en œuvre."
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_crm_project_request.py
+msgid "The opportunity company does not match the request company."
+msgstr "La société de l'opportunité ne correspond pas à la société de la demande."
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+msgid "The project cannot be changed after the deliverable is submitted."
+msgstr "Le projet ne peut pas être modifié après la soumission du livrable."
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+msgid "The project cannot be changed while tasks are linked to the deliverable."
+msgstr "Le projet ne peut pas être modifié tant que des tâches sont liées au livrable."
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/project_project.py
+msgid "The project company must match the implementation request company."
+msgstr "La société du projet doit correspondre à la société de la demande de mise en œuvre."
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_crm_project_request.py
+msgid "The project link can only be set through the handover action."
+msgstr "Le lien vers le projet ne peut être défini que via l'action de transfert."
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_crm_project_request.py code:addons/amnus_projects/models/project_project.py
+msgid "This implementation request is already linked to a project."
+msgstr "Cette demande de mise en œuvre est déjà liée à un projet."
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/project_project.py
+msgid "This project contains accepted deliverables and cannot be deleted."
+msgstr "Ce projet contient des livrables acceptés et ne peut pas être supprimé."
+
+#. module: amnus_projects
+msgid "Track the contractual outputs of your implementation projects."
+msgstr "Suivez les livrables contractuels de vos projets de mise en œuvre."
+
+#. module: amnus_projects
+msgid "Training"
+msgstr "Formation"
+
+#. module: amnus_projects
+msgid "Type"
+msgstr "Type"
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_crm_project_request.py
+msgid "Unknown customer"
+msgstr "Client inconnu"
+
+#. module: amnus_projects
+msgid "Use AMNUS projects, deliverables and linked tasks."
+msgstr "Utiliser les projets AMNUS, les livrables et les tâches liées."
+
+#. module: amnus_projects
+msgid ""
+"Use these keywords in the title to set new tasks:\n"
+"\n"
+"            #tags Set tags on the task\n"
+"            @user Assign the task to a user\n"
+"            ! Set the task a medium priority\n"
+"            !! Set the task a high priority\n"
+"            !!! Set the task a urgent priority\n"
+"\n"
+"            Make sure to use the right format and order e.g. Improve the configuration screen #feature #v16 @Mitchell !"
+msgstr ""
+"Utilisez ces mots-clés dans le titre pour définir de nouvelles tâches :\n"
+"\n"
+"            #tags Définir des étiquettes sur la tâche\n"
+"            @user Affecter la tâche à un utilisateur\n"
+"            ! Définir une priorité moyenne\n"
+"            !! Définir une priorité élevée\n"
+"            !!! Définir une priorité urgente\n"
+"\n"
+"            Assurez-vous d'utiliser le bon format et le bon ordre, par ex. Améliorer l'écran de configuration #feature #v16 @Mitchell !"
+
+#. module: amnus_projects
+msgid "View Project"
+msgstr "Voir le projet"
+
+#. module: amnus_projects
+msgid "Website Messages"
+msgstr "Messages du site web"
+
+#. module: amnus_projects
+msgid "Website communication history"
+msgstr "Historique de communication du site web"
+
+#. module: amnus_projects
+msgid "Whether this project is managed through the AMNUS lifecycle."
+msgstr "Indique si ce projet est géré via le cycle de vie AMNUS."
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_crm_project_request.py
+msgid "You are not allowed to create a project for this company."
+msgstr "Vous n'êtes pas autorisé à créer un projet pour cette société."
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+msgid "amnus_deliverable_id"
+msgstr ""
+
+#. module: amnus_projects
+msgid "e.g. Signed functional specification"
+msgstr "ex. Spécification fonctionnelle signée"
+

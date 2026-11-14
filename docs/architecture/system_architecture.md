@@ -31,12 +31,12 @@ Odoo 19 requirements: Python 3.10–3.14, PostgreSQL ≥ 13. Environment is comp
 
 ### Layer 1 — Foundation (`amnus_core`)
 Shared models, security base, constants, helpers, and cross-cutting concerns. No dependency on
-other AMNUS addons. Depends only on Odoo Community modules (`base`, `mail`, `contacts`, etc.).
+other AMNUS addons. Depends only on Odoo Community modules (`base`, `base_setup`).
 
 ### Layer 2 — Domain Addons
 Each owns a bounded context of the project lifecycle:
 - `amnus_crm` — leads, opportunities, customer acquisition
-- `amnus_projects` — projects, phases, deliverables
+- `amnus_projects` — standard projects (extended), CRM handover, deliverables
 - `amnus_analysis` — requirements analysis, specifications
 - `amnus_agile` — sprints, backlogs, ceremonies
 - `amnus_development` — development tasks, version-control links

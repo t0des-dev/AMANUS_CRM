@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- ==================== DELIVERABLE RECORD RULES ====================
+             The company rule is global: it applies to every AMNUS group and to
+             internal users, mirroring the standard Odoo project company rule.
+             Deliverables without a company (only possible for a project without
+             a company) remain visible, as in standard project rules.
+        -->
+        <record id="rule_amnus_project_deliverable_company" model="ir.rule">
+            <field name="name">AMNUS Deliverable: multi-company</field>
+            <field name="model_id" ref="model_amnus_project_deliverable"/>
+            <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <!-- Visibility mirrors standard project/task visibility:
+             employees/portal visibility is public to internal users; a
+             follower-only project is visible to its followers, its project
+             manager and the deliverable responsible. -->
+        <record id="rule_amnus_project_deliverable_visibility" model="ir.rule">
+            <field name="name">AMNUS Deliverable: project visibility</field>
+            <field name="model_id" ref="model_amnus_project_deliverable"/>
+            <field name="domain_force">[
+                '|',
+                    ('project_id.privacy_visibility', 'in', ['employees', 'portal']),
+                    '|',
+                        ('project_id.message_partner_ids', 'in', [user.partner_id.id]),
+                        '|',
+                            ('project_id.user_id', '=', user.id),
+                            ('responsible_id', '=', user.id),
+            ]</field>
+            <field name="groups" eval="[(4, ref('amnus_projects.group_amnus_project_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <!-- Project managers can see and manage every deliverable in their
+             allowed companies. This does not broaden standard project access:
+             the rule only applies to the custom deliverable model. -->
+        <record id="rule_amnus_project_deliverable_manager" model="ir.rule">
+            <field name="name">AMNUS Deliverable: project manager sees all</field>
+            <field name="model_id" ref="model_amnus_project_deliverable"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('amnus_projects.group_amnus_project_manager'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+    </data>
+</odoo>

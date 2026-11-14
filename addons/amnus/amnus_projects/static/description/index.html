@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>AMNUS Projects — Module Description</title>
+</head>
+<body>
+    <h1>AMNUS Projects</h1>
+    <p>Project lifecycle extension for the AMNUS Odoo Project Lifecycle Management Platform.</p>
+    <h2>Features</h2>
+    <ul>
+        <li>Extends standard Odoo projects and tasks — no duplicate project, task, stage or state models.</li>
+        <li>Handover from an approved CRM implementation request to a real project.</li>
+        <li>AMNUS project metadata: request link, request type, actual go-live, AMNUS tags.</li>
+        <li>Contractual deliverables with a controlled submit / accept / reject / reset workflow.</li>
+        <li>Server-side sign-off identity and timestamps, mandatory rejection reason.</li>
+        <li>Accepted deliverables protected from modification and deletion.</li>
+        <li>Optional task-to-deliverable link with same-project validation.</li>
+        <li>AMNUS project security groups, company isolation and project visibility rules.</li>
+        <li>Audit events and chatter on handover and deliverable transitions.</li>
+    </ul>
+    <h2>Reused standard functionality</h2>
+    <ul>
+        <li>Project stages (<code>project.project.stage</code>) for the project lifecycle.</li>
+        <li>Task stages and task states.</li>
+        <li>Project health (<code>last_update_status</code>).</li>
+        <li>Planned start (<code>date_start</code>) and planned go-live (<code>date</code>).</li>
+    </ul>
+    <p>Odoo 19 Community Edition only. No Enterprise dependencies.</p>
+</body>
+</html>
