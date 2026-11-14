@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- ==================== AMNUS PROJECT MENUS ==================== -->
+        <menuitem id="menu_amnus_projects_root"
+                  name="Projects"
+                  parent="amnus_core.menu_amnus_root"
+                  sequence="20"
+                  groups="amnus_projects.group_amnus_project_user"/>
+
+        <menuitem id="menu_amnus_projects"
+                  name="Projects"
+                  parent="menu_amnus_projects_root"
+                  action="project.open_view_project_all"
+                  sequence="10"
+                  groups="amnus_projects.group_amnus_project_user"/>
+
+        <menuitem id="menu_amnus_deliverables"
+                  name="Deliverables"
+                  parent="menu_amnus_projects_root"
+                  action="action_amnus_project_deliverables"
+                  sequence="20"
+                  groups="amnus_projects.group_amnus_project_user"/>
+
+        <menuitem id="menu_amnus_projects_configuration"
+                  name="Configuration"
+                  parent="menu_amnus_projects_root"
+                  sequence="90"
+                  groups="amnus_projects.group_amnus_project_manager"/>
+
+        <menuitem id="menu_amnus_project_stages"
+                  name="Project Stages"
+                  parent="menu_amnus_projects_configuration"
+                  action="project.project_project_stage_configure"
+                  sequence="10"
+                  groups="amnus_projects.group_amnus_project_manager"/>
+    </data>
+</odoo>

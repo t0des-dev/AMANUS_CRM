@@ -1,5 +1,62 @@
 # Changelog — AMNUS
 
+## Version 19.0.3.0.0 — Sprint 03 (Projects & Project Lifecycle)
+
+### Added
+- `addons/amnus/amnus_projects` addon (implemented)
+  - Manifest: name "AMNUS Projects", version 19.0.1.0.0, depends `amnus_core`, `amnus_crm`, `project`, `mail`, LGPL-3
+  - `project.project` extension: AMNUS project flag, implementation request link, stored request type,
+    actual go-live, deliverables, deliverable count, AMNUS tags
+  - SQL constraint `UNIQUE (amnus_request_id)` — one project per implementation request
+  - `project.task` extension: optional deliverable link with same-project validation
+  - Model `amnus.project.deliverable`: contractual deliverable with a controlled
+    submit / accept / reject / reset-to-draft workflow
+  - `amnus.crm.project.request` extension: `project_id`, `project_count`,
+    `action_create_project()` (approved requests only, manager-only, company-consistent,
+    row-locked, duplicate-safe) and `action_view_project()`
+  - Security: `group_amnus_project_user`, `group_amnus_project_manager`,
+    `group_amnus_project_admin` (hierarchy, never auto-assigned), ACLs and record rules
+  - Views: project form/search, task form/search, deliverable list/form/search,
+    CRM request handover buttons/search, AMNUS Projects menus
+  - Audit events on every deliverable transition and on project handover
+  - Automated tests: 61 at_install tests (installation, project integration, CRM handover,
+    deliverables, task integration, security)
+  - README, static description, `fr_FR` and `ar_SA` translations
+- Documentation: `docs/technical/amnus_projects.md`, `docs/sprints/SPRINT_03.md`,
+  `docs/architecture/ADRs/ADR-003-project-lifecycle-and-deliverables.md`
+- Discovery record retained: `docs/sprints/SPRINT_03_DISCOVERY.md`
+
+### Changed
+- `README.md`: `amnus_projects` status updated to implemented
+- `docs/architecture/dependency_matrix.md`: `amnus_projects` status updated; `project`
+  dependency verified and installed in `amnus_test_19`
+- `docs/architecture/addons_architecture.md`: `amnus_projects` status and shared-model note updated
+
+### Runtime validation
+- `amnus_projects` installed on `amnus_test_19`: state = installed
+- Newly installed dependency modules: `project`, `project_todo`, `analytic`, `rating`, `uom`
+- `sale`, `account` and `hr_timesheet` remain uninstalled
+- Python compile: OK
+- XML validation: OK (all files well-formed)
+- Manifest validation: OK
+- Automated tests: 61 at_install tests, 0 failures, 0 errors
+- `amnus_core` regression: 34 at_install tests, 0 failures, 0 errors
+  (run in a fully loaded registry via `odoo.tests.shell.run_tests`)
+- `amnus_crm` regression: 23 at_install tests, 0 failures, 0 errors
+- No Enterprise dependencies
+- Existing `amanus_*` modules untouched; `amnus_core` manifest unchanged
+
+### Notes
+- Standard project/task/stage/state/health models are reused; no duplicate lifecycle models
+- `sale` is intentionally not a dependency
+- The addon ships no stage data (recommended stage mapping documented)
+- Test-runner caveat: `-u amnus_core --test-enable` builds an isolated registry without
+  `mail`/`calendar` while the database schema keeps their NOT NULL columns, so user creation
+  fails in that isolated run. This is a pre-existing harness limitation, not a
+  `amnus_projects` regression; the suite passes in a fully loaded registry.
+- Not merged to `main`; Sprint 04 intentionally not started
+
+
 ## Version 19.0.2.0.0 — Sprint 02 (CRM & Customer Relationship Management)
 
 ### Added

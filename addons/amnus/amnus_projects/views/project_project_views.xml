@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- ==================== PROJECT FORM ==================== -->
+        <record id="edit_project_amnus" model="ir.ui.view">
+            <field name="name">project.project.form.amnus</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button class="oe_stat_button" type="object"
+                            name="action_view_amnus_deliverables"
+                            icon="fa-list-alt"
+                            groups="amnus_projects.group_amnus_project_user"
+                            invisible="not amnus_is_amnus_project">
+                        <field name="amnus_deliverable_count" widget="statinfo" string="Deliverables"/>
+                    </button>
+                    <button class="oe_stat_button" type="object"
+                            name="action_view_amnus_request"
+                            icon="fa-handshake-o"
+                            groups="amnus_projects.group_amnus_project_user"
+                            invisible="not amnus_request_id">
+                        <div class="o_stat_info">
+                            <span class="o_stat_text">Implementation Request</span>
+                        </div>
+                    </button>
+                </xpath>
+
+                <xpath expr="//group/group/field[@name='partner_id']" position="after">
+                    <field name="amnus_is_amnus_project"
+                           groups="amnus_projects.group_amnus_project_user"/>
+                    <field name="amnus_tag_ids" widget="many2many_tags"
+                           options="{'color_field': 'color'}"
+                           groups="amnus_projects.group_amnus_project_user"/>
+                </xpath>
+
+                <xpath expr="//page[@name='settings']//group[@name='extra_settings']" position="inside">
+                    <group string="AMNUS Implementation"
+                           groups="amnus_projects.group_amnus_project_user">
+                        <field name="amnus_request_id" readonly="1"/>
+                        <field name="amnus_request_type" readonly="1"/>
+                        <field name="amnus_actual_go_live"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- ==================== PROJECT SEARCH ==================== -->
+        <record id="view_project_project_filter_amnus" model="ir.ui.view">
+            <field name="name">project.project.select.amnus</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.view_project_project_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='own_projects']" position="after">
+                    <filter string="AMNUS Projects" name="amnus_projects"
+                            domain="[('amnus_is_amnus_project', '=', True)]"
+                            groups="amnus_projects.group_amnus_project_user"/>
+                </xpath>
+                <xpath expr="//filter[@name='tags']" position="after">
+                    <filter string="AMNUS Request Type" name="groupby_amnus_request_type"
+                            context="{'group_by': 'amnus_request_type'}"
+                            groups="amnus_projects.group_amnus_project_user"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

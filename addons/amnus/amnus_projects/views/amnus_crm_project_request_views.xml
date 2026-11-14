@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- ==================== CRM REQUEST FORM: HANDOVER ==================== -->
+        <record id="view_amnus_crm_project_request_form_amnus" model="ir.ui.view">
+            <field name="name">amnus.crm.project.request.form.amnus</field>
+            <field name="model">amnus.crm.project.request</field>
+            <field name="inherit_id" ref="amnus_crm.view_amnus_crm_project_request_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="inside">
+                    <button name="action_create_project" type="object"
+                            string="Create Project" class="btn-primary"
+                            groups="amnus_projects.group_amnus_project_manager"
+                            invisible="state != 'approved' or project_id"/>
+                    <button name="action_view_project" type="object"
+                            string="View Project" class="btn-secondary"
+                            groups="amnus_projects.group_amnus_project_user"
+                            invisible="not project_id"/>
+                </xpath>
+                <xpath expr="//field[@name='user_id']" position="after">
+                    <field name="project_id" readonly="1"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- ==================== CRM REQUEST SEARCH ==================== -->
+        <record id="view_amnus_crm_project_request_search_amnus" model="ir.ui.view">
+            <field name="name">amnus.crm.project.request.search.amnus</field>
+            <field name="model">amnus.crm.project.request</field>
+            <field name="inherit_id" ref="amnus_crm.view_amnus_crm_project_request_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="project_id"/>
+                </xpath>
+                <xpath expr="//field[@name='state']" position="after">
+                    <filter string="Approved, Not Handed Over" name="approved_not_handed_over"
+                            domain="[('state', '=', 'approved'), ('project_id', '=', False)]"
+                            groups="amnus_projects.group_amnus_project_manager"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

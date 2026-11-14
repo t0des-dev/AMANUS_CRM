@@ -9,8 +9,8 @@ Planned addons:
 | # | Addon | Bounded Context | Depends On | Status |
 |---|-------|-----------------|------------|--------|
 | 1 | amnus_core | Core foundation, shared models, security | Odoo Community (`base`) | Implemented (Sprint 01) |
-| 2 | amnus_crm | Customer acquisition, leads, opportunities | amnus_core, `crm`, `mail` |
-| 3 | amnus_projects | Project lifecycle, phases, deliverables | amnus_core, amnus_crm, `project`, `sale` |
+| 2 | amnus_crm | Customer acquisition, leads, opportunities | amnus_core, `crm`, `mail` | Implemented (Sprint 02) |
+| 3 | amnus_projects | Project lifecycle, deliverables, CRM handover | amnus_core, amnus_crm, `project`, `mail` (`sale` deferred) | Implemented (Sprint 03) |
 | 4 | amnus_analysis | Requirements analysis, specifications | amnus_core, amnus_projects |
 | 5 | amnus_agile | Sprints, backlogs, ceremonies | amnus_core, amnus_projects |
 | 6 | amnus_development | Development tasks, version-control links | amnus_core, amnus_projects, amnus_agile |
@@ -48,15 +48,17 @@ amnus_crm ---------------------
 
 ## 3. Shared Models (in `amnus_core`)
 
-To be defined in Sprint 01. Candidates:
-- `amnus.project` (base project, inherited/extended by `amnus_projects`)
-- `amnus.partner_role` (project roles)
-- `amnus.category` / `amnus.tag` (classification)
-- `amnus.metric` / `amnus.kpi` (dashboard metrics)
-- `amnus.attachment` wrapper (document handling)
-- `amnus.audit.log` (change tracking)
+Implemented in Sprint 01:
 
-Other addons inherit or reference these via `Many2one`/`Many2many` fields; they do not redefine them.
+- `amnus.tag` — reusable classification used by all AMNUS addons
+- `amnus.audit.log` — append-only audit trail of important business operations
+- `res.config.settings` — AMNUS platform/audit toggles
+- AMNUS root menu and the base security groups (User, Manager, Administrator)
+
+Project lifecycle is **not** a shared `amnus_core` model: `amnus_projects` extends
+standard Odoo Project (`project.project`, `project.task`, stages, states and health)
+and adds only `amnus.project.deliverable` (see ADR-003). Other addons reference the
+standard project models and the shared AMNUS tag/audit APIs; they do not redefine them.
 
 ## 4. Addon Skeleton (template, not yet created)
 
@@ -115,5 +117,11 @@ Odoo 19 pattern: `19.0.<major>.<minor>.<patch>`. Initial: `19.0.1.0.0`.
 
 ## 8. Decision Log
 
-No ADRs yet. First ADR expected in Sprint 01 (shared models in `amnus_core`, and whether
-`amnus_documents` builds on Odoo `documents` or a custom model).
+- ADR-001 — Core Module (`docs/architecture/ADRs/ADR-001-core-module.md`)
+- ADR-002 — AMNUS Security Model (`docs/architecture/ADRs/ADR-002-security-model.md`)
+- ADR-003 — Project Lifecycle Reuse and Deliverable Sign-off
+  (`docs/architecture/ADRs/ADR-003-project-lifecycle-and-deliverables.md`)
+
+Sprint 01 decisions: shared models live in `amnus_core`; naming, security and
+versioning follow AGENTS.md. Sprint 03 decision: reuse standard Odoo Project and
+keep only `amnus.project.deliverable` as a new business model.

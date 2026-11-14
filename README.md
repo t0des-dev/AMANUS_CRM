@@ -46,7 +46,7 @@ amnus/
 |-------|--------|----------------|
 | amnus_core | **Implemented (Sprint 01)** | Core foundation, shared models, security base |
 | amnus_crm | **Implemented (Sprint 02)** | CRM & customer relationship management |
-| amnus_projects | Planned | Project lifecycle, phases, deliverables |
+| amnus_projects | **Implemented (Sprint 03)** | Project lifecycle, CRM handover, deliverables |
 | amnus_analysis | Planned | Requirements analysis, specs, functional analysis |
 | amnus_agile | Planned | Agile ceremonies, sprints, backlogs |
 | amnus_development | Planned | Development tracking, tasks, version control links |
@@ -57,7 +57,7 @@ amnus/
 | amnus_support | Planned | Maintenance, support tickets, SLAs |
 | amnus_dashboard | Planned | Executive dashboards, KPIs, reporting |
 
-`amnus_core` is installed and functional. The remaining addons are planned for future sprints.
+`amnus_core`, `amnus_crm` and `amnus_projects` are installed and functional. The remaining addons are planned for future sprints.
 
 ## Environment (verified, Sprint 00)
 
@@ -73,7 +73,7 @@ See `docs/technical/environment_setup.md` and `docs/architecture/dependency_matr
 1. Read `AGENTS.md` — it contains the permanent rules.
 2. Read `docs/architecture/system_architecture.md`.
 3. Read `docs/technical/environment_setup.md`.
-4. No addons are implemented yet. Sprint 01 begins implementation of `amnus_core`.
+4. `amnus_core`, `amnus_crm` and `amnus_projects` are implemented; Sprint 04 begins the next domain addon.
 
 ## License
 
