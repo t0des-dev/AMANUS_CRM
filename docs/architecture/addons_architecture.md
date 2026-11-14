@@ -9,8 +9,8 @@ Planned addons:
 | # | Addon | Bounded Context | Depends On | Status |
 |---|-------|-----------------|------------|--------|
 | 1 | amnus_core | Core foundation, shared models, security | Odoo Community (`base`) | Implemented (Sprint 01) |
-| 2 | amnus_crm | Customer acquisition, leads, opportunities | amnus_core, `crm`, `mail` |
-| 3 | amnus_projects | Project lifecycle, phases, deliverables | amnus_core, amnus_crm, `project`, `sale` |
+| 2 | amnus_crm | Customer acquisition, leads, opportunities | amnus_core, `crm`, `mail` | Implemented (Sprint 02) |
+| 3 | amnus_projects | Project lifecycle, phases, deliverables | amnus_core, amnus_crm, `project` (`sale` deferred) | Discovery (Sprint 03) |
 | 4 | amnus_analysis | Requirements analysis, specifications | amnus_core, amnus_projects |
 | 5 | amnus_agile | Sprints, backlogs, ceremonies | amnus_core, amnus_projects |
 | 6 | amnus_development | Development tasks, version-control links | amnus_core, amnus_projects, amnus_agile |

@@ -1,5 +1,21 @@
 # Changelog — AMNUS
 
+## Unreleased — Sprint 03 (amnus_projects Discovery)
+
+### Added
+- `docs/sprints/SPRINT_03_DISCOVERY.md`: verified discovery record and architecture proposal for `amnus_projects`
+  - Odoo 19 `project` module audit (models, stages, task states, ACLs, record rules, view/menu anchors)
+  - Proposed `project.project` / `project.task` extensions, `amnus.project.deliverable`, CRM handover
+  - Security design (groups/privilege, ACLs, company rules), test plan, risks, open questions
+  - Recommendation: READY FOR IMPLEMENTATION (conditional on approval to install `project` in `amnus_test_19`)
+
+### Changed
+- `docs/architecture/dependency_matrix.md`: `amnus_projects` Odoo dependency corrected to `project` (`sale` deferred); removed duplicate `amnus_crm` row
+- `docs/architecture/addons_architecture.md`: `amnus_projects` dependencies/status updated; `amnus_crm` status recorded
+
+### Notes
+- Discovery only: no addon code, no module install/upgrade, no database changes, no merge to `main`
+
 ## Version 19.0.2.0.0 — Sprint 02 (CRM & Customer Relationship Management)
 
 ### Added
