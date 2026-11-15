@@ -1,0 +1,966 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * amnus_agile
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 20:18+0000\n"
+"PO-Revision-Date: 2026-11-15 20:18+0000\n"
+"Last-Translator: \n"
+"Language: fr_FR\n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.10.3\n"
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py
+msgid "A project task can only be linked to one user story."
+msgstr "Une tâche de projet ne peut être liée qu'à une seule histoire utilisateur."
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py
+msgid "A sprint cannot carry stories over to itself."
+msgstr "Un sprint ne peut pas reporter ses histoires sur lui-même."
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_membership.py
+msgid ""
+"A sprint membership must link a story and a sprint of the same project and "
+"company."
+msgstr ""
+"Une appartenance à un sprint doit relier une histoire et un sprint du même "
+"projet et de la même société."
+
+#. module: amnus_agile
+msgid "A user story can only have one membership record per sprint."
+msgstr ""
+"Une histoire utilisateur ne peut avoir qu'un seul enregistrement "
+"d'appartenance par sprint."
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py
+msgid "A user story cannot be completed before acceptance criteria are set."
+msgstr ""
+"Une histoire utilisateur ne peut être terminée avant que les critères "
+"d'acceptation ne soient définis."
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_membership.py
+msgid "A user story cannot belong to two sprints at the same time."
+msgstr "Une histoire utilisateur ne peut pas appartenir à deux sprints en même temps."
+
+#. module: amnus_agile
+msgid "AMNUS Agile Administrator"
+msgstr "Administrateur Agile AMNUS"
+
+#. module: amnus_agile
+msgid "AMNUS Agile Burndown"
+msgstr "Burndown Agile AMNUS"
+
+#. module: amnus_agile
+msgid "AMNUS Agile Epic"
+msgstr "Épopée Agile AMNUS"
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_epic.py
+msgid "AMNUS Agile Epic Completed"
+msgstr "Épopée Agile AMNUS terminée"
+
+#. module: amnus_agile
+msgid "AMNUS Agile Manager"
+msgstr "Gestionnaire Agile AMNUS"
+
+#. module: amnus_agile
+msgid "AMNUS Agile Sprint"
+msgstr "Sprint Agile AMNUS"
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py
+msgid "AMNUS Agile Sprint Backlog Updated"
+msgstr "Backlog du sprint Agile AMNUS mis à jour"
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py
+msgid "AMNUS Agile Sprint Cancelled"
+msgstr "Sprint Agile AMNUS annulé"
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py
+msgid "AMNUS Agile Sprint Carry Over"
+msgstr "Report du sprint Agile AMNUS"
+
+#. module: amnus_agile
+msgid "AMNUS Agile Sprint Carry-Over"
+msgstr "Report de sprint Agile AMNUS"
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py
+msgid "AMNUS Agile Sprint Closed"
+msgstr "Sprint Agile AMNUS clôturé"
+
+#. module: amnus_agile
+msgid "AMNUS Agile Sprint Membership"
+msgstr "Appartenance au sprint Agile AMNUS"
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py
+msgid "AMNUS Agile Sprint Planned"
+msgstr "Sprint Agile AMNUS planifié"
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py
+msgid "AMNUS Agile Sprint Started"
+msgstr "Sprint Agile AMNUS démarré"
+
+#. module: amnus_agile
+msgid "AMNUS Agile User"
+msgstr "Utilisateur Agile AMNUS"
+
+#. module: amnus_agile
+msgid "AMNUS Agile User Story"
+msgstr "Histoire utilisateur Agile AMNUS"
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py
+msgid "AMNUS Agile User Story Added to Sprint"
+msgstr "Histoire utilisateur Agile AMNUS ajoutée au sprint"
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py
+msgid "AMNUS Agile User Story State Change"
+msgstr "Changement d'état d'une histoire utilisateur Agile AMNUS"
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py
+msgid "AMNUS Agile User Story Task Linked"
+msgstr "Tâche liée à une histoire utilisateur Agile AMNUS"
+
+#. module: amnus_agile
+msgid "Acceptance"
+msgstr "Acceptation"
+
+#. module: amnus_agile
+msgid "Acceptance Criteria"
+msgstr "Critères d'acceptation"
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py
+msgid "Acceptance criteria are required to complete a user story."
+msgstr ""
+"Les critères d'acceptation sont requis pour terminer une histoire "
+"utilisateur."
+
+#. module: amnus_agile
+msgid "Accepted Outcomes"
+msgstr "Résultats acceptés"
+
+#. module: amnus_agile
+msgid "Active"
+msgstr "Actif"
+
+#. module: amnus_agile
+msgid "Added By"
+msgstr "Ajouté par"
+
+#. module: amnus_agile
+msgid "Added On"
+msgstr "Ajouté le"
+
+#. module: amnus_agile
+msgid "Agile"
+msgstr "Agile"
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py
+msgid "All stories added to a sprint must belong to its project and company."
+msgstr ""
+"Toutes les histoires ajoutées à un sprint doivent appartenir à son projet et"
+" à sa société."
+
+#. module: amnus_agile
+msgid "Backlog"
+msgstr "Backlog"
+
+#. module: amnus_agile
+msgid "Baseline Commitment (Story Points)"
+msgstr "Engagement initial (points d'histoire)"
+
+#. module: amnus_agile
+msgid "Burndown"
+msgstr "Burndown"
+
+#. module: amnus_agile
+msgid "Burndown Points"
+msgstr "Points de burndown"
+
+#. module: amnus_agile
+msgid "Burndown points are recorded from dated sprint events only."
+msgstr ""
+"Les points de burndown sont enregistrés uniquement à partir d'événements "
+"datés du sprint."
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_burndown.py
+msgid "Burndown points cannot be negative."
+msgstr "Les points de burndown ne peuvent pas être négatifs."
+
+#. module: amnus_agile
+msgid "Business Value"
+msgstr "Valeur métier"
+
+#. module: amnus_agile
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: amnus_agile
+msgid "Cancel Sprint"
+msgstr "Annuler le sprint"
+
+#. module: amnus_agile
+msgid "Cancelled"
+msgstr "Annulé"
+
+#. module: amnus_agile
+msgid "Capacity (Story Points)"
+msgstr "Capacité (points d'histoire)"
+
+#. module: amnus_agile
+msgid "Carried Over"
+msgstr "Reporté"
+
+#. module: amnus_agile
+msgid "Carried Over To"
+msgstr "Reporté vers"
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py
+msgid "Carried over to another sprint."
+msgstr "Reporté vers un autre sprint."
+
+#. module: amnus_agile
+msgid "Carry Over"
+msgstr "Reporter"
+
+#. module: amnus_agile
+msgid "Carry Over (Story Points)"
+msgstr "Report (points d'histoire)"
+
+#. module: amnus_agile
+msgid "Carry Over Unfinished Stories"
+msgstr "Reporter les histoires inachevées"
+
+#. module: amnus_agile
+msgid "Carry-Over Reason"
+msgstr "Motif du report"
+
+#. module: amnus_agile
+msgid "Close Sprint"
+msgstr "Clôturer le sprint"
+
+#. module: amnus_agile
+msgid "Closed"
+msgstr "Clôturé"
+
+#. module: amnus_agile
+msgid "Commitment and Completion"
+msgstr "Engagement et réalisation"
+
+#. module: amnus_agile
+msgid "Committed (Story Points)"
+msgstr "Engagé (points d'histoire)"
+
+#. module: amnus_agile
+msgid "Committed Story Points captured when the sprint was activated."
+msgstr "Points d'histoire engagés capturés lors de l'activation du sprint."
+
+#. module: amnus_agile
+msgid "Committed Story Points frozen when the sprint was closed or cancelled."
+msgstr ""
+"Points d'histoire engagés figés lors de la clôture ou de l'annulation du "
+"sprint."
+
+#. module: amnus_agile
+msgid "Company"
+msgstr "Société"
+
+#. module: amnus_agile
+msgid "Completed"
+msgstr "Terminé"
+
+#. module: amnus_agile
+msgid "Completed (Story Points)"
+msgstr "Terminé (points d'histoire)"
+
+#. module: amnus_agile
+msgid "Completed Stories"
+msgstr "Histoires terminées"
+
+#. module: amnus_agile
+msgid "Completed Story Points counted for velocity once the sprint is closed."
+msgstr ""
+"Points d'histoire terminés pris en compte pour la vélocité une fois le "
+"sprint clôturé."
+
+#. module: amnus_agile
+msgid "Completed Story Points frozen when the sprint was closed or cancelled."
+msgstr ""
+"Points d'histoire terminés figés lors de la clôture ou de l'annulation du "
+"sprint."
+
+#. module: amnus_agile
+msgid "Create Task"
+msgstr "Créer une tâche"
+
+#. module: amnus_agile
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: amnus_agile
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: amnus_agile
+msgid "Date"
+msgstr "Date"
+
+#. module: amnus_agile
+msgid "Description"
+msgstr "Description"
+
+#. module: amnus_agile
+msgid "Destination Sprint"
+msgstr "Sprint de destination"
+
+#. module: amnus_agile
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: amnus_agile
+msgid "Done"
+msgstr "Terminé"
+
+#. module: amnus_agile
+msgid "Draft"
+msgstr "Brouillon"
+
+#. module: amnus_agile
+msgid "End Date"
+msgstr "Date de fin"
+
+#. module: amnus_agile
+msgid "Epic"
+msgstr "Épopée"
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_epic.py
+#, python-format
+msgid "Epic '%(name)s' was marked done."
+msgstr "L'épopée « %(name)s » a été marquée comme terminée."
+
+#. module: amnus_agile
+msgid "Epic Name"
+msgstr "Nom de l'épopée"
+
+#. module: amnus_agile
+msgid "Epics"
+msgstr "Épopées"
+
+#. module: amnus_agile
+msgid "Execution status of the linked task. Never used to complete the story."
+msgstr "Statut d'exécution de la tâche liée. Jamais utilisé pour terminer l'histoire."
+
+#. module: amnus_agile
+msgid "Final Carry Over (Story Points)"
+msgstr "Report final (points d'histoire)"
+
+#. module: amnus_agile
+msgid "Final Committed (Story Points)"
+msgstr "Engagement final (points d'histoire)"
+
+#. module: amnus_agile
+msgid "Final Completed (Story Points)"
+msgstr "Réalisation finale (points d'histoire)"
+
+#. module: amnus_agile
+msgid "Final Story Points"
+msgstr "Points d'histoire finaux"
+
+#. module: amnus_agile
+msgid "Full AMNUS Agile administration."
+msgstr "Administration complète d'AMNUS Agile."
+
+#. module: amnus_agile
+msgid "High priority"
+msgstr "Priorité élevée"
+
+#. module: amnus_agile
+msgid "ID"
+msgstr "ID"
+
+#. module: amnus_agile
+msgid "Improvement Action Owner"
+msgstr "Responsable de l'action d'amélioration"
+
+#. module: amnus_agile
+msgid "Improvement Action Target Date"
+msgstr "Date cible de l'action d'amélioration"
+
+#. module: amnus_agile
+msgid "Improvement Actions"
+msgstr "Actions d'amélioration"
+
+#. module: amnus_agile
+msgid "In Progress"
+msgstr "En cours"
+
+#. module: amnus_agile
+msgid "Incomplete Work"
+msgstr "Travail inachevé"
+
+#. module: amnus_agile
+msgid "Incomplete at Closure"
+msgstr "Inachevé à la clôture"
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py
+#, python-format
+msgid "Invalid sprint state transition from '%s' to '%s'."
+msgstr "Transition d'état de sprint invalide de « %s » vers « %s »."
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py
+#, python-format
+msgid "Invalid user story state transition from '%s' to '%s'."
+msgstr "Transition d'état d'histoire utilisateur invalide de « %s » vers « %s »."
+
+#. module: amnus_agile
+msgid "Last Updated by"
+msgstr "Dernière modification par"
+
+#. module: amnus_agile
+msgid "Last Updated on"
+msgstr "Dernière modification le"
+
+#. module: amnus_agile
+msgid "Linked Task"
+msgstr "Tâche liée"
+
+#. module: amnus_agile
+msgid "Low priority"
+msgstr "Priorité basse"
+
+#. module: amnus_agile
+msgid "Manage AMNUS Agile backlogs, epics, sprints and metrics."
+msgstr "Gérer les backlogs, épopées, sprints et métriques d'AMNUS Agile."
+
+#. module: amnus_agile
+msgid "Mark Done"
+msgstr "Marquer terminé"
+
+#. module: amnus_agile
+msgid "Medium priority"
+msgstr "Priorité moyenne"
+
+#. module: amnus_agile
+msgid "Membership History"
+msgstr "Historique des appartenances"
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py
+msgid "Only active sprints can be closed."
+msgstr "Seuls les sprints actifs peuvent être clôturés."
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py
+msgid ""
+"Only an AMNUS Agile Manager can change story planning state or sprint "
+"membership."
+msgstr ""
+"Seul un gestionnaire Agile AMNUS peut modifier l'état de planification ou "
+"l'appartenance au sprint d'une histoire."
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py
+msgid "Only an AMNUS Agile Manager can estimate or re-estimate user stories."
+msgstr ""
+"Seul un gestionnaire Agile AMNUS peut estimer ou ré-estimer les histoires "
+"utilisateur."
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_epic.py
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py
+msgid "Only an AMNUS Agile Manager can perform this action."
+msgstr "Seul un gestionnaire Agile AMNUS peut effectuer cette action."
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py
+msgid "Only backlog user stories can be planned."
+msgstr "Seules les histoires utilisateur du backlog peuvent être planifiées."
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py
+msgid "Only backlog, planned or in-progress user stories can be cancelled."
+msgstr ""
+"Seules les histoires utilisateur du backlog, planifiées ou en cours peuvent "
+"être annulées."
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py
+msgid "Only draft sprints can be planned."
+msgstr "Seuls les sprints en brouillon peuvent être planifiés."
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py
+msgid "Only draft, planned or active sprints can be cancelled."
+msgstr "Seuls les sprints en brouillon, planifiés ou actifs peuvent être annulés."
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py
+msgid "Only in-progress user stories can be completed."
+msgstr "Seules les histoires utilisateur en cours peuvent être terminées."
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_epic.py
+msgid "Only open epics can be marked done."
+msgstr "Seules les épopées ouvertes peuvent être marquées comme terminées."
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py
+msgid "Only planned sprints can be started."
+msgstr "Seuls les sprints planifiés peuvent être démarrés."
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py
+msgid "Only planned user stories can be started."
+msgstr "Seules les histoires utilisateur planifiées peuvent être démarrées."
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py
+msgid "Only stories currently in this sprint can be carried over."
+msgstr "Seules les histoires actuellement dans ce sprint peuvent être reportées."
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py
+msgid "Only unfinished user stories can be carried over."
+msgstr "Seules les histoires utilisateur inachevées peuvent être reportées."
+
+#. module: amnus_agile
+msgid "Open"
+msgstr "Ouverte"
+
+#. module: amnus_agile
+msgid "Original Story Points"
+msgstr "Points d'histoire initiaux"
+
+#. module: amnus_agile
+msgid "Outcome"
+msgstr "Résultat"
+
+#. module: amnus_agile
+msgid "Plan"
+msgstr "Planifier"
+
+#. module: amnus_agile
+msgid "Planned"
+msgstr "Planifié"
+
+#. module: amnus_agile
+msgid "Priority"
+msgstr "Priorité"
+
+#. module: amnus_agile
+msgid "Product Backlog"
+msgstr "Backlog produit"
+
+#. module: amnus_agile
+msgid "Progress (%)"
+msgstr "Progression (%)"
+
+#. module: amnus_agile
+msgid "Project"
+msgstr "Projet"
+
+#. module: amnus_agile
+msgid "Reason"
+msgstr "Motif"
+
+#. module: amnus_agile
+msgid "Remaining (Story Points)"
+msgstr "Restant (points d'histoire)"
+
+#. module: amnus_agile
+msgid "Remove from Sprint"
+msgstr "Retirer du sprint"
+
+#. module: amnus_agile
+msgid "Removed By"
+msgstr "Retiré par"
+
+#. module: amnus_agile
+msgid "Removed On"
+msgstr "Retiré le"
+
+#. module: amnus_agile
+msgid "Removed from Sprint"
+msgstr "Retiré du sprint"
+
+#. module: amnus_agile
+msgid "Reporting"
+msgstr "Rapports"
+
+#. module: amnus_agile
+msgid "Retrospective"
+msgstr "Rétrospective"
+
+#. module: amnus_agile
+msgid "Retrospective Observations"
+msgstr "Observations de la rétrospective"
+
+#. module: amnus_agile
+msgid "Review"
+msgstr "Revue"
+
+#. module: amnus_agile
+msgid "Review Summary"
+msgstr "Résumé de la revue"
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/wizard/amnus_agile_carry_over_wizard.py
+msgid "Select at least one unfinished user story."
+msgstr "Sélectionnez au moins une histoire utilisateur inachevée."
+
+#. module: amnus_agile
+msgid "Sequence"
+msgstr "Séquence"
+
+#. module: amnus_agile
+msgid "Source Sprint"
+msgstr "Sprint source"
+
+#. module: amnus_agile
+msgid "Sprint"
+msgstr "Sprint"
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py
+#, python-format
+msgid "Sprint '%(name)s' closed."
+msgstr "Sprint « %(name)s » clôturé."
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py
+#, python-format
+msgid "Sprint '%(name)s' started."
+msgstr "Sprint « %(name)s » démarré."
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py
+#, python-format
+msgid "Sprint '%(name)s' was cancelled."
+msgstr "Sprint « %(name)s » annulé."
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py
+#, python-format
+msgid "Sprint '%(name)s' was planned."
+msgstr "Sprint « %(name)s » planifié."
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py
+#, python-format
+msgid "Sprint '%(sprint)s' backlog updated with %(count)d stories."
+msgstr "Backlog du sprint « %(sprint)s » mis à jour avec %(count)d histoires."
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py
+#, python-format
+msgid "Sprint '%(sprint)s' carry-over moved %(count)d stories."
+msgstr "Le report du sprint « %(sprint)s » a déplacé %(count)d histoires."
+
+#. module: amnus_agile
+msgid "Sprint Backlog"
+msgstr "Backlog du sprint"
+
+#. module: amnus_agile
+msgid "Sprint Goal"
+msgstr "Objectif du sprint"
+
+#. module: amnus_agile
+msgid "Sprint Name"
+msgstr "Nom du sprint"
+
+#. module: amnus_agile
+msgid "Sprint Velocity"
+msgstr "Vélocité des sprints"
+
+#. module: amnus_agile
+msgid "Sprints"
+msgstr "Sprints"
+
+#. module: amnus_agile
+msgid "Start"
+msgstr "Démarrer"
+
+#. module: amnus_agile
+msgid "Start Date"
+msgstr "Date de début"
+
+#. module: amnus_agile
+msgid "State"
+msgstr "État"
+
+#. module: amnus_agile
+msgid "Stories"
+msgstr "Histoires"
+
+#. module: amnus_agile
+msgid "Story Points"
+msgstr "Points d'histoire"
+
+#. module: amnus_agile
+msgid "Story Points captured when the membership ended."
+msgstr "Points d'histoire capturés à la fin de l'appartenance."
+
+#. module: amnus_agile
+msgid "Story Points captured when the story entered the sprint commitment."
+msgstr ""
+"Points d'histoire capturés lorsque l'histoire a rejoint l'engagement du "
+"sprint."
+
+#. module: amnus_agile
+msgid "Story Title"
+msgstr "Titre de l'histoire"
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py
+msgid "Story points must be one of 1, 2, 3, 5, 8, 13, 21."
+msgstr "Les points d'histoire doivent être 1, 2, 3, 5, 8, 13 ou 21."
+
+#. module: amnus_agile
+msgid "Tags"
+msgstr "Étiquettes"
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py
+#, python-format
+msgid "Task '%(task)s' created for user story '%(story)s'."
+msgstr "Tâche « %(task)s » créée pour l'histoire utilisateur « %(story)s »."
+
+#. module: amnus_agile
+msgid "Task Assignees"
+msgstr "Assignés à la tâche"
+
+#. module: amnus_agile
+msgid "Task Status"
+msgstr "Statut de la tâche"
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py
+msgid "The epic must belong to the same project as the user story."
+msgstr "L'épopée doit appartenir au même projet que l'histoire utilisateur."
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py
+msgid "The linked task must belong to the same project as the user story."
+msgstr "La tâche liée doit appartenir au même projet que l'histoire utilisateur."
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py
+msgid "The project of a sprint that contains stories cannot be changed."
+msgstr "Le projet d'un sprint contenant des histoires ne peut pas être modifié."
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py
+msgid ""
+"The project of a user story linked to a task, epic or sprint cannot be "
+"changed."
+msgstr ""
+"Le projet d'une histoire utilisateur liée à une tâche, une épopée ou un "
+"sprint ne peut pas être modifié."
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_epic.py
+msgid "The project of an epic that contains stories cannot be changed."
+msgstr "Le projet d'une épopée contenant des histoires ne peut pas être modifié."
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py
+msgid "The sprint end date cannot be before the start date."
+msgstr "La date de fin du sprint ne peut pas précéder la date de début."
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py
+msgid "The sprint must belong to the same project and company as the stories."
+msgstr ""
+"Le sprint doit appartenir au même projet et à la même société que les "
+"histoires."
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py
+msgid "The sprint must belong to the same project and company as the user story."
+msgstr ""
+"Le sprint doit appartenir au même projet et à la même société que l'histoire"
+" utilisateur."
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py
+msgid "The target sprint is not open for backlog addition."
+msgstr "Le sprint cible n'est pas ouvert à l'ajout au backlog."
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py
+msgid "The target sprint is not open for carry-over."
+msgstr "Le sprint cible n'est pas ouvert au report."
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py
+msgid ""
+"The target sprint must belong to the same project and company as the carried"
+" stories."
+msgstr ""
+"Le sprint cible doit appartenir au même projet et à la même société que les "
+"histoires reportées."
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py
+msgid "This user story already has a linked task."
+msgstr "Cette histoire utilisateur a déjà une tâche liée."
+
+#. module: amnus_agile
+msgid "Time-boxed Agile delivery."
+msgstr "Livraison Agile en temps limité."
+
+#. module: amnus_agile
+msgid "Track large bodies of Agile work."
+msgstr "Suivre de grands ensembles de travail Agile."
+
+#. module: amnus_agile
+msgid "Track planned and executed Agile user stories."
+msgstr "Suivre les histoires utilisateur Agile planifiées et exécutées."
+
+#. module: amnus_agile
+msgid "Unfinished Stories"
+msgstr "Histoires inachevées"
+
+#. module: amnus_agile
+msgid "Unfinished Story Points frozen when the sprint was closed or cancelled."
+msgstr ""
+"Points d'histoire inachevés figés lors de la clôture ou de l'annulation du "
+"sprint."
+
+#. module: amnus_agile
+msgid "Urgent"
+msgstr "Urgent"
+
+#. module: amnus_agile
+msgid "Use AMNUS Agile planning: backlogs, epics, sprints."
+msgstr "Utiliser la planification AMNUS Agile : backlogs, épopées, sprints."
+
+#. module: amnus_agile
+msgid "User Stories"
+msgstr "Histoires utilisateur"
+
+#. module: amnus_agile
+msgid "User Story"
+msgstr "Histoire utilisateur"
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py
+#, python-format
+msgid "User story '%(name)s' added to sprint '%(sprint)s'."
+msgstr "Histoire utilisateur « %(name)s » ajoutée au sprint « %(sprint)s »."
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py
+#, python-format
+msgid "User story '%(name)s' moved from '%(old)s' to '%(new)s'."
+msgstr "L'histoire utilisateur « %(name)s » est passée de « %(old)s » à « %(new)s »."
+
+#. module: amnus_agile
+msgid "Velocity"
+msgstr "Vélocité"
+
+#. module: amnus_agile
+msgid "Velocity (Story Points)"
+msgstr "Vélocité (points d'histoire)"
+
+#. module: amnus_agile
+msgid "Velocity uses the completed Story Points frozen at sprint closure."
+msgstr ""
+"La vélocité utilise les points d'histoire terminés figés à la clôture du "
+"sprint."
+
+#. module: amnus_agile
+msgid "What Did Not Go Well"
+msgstr "Ce qui n'a pas bien fonctionné"
+
+#. module: amnus_agile
+msgid "What Went Well"
+msgstr "Ce qui a bien fonctionné"
+

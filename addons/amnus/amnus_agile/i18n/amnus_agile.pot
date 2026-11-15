@@ -1,0 +1,1152 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* amnus_agile
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 20:18+0000\n"
+"PO-Revision-Date: 2026-11-15 20:18+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
+#: model:ir.model.constraint,message:amnus_agile.constraint_amnus_agile_user_story_task_id_unique
+msgid "A project task can only be linked to one user story."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+msgid "A sprint cannot carry stories over to itself."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_membership.py:0
+msgid ""
+"A sprint membership must link a story and a sprint of the same project and "
+"company."
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.constraint,message:amnus_agile.constraint_amnus_agile_sprint_membership_sprint_story_unique
+msgid "A user story can only have one membership record per sprint."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
+msgid "A user story cannot be completed before acceptance criteria are set."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_membership.py:0
+msgid "A user story cannot belong to two sprints at the same time."
+msgstr ""
+
+#. module: amnus_agile
+#: model:res.groups,name:amnus_agile.group_amnus_agile_admin
+msgid "AMNUS Agile Administrator"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model,name:amnus_agile.model_amnus_agile_burndown
+msgid "AMNUS Agile Burndown"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model,name:amnus_agile.model_amnus_agile_epic
+msgid "AMNUS Agile Epic"
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_epic.py:0
+msgid "AMNUS Agile Epic Completed"
+msgstr ""
+
+#. module: amnus_agile
+#: model:res.groups,name:amnus_agile.group_amnus_agile_manager
+msgid "AMNUS Agile Manager"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model,name:amnus_agile.model_amnus_agile_sprint
+msgid "AMNUS Agile Sprint"
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+msgid "AMNUS Agile Sprint Backlog Updated"
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+msgid "AMNUS Agile Sprint Cancelled"
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+msgid "AMNUS Agile Sprint Carry Over"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model,name:amnus_agile.model_amnus_agile_carry_over_wizard
+msgid "AMNUS Agile Sprint Carry-Over"
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+msgid "AMNUS Agile Sprint Closed"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model,name:amnus_agile.model_amnus_agile_sprint_membership
+msgid "AMNUS Agile Sprint Membership"
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+msgid "AMNUS Agile Sprint Planned"
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+msgid "AMNUS Agile Sprint Started"
+msgstr ""
+
+#. module: amnus_agile
+#: model:res.groups,name:amnus_agile.group_amnus_agile_user
+msgid "AMNUS Agile User"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model,name:amnus_agile.model_amnus_agile_user_story
+msgid "AMNUS Agile User Story"
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
+msgid "AMNUS Agile User Story Added to Sprint"
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
+msgid "AMNUS Agile User Story State Change"
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
+msgid "AMNUS Agile User Story Task Linked"
+msgstr ""
+
+#. module: amnus_agile
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_user_story_form
+msgid "Acceptance"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_user_story__acceptance_criteria
+msgid "Acceptance Criteria"
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
+msgid "Acceptance criteria are required to complete a user story."
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__review_accepted_outcomes
+msgid "Accepted Outcomes"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_epic__active
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__active
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_user_story__active
+#: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_sprint__state__active
+#: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_sprint_membership__outcome__active
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_sprint_search
+msgid "Active"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint_membership__added_by_id
+msgid "Added By"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint_membership__date_added
+msgid "Added On"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.ui.menu,name:amnus_agile.menu_amnus_agile_root
+msgid "Agile"
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+msgid "All stories added to a sprint must belong to its project and company."
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_user_story__state__backlog
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_sprint_form
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_user_story_search
+msgid "Backlog"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__baseline_points
+msgid "Baseline Commitment (Story Points)"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.actions.act_window,name:amnus_agile.action_amnus_agile_burndown
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__burndown_point_ids
+#: model:ir.ui.menu,name:amnus_agile.menu_amnus_agile_burndown
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_burndown_graph
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_sprint_form
+msgid "Burndown"
+msgstr ""
+
+#. module: amnus_agile
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_burndown_list
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_burndown_search
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_sprint_form
+msgid "Burndown Points"
+msgstr ""
+
+#. module: amnus_agile
+#: model_terms:ir.actions.act_window,help:amnus_agile.action_amnus_agile_burndown
+msgid "Burndown points are recorded from dated sprint events only."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_burndown.py:0
+msgid "Burndown points cannot be negative."
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_user_story__business_value
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_user_story_form
+msgid "Business Value"
+msgstr ""
+
+#. module: amnus_agile
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_carry_over_wizard_form
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_user_story_form
+msgid "Cancel"
+msgstr ""
+
+#. module: amnus_agile
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_sprint_form
+msgid "Cancel Sprint"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_sprint__state__cancelled
+#: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_sprint_membership__outcome__cancelled
+#: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_user_story__state__cancelled
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_sprint_search
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_user_story_search
+msgid "Cancelled"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__capacity_points
+msgid "Capacity (Story Points)"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_sprint_membership__outcome__carried_over
+msgid "Carried Over"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint_membership__carry_over_sprint_id
+msgid "Carried Over To"
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+msgid "Carried over to another sprint."
+msgstr ""
+
+#. module: amnus_agile
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_carry_over_wizard_form
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_sprint_form
+msgid "Carry Over"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__carry_over_points
+msgid "Carry Over (Story Points)"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.actions.act_window,name:amnus_agile.action_amnus_agile_carry_over_wizard
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_carry_over_wizard_form
+msgid "Carry Over Unfinished Stories"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_carry_over_wizard__reason
+msgid "Carry-Over Reason"
+msgstr ""
+
+#. module: amnus_agile
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_sprint_form
+msgid "Close Sprint"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_sprint__state__closed
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_sprint_search
+msgid "Closed"
+msgstr ""
+
+#. module: amnus_agile
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_sprint_form
+msgid "Commitment and Completion"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__committed_points
+msgid "Committed (Story Points)"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,help:amnus_agile.field_amnus_agile_sprint__baseline_points
+msgid "Committed Story Points captured when the sprint was activated."
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,help:amnus_agile.field_amnus_agile_sprint__final_committed_points
+msgid "Committed Story Points frozen when the sprint was closed or cancelled."
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_epic__company_id
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__company_id
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint_membership__company_id
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_user_story__company_id
+msgid "Company"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_sprint_membership__outcome__completed
+msgid "Completed"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_burndown__completed_points
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__completed_points
+msgid "Completed (Story Points)"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_epic__completed_story_count
+msgid "Completed Stories"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,help:amnus_agile.field_amnus_agile_sprint__velocity_points
+msgid "Completed Story Points counted for velocity once the sprint is closed."
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,help:amnus_agile.field_amnus_agile_sprint__final_completed_points
+msgid "Completed Story Points frozen when the sprint was closed or cancelled."
+msgstr ""
+
+#. module: amnus_agile
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_user_story_form
+msgid "Create Task"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_burndown__create_uid
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_carry_over_wizard__create_uid
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_epic__create_uid
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__create_uid
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint_membership__create_uid
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_user_story__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_burndown__create_date
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_carry_over_wizard__create_date
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_epic__create_date
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__create_date
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint_membership__create_date
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_user_story__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_burndown__date
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_burndown_search
+msgid "Date"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_epic__description
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_user_story__description
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_user_story_form
+msgid "Description"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_carry_over_wizard__target_sprint_id
+msgid "Destination Sprint"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_burndown__display_name
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_carry_over_wizard__display_name
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_epic__display_name
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__display_name
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint_membership__display_name
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_user_story__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_epic__state__done
+#: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_user_story__state__done
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_epic_search
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_user_story_form
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_user_story_search
+msgid "Done"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_sprint__state__draft
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_sprint_search
+msgid "Draft"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__date_end
+msgid "End Date"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_user_story__epic_id
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_user_story_search
+msgid "Epic"
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_epic.py:0
+msgid "Epic '%(name)s' was marked done."
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_epic__name
+msgid "Epic Name"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.actions.act_window,name:amnus_agile.action_amnus_agile_epic
+#: model:ir.ui.menu,name:amnus_agile.menu_amnus_agile_epics
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_epic_list
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_epic_search
+msgid "Epics"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,help:amnus_agile.field_amnus_agile_user_story__task_state
+msgid "Execution status of the linked task. Never used to complete the story."
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__final_carry_over_points
+msgid "Final Carry Over (Story Points)"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__final_committed_points
+msgid "Final Committed (Story Points)"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__final_completed_points
+msgid "Final Completed (Story Points)"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint_membership__final_points
+msgid "Final Story Points"
+msgstr ""
+
+#. module: amnus_agile
+#: model:res.groups,comment:amnus_agile.group_amnus_agile_admin
+msgid "Full AMNUS Agile administration."
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_user_story__priority__2
+msgid "High priority"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_burndown__id
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_carry_over_wizard__id
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_epic__id
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__id
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint_membership__id
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_user_story__id
+msgid "ID"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__action_owner_id
+msgid "Improvement Action Owner"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__action_target_date
+msgid "Improvement Action Target Date"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__improvement_actions
+msgid "Improvement Actions"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_user_story__state__in_progress
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_user_story_search
+msgid "In Progress"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__review_incomplete_work
+msgid "Incomplete Work"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_sprint_membership__outcome__incomplete
+msgid "Incomplete at Closure"
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+msgid "Invalid sprint state transition from '%s' to '%s'."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
+msgid "Invalid user story state transition from '%s' to '%s'."
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_burndown__write_uid
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_carry_over_wizard__write_uid
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_epic__write_uid
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__write_uid
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint_membership__write_uid
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_user_story__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_burndown__write_date
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_carry_over_wizard__write_date
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_epic__write_date
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__write_date
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint_membership__write_date
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_user_story__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_user_story__task_id
+msgid "Linked Task"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_user_story__priority__0
+msgid "Low priority"
+msgstr ""
+
+#. module: amnus_agile
+#: model:res.groups,comment:amnus_agile.group_amnus_agile_manager
+msgid "Manage AMNUS Agile backlogs, epics, sprints and metrics."
+msgstr ""
+
+#. module: amnus_agile
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_epic_form
+msgid "Mark Done"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_user_story__priority__1
+msgid "Medium priority"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__membership_ids
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_sprint_form
+msgid "Membership History"
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+msgid "Only active sprints can be closed."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
+msgid ""
+"Only an AMNUS Agile Manager can change story planning state or sprint "
+"membership."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
+msgid "Only an AMNUS Agile Manager can estimate or re-estimate user stories."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_epic.py:0
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
+msgid "Only an AMNUS Agile Manager can perform this action."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
+msgid "Only backlog user stories can be planned."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
+msgid "Only backlog, planned or in-progress user stories can be cancelled."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+msgid "Only draft sprints can be planned."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+msgid "Only draft, planned or active sprints can be cancelled."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
+msgid "Only in-progress user stories can be completed."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_epic.py:0
+msgid "Only open epics can be marked done."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+msgid "Only planned sprints can be started."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
+msgid "Only planned user stories can be started."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+msgid "Only stories currently in this sprint can be carried over."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+msgid "Only unfinished user stories can be carried over."
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_epic__state__open
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_epic_search
+msgid "Open"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint_membership__committed_points
+msgid "Original Story Points"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint_membership__outcome
+msgid "Outcome"
+msgstr ""
+
+#. module: amnus_agile
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_sprint_form
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_user_story_form
+msgid "Plan"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_sprint__state__planned
+#: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_user_story__state__planned
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_sprint_search
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_user_story_search
+msgid "Planned"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_user_story__priority
+msgid "Priority"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.ui.menu,name:amnus_agile.menu_amnus_agile_backlog
+msgid "Product Backlog"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_epic__progress
+msgid "Progress (%)"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_carry_over_wizard__project_id
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_epic__project_id
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__project_id
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint_membership__project_id
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_user_story__project_id
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_epic_search
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_sprint_search
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_user_story_search
+msgid "Project"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint_membership__reason
+msgid "Reason"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_burndown__remaining_points
+msgid "Remaining (Story Points)"
+msgstr ""
+
+#. module: amnus_agile
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_user_story_form
+msgid "Remove from Sprint"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint_membership__removed_by_id
+msgid "Removed By"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint_membership__date_removed
+msgid "Removed On"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_sprint_membership__outcome__removed
+msgid "Removed from Sprint"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.ui.menu,name:amnus_agile.menu_amnus_agile_reporting
+msgid "Reporting"
+msgstr ""
+
+#. module: amnus_agile
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_sprint_form
+msgid "Retrospective"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__retrospective_observations
+msgid "Retrospective Observations"
+msgstr ""
+
+#. module: amnus_agile
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_sprint_form
+msgid "Review"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__review_summary
+msgid "Review Summary"
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/wizard/amnus_agile_carry_over_wizard.py:0
+msgid "Select at least one unfinished user story."
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_epic__sequence
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_user_story__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_carry_over_wizard__sprint_id
+msgid "Source Sprint"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_burndown__sprint_id
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint_membership__sprint_id
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_user_story__sprint_id
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_burndown_search
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_user_story_search
+msgid "Sprint"
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+msgid "Sprint '%(name)s' closed."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+msgid "Sprint '%(name)s' started."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+msgid "Sprint '%(name)s' was cancelled."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+msgid "Sprint '%(name)s' was planned."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+msgid "Sprint '%(sprint)s' backlog updated with %(count)d stories."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+msgid "Sprint '%(sprint)s' carry-over moved %(count)d stories."
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__story_ids
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_sprint_form
+msgid "Sprint Backlog"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__goal
+msgid "Sprint Goal"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__name
+msgid "Sprint Name"
+msgstr ""
+
+#. module: amnus_agile
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_sprint_velocity_list
+msgid "Sprint Velocity"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.actions.act_window,name:amnus_agile.action_amnus_agile_sprint
+#: model:ir.ui.menu,name:amnus_agile.menu_amnus_agile_sprints
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_sprint_list
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_sprint_search
+msgid "Sprints"
+msgstr ""
+
+#. module: amnus_agile
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_sprint_form
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_user_story_form
+msgid "Start"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__date_start
+msgid "Start Date"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_epic__state
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__state
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_user_story__state
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_epic_search
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_sprint_search
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_user_story_search
+msgid "State"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_epic__story_count
+msgid "Stories"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_user_story__story_points
+msgid "Story Points"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,help:amnus_agile.field_amnus_agile_sprint_membership__final_points
+msgid "Story Points captured when the membership ended."
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,help:amnus_agile.field_amnus_agile_sprint_membership__committed_points
+msgid "Story Points captured when the story entered the sprint commitment."
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_user_story__name
+msgid "Story Title"
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
+msgid "Story points must be one of 1, 2, 3, 5, 8, 13, 21."
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_user_story__tag_ids
+msgid "Tags"
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
+msgid "Task '%(task)s' created for user story '%(story)s'."
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_user_story__task_user_ids
+msgid "Task Assignees"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_user_story__task_state
+msgid "Task Status"
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
+msgid "The epic must belong to the same project as the user story."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
+msgid "The linked task must belong to the same project as the user story."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+msgid "The project of a sprint that contains stories cannot be changed."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
+msgid ""
+"The project of a user story linked to a task, epic or sprint cannot be "
+"changed."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_epic.py:0
+msgid "The project of an epic that contains stories cannot be changed."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+msgid "The sprint end date cannot be before the start date."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+msgid "The sprint must belong to the same project and company as the stories."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
+msgid ""
+"The sprint must belong to the same project and company as the user story."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
+msgid "The target sprint is not open for backlog addition."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+msgid "The target sprint is not open for carry-over."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+msgid ""
+"The target sprint must belong to the same project and company as the carried"
+" stories."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
+msgid "This user story already has a linked task."
+msgstr ""
+
+#. module: amnus_agile
+#: model_terms:ir.actions.act_window,help:amnus_agile.action_amnus_agile_sprint
+msgid "Time-boxed Agile delivery."
+msgstr ""
+
+#. module: amnus_agile
+#: model_terms:ir.actions.act_window,help:amnus_agile.action_amnus_agile_epic
+msgid "Track large bodies of Agile work."
+msgstr ""
+
+#. module: amnus_agile
+#: model_terms:ir.actions.act_window,help:amnus_agile.action_amnus_agile_user_story
+msgid "Track planned and executed Agile user stories."
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_carry_over_wizard__story_ids
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_carry_over_wizard_form
+msgid "Unfinished Stories"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,help:amnus_agile.field_amnus_agile_sprint__final_carry_over_points
+msgid ""
+"Unfinished Story Points frozen when the sprint was closed or cancelled."
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_user_story__priority__3
+msgid "Urgent"
+msgstr ""
+
+#. module: amnus_agile
+#: model:res.groups,comment:amnus_agile.group_amnus_agile_user
+msgid "Use AMNUS Agile planning: backlogs, epics, sprints."
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.actions.act_window,name:amnus_agile.action_amnus_agile_user_story
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_epic__story_ids
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_user_story_list
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_user_story_search
+msgid "User Stories"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint_membership__story_id
+msgid "User Story"
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
+msgid "User story '%(name)s' added to sprint '%(sprint)s'."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
+msgid "User story '%(name)s' moved from '%(old)s' to '%(new)s'."
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.actions.act_window,name:amnus_agile.action_amnus_agile_sprint_velocity
+#: model:ir.ui.menu,name:amnus_agile.menu_amnus_agile_velocity
+#: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_sprint_velocity_graph
+msgid "Velocity"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__velocity_points
+msgid "Velocity (Story Points)"
+msgstr ""
+
+#. module: amnus_agile
+#: model_terms:ir.actions.act_window,help:amnus_agile.action_amnus_agile_sprint_velocity
+msgid "Velocity uses the completed Story Points frozen at sprint closure."
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__retro_did_not_go_well
+msgid "What Did Not Go Well"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__retro_went_well
+msgid "What Went Well"
+msgstr ""

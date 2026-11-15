@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- ==================== SPRINT LIST ==================== -->
+        <record id="view_amnus_agile_sprint_list" model="ir.ui.view">
+            <field name="name">amnus.agile.sprint.list</field>
+            <field name="model">amnus.agile.sprint</field>
+            <field name="arch" type="xml">
+                <list string="Sprints">
+                    <field name="name"/>
+                    <field name="project_id"/>
+                    <field name="state" widget="badge"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="capacity_points"/>
+                    <field name="committed_points"/>
+                    <field name="completed_points"/>
+                    <field name="carry_over_points"/>
+                    <field name="velocity_points"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- ==================== SPRINT KANBAN ==================== -->
+        <record id="view_amnus_agile_sprint_kanban" model="ir.ui.view">
+            <field name="name">amnus.agile.sprint.kanban</field>
+            <field name="model">amnus.agile.sprint</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="state">
+                    <field name="name"/>
+                    <field name="state"/>
+                    <field name="committed_points"/>
+                    <field name="completed_points"/>
+                    <field name="carry_over_points"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_card">
+                                <div class="oe_kanban_details">
+                                    <field name="name"/>
+                                    <field name="committed_points"/>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- ==================== SPRINT FORM ==================== -->
+        <record id="view_amnus_agile_sprint_form" model="ir.ui.view">
+            <field name="name">amnus.agile.sprint.form</field>
+            <field name="model">amnus.agile.sprint</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_plan" type="object" string="Plan"
+                                class="btn-primary" invisible="state != 'draft'"/>
+                        <button name="action_start" type="object" string="Start"
+                                class="btn-primary" invisible="state != 'planned'"/>
+                        <button name="action_close" type="object" string="Close Sprint"
+                                class="btn-success" invisible="state != 'active'"/>
+                        <button name="%(action_amnus_agile_carry_over_wizard)d"
+                                type="action" string="Carry Over"
+                                invisible="state in ('closed', 'cancelled')"/>
+                        <button name="action_cancel" type="object" string="Cancel Sprint"
+                                class="btn-danger" invisible="state in ('closed', 'cancelled')"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,planned,active,closed"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="project_id"/>
+                                <field name="goal"/>
+                            </group>
+                            <group>
+                                <field name="date_start"/>
+                                <field name="date_end"/>
+                                <field name="capacity_points"/>
+                            </group>
+                        </group>
+                        <group string="Commitment and Completion">
+                            <group>
+                                <field name="baseline_points"/>
+                                <field name="committed_points"/>
+                                <field name="completed_points"/>
+                                <field name="carry_over_points"/>
+                            </group>
+                            <group>
+                                <field name="final_committed_points"/>
+                                <field name="final_completed_points"/>
+                                <field name="final_carry_over_points"/>
+                                <field name="velocity_points"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Backlog">
+                                <field name="story_ids" readonly="state in ('closed', 'cancelled')">
+                                    <list string="Sprint Backlog">
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="name"/>
+                                        <field name="priority"/>
+                                        <field name="story_points"/>
+                                        <field name="state" widget="badge"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="Review">
+                                <group>
+                                    <field name="review_summary"/>
+                                    <field name="review_accepted_outcomes"/>
+                                    <field name="review_incomplete_work"/>
+                                </group>
+                            </page>
+                            <page string="Retrospective">
+                                <group>
+                                    <field name="retrospective_observations"/>
+                                    <field name="retro_went_well"/>
+                                    <field name="retro_did_not_go_well"/>
+                                    <field name="improvement_actions"/>
+                                    <field name="action_owner_id"/>
+                                    <field name="action_target_date"/>
+                                </group>
+                            </page>
+                            <page string="Burndown">
+                                <field name="burndown_point_ids" readonly="1">
+                                    <list string="Burndown Points">
+                                        <field name="date"/>
+                                        <field name="remaining_points"/>
+                                        <field name="completed_points"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="Membership History">
+                                <field name="membership_ids" readonly="1">
+                                    <list string="Membership History">
+                                        <field name="story_id"/>
+                                        <field name="date_added"/>
+                                        <field name="added_by_id"/>
+                                        <field name="committed_points"/>
+                                        <field name="outcome" widget="badge"/>
+                                        <field name="carry_over_sprint_id"/>
+                                        <field name="date_removed"/>
+                                        <field name="removed_by_id"/>
+                                        <field name="final_points"/>
+                                        <field name="reason"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- ==================== SPRINT SEARCH ==================== -->
+        <record id="view_amnus_agile_sprint_search" model="ir.ui.view">
+            <field name="name">amnus.agile.sprint.search</field>
+            <field name="model">amnus.agile.sprint</field>
+            <field name="arch" type="xml">
+                <search string="Sprints">
+                    <field name="name"/>
+                    <field name="project_id"/>
+                    <filter string="Draft" name="draft" domain="[('state', '=', 'draft')]"/>
+                    <filter string="Planned" name="planned" domain="[('state', '=', 'planned')]"/>
+                    <filter string="Active" name="active" domain="[('state', '=', 'active')]"/>
+                    <filter string="Closed" name="closed" domain="[('state', '=', 'closed')]"/>
+                    <filter string="Cancelled" name="cancelled" domain="[('state', '=', 'cancelled')]"/>
+                    <separator/>
+                    <filter string="Project" name="group_project" context="{'group_by': 'project_id'}"/>
+                    <filter string="State" name="group_state" context="{'group_by': 'state'}"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- ==================== SPRINT ACTION ==================== -->
+        <record id="action_amnus_agile_sprint" model="ir.actions.act_window">
+            <field name="name">Sprints</field>
+            <field name="res_model">amnus.agile.sprint</field>
+            <field name="view_mode">list,form,kanban,search</field>
+            <field name="target">current</field>
+            <field name="help" type="html">
+                <p class="o_view_nocenter_empty_smiley">Time-boxed Agile delivery.</p>
+            </field>
+        </record>
+    </data>
+</odoo>

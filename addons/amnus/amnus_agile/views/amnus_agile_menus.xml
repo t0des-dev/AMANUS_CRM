@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- ==================== AMNUS AGILE MENUS ==================== -->
+        <menuitem id="menu_amnus_agile_root"
+                  name="Agile"
+                  parent="amnus_core.menu_amnus_root"
+                  sequence="30"
+                  groups="amnus_agile.group_amnus_agile_user"/>
+
+        <menuitem id="menu_amnus_agile_backlog"
+                  name="Product Backlog"
+                  parent="menu_amnus_agile_root"
+                  action="action_amnus_agile_user_story"
+                  sequence="10"
+                  groups="amnus_agile.group_amnus_agile_user"/>
+
+        <menuitem id="menu_amnus_agile_epics"
+                  name="Epics"
+                  parent="menu_amnus_agile_root"
+                  action="action_amnus_agile_epic"
+                  sequence="20"
+                  groups="amnus_agile.group_amnus_agile_user"/>
+
+        <menuitem id="menu_amnus_agile_sprints"
+                  name="Sprints"
+                  parent="menu_amnus_agile_root"
+                  action="action_amnus_agile_sprint"
+                  sequence="30"
+                  groups="amnus_agile.group_amnus_agile_user"/>
+
+        <menuitem id="menu_amnus_agile_reporting"
+                  name="Reporting"
+                  parent="menu_amnus_agile_root"
+                  sequence="40"
+                  groups="amnus_agile.group_amnus_agile_user"/>
+
+        <menuitem id="menu_amnus_agile_burndown"
+                  name="Burndown"
+                  parent="menu_amnus_agile_reporting"
+                  action="action_amnus_agile_burndown"
+                  sequence="10"
+                  groups="amnus_agile.group_amnus_agile_user"/>
+
+        <menuitem id="menu_amnus_agile_velocity"
+                  name="Velocity"
+                  parent="menu_amnus_agile_reporting"
+                  action="action_amnus_agile_sprint_velocity"
+                  sequence="20"
+                  groups="amnus_agile.group_amnus_agile_user"/>
+    </data>
+</odoo>

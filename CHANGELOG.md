@@ -1,5 +1,80 @@
 # Changelog — AMNUS
 
+## Version 19.0.4.0.0 — Sprint 04 (Agile & Scrum Management)
+
+### Added
+- `addons/amnus/amnus_agile` addon (implemented)
+  - Manifest: name "AMNUS Agile", version 19.0.1.0.0, depends `amnus_core`, `amnus_projects`,
+    `project`, `mail`, LGPL-3
+  - Model `amnus.agile.user.story`: product backlog planning artifact (title, description,
+    business value, acceptance criteria, priority, sequence, Fibonacci Story Points, epic,
+    sprint, optional task link, AMNUS tags); read-only `task_state` / `task_user_ids`
+  - Model `amnus.agile.epic`: project-level story grouping with derived
+    `story_count`, `completed_story_count` and `progress`
+  - Model `amnus.agile.sprint`: lifecycle (`draft`, `planned`, `active`, `closed`,
+    `cancelled`), backlog, manual capacity, live metrics, frozen closure metrics,
+    structured review and retrospective, structured improvement actions
+  - Model `amnus.agile.sprint.membership`: append-only sprint membership history with
+    commitment snapshot, final points, outcome, carry-over destination and reason
+  - Model `amnus.agile.burndown`: dated burndown points recorded from sprint/story events
+  - Transient model `amnus.agile.carry.over.wizard` and explicit
+    `action_carry_over()` with project/company checks and audit logging
+  - Story workflow `action_plan` / `action_start` / `action_done` / `action_cancel`,
+    `action_add_to_sprint` / `action_remove_from_sprint`, `action_create_task`
+  - Sprint workflow `action_plan` / `action_start` / `action_close` / `action_cancel`,
+    baseline commitment, frozen `final_*` metrics, no reopening of closed sprints
+  - Velocity: per-sprint `velocity_points` from frozen completed points and
+    `_get_sprint_velocity()` mean over closed sprints
+  - Manager-only Story Point estimation and planning-state changes, enforced in `write()`
+  - Database uniqueness via Odoo 19 `models.Constraint`:
+    `unique (sprint_id, story_id)` on membership and `unique (task_id)` on stories
+  - Security: `group_amnus_agile_user`, `group_amnus_agile_manager`,
+    `group_amnus_agile_admin` (hierarchy, never auto-assigned), ACLs and record rules;
+    membership history and burndown are client read-only and written only by server workflows
+  - Views: product backlog list/kanban/form/search, epic list/kanban/form/search,
+    sprint list/kanban/form/search (Backlog, Review, Retrospective, Burndown and
+    Membership History tabs), carry-over wizard, burndown line graph/list and
+    closed-sprint velocity bar graph/list, AMNUS Agile menus and reporting menu
+  - Audit events on story state changes, sprint lifecycle, backlog updates, carry-over
+    and task link creation
+  - Automated tests: 60 at_install tests (installation, user story, epic, sprint,
+    burndown/velocity, security)
+  - README, static description, `fr_FR` and `ar_SA` translations (192 messages each)
+- Documentation: `docs/technical/amnus_agile.md`, `docs/sprints/SPRINT_04.md`,
+  `docs/architecture/ADRs/ADR-004-agile-planning-vs-execution.md`
+- Discovery record retained: `docs/sprints/SPRINT_04_DISCOVERY.md`
+
+### Changed
+- `README.md`: `amnus_agile` status updated to implemented
+- `docs/architecture/dependency_matrix.md`: `amnus_agile` status updated; `project`/`mail`
+  dependencies verified
+- `docs/architecture/addons_architecture.md`: `amnus_agile` status and Sprint 04 decision updated
+
+### Runtime validation
+- `amnus_agile` installed and upgraded on `amnus_test_19`
+- Python compile: OK
+- XML validation: OK (all files well-formed)
+- Manifest validation: OK
+- Automated tests: 60 at_install tests, 0 failures, 0 errors
+- `amnus_core` regression: 34 at_install tests, 0 failures, 0 errors
+- `amnus_crm` regression: 23 at_install tests, 0 failures, 0 errors
+- `amnus_projects` regression: 61 at_install tests, 0 failures, 0 errors
+- No Enterprise dependencies
+- Existing `amanus_*` modules and Odoo core untouched
+
+### Notes
+- `project.task` remains the single execution model; stories are planning artifacts
+  (see ADR-004)
+- Story completion requires `in_progress`, non-empty acceptance criteria and an Agile
+  Manager; task state never completes a story and deliverable acceptance is separate
+- Closed/cancelled sprint metrics are frozen and cannot be rewritten by later Story
+  Point edits; closed sprints cannot be reopened
+- Sprint capacity is manual; no team/availability model exists in this release
+- Burndown is event-based: days without a sprint/story event have no row
+- Arabic translations reviewed for meaning; visual RTL review not performed
+- Not merged to `main`; branch `feature/sprint-04-amnus-agile` retained
+
+
 ## Version 19.0.3.0.0 — Sprint 03 (Projects & Project Lifecycle)
 
 ### Added

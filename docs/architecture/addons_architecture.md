@@ -12,7 +12,7 @@ Planned addons:
 | 2 | amnus_crm | Customer acquisition, leads, opportunities | amnus_core, `crm`, `mail` | Implemented (Sprint 02) |
 | 3 | amnus_projects | Project lifecycle, deliverables, CRM handover | amnus_core, amnus_crm, `project`, `mail` (`sale` deferred) | Implemented (Sprint 03) |
 | 4 | amnus_analysis | Requirements analysis, specifications | amnus_core, amnus_projects |
-| 5 | amnus_agile | Sprints, backlogs, ceremonies | amnus_core, amnus_projects |
+| 5 | amnus_agile | Sprints, backlogs, ceremonies | amnus_core, amnus_projects, `project`, `mail` | Implemented (Sprint 04) |
 | 6 | amnus_development | Development tasks, version-control links | amnus_core, amnus_projects, amnus_agile |
 | 7 | amnus_devops | Environments, CI/CD, deployment | amnus_core, amnus_projects |
 | 8 | amnus_qa | Testing, quality gates, UAT | amnus_core, amnus_projects |
@@ -121,7 +121,12 @@ Odoo 19 pattern: `19.0.<major>.<minor>.<patch>`. Initial: `19.0.1.0.0`.
 - ADR-002 — AMNUS Security Model (`docs/architecture/ADRs/ADR-002-security-model.md`)
 - ADR-003 — Project Lifecycle Reuse and Deliverable Sign-off
   (`docs/architecture/ADRs/ADR-003-project-lifecycle-and-deliverables.md`)
+- ADR-004 — Agile Planning Artifacts vs. Task Execution
+  (`docs/architecture/ADRs/ADR-004-agile-planning-vs-execution.md`)
 
 Sprint 01 decisions: shared models live in `amnus_core`; naming, security and
 versioning follow AGENTS.md. Sprint 03 decision: reuse standard Odoo Project and
-keep only `amnus.project.deliverable` as a new business model.
+keep only `amnus.project.deliverable` as a new business model. Sprint 04 decision:
+user stories are planning artifacts and `project.task` stays the single execution
+model; sprint membership history is append-only and closed-sprint metrics are
+frozen (see ADR-004).

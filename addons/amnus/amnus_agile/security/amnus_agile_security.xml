@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- ==================== USER STORY RULES ==================== -->
+        <record id="rule_amnus_agile_user_story_company" model="ir.rule">
+            <field name="name">AMNUS Agile User Story: multi-company</field>
+            <field name="model_id" ref="model_amnus_agile_user_story"/>
+            <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="rule_amnus_agile_user_story_visibility" model="ir.rule">
+            <field name="name">AMNUS Agile User Story: project visibility</field>
+            <field name="model_id" ref="model_amnus_agile_user_story"/>
+            <field name="domain_force">[('project_id.privacy_visibility', 'in', ['employees', 'portal']), '|', ('project_id.message_partner_ids', 'in', [user.partner_id.id]), ('project_id.user_id', '=', user.id)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <field name="groups" eval="[(4, ref('amnus_agile.group_amnus_agile_user'))]"/>
+        </record>
+
+        <record id="rule_amnus_agile_user_story_manager" model="ir.rule">
+            <field name="name">AMNUS Agile User Story: agile manager sees all</field>
+            <field name="model_id" ref="model_amnus_agile_user_story"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <field name="groups" eval="[(4, ref('amnus_agile.group_amnus_agile_manager'))]"/>
+        </record>
+
+        <!-- ==================== EPIC RULES ==================== -->
+        <record id="rule_amnus_agile_epic_company" model="ir.rule">
+            <field name="name">AMNUS Agile Epic: multi-company</field>
+            <field name="model_id" ref="model_amnus_agile_epic"/>
+            <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="rule_amnus_agile_epic_visibility" model="ir.rule">
+            <field name="name">AMNUS Agile Epic: project visibility</field>
+            <field name="model_id" ref="model_amnus_agile_epic"/>
+            <field name="domain_force">[('project_id.privacy_visibility', 'in', ['employees', 'portal']), '|', ('project_id.message_partner_ids', 'in', [user.partner_id.id]), ('project_id.user_id', '=', user.id)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <field name="groups" eval="[(4, ref('amnus_agile.group_amnus_agile_user'))]"/>
+        </record>
+
+        <record id="rule_amnus_agile_epic_manager" model="ir.rule">
+            <field name="name">AMNUS Agile Epic: agile manager sees all</field>
+            <field name="model_id" ref="model_amnus_agile_epic"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <field name="groups" eval="[(4, ref('amnus_agile.group_amnus_agile_manager'))]"/>
+        </record>
+
+        <!-- ==================== SPRINT RULES ==================== -->
+        <record id="rule_amnus_agile_sprint_company" model="ir.rule">
+            <field name="name">AMNUS Agile Sprint: multi-company</field>
+            <field name="model_id" ref="model_amnus_agile_sprint"/>
+            <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="rule_amnus_agile_sprint_visibility" model="ir.rule">
+            <field name="name">AMNUS Agile Sprint: project visibility</field>
+            <field name="model_id" ref="model_amnus_agile_sprint"/>
+            <field name="domain_force">[('project_id.privacy_visibility', 'in', ['employees', 'portal']), '|', ('project_id.message_partner_ids', 'in', [user.partner_id.id]), ('project_id.user_id', '=', user.id)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <field name="groups" eval="[(4, ref('amnus_agile.group_amnus_agile_user'))]"/>
+        </record>
+
+        <record id="rule_amnus_agile_sprint_manager" model="ir.rule">
+            <field name="name">AMNUS Agile Sprint: agile manager sees all</field>
+            <field name="model_id" ref="model_amnus_agile_sprint"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <field name="groups" eval="[(4, ref('amnus_agile.group_amnus_agile_manager'))]"/>
+        </record>
+
+        <!-- ==================== MEMBERSHIP RULES ==================== -->
+        <record id="rule_amnus_agile_membership_company" model="ir.rule">
+            <field name="name">AMNUS Agile Sprint Membership: multi-company</field>
+            <field name="model_id" ref="model_amnus_agile_sprint_membership"/>
+            <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="rule_amnus_agile_membership_visibility" model="ir.rule">
+            <field name="name">AMNUS Agile Sprint Membership: project visibility</field>
+            <field name="model_id" ref="model_amnus_agile_sprint_membership"/>
+            <field name="domain_force">[('project_id.privacy_visibility', 'in', ['employees', 'portal']), '|', ('project_id.message_partner_ids', 'in', [user.partner_id.id]), ('project_id.user_id', '=', user.id)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="groups" eval="[(4, ref('amnus_agile.group_amnus_agile_user'))]"/>
+        </record>
+
+        <record id="rule_amnus_agile_membership_manager" model="ir.rule">
+            <field name="name">AMNUS Agile Sprint Membership: agile manager sees all</field>
+            <field name="model_id" ref="model_amnus_agile_sprint_membership"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="groups" eval="[(4, ref('amnus_agile.group_amnus_agile_manager'))]"/>
+        </record>
+
+        <!-- ==================== BURNDOWN RULES ==================== -->
+        <record id="rule_amnus_agile_burndown_company" model="ir.rule">
+            <field name="name">AMNUS Agile Burndown: multi-company</field>
+            <field name="model_id" ref="model_amnus_agile_burndown"/>
+            <field name="domain_force">[('sprint_id.company_id', 'in', company_ids + [False])]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="rule_amnus_agile_burndown_manager" model="ir.rule">
+            <field name="name">AMNUS Agile Burndown: agile manager reads</field>
+            <field name="model_id" ref="model_amnus_agile_burndown"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="groups" eval="[(4, ref('amnus_agile.group_amnus_agile_manager'))]"/>
+        </record>
+    </data>
+</odoo>

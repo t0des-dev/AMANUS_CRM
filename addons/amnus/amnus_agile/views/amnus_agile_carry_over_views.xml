@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- ==================== CARRY-OVER WIZARD ==================== -->
+        <record id="view_amnus_agile_carry_over_wizard_form" model="ir.ui.view">
+            <field name="name">amnus.agile.carry.over.wizard.form</field>
+            <field name="model">amnus.agile.carry.over.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Carry Over Unfinished Stories">
+                    <group>
+                        <field name="sprint_id"/>
+                        <field name="project_id"/>
+                        <field name="target_sprint_id"/>
+                    </group>
+                    <group string="Unfinished Stories">
+                        <field name="story_ids" widget="many2many_tags"/>
+                        <field name="reason"/>
+                    </group>
+                    <footer>
+                        <button name="action_carry_over" type="object" string="Carry Over"
+                                class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_amnus_agile_carry_over_wizard" model="ir.actions.act_window">
+            <field name="name">Carry Over Unfinished Stories</field>
+            <field name="res_model">amnus.agile.carry.over.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="context">{'default_sprint_id': active_id}</field>
+        </record>
+    </data>
+</odoo>

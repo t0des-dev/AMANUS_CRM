@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>AMNUS Agile — Module Description</title>
+</head>
+<body>
+    <h1>AMNUS Agile</h1>
+    <p>Agile and Scrum planning for the AMNUS Odoo Project Lifecycle Management Platform.</p>
+    <h2>Features</h2>
+    <ul>
+        <li>Product backlog with user stories, business value, acceptance criteria, priority and Fibonacci Story Points.</li>
+        <li>Epics grouping stories per project with derived completion progress.</li>
+        <li>Sprints with backlog, manual capacity, commitment baseline, live and frozen metrics.</li>
+        <li>Explicit sprint lifecycle: draft, planned, active, closed, cancelled; closed sprints cannot be reopened.</li>
+        <li>Append-only sprint membership history with commitment snapshot, outcome and carry-over destination.</li>
+        <li>Explicit carry-over wizard for unfinished stories with reason and audit trail.</li>
+        <li>Structured sprint review and retrospective, including improvement actions and owner.</li>
+        <li>Event-based burndown and closed-sprint velocity reporting (line and bar graphs).</li>
+        <li>Server-enforced story completion: in progress, acceptance criteria set, manager only.</li>
+        <li>One task per story; execution data stays in standard <code>project.task</code>.</li>
+        <li>AMNUS Agile security groups, company isolation and project visibility rules.</li>
+        <li>Audit events on story state changes, sprint lifecycle, backlog updates and carry-over.</li>
+    </ul>
+    <h2>Reused standard functionality</h2>
+    <ul>
+        <li><code>project.task</code> for execution: stages, states, assignees, deadlines, activities.</li>
+        <li><code>project.project</code> as planning container.</li>
+        <li><code>amnus.tag</code> for story classification.</li>
+        <li><code>amnus.audit.log</code> for the audit trail.</li>
+    </ul>
+    <p>Odoo 19 Community Edition only. No Enterprise dependencies. No duplicate task or stage models.</p>
+</body>
+</html>
