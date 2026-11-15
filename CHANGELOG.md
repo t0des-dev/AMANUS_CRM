@@ -1,5 +1,23 @@
 # Changelog — AMNUS
 
+## Version 19.0.4.1.0 — Sprint 04.2 (Agile Security & Data Integrity Remediation)
+
+### Fixed
+- Sprint lifecycle/state and frozen snapshot fields (`baseline_points`, `final_*`) protected from direct ORM/RPC create/write; workflow-only internal transitions with row locking and atomic closure/cancel/start side effects.
+- Sprint/story create/unlink guards prevent fabricated closed/done records, assignment to closed/cancelled sprints, and deletion of historical sprint/membership/burndown records.
+- Story/Task integrity: linked tasks cannot be moved across project/company; `task_state`/`task_user_ids` computed access-safely without sudo disclosure.
+- Carry-over rejected from closed/cancelled source sprints and cannot rewrite closed membership history; membership re-entry into same sprint rejected to preserve append-only history.
+- Burndown converted to append-only dated events (baseline, scope add/remove, re-estimation, start, completion, carry-over, cancellation, closure) with deterministic ordering and continuous carry-forward series.
+- Story direct state writes rejected; workflow actions enforce completion criteria, audit logging and burndown side effects. Epic state writes guarded.
+- Burndown project-visibility record rule added for agile users; negative sprint capacity rejected.
+
+### Added
+- `addons/amnus/amnus_agile/tests/test_remediation.py` regression coverage for audit findings F-01–F-16 and Day 1–5 burndown scenario.
+- `docs/sprints/SPRINT_04_2_REMEDIATION.md` mapping findings to changes/tests.
+
+### Notes
+- `docs/sprints/SPRINT_04_1_AUDIT.md` preserved unchanged. Fresh independent re-audit required.
+
 ## Version 19.0.4.0.0 — Sprint 04 (Agile & Scrum Management)
 
 ### Added

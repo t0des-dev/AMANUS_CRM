@@ -31,11 +31,15 @@ workflow). `amnus.project.deliverable` remains the contractual acceptance model.
   acceptance criteria, business value.
 - `project.task` owns **execution data**: assignee (`user_ids`), stage
   (`stage_id`), state (`state`), deadline, activities.
-- The story exposes `task_state` and `task_user_ids` as **read-only related
-  fields** for visibility. They are never copied into writable story fields.
-- A task may be linked to **at most one** story (ORM constraint).
+- The story exposes `task_state` and `task_user_ids` as read-only,
+  access-safe computed fields for visibility. They are never copied into writable
+  story fields and never computed with sudo escalation; inaccessible task data is
+  omitted rather than disclosed.
+- A task may be linked to **at most one** story (ORM/DB constraint).
 - Deleting a task clears the link (`ondelete='set null'`); the story is kept.
 - Both models must belong to the same project and company.
+- A task linked to an Agile story cannot be moved to another project/company
+  while the link exists (enforced on `project.task.write` and story validation).
 
 ### Story completion rule
 
@@ -83,10 +87,15 @@ draft ──> planned ──> active ──> closed
 ```
 
 - Dates: `date_end >= date_start`.
+- Direct ORM/RPC `state` writes are rejected; transitions are performed only by
+  authorized workflow actions through internal server-side writes.
+- `baseline_points` and `final_*` snapshot fields are protected from direct
+  create/write; they are captured only by workflow transitions.
 - Every story in a sprint must belong to the same project and company.
 - A story can only be in one sprint at a time (`sprint_id`).
 - Only AMNUS Agile Managers may plan, start, close or cancel a sprint.
 - A closed sprint cannot be reopened; `closed` and `cancelled` are terminal.
+- Closed/cancelled sprints and their historical records cannot be deleted.
 - Closing a sprint never marks unfinished stories as done.
 - The project of a sprint that contains stories cannot be changed.
 
@@ -117,20 +126,24 @@ On `action_close()`:
 ## 5. Sprint membership and carry-over
 
 `amnus.agile.sprint.membership` is append-only history. Direct client
-create/write/unlink access is denied for every group; only server-side workflows
-(executed in `sudo`) create or close rows.
+create/write/unlink access is denied by ACLs and defended in ORM; only controlled
+server-side workflows (executed in `sudo` after authorization/validation) create
+or close rows. Closed membership rows are immutable and cannot be deleted.
 
 Each row records: sprint, story, project, company, added date/user, removed
 date/user, original committed points, final points, outcome, carry-over
 destination and reason.
 
-- Adding a story to a sprint (direct `sprint_id` write, sprint backlog form,
-  `action_add_to_sprint`, `action_add_stories`) opens a membership row.
-- Removing a story or moving it to another sprint closes the current row.
-- Carry-over closes the source row with `carried_over`, stores the destination
-  sprint and reason, and opens a row in the destination sprint.
+- Adding a story to an open sprint opens/refreshes an open membership row.
+- Removing a story or moving it to another open sprint closes the current open
+  row with the appropriate outcome.
+- Carry-over is allowed only from an open (non-closed/cancelled) source sprint.
+  It closes the source open membership as `carried_over` (without rewriting
+  closed history), stores destination/reason, and opens a membership in the
+  target sprint.
+- Re-entry into the same sprint after a historical membership exists is rejected
+  to preserve append-only history.
 - One row per `(sprint, story)` pair; one open membership per story at a time.
-- Membership rows of a closed sprint remain readable after closure.
 
 ## 6. Capacity, velocity and burndown
 
@@ -156,15 +169,20 @@ this release.
 
 ### Burndown
 
-- Data source: `amnus.agile.burndown` rows created from **dated sprint events**
-  (sprint start and sprint closure). When a story starts or completes inside an
-  active sprint, `_sync_sprint_burndown()` refreshes that day's row.
-- Nothing is fabricated for days without an event.
-- Each row stores remaining and completed Story Points.
-- Baseline commitment is exposed separately as `baseline_points`.
-- Scope added after start increases live `committed_points`; it is visible in
-  the backlog and in subsequent burndown snapshots. Historical rows are not
-  rewritten by later Story Point changes.
+- Data source: `amnus.agile.burndown` dated events created by controlled
+  server-side workflows (append-only, immutable). Events include baseline,
+  scope add/remove, re-estimation, work start, completion, carry-over in/out,
+  cancellation and closure.
+- Each event stores sprint/date/type/story, remaining and completed points, and
+  points before/after where applicable, with deterministic ordering
+  (`date`, `event_sequence`, `id`).
+- Nothing is fabricated for periods before tracking; event-free days do not
+  imply zero remaining work. `get_burndown_series()` returns a continuous daily
+  series carrying the last known values forward.
+- Baseline commitment is exposed as `baseline_points`; closure metrics are frozen
+  in `final_*` fields.
+- Historical events are not rewritten by later story point edits or later sprint
+  changes.
 
 ## 7. Security
 
@@ -194,12 +212,18 @@ Record rules:
 
 Server-side protections (not UI-only):
 
-- Manager checks in every workflow action and in the story/sprint `write`
-  guards for state, membership and Story Point changes. This includes adding or
-  removing a story from a sprint and the carry-over action.
-- Closed sprints cannot be reopened; metrics are frozen.
-- Membership history and burndown are not client-writable.
-- Cross-project and cross-company links are rejected by constraints.
+- Direct ORM/RPC lifecycle state changes and frozen snapshot writes are rejected;
+  workflow actions use internal server-side writes after authorization.
+- Manager checks in every workflow action and in create/write guards for protected
+  planning operations, including sprint membership and Story Point changes.
+- Closed/cancelled sprints cannot be reopened or deleted; closed metrics and
+  history remain immutable.
+- Membership and burndown are not client-writable/deletable and are defended in ORM.
+- Stories cannot be assigned to closed/cancelled sprints; carry-over from closed
+  sources is rejected and cannot rewrite closed source history.
+- Cross-project and cross-company story/task links are rejected; linked tasks
+  cannot be moved across project/company; task-derived fields do not expose
+  inaccessible data via sudo.
 - Audit events are written through `amnus.audit.log._log_event`.
 
 ## 8. Views and reporting

@@ -85,17 +85,34 @@ class AmnusAgileEpic(models.Model):
             )
 
     # ------------------------------------------------------------------
-    # Authorization helpers
+    # Guards / workflow
     # ------------------------------------------------------------------
     def write(self, vals):
-        """Prevent moving an epic with linked stories to another project."""
+        """Prevent invalid project moves and direct state bypass."""
         if 'project_id' in vals:
             for epic in self:
                 if epic.story_ids:
                     raise UserError(
                         _("The project of an epic that contains stories cannot be changed.")
                     )
+        if 'state' in vals:
+            new_state = vals['state']
+            for epic in self:
+                if new_state == epic.state:
+                    continue
+                # Only open -> done allowed, and only via controlled workflow.
+                raise UserError(
+                    _("Epic state cannot be changed directly. Use the epic workflow actions.")
+                )
         return super().write(vals)
+
+    def unlink(self):
+        for epic in self:
+            if epic.story_ids:
+                raise UserError(
+                    _("Epics that contain user stories cannot be deleted. Archive the epic instead.")
+                )
+        return super().unlink()
 
     def _is_agile_manager(self):
         """Return whether the current user may manage Agile epics."""
@@ -115,8 +132,7 @@ class AmnusAgileEpic(models.Model):
         for epic in self:
             if epic.state != 'open':
                 raise UserError(_("Only open epics can be marked done."))
-        self.sudo().write({'state': 'done'})
-        for epic in self:
+            super(AmnusAgileEpic, epic.sudo()).write({'state': 'done'})
             self.env['amnus.audit.log']._log_event(
                 name=_("AMNUS Agile Epic Completed"),
                 action="state_change",

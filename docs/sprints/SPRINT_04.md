@@ -310,3 +310,25 @@ No regression was introduced in the existing AMNUS addons.
 Ready. `amnus_agile` is installed, tested and documented; the execution model
 remains `project.task`, and `amnus_development` can depend on planned stories
 through the existing `amnus_core → amnus_projects → amnus_agile` chain.
+
+## Sprint 04.2 remediation (2026-11-15)
+
+Independent audit `docs/sprints/SPRINT_04_1_AUDIT.md` identified CRITICAL/HIGH
+security and data-integrity defects. Remediation was performed on the same
+feature branch (separate commit) without redesign:
+
+- **F-01/F-03/F-04/F-05/F-06/F-07/F-09:** sprint/story lifecycle and history are
+  server-side enforced (no direct state/frozen-field writes, guarded create/unlink,
+  closed-sprint assignment rejected, carry-over cannot rewrite closed source
+  history, workflow side effects/audit preserved).
+- **F-02:** linked `project.task` cannot be moved across project/company; story
+  task state/assignees are access-safe (no sudo disclosure).
+- **F-08:** burndown implemented as append-only dated events (baseline, scope
+  add/remove, re-estimation, completion, carry-over, cancellation, closure) with
+  deterministic ordering and continuous carry-forward series.
+- **Assessed MEDIUM/LOW:** F-10, F-13, F-14, F-15, F-16, F-17 addressed; F-11/F-12
+  partially mitigated (sequencing/locking) without concurrency stress tests.
+- Detailed mapping: `docs/sprints/SPRINT_04_2_REMEDIATION.md`.
+
+`docs/sprints/SPRINT_04_1_AUDIT.md` is preserved unchanged as the original audit
+record. A fresh independent re-audit is required after remediation.

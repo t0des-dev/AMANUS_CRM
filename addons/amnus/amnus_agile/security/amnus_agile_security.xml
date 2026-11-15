@@ -137,11 +137,22 @@
         <record id="rule_amnus_agile_burndown_company" model="ir.rule">
             <field name="name">AMNUS Agile Burndown: multi-company</field>
             <field name="model_id" ref="model_amnus_agile_burndown"/>
-            <field name="domain_force">[('sprint_id.company_id', 'in', company_ids + [False])]</field>
+            <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
             <field name="perm_read" eval="True"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
             <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="rule_amnus_agile_burndown_visibility" model="ir.rule">
+            <field name="name">AMNUS Agile Burndown: project visibility</field>
+            <field name="model_id" ref="model_amnus_agile_burndown"/>
+            <field name="domain_force">[('project_id.privacy_visibility', 'in', ['employees', 'portal']), '|', ('project_id.message_partner_ids', 'in', [user.partner_id.id]), ('project_id.user_id', '=', user.id)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="groups" eval="[(4, ref('amnus_agile.group_amnus_agile_user'))]"/>
         </record>
 
         <record id="rule_amnus_agile_burndown_manager" model="ir.rule">

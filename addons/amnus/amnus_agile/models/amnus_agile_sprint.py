@@ -15,6 +15,15 @@ SPRINT_ALLOWED_TRANSITIONS = {
 }
 """Sprint lifecycle transitions. Closed sprints can never be reopened."""
 
+# Fields frozen after sprint activation (baseline) or closure/cancellation.
+# They must never be set/changed through direct ORM/RPC writes.
+SPRINT_FROZEN_FIELDS = {
+    'baseline_points',
+    'final_committed_points',
+    'final_completed_points',
+    'final_carry_over_points',
+}
+
 
 class AmnusAgileSprint(models.Model):
     """AMNUS Agile sprint: a time-boxed planning iteration of user stories.
@@ -147,24 +156,92 @@ class AmnusAgileSprint(models.Model):
             if sprint.date_start and sprint.date_end and sprint.date_end < sprint.date_start:
                 raise ValidationError(_("The sprint end date cannot be before the start date."))
 
-    def write(self, vals):
-        """Guard lifecycle transitions and protect historical figures."""
-        if 'state' in vals:
-            self._check_is_agile_manager()
-            new_state = vals['state']
-            for sprint in self:
-                if new_state == sprint.state:
-                    continue
-                if new_state not in SPRINT_ALLOWED_TRANSITIONS.get(sprint.state, ()):
+    @api.constrains('capacity_points')
+    def _check_capacity_points(self):
+        for sprint in self:
+            if sprint.capacity_points is not False and sprint.capacity_points < 0:
+                raise ValidationError(_("Sprint capacity cannot be negative."))
+
+    # ------------------------------------------------------------------
+    # Controlled internal writes (bypass public guards after validation)
+    # ------------------------------------------------------------------
+    def _internal_write(self, vals):
+        """Write through the ORM parent after server-side validation.
+
+        This is the only path allowed to mutate protected lifecycle/frozen
+        fields. Callers MUST validate authorization and workflow preconditions
+        before invoking it. It is private (RPC-inaccessible) and never exposed
+        through a context flag.
+        """
+        return models.Model.write(self.sudo(), vals)
+
+    def _lock_for_workflow(self):
+        """Acquire a row lock on sprints to serialize lifecycle/metric changes."""
+        if not self.ids:
+            return
+        self.env.cr.execute(
+            "SELECT id FROM amnus_agile_sprint WHERE id IN %s FOR UPDATE",
+            (tuple(self.ids),),
+        )
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        """Reject fabricated lifecycle states and frozen snapshots on create."""
+        for vals in vals_list:
+            state = vals.get('state', 'draft')
+            if state != 'draft':
+                raise UserError(
+                    _("Sprints must be created in draft state; use the workflow actions to progress them.")
+                )
+            for field in SPRINT_FROZEN_FIELDS:
+                if vals.get(field):
                     raise UserError(
-                        _("Invalid sprint state transition from '%s' to '%s'.")
-                        % (sprint.state, new_state)
+                        _("Sprint historical/frozen fields cannot be set on create.")
                     )
+        return super().create(vals_list)
+
+    def write(self, vals):
+        """Guard lifecycle transitions and protect historical figures.
+
+        Direct ORM/RPC writes must not change sprint state or frozen snapshot
+        fields. All lifecycle transitions go through the authorized action
+        methods, which use the internal write path after validation.
+        """
+        if 'state' in vals:
+            # State transitions are workflow-only; block direct writes.
+            raise UserError(
+                _("Sprint state cannot be changed directly. Use the sprint workflow actions.")
+            )
+        forbidden = SPRINT_FROZEN_FIELDS.intersection(vals)
+        if forbidden:
+            # Allow clearing on draft only if explicitly unset, but baseline/final
+            # snapshots are never user-writable. Block any direct mutation.
+            for sprint in self:
+                if sprint.state in ('closed', 'cancelled'):
+                    raise UserError(
+                        _("Historical sprint metrics are frozen and cannot be modified.")
+                    )
+            raise UserError(
+                _("Sprint baseline and final snapshot fields are managed by the workflow and cannot be written directly.")
+            )
         if 'project_id' in vals and any(sprint.story_ids for sprint in self):
             raise UserError(
                 _("The project of a sprint that contains stories cannot be changed.")
             )
         return super().write(vals)
+
+    def unlink(self):
+        """Prevent deletion of sprints that carry historical activity."""
+        for sprint in self:
+            if sprint.state in ('closed', 'cancelled'):
+                raise UserError(
+                    _("Closed or cancelled sprints cannot be deleted because they contain historical records.")
+                )
+            if sprint.membership_ids or sprint.burndown_point_ids:
+                raise UserError(
+                    _("Sprints with membership or burndown history cannot be deleted. Archive the sprint instead.")
+                )
+        return super().unlink()
 
     @api.depends(
         'story_ids',
@@ -216,44 +293,97 @@ class AmnusAgileSprint(models.Model):
             raise UserError(_("Only an AMNUS Agile Manager can perform this action."))
 
     # ------------------------------------------------------------------
-    # Burndown
+    # Burndown / historical events
     # ------------------------------------------------------------------
-    def _record_burndown(self, date=None, remaining=None, completed=None):
-        """Append or update the burndown point for the sprint.
+    def _compute_burndown_figures(self):
+        """Compute remaining/completed points from current (live) backlog.
 
-        Historical values are only derived from recorded sprint data; nothing is fabricated.
+        Excludes cancelled stories from remaining scope, counts done as completed.
         """
-        if self.state != 'active':
+        self.ensure_one()
+        stories = self.story_ids
+        committed = sum(s.story_points or 0 for s in stories if s.state != 'cancelled')
+        completed = sum(s.story_points or 0 for s in stories if s.state == 'done')
+        remaining = max(committed - completed, 0)
+        return int(remaining), int(completed)
+
+    def _record_burndown_event(self, event_type, event_date=None, story=None,
+                               points_before=None, points_after=None, force=False):
+        """Record a dated burndown event as the historical source of truth.
+
+        Events are immutable historical records created only by controlled
+        server-side workflows. Timestamps/actor are derived from the
+        environment and database sequence ordering, never from client input.
+        ``force`` allows recording on non-active sprints for terminal workflow
+        events (e.g. closure/cancellation) performed inside the controlled
+        transition.
+        """
+        self.ensure_one()
+        if not force and self.state != 'active':
             return
+        remaining, completed = self._compute_burndown_figures()
+        Burndown = self.env['amnus.agile.burndown'].sudo()
+        # Serialize event sequence per sprint for deterministic ordering.
+        self.env.cr.execute(
+            "SELECT COALESCE(MAX(event_sequence), 0) FROM amnus_agile_burndown WHERE sprint_id = %s",
+            (self.id,),
+        )
+        next_seq = (self.env.cr.fetchone() or [0])[0] + 1
         values = {
             'sprint_id': self.id,
-            'date': date or fields.Date.today(),
-            'remaining_points': remaining if remaining is not None else (self.committed_points - self.completed_points),
-            'completed_points': completed if completed is not None else self.completed_points,
+            'date': event_date or fields.Date.context_today(self),
+            'remaining_points': remaining,
+            'completed_points': completed,
+            'event_type': event_type,
+            'story_id': story.id if story else False,
+            'points_before': points_before,
+            'points_after': points_after,
+            'event_sequence': next_seq,
         }
-        existing = self.env['amnus.agile.burndown'].sudo().search([
-            ('sprint_id', '=', self.id),
-            ('date', '=', values['date']),
-        ], limit=1)
-        if existing:
-            existing.sudo().write({
-                'remaining_points': values['remaining_points'],
-                'completed_points': values['completed_points'],
-            })
-        else:
-            self.env['amnus.agile.burndown'].sudo().create({
-                'sprint_id': self.id,
-                'date': values['date'],
-                'remaining_points': values['remaining_points'],
-                'completed_points': values['completed_points'],
-            })
+        return Burndown.create(values)
 
     @api.model
     def get_burndown_points(self, sprint_id):
-        """Return the ordered burndown points of a sprint (chronological)."""
+        """Return ordered burndown events/points of a sprint (chronological)."""
         return self.env['amnus.agile.burndown'].search([
             ('sprint_id', '=', sprint_id),
-        ], order='date asc')
+        ], order='event_sequence asc, id asc')
+
+    @api.model
+    def get_burndown_series(self, sprint_id):
+        """Return a continuous daily series carrying forward event-free days.
+
+        The last known remaining/completed values are carried forward across
+        dates without events. Missing rows never imply zero remaining work.
+        """
+        sprint = self.env['amnus.agile.sprint'].browse(sprint_id)
+        points = self.get_burndown_points(sprint_id)
+        if not sprint or not points:
+            return []
+        by_date = {}
+        for point in points:
+            # last event of the day wins for that day
+            by_date[point.date] = point
+        dates = sorted(by_date.keys())
+        start = dates[0]
+        end = dates[-1]
+        series = []
+        current = fields.Date.from_string(start) if isinstance(start, str) else start
+        last = fields.Date.from_string(end) if isinstance(end, str) else end
+        last_values = None
+        from datetime import timedelta
+        while current <= last:
+            if current in by_date:
+                p = by_date[current]
+                last_values = {
+                    'date': current,
+                    'remaining_points': p.remaining_points,
+                    'completed_points': p.completed_points,
+                }
+            if last_values:
+                series.append(dict(last_values, date=current))
+            current += timedelta(days=1)
+        return series
 
     @api.model
     def _get_sprint_velocity(self, sprint_ids=None):
@@ -278,10 +408,11 @@ class AmnusAgileSprint(models.Model):
         """Move a sprint to the planned state."""
         self._check_is_agile_manager()
         for sprint in self:
+            sprint._lock_for_workflow()
+            sprint.invalidate_recordset(['state'])
             if sprint.state != 'draft':
                 raise UserError(_("Only draft sprints can be planned."))
-        self.sudo().write({'state': 'planned'})
-        for sprint in self:
+            sprint._internal_write({'state': 'planned'})
             self.env['amnus.audit.log']._log_event(
                 name=_("AMNUS Agile Sprint Planned"),
                 action="state_change",
@@ -295,22 +426,26 @@ class AmnusAgileSprint(models.Model):
         """Start an active sprint and record the baseline burndown point."""
         self._check_is_agile_manager()
         for sprint in self:
+            sprint._lock_for_workflow()
+            sprint.invalidate_recordset(['state', 'story_ids'])
             if sprint.state != 'planned':
                 raise UserError(_("Only planned sprints can be started."))
-        for sprint in self:
-            baseline = sprint.committed_points
+            remaining, completed = sprint._compute_burndown_figures()
+            baseline = remaining + completed
             for membership in sprint.membership_ids.filtered(
-                lambda membership: membership.outcome == 'active'
+                lambda membership: membership.outcome == 'active' and not membership.date_removed
             ):
                 membership._mark_committed()
-            sprint.sudo().write({
+            sprint._internal_write({
                 'state': 'active',
                 'baseline_points': baseline,
             })
-            sprint._record_burndown(
-                date=sprint.date_start,
-                remaining=baseline,
-                completed=0,
+            # Record baseline event inside the now-active sprint (controlled).
+            sprint.invalidate_recordset(['state'])
+            sprint._record_burndown_event(
+                'baseline',
+                event_date=sprint.date_start or fields.Date.context_today(sprint),
+                force=True,
             )
             self.env['amnus.audit.log']._log_event(
                 name=_("AMNUS Agile Sprint Started"),
@@ -322,26 +457,29 @@ class AmnusAgileSprint(models.Model):
         return True
 
     def action_close(self):
-        """Close an active sprint and freeze final metrics plus the closing burndown point."""
+        """Close an active sprint and freeze final metrics/history atomically."""
         self._check_is_agile_manager()
         for sprint in self:
+            sprint._lock_for_workflow()
+            sprint.invalidate_recordset(['state', 'story_ids'])
             if sprint.state != 'active':
                 raise UserError(_("Only active sprints can be closed."))
-        for sprint in self:
-            committed = sprint.committed_points
-            completed = sprint.completed_points
-            carry_over = max(committed - completed, 0)
-            sprint._record_burndown(
-                date=sprint.date_end,
-                remaining=carry_over,
-                completed=completed,
+            remaining, completed = sprint._compute_burndown_figures()
+            committed = remaining + completed
+            carry_over = remaining
+            # Final event while still in controlled transition context.
+            sprint._record_burndown_event(
+                'closure',
+                event_date=sprint.date_end or fields.Date.context_today(sprint),
+                force=True,
             )
-            sprint.sudo().write({
+            sprint._internal_write({
                 'state': 'closed',
                 'final_committed_points': committed,
                 'final_completed_points': completed,
                 'final_carry_over_points': carry_over,
             })
+            sprint.invalidate_recordset(['state'])
             for membership in sprint.membership_ids.filtered(
                 lambda membership: not membership.date_removed
             ):
@@ -363,20 +501,28 @@ class AmnusAgileSprint(models.Model):
         return True
 
     def action_cancel(self):
-        """Cancel a sprint from a cancellable state."""
+        """Cancel a sprint from a cancellable state and freeze metrics."""
         self._check_is_agile_manager()
         for sprint in self:
+            sprint._lock_for_workflow()
+            sprint.invalidate_recordset(['state', 'story_ids'])
             if sprint.state not in ('draft', 'planned', 'active'):
                 raise UserError(_("Only draft, planned or active sprints can be cancelled."))
-        for sprint in self:
-            committed = sprint.committed_points
-            completed = sprint.completed_points
-            sprint.sudo().write({
+            remaining, completed = sprint._compute_burndown_figures()
+            committed = remaining + completed
+            if sprint.state == 'active':
+                sprint._record_burndown_event(
+                    'cancellation',
+                    event_date=fields.Date.context_today(sprint),
+                    force=True,
+                )
+            sprint._internal_write({
                 'state': 'cancelled',
                 'final_committed_points': committed,
                 'final_completed_points': completed,
-                'final_carry_over_points': max(committed - completed, 0),
+                'final_carry_over_points': remaining,
             })
+            sprint.invalidate_recordset(['state'])
             for membership in sprint.membership_ids.filtered(
                 lambda membership: not membership.date_removed
             ):
@@ -391,33 +537,32 @@ class AmnusAgileSprint(models.Model):
         return True
 
     def action_add_stories(self, sprint_id, story_ids):
-        """Add stories to a sprint backlog."""
+        """Add stories to a sprint backlog (controlled workflow)."""
         self._check_is_agile_manager()
         self.ensure_one()
         sprint = self.env['amnus.agile.sprint'].browse(sprint_id)
+        sprint._lock_for_workflow()
+        sprint.invalidate_recordset(['state'])
         if sprint.state in ('closed', 'cancelled'):
             raise UserError(_("The target sprint is not open for backlog addition."))
         if sprint.company_id != self.company_id or sprint.project_id != self.project_id:
             raise ValidationError(
                 _("The sprint must belong to the same project and company as the stories.")
             )
-        stories = self.env['amnus.agile.user.story'].browse(
-            [story.id if hasattr(story, 'id') else story for story in story_ids]
-        )
+        story_ids = [story.id if hasattr(story, 'id') else story for story in story_ids]
+        stories = self.env['amnus.agile.user.story'].browse(story_ids)
         for story in stories:
-            if (
-                story.project_id != sprint.project_id
-                or story.company_id != sprint.company_id
-            ):
+            if story.project_id != sprint.project_id or story.company_id != sprint.company_id:
                 raise ValidationError(
                     _("All stories added to a sprint must belong to its project and company.")
                 )
-        for story in stories:
-            story.sudo().write({'sprint_id': sprint.id, 'state': 'planned'})
+            # Delegate to story-level controlled method for validation and history.
+            story._workflow_assign_to_sprint(sprint)
         self.env['amnus.audit.log']._log_event(
             name=_("AMNUS Agile Sprint Backlog Updated"),
             action="update",
-            description=_("Sprint '%(sprint)s' backlog updated with %(count)d stories.") % {'sprint': sprint.name, 'count': len(stories.ids)},
+            description=_("Sprint '%(sprint)s' backlog updated with %(count)d stories.")
+            % {'sprint': sprint.name, 'count': len(stories.ids)},
             model_name='amnus.agile.sprint',
             record_id=sprint.id,
         )
@@ -426,12 +571,21 @@ class AmnusAgileSprint(models.Model):
     def action_carry_over(self, story_ids, target_sprint_id, reason=None):
         """Move unfinished stories to the target sprint (explicit carry-over).
 
-        The source membership is preserved with a ``carried_over`` outcome and the
-        destination sprint; a new membership row is opened in the target sprint.
+        Carry-over is rejected when the source sprint is closed or cancelled so
+        frozen source history is never rewritten. The source open membership is
+        closed as carried-over and a new membership is opened in the target.
         """
         self._check_is_agile_manager()
         self.ensure_one()
+        self._lock_for_workflow()
+        self.invalidate_recordset(['state'])
+        if self.state in ('closed', 'cancelled'):
+            raise UserError(
+                _("Stories cannot be carried over from a closed or cancelled sprint.")
+            )
         target = self.env['amnus.agile.sprint'].browse(target_sprint_id)
+        target._lock_for_workflow()
+        target.invalidate_recordset(['state'])
         if target == self:
             raise UserError(_("A sprint cannot carry stories over to itself."))
         if target.state in ('closed', 'cancelled'):
@@ -440,37 +594,27 @@ class AmnusAgileSprint(models.Model):
             raise ValidationError(
                 _("The target sprint must belong to the same project and company as the carried stories.")
             )
-        stories = self.env['amnus.agile.user.story'].browse(
-            [story.id if hasattr(story, 'id') else story for story in story_ids]
-        )
-        membership_model = self.env['amnus.agile.sprint.membership'].sudo()
-        moved = []
+        story_ids = [story.id if hasattr(story, 'id') else story for story in story_ids]
+        stories = self.env['amnus.agile.user.story'].browse(story_ids)
+        moved = 0
         for story in stories:
-            if story.state in ('done', 'cancelled'):
-                raise UserError(_("Only unfinished user stories can be carried over."))
             if story.sprint_id != self:
                 raise UserError(
                     _("Only stories currently in this sprint can be carried over.")
                 )
-            story.sudo().write(
-                {'sprint_id': target.id, 'state': 'planned'},
-                context={'amnus_agile_carry_over_replan': True},
-            )
-            membership = membership_model.search([
-                ('sprint_id', '=', self.id),
-                ('story_id', '=', story.id),
-            ], limit=1)
-            if membership:
-                membership.sudo().write({
-                    'outcome': 'carried_over',
-                    'carry_over_sprint_id': target.id,
-                    'reason': reason or _("Carried over to another sprint."),
-                })
-            moved.append(story.id)
+            if story.state in ('done', 'cancelled'):
+                raise UserError(_("Only unfinished user stories can be carried over."))
+            if story.project_id != target.project_id or story.company_id != target.company_id:
+                raise ValidationError(
+                    _("The target sprint must belong to the same project and company as the carried stories.")
+                )
+            story._workflow_carry_over(self, target, reason=reason)
+            moved += 1
         self.env['amnus.audit.log']._log_event(
             name=_("AMNUS Agile Sprint Carry Over"),
             action="update",
-            description=_("Sprint '%(sprint)s' carry-over moved %(count)d stories.") % {'sprint': self.name, 'count': len(moved)},
+            description=_("Sprint '%(sprint)s' carry-over moved %(count)d stories.")
+            % {'sprint': self.name, 'count': moved},
             model_name='amnus.agile.sprint',
             record_id=self.id,
         )

@@ -9,7 +9,7 @@ Only server-side sprint/story workflows (running in ``sudo``) may change them.
 """
 
 from odoo import _, api, fields, models
-from odoo.exceptions import ValidationError
+from odoo.exceptions import UserError, ValidationError
 
 MEMBERSHIP_OUTCOMES = [
     ('active', 'Active'),
@@ -136,15 +136,50 @@ class AmnusAgileSprintMembership(models.Model):
                 )
 
     # ------------------------------------------------------------------
+    # ORM guards: membership history is append-only and workflow-controlled
+    # ------------------------------------------------------------------
+    @api.model_create_multi
+    def create(self, vals_list):
+        if not self.env.su:
+            raise UserError(
+                _("Sprint membership history is managed by workflows and cannot be created manually.")
+            )
+        return super().create(vals_list)
+
+    def write(self, vals):
+        # Only internal server-side workflow code may mutate memberships.
+        # Once closed (date_removed set), rows are immutable.
+        if not self.env.su:
+            raise UserError(
+                _("Sprint membership history is managed by workflows and cannot be modified manually.")
+            )
+        for membership in self:
+            if membership.date_removed and membership.outcome != 'active':
+                raise UserError(
+                    _("Closed sprint membership history cannot be rewritten.")
+                )
+        return super().write(vals)
+
+    def unlink(self):
+        if not self.env.su:
+            raise UserError(_("Sprint membership history cannot be deleted."))
+        raise UserError(_("Sprint membership history cannot be deleted."))
+
+    # ------------------------------------------------------------------
     # Server-side helpers (called from story / sprint workflows in sudo)
     # ------------------------------------------------------------------
     def _close(self, outcome, carry_over_sprint=None, reason=None):
         """Close the membership with a terminal outcome.
 
         ``outcome`` is one of the non-active selection values. The row is never
-        deleted, so sprint history remains reconstructable.
+        deleted, so sprint history remains reconstructable. Closed rows are
+        immutable after this operation.
         """
         for membership in self:
+            if membership.date_removed:
+                raise UserError(
+                    _("Closed sprint membership history cannot be rewritten.")
+                )
             values = {
                 'outcome': outcome,
                 'date_removed': fields.Datetime.now(),
@@ -155,13 +190,17 @@ class AmnusAgileSprintMembership(models.Model):
                 values['carry_over_sprint_id'] = carry_over_sprint.id
             if reason:
                 values['reason'] = reason
-            membership.sudo().write(values)
+            super(AmnusAgileSprintMembership, membership.sudo()).write(values)
         return True
 
     def _mark_committed(self, points=None):
         """Refresh the committed Story Points snapshot of an open membership."""
         for membership in self:
-            membership.sudo().write({
+            if membership.date_removed or membership.outcome != 'active':
+                raise UserError(
+                    _("Closed sprint membership history cannot be rewritten.")
+                )
+            super(AmnusAgileSprintMembership, membership.sudo()).write({
                 'committed_points': (
                     membership.story_id.story_points or 0
                     if points is None

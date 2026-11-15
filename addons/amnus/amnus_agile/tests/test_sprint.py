@@ -64,11 +64,18 @@ class TestAmnusAgileSprint(AmnusAgileTestMixin, common.TransactionCase):
             project_id=self.project.id, sprint_id=sprint.id, story_points=3, state="planned"
         )
         second = self._create_story(
-            project_id=self.project.id, sprint_id=sprint.id, story_points=5, state="done"
+            project_id=self.project.id, sprint_id=sprint.id, story_points=5, state="planned",
+            acceptance_criteria="Done criteria",
         )
         cancelled = self._create_story(
-            project_id=self.project.id, sprint_id=sprint.id, story_points=8, state="cancelled"
+            project_id=self.project.id, sprint_id=sprint.id, story_points=8, state="planned"
         )
+        # Drive to required states through workflow where applicable.
+        sprint.with_user(self.agile_manager).action_plan()
+        sprint.with_user(self.agile_manager).action_start()
+        second.with_user(self.agile_manager).action_start()
+        second.with_user(self.agile_manager).action_done()
+        cancelled.with_user(self.agile_manager).action_cancel()
 
         self.assertEqual(sprint.committed_points, 8)
         self.assertEqual(sprint.completed_points, 5)
@@ -77,10 +84,13 @@ class TestAmnusAgileSprint(AmnusAgileTestMixin, common.TransactionCase):
     def test_sprint_velocity_from_closed_sprints(self):
         sprint = self._create_sprint(project_id=self.project.id)
         story = self._create_story(
-            project_id=self.project.id, sprint_id=sprint.id, story_points=5, state="done"
+            project_id=self.project.id, sprint_id=sprint.id, story_points=5, state="planned",
+            acceptance_criteria="Velocity criteria",
         )
         sprint.with_user(self.agile_manager).action_plan()
         sprint.with_user(self.agile_manager).action_start()
+        story.with_user(self.agile_manager).action_start()
+        story.with_user(self.agile_manager).action_done()
         sprint.with_user(self.agile_manager).action_close()
         self.assertEqual(sprint.completed_points, 5)
         self.assertEqual(self.env["amnus.agile.sprint"]._get_sprint_velocity([sprint.id]), 5.0)
@@ -101,11 +111,12 @@ class TestAmnusAgileSprint(AmnusAgileTestMixin, common.TransactionCase):
         story = self._create_story(
             project_id=self.project.id,
             sprint_id=sprint.id,
-            state="in_progress",
+            state="planned",
             story_points=3,
         )
         sprint.with_user(self.agile_manager).action_plan()
         sprint.with_user(self.agile_manager).action_start()
+        story.with_user(self.agile_manager).action_start()
         sprint.with_user(self.agile_manager).action_carry_over([story.id], target.id)
         self.assertEqual(story.sprint_id, target)
         self.assertEqual(story.state, "planned")
@@ -118,11 +129,12 @@ class TestAmnusAgileSprint(AmnusAgileTestMixin, common.TransactionCase):
         story = self._create_story(
             project_id=self.project.id,
             sprint_id=source.id,
-            state="in_progress",
+            state="planned",
             story_points=5,
         )
         source.with_user(self.agile_manager).action_plan()
         source.with_user(self.agile_manager).action_start()
+        story.with_user(self.agile_manager).action_start()
         source.with_user(self.agile_manager).action_carry_over(
             [story.id], target.id, reason="Not finished in time"
         )
@@ -164,10 +176,13 @@ class TestAmnusAgileSprint(AmnusAgileTestMixin, common.TransactionCase):
             project_id=self.project.id,
             sprint_id=sprint.id,
             story_points=3,
-            state="done",
+            state="planned",
+            acceptance_criteria="Freeze criteria",
         )
         sprint.with_user(self.agile_manager).action_plan()
         sprint.with_user(self.agile_manager).action_start()
+        story.with_user(self.agile_manager).action_start()
+        story.with_user(self.agile_manager).action_done()
         sprint.with_user(self.agile_manager).action_close()
         self.assertEqual(sprint.completed_points, 3)
         story.with_user(self.agile_manager).write({"story_points": 8})

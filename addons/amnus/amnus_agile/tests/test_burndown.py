@@ -31,19 +31,22 @@ class TestAmnusAgileBurndown(AmnusAgileTestMixin, common.TransactionCase):
     def test_burndown_final_point_recorded_on_close(self):
         sprint = self._create_sprint(project_id=self.project.id, name="Sprint Burndown Close")
         story = self._create_story(
-            project_id=self.project.id, sprint_id=sprint.id, story_points=5, state="done"
+            project_id=self.project.id, sprint_id=sprint.id, story_points=5, state="planned",
+            acceptance_criteria="Close criteria",
         )
         sprint.with_user(self.agile_manager).action_plan()
         sprint.with_user(self.agile_manager).action_start()
+        story.with_user(self.agile_manager).action_start()
+        story.with_user(self.agile_manager).action_done()
         sprint.with_user(self.agile_manager).action_close()
 
         points = self.env["amnus.agile.burndown"].sudo().search([
             ("sprint_id", "=", sprint.id),
-        ], order="date asc")
-        self.assertEqual(len(points), 2)
-        self.assertEqual(points[1].date, sprint.date_end)
-        self.assertEqual(points[1].remaining_points, 0)
-        self.assertEqual(points[1].completed_points, 5)
+        ], order="event_sequence asc, id asc")
+        self.assertGreaterEqual(len(points), 2)
+        self.assertEqual(points[-1].date, sprint.date_end)
+        self.assertEqual(points[-1].remaining_points, 0)
+        self.assertEqual(points[-1].completed_points, 5)
 
     def test_get_burndown_points_ordered(self):
         sprint = self._create_sprint(project_id=self.project.id, name="Sprint Burndown Order")
