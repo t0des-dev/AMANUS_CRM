@@ -15,13 +15,16 @@ class TestAmnusSecurity(common.TransactionCase):
         self.User = self.env["res.users"]
 
     def _make_user(self, name, login, groups):
-        return self.User.create(
-            {
-                "name": name,
-                "login": login,
-                "group_ids": [(6, 0, groups)],
-            }
-        )
+        vals = {
+            "name": name,
+            "login": login,
+            "group_ids": [(6, 0, groups)],
+        }
+        # Compatibility: mail (if loaded/installed) owns notification_type and
+        # the DB column may be NOT NULL in the test database.
+        if "notification_type" in self.User._fields:
+            vals["notification_type"] = "email"
+        return self.User.create(vals)
 
     # --- Groups ----------------------------------------------------------
 
@@ -121,15 +124,16 @@ class TestAmnusSecurity(common.TransactionCase):
         )
 
         # A user belonging only to Company B must not see Company A's tag.
-        user_b = self.env["res.users"].create(
-            {
-                "name": "User B",
-                "login": "user_b_cross",
-                "company_ids": [(6, 0, [company_b.id])],
-                "company_id": company_b.id,
-                "group_ids": [(6, 0, [self.group_user.id])],
-            }
-        )
+        vals_b = {
+            "name": "User B",
+            "login": "user_b_cross",
+            "company_ids": [(6, 0, [company_b.id])],
+            "company_id": company_b.id,
+            "group_ids": [(6, 0, [self.group_user.id])],
+        }
+        if "notification_type" in self.env["res.users"]._fields:
+            vals_b["notification_type"] = "email"
+        user_b = self.env["res.users"].create(vals_b)
         tag_user_b = self.env["amnus.tag"].with_user(user_b).with_context(
             allowed_company_ids=[company_b.id],
         )

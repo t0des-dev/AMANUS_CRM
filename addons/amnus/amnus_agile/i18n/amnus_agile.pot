@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-15 20:18+0000\n"
-"PO-Revision-Date: 2026-11-15 20:18+0000\n"
+"POT-Creation-Date: 2026-11-16 09:06+0000\n"
+"PO-Revision-Date: 2026-11-16 09:06+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -49,7 +49,14 @@ msgstr ""
 
 #. module: amnus_agile
 #. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
+msgid "A user story cannot be created as done without acceptance criteria."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
 #: code:addons/amnus_agile/models/amnus_agile_membership.py:0
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
 msgid "A user story cannot belong to two sprints at the same time."
 msgstr ""
 
@@ -60,7 +67,7 @@ msgstr ""
 
 #. module: amnus_agile
 #: model:ir.model,name:amnus_agile.model_amnus_agile_burndown
-msgid "AMNUS Agile Burndown"
+msgid "AMNUS Agile Burndown Event"
 msgstr ""
 
 #. module: amnus_agile
@@ -218,6 +225,11 @@ msgid "Backlog"
 msgstr ""
 
 #. module: amnus_agile
+#: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_burndown__event_type__baseline
+msgid "Baseline"
+msgstr ""
+
+#. module: amnus_agile
 #: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__baseline_points
 msgid "Baseline Commitment (Story Points)"
 msgstr ""
@@ -236,6 +248,32 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_burndown_search
 #: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_sprint_form
 msgid "Burndown Points"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.constraint,message:amnus_agile.constraint_amnus_agile_burndown_event_unique
+msgid ""
+"Burndown events must be uniquely ordered per sprint, date and sequence."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_burndown.py:0
+msgid "Burndown history cannot be deleted."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_burndown.py:0
+msgid "Burndown history is immutable and cannot be modified."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_burndown.py:0
+msgid ""
+"Burndown history is managed by sprint workflows and cannot be created "
+"manually."
 msgstr ""
 
 #. module: amnus_agile
@@ -267,6 +305,11 @@ msgid "Cancel Sprint"
 msgstr ""
 
 #. module: amnus_agile
+#: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_burndown__event_type__cancellation
+msgid "Cancellation"
+msgstr ""
+
+#. module: amnus_agile
 #: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_sprint__state__cancelled
 #: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_sprint_membership__outcome__cancelled
 #: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_user_story__state__cancelled
@@ -286,13 +329,23 @@ msgid "Carried Over"
 msgstr ""
 
 #. module: amnus_agile
+#: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_burndown__event_type__carry_over_in
+msgid "Carried Over In"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_burndown__event_type__carry_over_out
+msgid "Carried Over Out"
+msgstr ""
+
+#. module: amnus_agile
 #: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint_membership__carry_over_sprint_id
 msgid "Carried Over To"
 msgstr ""
 
 #. module: amnus_agile
 #. odoo-python
-#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
 msgid "Carried over to another sprint."
 msgstr ""
 
@@ -330,6 +383,20 @@ msgid "Closed"
 msgstr ""
 
 #. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+msgid ""
+"Closed or cancelled sprints cannot be deleted because they contain "
+"historical records."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_membership.py:0
+msgid "Closed sprint membership history cannot be rewritten."
+msgstr ""
+
+#. module: amnus_agile
 #: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_sprint_form
 msgid "Commitment and Completion"
 msgstr ""
@@ -350,6 +417,7 @@ msgid "Committed Story Points frozen when the sprint was closed or cancelled."
 msgstr ""
 
 #. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_burndown__company_id
 #: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_epic__company_id
 #: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__company_id
 #: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint_membership__company_id
@@ -474,11 +542,34 @@ msgid "Epic Name"
 msgstr ""
 
 #. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_epic.py:0
+msgid "Epic state cannot be changed directly. Use the epic workflow actions."
+msgstr ""
+
+#. module: amnus_agile
 #: model:ir.actions.act_window,name:amnus_agile.action_amnus_agile_epic
 #: model:ir.ui.menu,name:amnus_agile.menu_amnus_agile_epics
 #: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_epic_list
 #: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_epic_search
 msgid "Epics"
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_epic.py:0
+msgid ""
+"Epics that contain user stories cannot be deleted. Archive the epic instead."
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_burndown__event_sequence
+msgid "Event Sequence"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_burndown__event_type
+msgid "Event Type"
 msgstr ""
 
 #. module: amnus_agile
@@ -514,6 +605,12 @@ msgstr ""
 #. module: amnus_agile
 #: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_user_story__priority__2
 msgid "High priority"
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+msgid "Historical sprint metrics are frozen and cannot be modified."
 msgstr ""
 
 #. module: amnus_agile
@@ -555,12 +652,6 @@ msgstr ""
 #. module: amnus_agile
 #: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_sprint_membership__outcome__incomplete
 msgid "Incomplete at Closure"
-msgstr ""
-
-#. module: amnus_agile
-#. odoo-python
-#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
-msgid "Invalid sprint state transition from '%s' to '%s'."
 msgstr ""
 
 #. module: amnus_agile
@@ -651,6 +742,12 @@ msgstr ""
 #. module: amnus_agile
 #. odoo-python
 #: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
+msgid "Only backlog or planned user stories can be added to a sprint."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
 msgid "Only backlog user stories can be planned."
 msgstr ""
 
@@ -699,12 +796,14 @@ msgstr ""
 #. module: amnus_agile
 #. odoo-python
 #: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
 msgid "Only stories currently in this sprint can be carried over."
 msgstr ""
 
 #. module: amnus_agile
 #. odoo-python
 #: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
 msgid "Only unfinished user stories can be carried over."
 msgstr ""
 
@@ -739,6 +838,16 @@ msgid "Planned"
 msgstr ""
 
 #. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_burndown__points_after
+msgid "Points After"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_burndown__points_before
+msgid "Points Before"
+msgstr ""
+
+#. module: amnus_agile
 #: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_user_story__priority
 msgid "Priority"
 msgstr ""
@@ -754,6 +863,7 @@ msgid "Progress (%)"
 msgstr ""
 
 #. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_burndown__project_id
 #: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_carry_over_wizard__project_id
 #: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_epic__project_id
 #: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__project_id
@@ -763,6 +873,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_sprint_search
 #: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_user_story_search
 msgid "Project"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_burndown__event_type__reestimate
+msgid "Re-estimation"
 msgstr ""
 
 #. module: amnus_agile
@@ -818,6 +933,16 @@ msgstr ""
 #. module: amnus_agile
 #: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__review_summary
 msgid "Review Summary"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_burndown__event_type__scope_add
+msgid "Scope Added"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_burndown__event_type__scope_remove
+msgid "Scope Removed"
 msgstr ""
 
 #. module: amnus_agile
@@ -889,6 +1014,11 @@ msgid "Sprint Backlog"
 msgstr ""
 
 #. module: amnus_agile
+#: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_burndown__event_type__closure
+msgid "Sprint Closure"
+msgstr ""
+
+#. module: amnus_agile
 #: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__goal
 msgid "Sprint Goal"
 msgstr ""
@@ -904,11 +1034,76 @@ msgid "Sprint Velocity"
 msgstr ""
 
 #. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+msgid ""
+"Sprint baseline and final snapshot fields are managed by the workflow and "
+"cannot be written directly."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+msgid "Sprint capacity cannot be negative."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+msgid "Sprint historical/frozen fields cannot be set on create."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_membership.py:0
+msgid "Sprint membership history cannot be deleted."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_membership.py:0
+msgid ""
+"Sprint membership history is managed by workflows and cannot be created "
+"manually."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_membership.py:0
+msgid ""
+"Sprint membership history is managed by workflows and cannot be modified "
+"manually."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+msgid ""
+"Sprint state cannot be changed directly. Use the sprint workflow actions."
+msgstr ""
+
+#. module: amnus_agile
 #: model:ir.actions.act_window,name:amnus_agile.action_amnus_agile_sprint
 #: model:ir.ui.menu,name:amnus_agile.menu_amnus_agile_sprints
 #: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_sprint_list
 #: model_terms:ir.ui.view,arch_db:amnus_agile.view_amnus_agile_sprint_search
 msgid "Sprints"
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+msgid ""
+"Sprints must be created in draft state; use the workflow actions to progress"
+" them."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+msgid ""
+"Sprints with membership or burndown history cannot be deleted. Archive the "
+"sprint instead."
 msgstr ""
 
 #. module: amnus_agile
@@ -938,6 +1133,32 @@ msgid "Stories"
 msgstr ""
 
 #. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
+msgid "Stories belonging to a closed or cancelled sprint cannot be deleted."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
+msgid "Stories cannot be carried over from a closed or cancelled sprint."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
+msgid ""
+"Stories with sprint membership history cannot be deleted. Archive the story "
+"instead."
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_burndown__event_type__completion
+msgid "Story Completed"
+msgstr ""
+
+#. module: amnus_agile
 #: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_user_story__story_points
 msgid "Story Points"
 msgstr ""
@@ -961,6 +1182,13 @@ msgstr ""
 #. odoo-python
 #: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
 msgid "Story points must be one of 1, 2, 3, 5, 8, 13, 21."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
+msgid ""
+"Story state cannot be changed directly. Use the story workflow actions."
 msgstr ""
 
 #. module: amnus_agile
@@ -1018,6 +1246,12 @@ msgstr ""
 
 #. module: amnus_agile
 #. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
+msgid "The selected sprint does not exist."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
 #: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
 msgid "The sprint end date cannot be before the start date."
 msgstr ""
@@ -1038,13 +1272,13 @@ msgstr ""
 #. module: amnus_agile
 #. odoo-python
 #: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
-#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
 msgid "The target sprint is not open for backlog addition."
 msgstr ""
 
 #. module: amnus_agile
 #. odoo-python
 #: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
 msgid "The target sprint is not open for carry-over."
 msgstr ""
 
@@ -1060,6 +1294,14 @@ msgstr ""
 #. odoo-python
 #: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
 msgid "This user story already has a linked task."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
+msgid ""
+"This user story already has historical membership in this sprint and cannot "
+"be re-added."
 msgstr ""
 
 #. module: amnus_agile
@@ -1090,6 +1332,11 @@ msgid ""
 msgstr ""
 
 #. module: amnus_agile
+#: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_burndown__event_type__update
+msgid "Update"
+msgstr ""
+
+#. module: amnus_agile
 #: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_user_story__priority__3
 msgid "Urgent"
 msgstr ""
@@ -1108,8 +1355,29 @@ msgid "User Stories"
 msgstr ""
 
 #. module: amnus_agile
+#: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_burndown__story_id
 #: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint_membership__story_id
 msgid "User Story"
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
+msgid "User stories cannot be assigned to a closed or cancelled sprint."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
+msgid ""
+"User stories cannot be created directly in a done state. Complete them "
+"through the workflow."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
+msgid "User stories must be created in backlog or planned state."
 msgstr ""
 
 #. module: amnus_agile
@@ -1149,4 +1417,9 @@ msgstr ""
 #. module: amnus_agile
 #: model:ir.model.fields,field_description:amnus_agile.field_amnus_agile_sprint__retro_went_well
 msgid "What Went Well"
+msgstr ""
+
+#. module: amnus_agile
+#: model:ir.model.fields.selection,name:amnus_agile.selection__amnus_agile_burndown__event_type__start
+msgid "Work Started"
 msgstr ""

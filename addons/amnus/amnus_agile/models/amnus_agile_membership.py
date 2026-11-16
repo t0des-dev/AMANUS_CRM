@@ -104,6 +104,18 @@ class AmnusAgileSprintMembership(models.Model):
         'A user story can only have one membership record per sprint.',
     )
 
+    def _auto_init(self):
+        """Create database invariants that cannot be expressed safely in ORM only."""
+        res = super()._auto_init()
+        self.env.cr.execute(
+            """
+            CREATE UNIQUE INDEX IF NOT EXISTS amnus_agile_membership_open_story_unique
+                ON amnus_agile_sprint_membership (story_id)
+             WHERE outcome = 'active' AND date_removed IS NULL
+            """
+        )
+        return res
+
     @api.constrains('sprint_id', 'story_id')
     def _check_membership_consistency(self):
         """Reject memberships that cross projects or companies."""

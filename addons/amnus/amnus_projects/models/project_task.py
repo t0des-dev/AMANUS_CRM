@@ -41,12 +41,19 @@ class ProjectTask(models.Model):
         """
         if 'project_id' in vals and 'amnus.agile.user.story' in self.env:
             new_project = self.env['project.project'].browse(vals['project_id']) if vals['project_id'] else self.env['project.project']
+            # Serialize task moves and story-link changes to avoid link/move races.
+            self.env.cr.execute(
+                "SELECT id FROM project_task WHERE id IN %s FOR UPDATE",
+                (tuple(sorted(self.ids)),),
+            )
+            story_ids = []
             for task in self:
                 story = self.env['amnus.agile.user.story'].sudo().search(
                     [('task_id', '=', task.id)], limit=1
                 )
                 if not story:
                     continue
+                story_ids.append(story.id)
                 if not new_project:
                     raise UserError(
                         _("A task linked to an AMNUS Agile user story cannot be removed from its project.")
@@ -56,4 +63,9 @@ class ProjectTask(models.Model):
                     raise UserError(
                         _("A task linked to an AMNUS Agile user story cannot be moved to another project or company.")
                     )
+            if story_ids:
+                self.env.cr.execute(
+                    "SELECT id FROM amnus_agile_user_story WHERE id IN %s FOR UPDATE",
+                    (tuple(sorted(set(story_ids))),),
+                )
         return super().write(vals)

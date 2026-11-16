@@ -176,12 +176,28 @@ class AmnusAgileSprint(models.Model):
         return models.Model.write(self.sudo(), vals)
 
     def _lock_for_workflow(self):
-        """Acquire a row lock on sprints to serialize lifecycle/metric changes."""
+        """Acquire a row lock on sprints to serialize lifecycle/metric changes.
+
+        Locks are acquired in ascending id order to provide a consistent lock
+        acquisition order and reduce deadlock risk across multi-sprint
+        operations.
+        """
         if not self.ids:
             return
         self.env.cr.execute(
             "SELECT id FROM amnus_agile_sprint WHERE id IN %s FOR UPDATE",
-            (tuple(self.ids),),
+            (tuple(sorted(self.ids)),),
+        )
+
+    @api.model
+    def _lock_sprints_for_workflow(self, sprint_ids):
+        """Lock arbitrary sprint ids in deterministic order."""
+        ids = tuple(sorted(set(int(i) for i in sprint_ids if i)))
+        if not ids:
+            return
+        self.env.cr.execute(
+            "SELECT id FROM amnus_agile_sprint WHERE id IN %s FOR UPDATE",
+            (ids,),
         )
 
     @api.model_create_multi
@@ -317,13 +333,24 @@ class AmnusAgileSprint(models.Model):
         ``force`` allows recording on non-active sprints for terminal workflow
         events (e.g. closure/cancellation) performed inside the controlled
         transition.
+
+        The sprint row is locked to serialize metric/event changes and the
+        burndown sequence allocation for this sprint within the current
+        transaction.
         """
         self.ensure_one()
+        # Serialize per-sprint history/metric updates even when caller did not
+        # previously acquire a workflow lock (e.g. direct manager story edits).
+        self._lock_for_workflow()
+        self.invalidate_recordset(['state', 'story_ids'])
         if not force and self.state != 'active':
             return
         remaining, completed = self._compute_burndown_figures()
         Burndown = self.env['amnus.agile.burndown'].sudo()
         # Serialize event sequence per sprint for deterministic ordering.
+        # Sprint row is already locked above; MAX() cannot be combined with
+        # FOR UPDATE in PostgreSQL, so rely on the sprint lock + unique
+        # (sprint_id, date, event_sequence) constraint.
         self.env.cr.execute(
             "SELECT COALESCE(MAX(event_sequence), 0) FROM amnus_agile_burndown WHERE sprint_id = %s",
             (self.id,),
@@ -577,15 +604,15 @@ class AmnusAgileSprint(models.Model):
         """
         self._check_is_agile_manager()
         self.ensure_one()
-        self._lock_for_workflow()
+        target = self.env['amnus.agile.sprint'].browse(target_sprint_id)
+        # Lock both sprints in deterministic order to reduce deadlock risk.
+        self._lock_sprints_for_workflow([self.id, target.id])
         self.invalidate_recordset(['state'])
+        target.invalidate_recordset(['state'])
         if self.state in ('closed', 'cancelled'):
             raise UserError(
                 _("Stories cannot be carried over from a closed or cancelled sprint.")
             )
-        target = self.env['amnus.agile.sprint'].browse(target_sprint_id)
-        target._lock_for_workflow()
-        target.invalidate_recordset(['state'])
         if target == self:
             raise UserError(_("A sprint cannot carry stories over to itself."))
         if target.state in ('closed', 'cancelled'):
@@ -598,6 +625,7 @@ class AmnusAgileSprint(models.Model):
         stories = self.env['amnus.agile.user.story'].browse(story_ids)
         moved = 0
         for story in stories:
+            story.invalidate_recordset(['sprint_id', 'state', 'story_points', 'project_id', 'company_id'])
             if story.sprint_id != self:
                 raise UserError(
                     _("Only stories currently in this sprint can be carried over.")

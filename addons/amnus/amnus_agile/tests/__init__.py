@@ -6,3 +6,4 @@ from . import test_remediation
 from . import test_security
 from . import test_sprint
 from . import test_user_story
+from . import test_closure

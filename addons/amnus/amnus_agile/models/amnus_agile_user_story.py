@@ -234,6 +234,15 @@ class AmnusAgileUserStory(models.Model):
         """Internal write bypassing direct-write guards after validation."""
         return models.Model.write(self.sudo(), vals)
 
+    def _lock_for_workflow(self):
+        """Lock story rows to serialize sprint/membership/task-link changes."""
+        if not self.ids:
+            return
+        self.env.cr.execute(
+            "SELECT id FROM amnus_agile_user_story WHERE id IN %s FOR UPDATE",
+            (tuple(sorted(self.ids)),),
+        )
+
     def _is_sprint_open(self, sprint):
         return bool(sprint) and sprint.state not in ('closed', 'cancelled')
 
@@ -264,6 +273,15 @@ class AmnusAgileUserStory(models.Model):
         preserve history integrity.
         """
         self.ensure_one()
+        # Serialize membership changes per story and sprint.
+        self._lock_for_workflow()
+        if sprint:
+            sprint._lock_for_workflow()
+            sprint.invalidate_recordset(['state'])
+            if sprint.state in ('closed', 'cancelled'):
+                raise UserError(
+                    _("User stories cannot be assigned to a closed or cancelled sprint.")
+                )
         membership_model = self.env['amnus.agile.sprint.membership'].sudo()
         existing = membership_model.search([
             ('sprint_id', '=', sprint.id),
@@ -280,6 +298,17 @@ class AmnusAgileUserStory(models.Model):
             # Historical closed row exists for same sprint/story: do not rewrite.
             raise UserError(
                 _("This user story already has historical membership in this sprint and cannot be re-added.")
+            )
+        # Defensive check before insert (DB partial unique index enforces globally).
+        open_elsewhere = membership_model.search_count([
+            ('story_id', '=', self.id),
+            ('outcome', '=', 'active'),
+            ('date_removed', '=', False),
+            ('sprint_id', '!=', sprint.id),
+        ])
+        if open_elsewhere:
+            raise UserError(
+                _("A user story cannot belong to two sprints at the same time.")
             )
         return membership_model.create({
             'sprint_id': sprint.id,
@@ -335,11 +364,15 @@ class AmnusAgileUserStory(models.Model):
         # Validate sprint targets before create.
         Sprint = self.env['amnus.agile.sprint']
         Project = self.env['project.project']
+        sprint_ids = [vals['sprint_id'] for vals in prepared if vals.get('sprint_id')]
+        if sprint_ids:
+            Sprint._lock_sprints_for_workflow(sprint_ids)
         for vals in prepared:
             if vals.get('sprint_id'):
                 sprint = Sprint.browse(vals['sprint_id'])
                 if not sprint.exists():
                     raise ValidationError(_("The selected sprint does not exist."))
+                sprint.invalidate_recordset(['state', 'project_id', 'company_id'])
                 if sprint.state in ('closed', 'cancelled'):
                     raise UserError(
                         _("User stories cannot be assigned to a closed or cancelled sprint.")
@@ -355,7 +388,8 @@ class AmnusAgileUserStory(models.Model):
         stories = super().create(prepared)
         for story in stories:
             if story.sprint_id:
-                # Open membership and record scope addition if sprint active.
+                # Lock created story before opening membership/history updates.
+                story._lock_for_workflow()
                 story._open_membership(story.sprint_id)
                 if story.sprint_id.state == 'active':
                     story.sprint_id._record_burndown_event(
@@ -404,15 +438,36 @@ class AmnusAgileUserStory(models.Model):
                         _("The project of a user story linked to a task, epic or sprint cannot be changed.")
                     )
 
-        # Validate sprint target before applying.
+        # Serialize affected stories and sprints for sprint/metric-sensitive edits.
+        needs_sprint_lock = 'sprint_id' in vals or 'story_points' in vals
         old_sprints = {}
-        target_sprint = None
+        target_sprint = self.env['amnus.agile.sprint']
+        if needs_sprint_lock and self.ids:
+            self._lock_for_workflow()
+            self.invalidate_recordset(['sprint_id', 'story_points', 'project_id', 'company_id', 'state'])
+            sprint_ids = []
+            for story in self:
+                if story.sprint_id:
+                    sprint_ids.append(story.sprint_id.id)
+            if 'sprint_id' in vals:
+                target_sprint = self.env['amnus.agile.sprint'].browse(vals['sprint_id']) if vals['sprint_id'] else self.env['amnus.agile.sprint']
+                if target_sprint:
+                    sprint_ids.append(target_sprint.id)
+            if sprint_ids:
+                self.env['amnus.agile.sprint']._lock_sprints_for_workflow(sprint_ids)
+                self.env['amnus.agile.sprint'].browse(list(set(sprint_ids))).invalidate_recordset(['state', 'project_id', 'company_id'])
+                self.invalidate_recordset(['sprint_id', 'story_points', 'project_id', 'company_id', 'state'])
+
+        # Validate sprint target before applying.
         if 'sprint_id' in vals:
-            target_sprint = self.env['amnus.agile.sprint'].browse(vals['sprint_id']) if vals['sprint_id'] else self.env['amnus.agile.sprint']
             for story in self:
                 old_sprints[story.id] = story.sprint_id
                 if target_sprint:
                     story._validate_sprint_assignment(target_sprint)
+        elif needs_sprint_lock:
+            # Refresh old sprint mapping after lock for point-only updates.
+            for story in self:
+                old_sprints[story.id] = story.sprint_id
 
         # Capture old points for burndown events.
         old_points = {story.id: (story.story_points or 0) for story in self} if 'story_points' in vals else {}
@@ -542,8 +597,17 @@ class AmnusAgileUserStory(models.Model):
         """Controlled assignment of story to an open sprint (manager-validated)."""
         self.ensure_one()
         self._check_is_agile_manager()
-        self._validate_sprint_assignment(sprint)
+        # Serialize story and affected sprints; lock in deterministic sprint order.
+        self._lock_for_workflow()
+        self.invalidate_recordset(['sprint_id', 'state', 'story_points', 'project_id', 'company_id'])
         old_sprint = self.sprint_id
+        sprint_ids = [s.id for s in [old_sprint, sprint] if s]
+        if sprint_ids:
+            self.env['amnus.agile.sprint']._lock_sprints_for_workflow(sprint_ids)
+            self.env['amnus.agile.sprint'].browse(list(set(sprint_ids))).invalidate_recordset(['state', 'project_id', 'company_id'])
+            self.invalidate_recordset(['sprint_id', 'state', 'story_points', 'project_id', 'company_id'])
+            old_sprint = self.sprint_id
+        self._validate_sprint_assignment(sprint)
         if old_sprint == sprint:
             # Idempotent: ensure planned state if backlog? keep current if allowed.
             if self.state == 'backlog':
@@ -567,6 +631,7 @@ class AmnusAgileUserStory(models.Model):
             raise UserError(
                 _("Only backlog or planned user stories can be added to a sprint.")
             )
+        self.invalidate_recordset(['sprint_id', 'state'])
         self._open_membership(sprint)
         if sprint.state == 'active':
             sprint._record_burndown_event(
@@ -591,6 +656,11 @@ class AmnusAgileUserStory(models.Model):
         """
         self.ensure_one()
         self._check_is_agile_manager()
+        self._lock_for_workflow()
+        self.invalidate_recordset(['sprint_id', 'state', 'story_points', 'project_id', 'company_id'])
+        # Sprints should already be locked by caller in deterministic order.
+        source_sprint.invalidate_recordset(['state'])
+        target_sprint.invalidate_recordset(['state'])
         if source_sprint.state in ('closed', 'cancelled'):
             raise UserError(
                 _("Stories cannot be carried over from a closed or cancelled sprint.")
@@ -676,6 +746,8 @@ class AmnusAgileUserStory(models.Model):
         """Create the standard ``project.task`` that will execute this story."""
         self._check_is_agile_manager()
         self.ensure_one()
+        self._lock_for_workflow()
+        self.invalidate_recordset(['task_id', 'project_id'])
         if self.task_id:
             raise UserError(_("This user story already has a linked task."))
         task = self.env['project.task'].create({
@@ -683,6 +755,11 @@ class AmnusAgileUserStory(models.Model):
             'project_id': self.project_id.id,
             'description': self.description or False,
         })
+        # Lock task to serialize with concurrent task moves (F-02/race 5).
+        self.env.cr.execute(
+            "SELECT id FROM project_task WHERE id = %s FOR UPDATE",
+            (task.id,),
+        )
         self._internal_write({'task_id': task.id})
         self.env['amnus.audit.log']._log_event(
             name=_("AMNUS Agile User Story Task Linked"),
@@ -704,9 +781,13 @@ class AmnusAgileUserStory(models.Model):
         """Remove the user story from its sprint without deleting planning data."""
         self._check_is_agile_manager()
         self.ensure_one()
+        self._lock_for_workflow()
+        self.invalidate_recordset(['sprint_id', 'story_points'])
         if not self.sprint_id:
             return True
         sprint = self.sprint_id
+        sprint._lock_for_workflow()
+        sprint.invalidate_recordset(['state'])
         self._close_membership(sprint, outcome='removed')
         if sprint.state == 'active':
             sprint._record_burndown_event(
