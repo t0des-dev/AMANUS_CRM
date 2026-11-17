@@ -46,7 +46,11 @@ class TestAmnusAgileClosure(AmnusAgileTestMixin, common.TransactionCase):
         ):
             with self.assertRaises(UserError):
                 sprint.with_user(self.agile_manager).write(vals)
-        story.sudo().write({"story_points": 13})
+        # Sprint 04.5 (F-12/P0-A): re-estimating a story whose sprint is
+        # closed/cancelled is now rejected; frozen metrics are protected by
+        # rejection instead of by silent acceptance.
+        with self.assertRaises(UserError):
+            story.sudo().write({"story_points": 13})
         self.assertEqual(sprint.final_completed_points, 5)
         self.assertEqual(sprint.velocity_points, 5)
 

@@ -438,6 +438,21 @@ class AmnusAgileUserStory(models.Model):
                         _("The project of a user story linked to a task, epic or sprint cannot be changed.")
                     )
 
+        # Concurrency fix (F-12/C-05b): when a task link is being written,
+        # touch the linked task row FIRST so this transaction serializes
+        # against a concurrent task move. Lock order stays task -> story ->
+        # sprint (matching project_task.write, which locks the task before it
+        # inspects the link). A mover whose guard read still ran on a stale
+        # REPEATABLE READ snapshot now receives a retryable SQLSTATE 40001 on
+        # this touched row instead of silently committing a cross-project
+        # move; the service-layer retry re-runs the guard against a fresh
+        # snapshot and rejects the move with a controlled error.
+        if vals.get('task_id') and self.ids:
+            self.env.cr.execute(
+                "UPDATE project_task SET write_date = now() WHERE id = %s",
+                (vals['task_id'],),
+            )
+
         # Serialize affected stories and sprints for sprint/metric-sensitive edits.
         needs_sprint_lock = 'sprint_id' in vals or 'story_points' in vals
         old_sprints = {}
@@ -457,6 +472,19 @@ class AmnusAgileUserStory(models.Model):
                 self.env['amnus.agile.sprint']._lock_sprints_for_workflow(sprint_ids)
                 self.env['amnus.agile.sprint'].browse(list(set(sprint_ids))).invalidate_recordset(['state', 'project_id', 'company_id'])
                 self.invalidate_recordset(['sprint_id', 'story_points', 'project_id', 'company_id', 'state'])
+
+        # Freeze fix (F-12/RISK-4): once the story's sprint is closed or
+        # cancelled, re-estimation is rejected. The state is read AFTER the
+        # story and sprint row locks plus invalidation, so a closure that
+        # committed concurrently is always observed (a first try that raced
+        # the closure gets SQLSTATE 40001, is retried by the service layer,
+        # and then reads the fresh closed state here).
+        if 'story_points' in vals and self.ids:
+            for story in self:
+                if story.sprint_id.state in ('closed', 'cancelled'):
+                    raise UserError(
+                        _("Stories in a closed or cancelled sprint cannot be re-estimated.")
+                    )
 
         # Validate sprint target before applying.
         if 'sprint_id' in vals:

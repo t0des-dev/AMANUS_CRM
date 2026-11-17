@@ -342,6 +342,18 @@ class AmnusAgileSprint(models.Model):
         # Serialize per-sprint history/metric updates even when caller did not
         # previously acquire a workflow lock (e.g. direct manager story edits).
         self._lock_for_workflow()
+        # Concurrency fix (F-11/RISK-5): the row lock alone only *waits* the
+        # competing transaction out; under REPEATABLE READ a waiter whose
+        # snapshot predates the winner's commit can still allocate the same
+        # event_sequence and hit SQLSTATE 23505 on the unique constraint.
+        # Touching the sprint row inside the lock makes the winner visibly
+        # MODIFY the row, so every waiter gets a retryable SQLSTATE 40001,
+        # rolls back with a fresh snapshot and re-reads MAX(event_sequence).
+        # (Documented direct SQL: lock-intent row touch only, no data change.)
+        self.env.cr.execute(
+            "UPDATE amnus_agile_sprint SET write_date = now() WHERE id = %s",
+            (self.id,),
+        )
         self.invalidate_recordset(['state', 'story_ids'])
         if not force and self.state != 'active':
             return
@@ -568,6 +580,12 @@ class AmnusAgileSprint(models.Model):
         self._check_is_agile_manager()
         self.ensure_one()
         sprint = self.env['amnus.agile.sprint'].browse(sprint_id)
+        # Lock order fix (F-11/RISK-1): lock stories first (sorted), then the
+        # sprint, so this workflow and the story-level workflow
+        # (story -> sprint) share one global order and cannot deadlock.
+        story_ids = [story.id if hasattr(story, 'id') else story for story in story_ids]
+        stories = self.env['amnus.agile.user.story'].browse(story_ids)
+        stories._lock_for_workflow()
         sprint._lock_for_workflow()
         sprint.invalidate_recordset(['state'])
         if sprint.state in ('closed', 'cancelled'):
@@ -576,8 +594,6 @@ class AmnusAgileSprint(models.Model):
             raise ValidationError(
                 _("The sprint must belong to the same project and company as the stories.")
             )
-        story_ids = [story.id if hasattr(story, 'id') else story for story in story_ids]
-        stories = self.env['amnus.agile.user.story'].browse(story_ids)
         for story in stories:
             if story.project_id != sprint.project_id or story.company_id != sprint.company_id:
                 raise ValidationError(
@@ -605,7 +621,13 @@ class AmnusAgileSprint(models.Model):
         self._check_is_agile_manager()
         self.ensure_one()
         target = self.env['amnus.agile.sprint'].browse(target_sprint_id)
-        # Lock both sprints in deterministic order to reduce deadlock risk.
+        # Lock order fix (F-11/RISK-1): lock the carried stories first (sorted
+        # by id), then both sprints in deterministic order. This matches the
+        # global task -> story -> sprint order used by the story-level
+        # workflows, so story-vs-sprint acquisition cannot deadlock.
+        story_ids = [story.id if hasattr(story, 'id') else story for story in story_ids]
+        stories = self.env['amnus.agile.user.story'].browse(story_ids)
+        stories._lock_for_workflow()
         self._lock_sprints_for_workflow([self.id, target.id])
         self.invalidate_recordset(['state'])
         target.invalidate_recordset(['state'])
@@ -621,8 +643,6 @@ class AmnusAgileSprint(models.Model):
             raise ValidationError(
                 _("The target sprint must belong to the same project and company as the carried stories.")
             )
-        story_ids = [story.id if hasattr(story, 'id') else story for story in story_ids]
-        stories = self.env['amnus.agile.user.story'].browse(story_ids)
         moved = 0
         for story in stories:
             story.invalidate_recordset(['sprint_id', 'state', 'story_points', 'project_id', 'company_id'])

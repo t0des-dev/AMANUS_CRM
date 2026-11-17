@@ -1,5 +1,25 @@
 # Changelog — AMNUS
 
+## Version 19.0.4.5.0 — Sprint 04.5 (P0-A concurrency verification & hardening)
+
+### Fixed
+- **Lock-order inversion (RISK-1):** `sprint.action_add_stories` and `sprint.action_carry_over` now lock the affected story rows (sorted) **before** the sprint rows, establishing one global acquisition order `task → story → sprint`. Opposing workflows that previously deadlocked (SQLSTATE `40P01`, demonstrated 10/10 pre-fix by the multi-transaction harness) now serialize with a retryable `40001` (0 deadlocks in 120 post-fix repetitions).
+- **Silent post-closure re-estimation (RISK-4):** `amnus.agile.user.story.write` now rejects `story_points` changes when the story's sprint is `closed`/`cancelled` (checked after row locks + invalidation, so a racing closure is always observed). Previously the write silently landed on a finalized sprint.
+- **Burndown sequence collision (RISK-5):** `_record_burndown_event` performs a lock-intent row touch on the sprint immediately after its `FOR UPDATE`, converting a concurrent allocator's stale `MAX+1` read from an unhandled unique violation (`23505`) into Odoo's normal retryable serialization failure (`40001`).
+- **Task move/link race (C-05b):** `story.write` with `task_id` touches the linked `project_task` row (documented direct SQL, before the story lock) so a concurrent `project.task.write` move serializes against the link and its stale-snapshot guard is retried against committed state instead of silently committing a cross-project move.
+
+### Changed
+- Behaviour: re-estimating a story in a closed/cancelled sprint is now rejected with `UserError` (previously allowed with frozen metrics). Tests `test_f01_frozen_metrics_runtime_direct_orm`, `test_f01_closed_sprint_metrics_unchanged_after_later_story_edit` and `test_closed_sprint_metrics_are_frozen` updated to assert the rejection; `docs/technical/amnus_agile.md` reworded.
+- Note: PostgreSQL FK `FOR KEY SHARE` already serializes story-link vs task-move in the opposite direction (RISK-3 refuted by evidence — no change needed).
+
+### Added
+- `addons/amnus/amnus_agile/tests/concurrency/` — isolated multi-transaction concurrency harness (`harness.py`, `scenarios.py`, `run_concurrency.py`): independent connections/environments per worker, deterministic barrier schedules, PostgreSQL-proven overlap (`pg_stat_activity`/`pg_locks`/`pg_blocking_pids`), faithful emulation of Odoo's bounded service-layer retry (`MAX_TRIES=5` for 40001/40P01/55P03), scenarios C-01…C-06 + S-01/S-01n with invariant checks and residue cleanup. Not imported by `tests/__init__.py` (unaffected by `--test-enable`).
+- `docs/sprints/SPRINT_04_5_P0A_CONCURRENCY.md` — full evidence report (pre-fix 110 reps demonstrating defects, post-fix 120 reps all green, overlap/SQLSTATE/deadlock evidence, regressions, residuals).
+
+### Notes
+- Pre-fix defects demonstrated on `amnus_test_19`: C-04a 0/10, C-05b 0/10, C-06 0/10, S-01 deadlock 10/10; post-fix: **12/12 scenarios × 10 reps all pass, 0 deadlocks, 0 unique violations, residue all zeros**.
+- P0-B fix record: `docs/sprints/SPRINT_04_5_P0B_FIX.md` (commit `37c0bfc`).
+
 ## Version 19.0.4.1.0 — Sprint 04.2 (Agile Security & Data Integrity Remediation)
 
 ### Fixed

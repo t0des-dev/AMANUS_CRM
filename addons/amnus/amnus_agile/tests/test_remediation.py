@@ -57,10 +57,12 @@ class TestAmnusAgileRemediation(AmnusAgileTestMixin, common.TransactionCase):
     def test_f01_closed_sprint_metrics_unchanged_after_later_story_edit(self):
         sprint, story = self._closed_sprint_with_done_story(points=5)
         self.assertEqual(sprint.completed_points, 5)
-        # Story is done in a closed sprint; direct point edits must not alter frozen metrics.
-        # Use sudo/internal context not available; manager direct write on story points is allowed
-        # as planning data generally, but closed sprint figures remain frozen.
-        story.sudo().write({"story_points": 13})
+        # Story is done in a closed sprint; a direct point edit must not alter
+        # frozen metrics. Sprint 04.5 (F-12/P0-A) goes further: a later story
+        # point edit on a closed sprint is rejected outright; frozen metrics
+        # remain unchanged either way.
+        with self.assertRaises(UserError):
+            story.sudo().write({"story_points": 13})
         sprint.invalidate_recordset()
         self.assertEqual(sprint.final_completed_points, 5)
         self.assertEqual(sprint.completed_points, 5)

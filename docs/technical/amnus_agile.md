@@ -151,6 +151,10 @@ destination and reason.
 
 Allowed values: `1, 2, 3, 5, 8, 13, 21`; empty is allowed until estimated.
 Only Agile Managers may estimate or re-estimate.
+Since Sprint 04.5 (F-12 concurrency hardening), a re-estimate that targets a
+story whose sprint is already `closed` or `cancelled` is rejected with a
+`UserError`; frozen sprint history can no longer diverge from live planning
+data through a late point edit.
 
 ### Capacity
 
@@ -164,8 +168,9 @@ this release.
   `closed`, otherwise `0`.
 - Project/portfolio velocity: `_get_sprint_velocity(sprint_ids=None)` returns
   the arithmetic mean of `velocity_points` over the selected closed sprints.
-- Velocity uses the frozen `final_completed_points` captured at closure, so later
-  Story Point edits cannot rewrite past velocity.
+- Velocity uses the frozen `final_completed_points` captured at closure; Story
+  Point edits after closure are rejected (Sprint 04.5), so past velocity can
+  never be rewritten.
 
 ### Burndown
 
@@ -181,8 +186,9 @@ this release.
   series carrying the last known values forward.
 - Baseline commitment is exposed as `baseline_points`; closure metrics are frozen
   in `final_*` fields.
-- Historical events are not rewritten by later story point edits or later sprint
-  changes.
+- Historical events are not rewritten by later sprint changes; story point
+  edits after closure are rejected outright (Sprint 04.5), so events and live
+  data cannot drift apart.
 
 ## 7. Security
 
@@ -224,6 +230,14 @@ Server-side protections (not UI-only):
 - Cross-project and cross-company story/task links are rejected; linked tasks
   cannot be moved across project/company; task-derived fields do not expose
   inaccessible data via sudo.
+- Concurrency hardening (Sprint 04.5, F-11/F-12): all workflow row locks follow
+  one global acquisition order — **task → story (sorted) → sprint (sorted)** —
+  so opposing workflows serialize instead of deadlocking. Lock-intent row
+  touches on `project_task` (task linking) and `amnus_agile_sprint` (burndown
+  event allocation) turn silent REPEATABLE READ snapshot staleness into
+  retryable SQLSTATE 40001 for competitors, so Odoo's service-layer retry
+  re-runs guards against fresh state. Re-estimation after closure is rejected
+  (see Story Points above).
 - Audit events are written through `amnus.audit.log._log_event`.
 
 ## 8. Views and reporting

@@ -185,7 +185,10 @@ class TestAmnusAgileSprint(AmnusAgileTestMixin, common.TransactionCase):
         story.with_user(self.agile_manager).action_done()
         sprint.with_user(self.agile_manager).action_close()
         self.assertEqual(sprint.completed_points, 3)
-        story.with_user(self.agile_manager).write({"story_points": 8})
+        # Sprint 04.5 (F-12/P0-A): re-estimation inside a closed sprint is
+        # rejected; frozen completed/velocity figures stay intact.
+        with self.assertRaises(UserError):
+            story.with_user(self.agile_manager).write({"story_points": 8})
         self.assertEqual(sprint.completed_points, 3)
         self.assertEqual(sprint.velocity_points, 3)
         self.assertEqual(
