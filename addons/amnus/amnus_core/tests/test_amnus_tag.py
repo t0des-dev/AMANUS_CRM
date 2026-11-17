@@ -3,7 +3,7 @@ from odoo.tests import common, tagged
 from odoo.exceptions import ValidationError, AccessError
 
 
-@tagged("standard", "amnus_core", "at_install", "-post_install")
+@tagged("standard", "amnus_core", "post_install", "-at_install")
 class TestAmnusTag(common.TransactionCase):
     """Tests for the AMNUS Tag shared model."""
 

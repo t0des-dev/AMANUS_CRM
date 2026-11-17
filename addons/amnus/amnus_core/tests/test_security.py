@@ -3,7 +3,7 @@ from odoo.tests import common, tagged
 from odoo.exceptions import AccessError
 
 
-@tagged("standard", "amnus_core", "at_install", "-post_install")
+@tagged("standard", "amnus_core", "post_install", "-at_install")
 class TestAmnusSecurity(common.TransactionCase):
     """Tests for AMNUS security groups, access rights and menus."""
 
