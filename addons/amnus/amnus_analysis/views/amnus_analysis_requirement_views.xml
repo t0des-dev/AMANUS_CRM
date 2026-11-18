@@ -135,7 +135,6 @@
                         <group string="Traceability">
                             <group>
                                 <field name="task_id"/>
-                                <field name="story_id"/>
                                 <field name="deliverable_id"/>
                             </group>
                         </group>

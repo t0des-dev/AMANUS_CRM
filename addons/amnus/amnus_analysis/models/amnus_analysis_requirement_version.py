@@ -228,7 +228,11 @@ class AmnusAnalysisRequirementVersion(models.Model):
                 "analyst_name": requirement.analyst_id.name if requirement.analyst_id else False,
                 "target_stage_name": requirement.target_stage_id.name if requirement.target_stage_id else False,
                 "task_reference": requirement.task_id.name if requirement.task_id else False,
-                "story_reference": requirement.story_id.name if requirement.story_id else False,
+                "story_reference": (
+                    requirement.story_id.name
+                    if "story_id" in requirement._fields and requirement.story_id
+                    else False
+                ),
                 "deliverable_name": requirement.deliverable_id.name if requirement.deliverable_id else False,
                 "company_id": requirement.company_id.id if requirement.company_id else False,
                 "approved_by": requirement.approved_by.id if requirement.approved_by else False,

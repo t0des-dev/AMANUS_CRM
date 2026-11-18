@@ -200,14 +200,6 @@ class AmnusAnalysisRequirement(models.Model):
         copy=False,
         help="Optional project task that implements this requirement.",
     )
-    story_id = fields.Many2one(
-        "amnus.agile.user.story",
-        string="Linked User Story",
-        ondelete="set null",
-        index=True,
-        copy=False,
-        help="Optional Agile user story that plans this requirement.",
-    )
     deliverable_id = fields.Many2one(
         "amnus.project.deliverable",
         string="Linked Deliverable",
@@ -263,7 +255,6 @@ class AmnusAnalysisRequirement(models.Model):
         "analyst_id",
         "target_stage_id",
         "task_id",
-        "story_id",
         "deliverable_id",
     }
 
@@ -282,15 +273,6 @@ class AmnusAnalysisRequirement(models.Model):
             if requirement.task_id and requirement.task_id.project_id != requirement.project_id:
                 raise ValidationError(
                     _("The linked task must belong to the same project as the requirement.")
-                )
-
-    @api.constrains("story_id")
-    def _check_story_project(self):
-        """A linked Agile story must belong to the same project as the requirement."""
-        for requirement in self:
-            if requirement.story_id and requirement.story_id.project_id != requirement.project_id:
-                raise ValidationError(
-                    _("The linked user story must belong to the same project as the requirement.")
                 )
 
     @api.constrains("deliverable_id")
@@ -368,7 +350,9 @@ class AmnusAnalysisRequirement(models.Model):
                     raise UserError(
                         _("The project of an approved, rejected or cancelled requirement cannot be changed.")
                     )
-                if requirement.task_id or requirement.story_id or requirement.deliverable_id:
+                if requirement.task_id or requirement.deliverable_id or (
+                    "story_id" in self._fields and requirement.story_id
+                ):
                     raise UserError(
                         _("The project of a requirement with traceability links cannot be changed.")
                     )
@@ -484,6 +468,14 @@ class AmnusAnalysisRequirement(models.Model):
                     _("Only an AMNUS Analysis Manager can cancel a requirement under review.")
                 )
         self._internal_write({"state": "cancelled"})
+        for requirement in self:
+            self.env["amnus.audit.log"]._log_event(
+                name=_("Requirement Cancelled"),
+                action="state_change",
+                description=_("Requirement %(ref)s cancelled.", ref=requirement.reference),
+                model_name=requirement._name,
+                record_id=requirement.id,
+            )
         return True
 
     def action_request_revision(self):

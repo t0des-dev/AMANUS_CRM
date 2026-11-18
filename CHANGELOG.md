@@ -1,5 +1,30 @@
 # Changelog — AMNUS
 
+## Version 19.0.5.1.4 — Sprint 05.1.4 (Dependency & Translation Remediation)
+
+### Fixed
+- **F-A05 (undeclared `amnus_agile` dependency):** Resolved via separate optional integration addon `amnus_analysis_agile` that depends on both `amnus_analysis` and `amnus_agile`. Core `amnus_analysis` no longer references `amnus.agile.user.story` and loads successfully without Agile. Story traceability preserved when integration addon is installed.
+- **Translation catalog gap:** Regenerated `amnus_analysis.pot` via Odoo `i18n export` (237 entries, up from 164). Rebuilt `fr_FR.po` and `ar_SA.po` from fresh .pot, merging existing translations. All 100 gaps per language filled with French and Arabic translations. 100% coverage (237/237) for both languages. Catalogs validated (Odoo reader + polib + MO compile).
+- **Cancellation audit logging:** Added audit event logging to `action_cancel()` in requirement, workshop, and process models. Event created in same transaction as cancellation.
+
+### Added
+- Addon `amnus_analysis_agile` (optional integration): depends on `amnus_analysis` and `amnus_agile`. Adds `story_id` field + `_check_story_project` constraint via `_inherit`. Adds view inheritance showing `story_id` in requirement form.
+- `docs/sprints/SPRINT_05_1_4_REMEDIATION_REPORT.md` — remediation report.
+
+### Changed
+- `amnus_analysis_requirement_views.xml`: removed `story_id` field reference (moved to integration addon).
+- `amnus_analysis_requirement.py`: removed `story_id` field, `_check_story_project` constraint, `story_id` from `CONTENT_FIELDS`; added conditional project_id guard; added cancellation audit logging.
+- `amnus_analysis_requirement_version.py`: made `story_reference` conditional on field existence.
+- `tests/test_requirement.py`: added skip guards for story-related tests when Agile is not installed.
+
+### Notes
+- Combined test total: 274 tests (58 analysis + 34 core + 23 crm + 61 projects + 98 agile), 0 failures, 0 errors.
+- Reverse-direction traceability guards deferred (cross-module concern, requires changes to `amnus_projects` and `amnus_agile`).
+- Visual RTL review not performed (structural assessment only).
+- `amnus_analysis_agile` has no test files (story traceability tests are in main addon with skip guards).
+
+---
+
 ## Version 19.0.5.1.2 — Sprint 05.1.2 (HIGH Findings Remediation)
 
 ### Fixed

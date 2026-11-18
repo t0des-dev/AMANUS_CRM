@@ -178,6 +178,14 @@ class AmnusAnalysisWorkshop(models.Model):
             if workshop.state != "draft":
                 raise UserError(_("Only draft workshops can be cancelled."))
         self._internal_write({"state": "cancelled"})
+        for workshop in self:
+            self.env["amnus.audit.log"]._log_event(
+                name=_("Workshop Cancelled"),
+                action="state_change",
+                description=_("Workshop %(ref)s cancelled.", ref=workshop.reference),
+                model_name=workshop._name,
+                record_id=workshop.id,
+            )
         return True
 
     def _internal_write(self, vals):

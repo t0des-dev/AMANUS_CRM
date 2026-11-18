@@ -177,6 +177,14 @@ class AmnusAnalysisProcess(models.Model):
             ):
                 raise UserError(_("Only an AMNUS Analysis Manager can cancel a reviewed process."))
         self._internal_write({"state": "cancelled"})
+        for process in self:
+            self.env["amnus.audit.log"]._log_event(
+                name=_("Process Cancelled"),
+                action="state_change",
+                description=_("Process %(ref)s cancelled.", ref=process.reference),
+                model_name=process._name,
+                record_id=process.id,
+            )
         return True
 
     def _internal_write(self, vals):

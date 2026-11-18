@@ -137,18 +137,27 @@ class TestAmnusAnalysisRequirement(AmnusAnalysisTestMixin, common.TransactionCas
             )
 
     def test_story_same_project(self):
+        if "amnus.agile.user.story" not in self.env:
+            self.skipTest("amnus_agile not installed")
         story = self.env["amnus.agile.user.story"].create(
             {
                 "name": "Linked Story",
                 "project_id": self.project.id,
             }
         )
+        # story_id field is provided by amnus_analysis_agile integration
+        if "story_id" not in self.env["amnus.analysis.requirement"]._fields:
+            self.skipTest("amnus_analysis_agile integration not installed")
         requirement = self._create_requirement(
             self.project, name="Story-linked Requirement", story_id=story
         )
         self.assertEqual(requirement.story_id, story)
 
     def test_story_cross_project_rejected(self):
+        if "amnus.agile.user.story" not in self.env:
+            self.skipTest("amnus_agile not installed")
+        if "story_id" not in self.env["amnus.analysis.requirement"]._fields:
+            self.skipTest("amnus_analysis_agile integration not installed")
         other_project = self._create_project("Other Project")
         story = self.env["amnus.agile.user.story"].create(
             {

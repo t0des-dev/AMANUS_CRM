@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Add story_id field to the requirement form when Agile is installed -->
+        <record id="amnus_analysis_requirement_form_agile" model="ir.ui.view">
+            <field name="name">AMNUS Analysis Requirement Form (Agile)</field>
+            <field name="model">amnus.analysis.requirement</field>
+            <field name="inherit_id" ref="amnus_analysis.amnus_analysis_requirement_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='task_id']" position="after">
+                    <field name="story_id"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
