@@ -61,6 +61,15 @@ class TestAmnusAnalysisProcess(AmnusAnalysisTestMixin, common.TransactionCase):
         process.action_cancel()
         self.assertEqual(process.state, "cancelled")
 
+    def test_process_cancel_reviewed_requires_manager(self):
+        process = self._create_process(self.project, name="Cancel Auth Process")
+        process.action_submit_for_review()
+        self.assertEqual(process.state, "reviewed")
+        with self.assertRaises(UserError):
+            process.with_user(self.analysis_user).action_cancel()
+        process.with_user(self.analysis_manager).action_cancel()
+        self.assertEqual(process.state, "cancelled")
+
     def test_process_unlink_protected_when_approved(self):
         process = self._create_process(self.project, name="Protected Process")
         process.action_submit_for_review()

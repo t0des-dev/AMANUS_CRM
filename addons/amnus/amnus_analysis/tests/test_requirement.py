@@ -84,9 +84,10 @@ class TestAmnusAnalysisRequirement(AmnusAnalysisTestMixin, common.TransactionCas
         requirement.with_user(self.analysis_user).action_submit_for_review()
         self.assertEqual(requirement.state, "under_review")
 
-        requirement.with_user(self.analysis_manager).action_reject()
+        requirement.with_user(self.analysis_manager).action_reject(rejection_reason="Does not meet requirements.")
         self.assertEqual(requirement.state, "rejected")
         self.assertEqual(requirement.rejected_by, self.analysis_manager)
+        self.assertEqual(requirement.rejection_reason, "Does not meet requirements.")
 
     def test_direct_state_write_rejected(self):
         requirement = self._create_requirement(self.project, name="Guarded Requirement")
@@ -169,7 +170,128 @@ class TestAmnusAnalysisRequirement(AmnusAnalysisTestMixin, common.TransactionCas
     def test_reject_requires_reason_tracking(self):
         requirement = self._create_requirement(self.project, name="Rejection Test")
         requirement.with_user(self.analysis_user).action_submit_for_review()
-        requirement.with_user(self.analysis_manager).action_reject()
+        requirement.with_user(self.analysis_manager).action_reject(rejection_reason="Does not meet requirements.")
         self.assertEqual(requirement.state, "rejected")
         self.assertEqual(requirement.rejected_by, self.analysis_manager)
+        self.assertEqual(requirement.rejection_reason, "Does not meet requirements.")
         self.assertTrue(requirement.rejected_date)
+
+    def test_reject_requires_reason(self):
+        requirement = self._create_requirement(self.project, name="Reason Required Test")
+        requirement.with_user(self.analysis_user).action_submit_for_review()
+        with self.assertRaises(UserError):
+            requirement.with_user(self.analysis_manager).action_reject(rejection_reason="")
+        with self.assertRaises(UserError):
+            requirement.with_user(self.analysis_manager).action_reject(rejection_reason="   ")
+
+    def test_approved_content_protected(self):
+        requirement = self._create_requirement(self.project, name="Protected Content")
+        requirement.with_user(self.analysis_user).action_submit_for_review()
+        requirement.with_user(self.analysis_manager).action_approve(approval_notes="Looks good")
+        self.assertEqual(requirement.state, "approved")
+        self.assertEqual(requirement.approval_notes, "Looks good")
+        # Content edits should be rejected
+        with self.assertRaises(UserError):
+            requirement.with_user(self.analysis_manager).write({"name": "Changed Name"})
+        with self.assertRaises(UserError):
+            requirement.with_user(self.analysis_manager).write({"description": "Changed"})
+        with self.assertRaises(UserError):
+            requirement.with_user(self.analysis_manager).write({"priority": "critical"})
+
+    def test_project_change_on_approved_rejected(self):
+        requirement = self._create_requirement(self.project, name="Project Lock Test")
+        requirement.with_user(self.analysis_user).action_submit_for_review()
+        requirement.with_user(self.analysis_manager).action_approve()
+        other_project = self._create_project("Other Project")
+        with self.assertRaises(UserError):
+            requirement.with_user(self.analysis_manager).write({"project_id": other_project.id})
+
+    def test_approved_version_created(self):
+        requirement = self._create_requirement(self.project, name="Version Test")
+        requirement.with_user(self.analysis_user).action_submit_for_review()
+        requirement.with_user(self.analysis_manager).action_approve(approval_notes="Approved")
+        self.assertEqual(requirement.current_version, 1)
+        self.assertEqual(len(requirement.version_ids), 1)
+        version = requirement.version_ids[0]
+        self.assertEqual(version.version_number, 1)
+        self.assertEqual(version.name, "Version Test")
+        self.assertEqual(version.approval_notes, "Approved")
+        self.assertEqual(version.approved_by, self.analysis_manager)
+
+    def test_version_immutable(self):
+        requirement = self._create_requirement(self.project, name="Immutable Version")
+        requirement.with_user(self.analysis_user).action_submit_for_review()
+        requirement.with_user(self.analysis_manager).action_approve()
+        version = requirement.version_ids[0]
+        with self.assertRaises(UserError):
+            version.write({"name": "Changed"})
+        with self.assertRaises(UserError):
+            version.unlink()
+
+    def test_version_created_on_revision_cycle(self):
+        requirement = self._create_requirement(self.project, name="Revision Cycle")
+        requirement.with_user(self.analysis_user).action_submit_for_review()
+        requirement.with_user(self.analysis_manager).action_approve()
+        self.assertEqual(requirement.current_version, 1)
+        original_version = requirement.version_ids[0]
+        original_name = original_version.name
+
+        # Request revision and re-approve
+        requirement.with_user(self.analysis_manager).action_request_revision()
+        self.assertEqual(requirement.state, "under_review")
+        self.assertFalse(requirement.approved_by)
+        self.assertFalse(requirement.approved_date)
+
+        requirement.with_user(self.analysis_manager).action_approve(approval_notes="Re-approved")
+        self.assertEqual(requirement.current_version, 2)
+        self.assertEqual(len(requirement.version_ids), 2)
+
+        # Original version preserved
+        self.assertEqual(original_version.name, original_name)
+        self.assertEqual(original_version.approval_notes, False)
+
+    def test_cancelled_protected_from_deletion(self):
+        requirement = self._create_requirement(self.project, name="Cancelled Protect")
+        requirement.with_user(self.analysis_user).action_cancel()
+        self.assertEqual(requirement.state, "cancelled")
+        with self.assertRaises(UserError):
+            requirement.unlink()
+
+    def test_cancel_under_review_requires_manager(self):
+        requirement = self._create_requirement(self.project, name="Cancel Auth Test")
+        requirement.with_user(self.analysis_user).action_submit_for_review()
+        with self.assertRaises(UserError):
+            requirement.with_user(self.analysis_user).action_cancel()
+        # Manager can cancel
+        requirement.with_user(self.analysis_manager).action_cancel()
+        self.assertEqual(requirement.state, "cancelled")
+
+    def test_direct_state_write_rejected_on_approved(self):
+        requirement = self._create_requirement(self.project, name="Direct Write Test")
+        requirement.with_user(self.analysis_user).action_submit_for_review()
+        requirement.with_user(self.analysis_manager).action_approve()
+        with self.assertRaises(UserError):
+            requirement.with_user(self.analysis_manager).write({"state": "draft"})
+
+    def test_approval_clears_rejection_metadata(self):
+        requirement = self._create_requirement(self.project, name="Clear Reject Meta")
+        requirement.with_user(self.analysis_user).action_submit_for_review()
+        requirement.with_user(self.analysis_manager).action_reject(rejection_reason="No good")
+        self.assertEqual(requirement.state, "rejected")
+        self.assertEqual(requirement.rejection_reason, "No good")
+        # Verify approval fields are cleared after rejection
+        self.assertFalse(requirement.approved_by)
+        self.assertFalse(requirement.approved_date)
+        self.assertFalse(requirement.approval_notes)
+
+    def test_approval_sets_approval_metadata(self):
+        requirement = self._create_requirement(self.project, name="Approval Meta Test")
+        requirement.with_user(self.analysis_user).action_submit_for_review()
+        requirement.with_user(self.analysis_manager).action_approve(approval_notes="Looks good")
+        self.assertEqual(requirement.state, "approved")
+        self.assertEqual(requirement.approved_by, self.analysis_manager)
+        self.assertTrue(requirement.approved_date)
+        self.assertEqual(requirement.approval_notes, "Looks good")
+        self.assertFalse(requirement.rejected_by)
+        self.assertFalse(requirement.rejected_date)
+        self.assertFalse(requirement.rejection_reason)

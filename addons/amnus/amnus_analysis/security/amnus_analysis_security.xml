@@ -123,5 +123,38 @@
             <field name="perm_unlink" eval="True"/>
             <field name="groups" eval="[(4, ref('amnus_analysis.group_amnus_analysis_manager'))]"/>
         </record>
+
+        <!-- ==================== REQUIREMENT VERSION RULES ==================== -->
+        <record id="rule_amnus_analysis_requirement_version_company" model="ir.rule">
+            <field name="name">AMNUS Analysis Requirement Version: multi-company</field>
+            <field name="model_id" ref="model_amnus_analysis_requirement_version"/>
+            <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="rule_amnus_analysis_requirement_version_visibility" model="ir.rule">
+            <field name="name">AMNUS Analysis Requirement Version: project visibility</field>
+            <field name="model_id" ref="model_amnus_analysis_requirement_version"/>
+            <field name="domain_force">[('requirement_id.project_id.privacy_visibility', 'in', ['employees', 'portal']), '|', ('requirement_id.project_id.message_partner_ids', 'in', [user.partner_id.id]), ('requirement_id.project_id.user_id', '=', user.id)]</field>
+            <field name="groups" eval="[(4, ref('amnus_analysis.group_amnus_analysis_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="rule_amnus_analysis_requirement_version_manager" model="ir.rule">
+            <field name="name">AMNUS Analysis Requirement Version: analysis manager sees all</field>
+            <field name="model_id" ref="model_amnus_analysis_requirement_version"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="groups" eval="[(4, ref('amnus_analysis.group_amnus_analysis_manager'))]"/>
+        </record>
     </data>
 </odoo>

@@ -95,3 +95,33 @@ class TestAmnusAnalysisSecurity(AmnusAnalysisTestMixin, common.TransactionCase):
         requirement.with_user(self.analysis_user).action_submit_for_review()
         visible = self.env["amnus.analysis.requirement"].with_user(self.analysis_user).search([])
         self.assertTrue(any(r.id == requirement.id for r in visible))
+
+    def test_version_model_readonly_for_all(self):
+        version_model = self.env["amnus.analysis.requirement.version"].with_user(self.analysis_user)
+        self.assertTrue(version_model.has_access("read"))
+        self.assertFalse(version_model.has_access("create"))
+        self.assertFalse(version_model.has_access("write"))
+        self.assertFalse(version_model.has_access("unlink"))
+
+        version_model_mgr = self.env["amnus.analysis.requirement.version"].with_user(self.analysis_manager)
+        self.assertTrue(version_model_mgr.has_access("read"))
+        self.assertFalse(version_model_mgr.has_access("create"))
+        self.assertFalse(version_model_mgr.has_access("write"))
+        self.assertFalse(version_model_mgr.has_access("unlink"))
+
+    def test_version_immutable_at_orm_level(self):
+        requirement = self._create_requirement(self.project, name="ORM Immutable")
+        requirement.with_user(self.analysis_user).action_submit_for_review()
+        requirement.with_user(self.analysis_manager).action_approve()
+        version = requirement.version_ids[0]
+        with self.assertRaises(UserError):
+            version.with_user(self.analysis_manager).write({"name": "Hacked"})
+        with self.assertRaises(UserError):
+            version.with_user(self.analysis_manager).unlink()
+
+    def test_version_cannot_be_created_directly(self):
+        requirement = self._create_requirement(self.project, name="Direct Create")
+        with self.assertRaises(UserError):
+            self.env["amnus.analysis.requirement.version"].with_user(self.analysis_user).create(
+                {"requirement_id": requirement.id, "version_number": 99, "name": "Fake"}
+            )

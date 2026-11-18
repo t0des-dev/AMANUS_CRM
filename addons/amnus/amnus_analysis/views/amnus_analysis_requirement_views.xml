@@ -139,16 +139,29 @@
                                 <field name="deliverable_id"/>
                             </group>
                         </group>
-                        <group string="Approval" invisible="context.get('hide_approval', True)">
+                        <group string="Approval">
                             <group>
                                 <field name="approved_by" readonly="1"/>
                                 <field name="approved_date" readonly="1"/>
+                                <field name="approval_notes" placeholder="Approval notes..."/>
                             </group>
                             <group>
                                 <field name="rejected_by" readonly="1"/>
                                 <field name="rejected_date" readonly="1"/>
-                                <field name="rejection_reason" readonly="1"/>
+                                <field name="rejection_reason" placeholder="Rejection reason (required)..."/>
                             </group>
+                        </group>
+                        <group string="Version History" invisible="not version_ids">
+                            <field name="current_version" readonly="1"/>
+                            <field name="version_ids" readonly="1">
+                                <list>
+                                    <field name="version_number"/>
+                                    <field name="name"/>
+                                    <field name="approved_by"/>
+                                    <field name="approved_date"/>
+                                    <field name="approval_notes"/>
+                                </list>
+                            </field>
                         </group>
                     </sheet>
                 </form>

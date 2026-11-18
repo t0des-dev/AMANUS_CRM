@@ -49,6 +49,13 @@ class TestAmnusAnalysisWorkshop(AmnusAnalysisTestMixin, common.TransactionCase):
         workshop.action_cancel()
         self.assertEqual(workshop.state, "cancelled")
 
+    def test_workshop_cancel_under_review_requires_manager(self):
+        workshop = self._create_workshop(self.project, name="Cancel Auth Workshop")
+        workshop.action_mark_held()
+        # Held workshops can't be cancelled (only draft)
+        with self.assertRaises(UserError):
+            workshop.action_cancel()
+
     def test_workshop_unlink_protected_when_held(self):
         workshop = self._create_workshop(self.project, name="Protected Workshop")
         workshop.action_mark_held()

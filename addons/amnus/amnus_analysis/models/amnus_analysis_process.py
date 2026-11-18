@@ -172,6 +172,10 @@ class AmnusAnalysisProcess(models.Model):
         for process in self:
             if process.state not in ("draft", "reviewed"):
                 raise UserError(_("Only draft or reviewed processes can be cancelled."))
+            if process.state == "reviewed" and not (
+                self.env.su or self.env.user.has_group("amnus_analysis.group_amnus_analysis_manager")
+            ):
+                raise UserError(_("Only an AMNUS Analysis Manager can cancel a reviewed process."))
         self._internal_write({"state": "cancelled"})
         return True
 

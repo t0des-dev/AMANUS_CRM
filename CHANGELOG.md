@@ -1,5 +1,44 @@
 # Changelog — AMNUS
 
+## Version 19.0.5.1.2 — Sprint 05.1.2 (HIGH Findings Remediation)
+
+### Fixed
+- **F-A01 (Rejection reason never captured):** `rejection_reason` is now a writable field; `action_reject()` requires and captures a non-empty rejection reason. Reason is stored in the field and included in the audit event description.
+- **F-A02 (No immutable approval snapshot):** New model `amnus.analysis.requirement.version` creates an immutable snapshot on approval, capturing all approved content, related record snapshots (IDs + text names), approval metadata, and company context. Versions are append-only (create requires `env.su`, write/unlink always raise `UserError`). Transactional: if snapshot creation fails, approval rolls back.
+- **F-A03 (Protected content freely editable):** `write()` now rejects content field changes on approved/rejected/cancelled records (unless `env.su`). `CONTENT_FIELDS` set defines protected fields. Per-record guard in multi-record writes.
+- **F-A04 (Project freely changeable):** `write()` now rejects `project_id` changes on approved/rejected/cancelled records, and when traceability links (task/story/deliverable) exist.
+- **F-A06 (Cancellation not manager-restricted):** `action_cancel()` now requires manager authorization for under-review cancellation. Analysts can still cancel their own drafts.
+- **F-A07 (Workshop cancel not manager-restricted):** `action_cancel()` on workshops now requires manager authorization.
+- **F-A08 (Process cancel not manager-restricted):** `action_cancel()` on processes now requires manager authorization for reviewed processes.
+- **F-A09 (Rejection reason not validated):** Fixed via F-A01 — `action_reject()` validates non-empty reason.
+- **F-A11 (Revision doesn't clear metadata):** `action_request_revision()` now clears `approved_by`, `approved_date`, `approval_notes`.
+- **F-A13 (Cancelled requirements deletable):** `unlink()` now protects cancelled requirements in addition to approved/rejected.
+- **F-A18/F-A19 (Metadata clearing, approval notes):** `action_approve()` now sets `approval_notes`; `action_reject()` clears approval metadata; `action_request_revision()` clears both.
+
+### Added
+- Model `amnus.analysis.requirement.version` (immutable approval snapshot).
+- Fields on `amnus.analysis.requirement`: `approval_notes` (Text), `version_ids` (One2many), `current_version` (Integer). `rejection_reason` changed from readonly to writable.
+- Security: ACLs and record rules for version model (read-only for all groups).
+- Views: approval_notes and rejection_reason fields (writable) in form view; version history section.
+- Tests: 16 new tests (58 total, 0 failures, 0 errors).
+- `docs/sprints/SPRINT_05_1_2_REMEDIATION_REPORT.md` — remediation report.
+
+### Changed
+- `action_approve()` now creates an immutable version snapshot before returning. Version number = previous + 1.
+- `action_reject()` now requires and captures a non-empty rejection reason.
+- `action_cancel()` now requires manager authorization for under-review cancellation.
+- `write()` now protects content fields and project_id on approved/rejected/cancelled records.
+- `unlink()` now protects cancelled requirements.
+
+### Notes
+- F-A05 (undeclared `amnus_agile` dependency): documented as optional integration. `story_id` field references `amnus.agile.user.story` which requires `amnus_agile` to be installed. No cycle is created by adding it as a dependency, but the sprint spec prefers optional integration. Known limitation documented.
+- F-A15 (source default "other"): deferred — minor data quality issue.
+- Audit event for cancellation: not logged (minor gap, deferred).
+- New strings ("Approval Notes", version model labels) need i18n catalog regeneration before final merge.
+- Combined test total: 274 tests (58 analysis + 34 core + 23 crm + 61 projects + 98 agile), 0 failures, 0 errors.
+
+---
+
 ## Version 19.0.5.1.0 — Sprint 05.1 (Requirements Management)
 
 ### Added

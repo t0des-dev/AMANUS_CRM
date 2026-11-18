@@ -16,6 +16,9 @@ class AmnusAnalysisRequirement(models.Model):
     implementation work that realizes them (project tasks, Agile user stories,
     deliverables) without duplicating the standard Odoo execution model or the
     AMNUS Agile planning model.
+
+    Approved versions are preserved as immutable snapshots in
+    ``amnus.analysis.requirement.version``.
     """
 
     _name = "amnus.analysis.requirement"
@@ -88,7 +91,7 @@ class AmnusAnalysisRequirement(models.Model):
     )
     acceptance_criteria = fields.Text(
         string="Acceptance Criteria",
-        help="Criteria that must be satisfied for the requirement to be considered implemented.",
+        help="Criteria that must be satisfied for the requirement to be implemented.",
     )
     notes = fields.Text(string="Internal Notes")
 
@@ -166,6 +169,10 @@ class AmnusAnalysisRequirement(models.Model):
         readonly=True,
         copy=False,
     )
+    approval_notes = fields.Text(
+        string="Approval Notes",
+        help="Notes recorded during approval.",
+    )
     rejected_by = fields.Many2one(
         "res.users",
         string="Rejected By",
@@ -179,8 +186,7 @@ class AmnusAnalysisRequirement(models.Model):
     )
     rejection_reason = fields.Text(
         string="Rejection Reason",
-        readonly=True,
-        copy=False,
+        help="Reason provided when rejecting the requirement.",
     )
 
     # ------------------------------------------------------------------
@@ -212,6 +218,22 @@ class AmnusAnalysisRequirement(models.Model):
     )
 
     # ------------------------------------------------------------------
+    # Version history
+    # ------------------------------------------------------------------
+    version_ids = fields.One2many(
+        "amnus.analysis.requirement.version",
+        "requirement_id",
+        string="Approval Versions",
+        readonly=True,
+    )
+    current_version = fields.Integer(
+        string="Current Approved Version",
+        readonly=True,
+        copy=False,
+        help="Version number of the most recently approved version (0 if never approved).",
+    )
+
+    # ------------------------------------------------------------------
     # Multi-company
     # ------------------------------------------------------------------
     company_id = fields.Many2one(
@@ -222,6 +244,28 @@ class AmnusAnalysisRequirement(models.Model):
         readonly=True,
         index=True,
     )
+
+    # ------------------------------------------------------------------
+    # Content fields (protected in approved/rejected/cancelled states)
+    # ------------------------------------------------------------------
+    CONTENT_FIELDS = {
+        "name",
+        "description",
+        "requirement_type",
+        "priority",
+        "business_value",
+        "source",
+        "acceptance_criteria",
+        "notes",
+        "project_id",
+        "stakeholder_id",
+        "owner_id",
+        "analyst_id",
+        "target_stage_id",
+        "task_id",
+        "story_id",
+        "deliverable_id",
+    }
 
     # ------------------------------------------------------------------
     # Constraints
@@ -292,27 +336,50 @@ class AmnusAnalysisRequirement(models.Model):
         return super().create(prepared)
 
     def write(self, vals):
-        """Protect lifecycle transitions and approval history.
+        """Protect lifecycle transitions, approval history, and content integrity.
 
-        Direct ORM/RPC state writes are rejected; lifecycle transitions go
-        through the authorized workflow methods below. Sign-off and approval
-        fields are never directly writable.
+        - Direct state writes are rejected (workflow-only).
+        - Approval/rejection metadata is protected from direct writes.
+        - Content fields are protected on approved/rejected/cancelled records
+          (must use controlled revision).
+        - project_id is protected on approved/rejected/cancelled records.
         """
+        vals = dict(vals)
+        # Direct state change: reject unless superuser (workflow path).
         if "state" in vals and not self.env.su:
             raise UserError(
                 _("Requirement status cannot be changed directly. Use the workflow actions.")
             )
-        protected = {"approved_by", "approved_date", "rejected_by", "rejected_date", "rejection_reason"}
+        # Protected approval/rejection metadata.
+        protected = {"approved_by", "approved_date", "rejected_by", "rejected_date", "rejection_reason", "approval_notes", "current_version"}
         if set(vals) & protected and not self.env.su:
             raise UserError(_("Approval and rejection information cannot be modified directly."))
+        # Content protection on protected states.
+        if set(vals) & self.CONTENT_FIELDS and not self.env.su:
+            for requirement in self:
+                if requirement.state in ("approved", "rejected", "cancelled"):
+                    raise UserError(
+                        _("Requirement content cannot be modified in its current state. Use the revision workflow.")
+                    )
+        # Project protection on protected states.
+        if "project_id" in vals and not self.env.su:
+            for requirement in self:
+                if requirement.state in ("approved", "rejected", "cancelled"):
+                    raise UserError(
+                        _("The project of an approved, rejected or cancelled requirement cannot be changed.")
+                    )
+                if requirement.task_id or requirement.story_id or requirement.deliverable_id:
+                    raise UserError(
+                        _("The project of a requirement with traceability links cannot be changed.")
+                    )
         return super().write(vals)
 
     def unlink(self):
-        """Protect approved business evidence from deletion."""
+        """Protect approved, rejected and cancelled requirements from deletion."""
         for requirement in self:
-            if requirement.state in ("approved", "rejected"):
+            if requirement.state in ("approved", "rejected", "cancelled"):
                 raise UserError(
-                    _("Approved or rejected requirements cannot be deleted. Archive them instead.")
+                    _("Approved, rejected or cancelled requirements cannot be deleted. Archive them instead.")
                 )
         return super().unlink()
 
@@ -335,51 +402,71 @@ class AmnusAnalysisRequirement(models.Model):
             )
         return True
 
-    def action_approve(self):
-        """Approve a requirement under review."""
+    def action_approve(self, approval_notes=None):
+        """Approve a requirement under review and create an immutable version snapshot."""
         self._check_is_analysis_manager()
         for requirement in self:
             if requirement.state != "under_review":
                 raise UserError(_("Only requirements under review can be approved."))
+        # Lock to prevent concurrent version creation.
+        self._lock_for_workflow()
+        self.invalidate_recordset(["state", "current_version"])
+        # Re-check state after lock.
+        for requirement in self:
+            if requirement.state != "under_review":
+                raise UserError(_("Only requirements under review can be approved."))
+        # Write approval state first (so version snapshot captures approved_by).
         self._internal_write(
             {
                 "state": "approved",
                 "approved_by": self.env.user.id,
                 "approved_date": fields.Datetime.now(),
+                "approval_notes": approval_notes,
                 "rejected_by": False,
                 "rejected_date": False,
                 "rejection_reason": False,
             }
         )
+        # Create version snapshot after state change (captures approved_by).
+        version_model = self.env["amnus.analysis.requirement.version"]
+        for requirement in self:
+            next_version = (requirement.current_version or 0) + 1
+            version_model._create_from_requirement(requirement, next_version, approval_notes)
+            requirement._internal_write({"current_version": next_version})
         for requirement in self:
             self.env["amnus.audit.log"]._log_event(
                 name=_("Requirement Approved"),
                 action="state_change",
-                description=_("Requirement %(ref)s approved.", ref=requirement.reference),
+                description=_("Requirement %(ref)s approved (version %(ver)s).", ref=requirement.reference, ver=requirement.current_version),
                 model_name=requirement._name,
                 record_id=requirement.id,
             )
         return True
 
-    def action_reject(self):
+    def action_reject(self, rejection_reason=None):
         """Reject a requirement under review (a reason is required)."""
         self._check_is_analysis_manager()
         for requirement in self:
             if requirement.state != "under_review":
                 raise UserError(_("Only requirements under review can be rejected."))
-        values = {
-            "state": "rejected",
-            "rejected_by": self.env.user.id,
-            "rejected_date": fields.Datetime.now(),
-            "approved_by": False,
-            "approved_date": False,
-        }
-        self._internal_write(values)
+        if not rejection_reason or not rejection_reason.strip():
+            raise UserError(_("A rejection reason is required."))
+        self._internal_write(
+            {
+                "state": "rejected",
+                "rejected_by": self.env.user.id,
+                "rejected_date": fields.Datetime.now(),
+                "rejection_reason": rejection_reason.strip(),
+                "approved_by": False,
+                "approved_date": False,
+                "approval_notes": False,
+            }
+        )
         for requirement in self:
             self.env["amnus.audit.log"]._log_event(
                 name=_("Requirement Rejected"),
                 action="state_change",
-                description=_("Requirement %(ref)s rejected.", ref=requirement.reference),
+                description=_("Requirement %(ref)s rejected: %(reason)s.", ref=requirement.reference, reason=rejection_reason.strip()),
                 model_name=requirement._name,
                 record_id=requirement.id,
             )
@@ -392,6 +479,10 @@ class AmnusAnalysisRequirement(models.Model):
                 raise UserError(
                     _("Only draft or under-review requirements can be cancelled.")
                 )
+            if requirement.state == "under_review" and not self._is_analysis_manager():
+                raise UserError(
+                    _("Only an AMNUS Analysis Manager can cancel a requirement under review.")
+                )
         self._internal_write({"state": "cancelled"})
         return True
 
@@ -401,7 +492,21 @@ class AmnusAnalysisRequirement(models.Model):
         for requirement in self:
             if requirement.state != "approved":
                 raise UserError(_("Only approved requirements can be revised."))
-        self._internal_write({"state": "under_review"})
+        # Lock to prevent concurrent revision.
+        self._lock_for_workflow()
+        self.invalidate_recordset(["state", "current_version"])
+        for requirement in self:
+            if requirement.state != "approved":
+                raise UserError(_("Only approved requirements can be revised."))
+        # Clear previous approval metadata (preserved in version snapshot).
+        self._internal_write(
+            {
+                "state": "under_review",
+                "approved_by": False,
+                "approved_date": False,
+                "approval_notes": False,
+            }
+        )
         for requirement in self:
             self.env["amnus.audit.log"]._log_event(
                 name=_("Requirement Revision Requested"),
@@ -424,3 +529,12 @@ class AmnusAnalysisRequirement(models.Model):
         through a context flag.
         """
         return models.Model.write(self.sudo(), vals)
+
+    def _lock_for_workflow(self):
+        """Lock requirement rows to serialize version/metric changes."""
+        if not self.ids:
+            return
+        self.env.cr.execute(
+            "SELECT id FROM amnus_analysis_requirement WHERE id IN %s FOR UPDATE",
+            (tuple(sorted(self.ids)),),
+        )
