@@ -2,7 +2,7 @@
 from odoo.tests import common, tagged
 
 
-@tagged("standard", "amnus_core", "at_install", "-post_install")
+@tagged("standard", "amnus_core", "post_install", "-at_install")
 class TestAmnusConfig(common.TransactionCase):
     """Tests for AMNUS configuration persistence."""
 

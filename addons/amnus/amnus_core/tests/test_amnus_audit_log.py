@@ -3,7 +3,7 @@ from odoo.tests import common, tagged
 from odoo.exceptions import AccessError
 
 
-@tagged("standard", "amnus_core", "at_install", "-post_install")
+@tagged("standard", "amnus_core", "post_install", "-at_install")
 class TestAmnusAuditLog(common.TransactionCase):
     """Tests for the AMNUS Audit Log shared model."""
 
@@ -38,12 +38,13 @@ class TestAmnusAuditLog(common.TransactionCase):
 
     def test_audit_user_id_not_forgeable(self):
         """user_id is always derived from the environment, never from arguments."""
-        other_user = self.env["res.users"].create(
-            {
-                "name": "Impersonated User",
-                "login": "impersonated_user",
-            }
-        )
+        vals = {
+            "name": "Impersonated User",
+            "login": "impersonated_user",
+        }
+        if "notification_type" in self.env["res.users"]._fields:
+            vals["notification_type"] = "email"
+        other_user = self.env["res.users"].create(vals)
         audit = self.env["amnus.audit.log"]._log_event(
             name="Identity Check",
             action="other",
@@ -78,13 +79,14 @@ class TestAmnusAuditLog(common.TransactionCase):
 
     def test_ordinary_user_cannot_create_audit_record_directly(self):
         group_user = self.env.ref("amnus_core.group_amnus_user")
-        amnus_user = self.env["res.users"].create(
-            {
-                "name": "AMNUS User",
-                "login": "amnus_audit_user",
-                "group_ids": [(6, 0, [group_user.id])],
-            }
-        )
+        vals = {
+            "name": "AMNUS User",
+            "login": "amnus_audit_user",
+            "group_ids": [(6, 0, [group_user.id])],
+        }
+        if "notification_type" in self.env["res.users"]._fields:
+            vals["notification_type"] = "email"
+        amnus_user = self.env["res.users"].create(vals)
         audit_user = self.env["amnus.audit.log"].with_user(amnus_user)
         self.assertFalse(audit_user.has_access("create"))
         self.assertFalse(audit_user.has_access("write"))
@@ -92,25 +94,27 @@ class TestAmnusAuditLog(common.TransactionCase):
 
     def test_ordinary_user_cannot_read_audit_log(self):
         group_user = self.env.ref("amnus_core.group_amnus_user")
-        amnus_user = self.env["res.users"].create(
-            {
-                "name": "AMNUS User",
-                "login": "amnus_audit_reader",
-                "group_ids": [(6, 0, [group_user.id])],
-            }
-        )
+        vals = {
+            "name": "AMNUS User",
+            "login": "amnus_audit_reader",
+            "group_ids": [(6, 0, [group_user.id])],
+        }
+        if "notification_type" in self.env["res.users"]._fields:
+            vals["notification_type"] = "email"
+        amnus_user = self.env["res.users"].create(vals)
         audit_user = self.env["amnus.audit.log"].with_user(amnus_user)
         self.assertFalse(audit_user.has_access("read"))
 
     def test_manager_can_read_audit_log(self):
         group_manager = self.env.ref("amnus_core.group_amnus_manager")
-        manager = self.env["res.users"].create(
-            {
-                "name": "AMNUS Manager",
-                "login": "amnus_mgr_reader",
-                "group_ids": [(6, 0, [group_manager.id])],
-            }
-        )
+        vals = {
+            "name": "AMNUS Manager",
+            "login": "amnus_mgr_reader",
+            "group_ids": [(6, 0, [group_manager.id])],
+        }
+        if "notification_type" in self.env["res.users"]._fields:
+            vals["notification_type"] = "email"
+        manager = self.env["res.users"].create(vals)
         audit_manager = self.env["amnus.audit.log"].with_user(manager)
         self.assertTrue(audit_manager.has_access("read"))
         self.assertFalse(audit_manager.has_access("create"))

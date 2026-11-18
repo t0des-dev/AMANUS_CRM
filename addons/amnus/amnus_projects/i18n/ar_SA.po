@@ -1,27 +1,25 @@
-# Translation of Odoo Server.
-# This file contains the translation of the following modules:
-# * amnus_projects
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-14 10:25+0000\n"
-"PO-Revision-Date: 2026-11-14 10:25+0000\n"
-"Last-Translator: \n"
-"Language: ar_SA\n"
+"POT-Creation-Date: 2026-11-17 22:55+0000\n"
+"PO-Revision-Date: 2026-11-17 23:00+0000\n"
+"Last-Translator: AMNUS Sprint 04.5 P1\n"
 "Language-Team: Arabic\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: ar_SA\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.10.3\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=6; plural=n==0?0:n==1?1:n==2?2:n%100>=3&&n%100<=10?3:n%100>=11&&n%100<=99?4:5;\n"
 
 #. module: amnus_projects
+#: model_terms:ir.ui.view,arch_db:amnus_projects.edit_project_amnus
 msgid "<span class=\"o_stat_text\">Implementation Request</span>"
 msgstr "<span class=\"o_stat_text\">طلب التنفيذ</span>"
 
 #. module: amnus_projects
+#: model_terms:ir.actions.act_window,help:amnus_projects.action_amnus_project_deliverables
 msgid ""
 "A deliverable is submitted by its responsible, then accepted or rejected\n"
 "                    by an AMNUS Project Manager. Sign-off identity and dates are recorded\n"
@@ -33,643 +31,785 @@ msgstr ""
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py:0
 msgid "A deliverable must be created in Draft state."
 msgstr "يجب إنشاء المخرَج في حالة المسودة."
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/project_project.py
+#: code:addons/amnus_projects/models/project_project.py:0
 msgid "A project can only be created from an approved implementation request."
 msgstr "لا يمكن إنشاء مشروع إلا من طلب تنفيذ معتمد."
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_crm_project_request.py
+#: code:addons/amnus_projects/models/amnus_crm_project_request.py:0
 msgid "A project can only be linked through the handover action."
 msgstr "لا يمكن ربط مشروع إلا من خلال إجراء التسليم."
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py:0
 msgid "A rejection reason is required to reject a deliverable."
 msgstr "سبب الرفض مطلوب لرفض المخرَج."
 
 #. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/project_task.py:0
+msgid ""
+"A task linked to an AMNUS Agile user story cannot be moved to another "
+"project or company."
+msgstr ""
+"لا يمكن نقل مهمة مرتبطة بقصة مستخدم أجايل لـ AMNUS إلى مشروع أو شركة أخرى."
+
+#. module: amnus_projects
+#. odoo-python
+#: code:addons/amnus_projects/models/project_task.py:0
+msgid ""
+"A task linked to an AMNUS Agile user story cannot be removed from its "
+"project."
+msgstr "لا يمكن إزالة مهمة مرتبطة بقصة مستخدم أجايل لـ AMNUS من مشروعها."
+
+#. module: amnus_projects
+#: model:ir.model,name:amnus_projects.model_amnus_crm_project_request
 msgid "AMNUS CRM Project Implementation Request"
 msgstr "طلب تنفيذ مشروع CRM من AMNUS"
 
 #. module: amnus_projects
+#: model_terms:ir.ui.view,arch_db:amnus_projects.view_task_search_form_amnus
 msgid "AMNUS Deliverable Tasks"
 msgstr "مهام المخرَجات AMNUS"
 
 #. module: amnus_projects
+#: model_terms:ir.ui.view,arch_db:amnus_projects.edit_project_amnus
 msgid "AMNUS Implementation"
 msgstr "التنفيذ AMNUS"
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_project_project__amnus_is_amnus_project
 msgid "AMNUS Project"
 msgstr "مشروع AMNUS"
 
 #. module: amnus_projects
+#: model:res.groups,name:amnus_projects.group_amnus_project_admin
 msgid "AMNUS Project Administrator"
 msgstr "مسؤول مشاريع AMNUS"
 
 #. module: amnus_projects
+#: model:ir.model,name:amnus_projects.model_amnus_project_deliverable
 msgid "AMNUS Project Deliverable"
 msgstr "مخرَج مشروع AMNUS"
 
 #. module: amnus_projects
+#: model:res.groups,name:amnus_projects.group_amnus_project_manager
 msgid "AMNUS Project Manager"
 msgstr "مدير مشاريع AMNUS"
 
 #. module: amnus_projects
+#: model:res.groups,name:amnus_projects.group_amnus_project_user
 msgid "AMNUS Project User"
 msgstr "مستخدم مشاريع AMNUS"
 
 #. module: amnus_projects
+#: model_terms:ir.ui.view,arch_db:amnus_projects.view_project_project_filter_amnus
 msgid "AMNUS Projects"
 msgstr "مشاريع AMNUS"
 
 #. module: amnus_projects
+#: model_terms:ir.ui.view,arch_db:amnus_projects.view_project_project_filter_amnus
 msgid "AMNUS Request Type"
 msgstr "نوع طلب AMNUS"
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__tag_ids
+#: model:ir.model.fields,field_description:amnus_projects.field_project_project__amnus_tag_ids
 msgid "AMNUS Tags"
 msgstr "وسوم AMNUS"
 
 #. module: amnus_projects
+#: model_terms:ir.ui.view,arch_db:amnus_projects.view_amnus_project_deliverable_form
 msgid "Accept"
 msgstr "قبول"
 
 #. module: amnus_projects
+#: model:ir.model.fields.selection,name:amnus_projects.selection__amnus_project_deliverable__state__accepted
+#: model_terms:ir.ui.view,arch_db:amnus_projects.view_amnus_project_deliverable_search
 msgid "Accepted"
 msgstr "مقبول"
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__accepted_by
 msgid "Accepted By"
 msgstr "قُبل بواسطة"
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__accepted_date
 msgid "Accepted On"
 msgstr "قُبل في"
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py:0
 msgid "Accepted deliverables cannot be deleted. Archive them instead."
 msgstr "لا يمكن حذف المخرَجات المقبولة. أرشفها بدلاً من ذلك."
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__message_needaction
 msgid "Action Needed"
 msgstr "إجراء مطلوب"
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__active
 msgid "Active"
 msgstr "نشط"
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_project_project__amnus_actual_go_live
 msgid "Actual Go-Live"
 msgstr "تاريخ الإطلاق الفعلي"
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_project_deliverable.py
-msgid "An accepted deliverable can only be modified by an AMNUS Project Manager."
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py:0
+msgid ""
+"An accepted deliverable can only be modified by an AMNUS Project Manager."
 msgstr "لا يمكن تعديل المخرَج المقبول إلا من قبل مدير مشاريع AMNUS."
 
 #. module: amnus_projects
+#: model:ir.model.fields,help:amnus_projects.field_project_project__amnus_request_id
 msgid "Approved CRM implementation request this project originates from."
 msgstr "طلب تنفيذ CRM المعتمد الذي نشأ عنه هذا المشروع."
 
 #. module: amnus_projects
+#: model_terms:ir.ui.view,arch_db:amnus_projects.view_amnus_crm_project_request_search_amnus
 msgid "Approved, Not Handed Over"
 msgstr "معتمد، لم يُسلَّم"
 
 #. module: amnus_projects
+#: model_terms:ir.ui.view,arch_db:amnus_projects.view_amnus_project_deliverable_form
+#: model_terms:ir.ui.view,arch_db:amnus_projects.view_amnus_project_deliverable_search
 msgid "Archived"
 msgstr "مؤرشف"
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__message_attachment_count
 msgid "Attachment Count"
 msgstr "عدد المرفقات"
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__company_id
+#: model_terms:ir.ui.view,arch_db:amnus_projects.view_amnus_project_deliverable_search
 msgid "Company"
 msgstr "الشركة"
 
 #. module: amnus_projects
+#: model:ir.ui.menu,name:amnus_projects.menu_amnus_projects_configuration
 msgid "Configuration"
 msgstr "الإعدادات"
 
 #. module: amnus_projects
+#: model_terms:ir.ui.view,arch_db:amnus_projects.view_amnus_crm_project_request_form_amnus
 msgid "Create Project"
 msgstr "إنشاء مشروع"
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__create_uid
 msgid "Created by"
 msgstr "أنشأه"
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_crm_project_request.py
-#, python-format
-msgid "Created from implementation request %(request)s for customer %(customer)s."
+#: code:addons/amnus_projects/models/amnus_crm_project_request.py:0
+msgid ""
+"Created from implementation request %(request)s for customer %(customer)s."
 msgstr "أُنشئ المشروع من طلب التنفيذ %(request)s للعميل %(customer)s."
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__create_date
 msgid "Created on"
 msgstr "أُنشئ في"
 
 #. module: amnus_projects
+#: model:ir.model.fields.selection,name:amnus_projects.selection__amnus_project_deliverable__type__migration
 msgid "Data Migration"
 msgstr "ترحيل البيانات"
 
 #. module: amnus_projects
+#: model:ir.model.fields,help:amnus_projects.field_project_project__amnus_actual_go_live
 msgid "Date on which the delivered solution actually went live."
 msgstr "التاريخ الذي انتقل فيه الحل المُسلَّم إلى الإنتاج فعلياً."
 
 #. module: amnus_projects
+#: model_terms:ir.ui.view,arch_db:amnus_projects.view_amnus_project_deliverable_form
 msgid "Decision"
 msgstr "القرار"
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_project_task__amnus_deliverable_id
+#: model_terms:ir.ui.view,arch_db:amnus_projects.view_amnus_project_deliverable_form
 msgid "Deliverable"
 msgstr "المخرَج"
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_project_deliverable.py
-#, python-format
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py:0
 msgid "Deliverable %(name)s accepted."
 msgstr "تم قبول المخرَج %(name)s."
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_project_deliverable.py
-#, python-format
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py:0
 msgid "Deliverable %(name)s rejected."
 msgstr "تم رفض المخرَج %(name)s."
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_project_deliverable.py
-#, python-format
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py:0
 msgid "Deliverable %(name)s reset to draft."
 msgstr "أُعيد المخرَج %(name)s إلى المسودة."
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_project_deliverable.py
-#, python-format
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py:0
 msgid "Deliverable %(name)s submitted."
 msgstr "تم تقديم المخرَج %(name)s."
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py:0
 msgid "Deliverable Accepted"
 msgstr "تم قبول المخرَج"
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py:0
 msgid "Deliverable Rejected"
 msgstr "تم رفض المخرَج"
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py:0
 msgid "Deliverable Reset to Draft"
 msgstr "إعادة المخرَج إلى المسودة"
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py:0
 msgid "Deliverable Submitted"
 msgstr "تم تقديم المخرَج"
 
 #. module: amnus_projects
+#: model:ir.model.fields,help:amnus_projects.field_project_task__amnus_deliverable_id
 msgid "Deliverable this task contributes to (optional)."
 msgstr "المخرَج الذي تساهم فيه هذه المهمة (اختياري)."
 
 #. module: amnus_projects
+#: model:ir.actions.act_window,name:amnus_projects.action_amnus_project_deliverables
+#: model:ir.model.fields,field_description:amnus_projects.field_project_project__amnus_deliverable_count
+#: model:ir.model.fields,field_description:amnus_projects.field_project_project__amnus_deliverable_ids
+#: model:ir.ui.menu,name:amnus_projects.menu_amnus_deliverables
+#: model_terms:ir.ui.view,arch_db:amnus_projects.edit_project_amnus
+#: model_terms:ir.ui.view,arch_db:amnus_projects.view_amnus_project_deliverable_list
 msgid "Deliverables"
 msgstr "المخرَجات"
 
 #. module: amnus_projects
+#: model_terms:ir.ui.view,arch_db:amnus_projects.view_amnus_project_deliverable_form
 msgid "Describe the expected output and acceptance criteria..."
 msgstr "صف الناتج المتوقع ومعايير القبول..."
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__description
+#: model_terms:ir.ui.view,arch_db:amnus_projects.view_amnus_project_deliverable_form
 msgid "Description"
 msgstr "الوصف"
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_crm_project_request__display_name
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__display_name
+#: model:ir.model.fields,field_description:amnus_projects.field_project_project__display_name
+#: model:ir.model.fields,field_description:amnus_projects.field_project_task__display_name
 msgid "Display Name"
 msgstr "الاسم المعروض"
 
 #. module: amnus_projects
+#: model:ir.model.fields.selection,name:amnus_projects.selection__amnus_project_deliverable__type__document
 msgid "Document"
 msgstr "مستند"
 
 #. module: amnus_projects
+#: model:ir.model.fields.selection,name:amnus_projects.selection__amnus_project_deliverable__state__draft
+#: model_terms:ir.ui.view,arch_db:amnus_projects.view_amnus_project_deliverable_search
 msgid "Draft"
 msgstr "مسودة"
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__due_date
 msgid "Due Date"
 msgstr "تاريخ الاستحقاق"
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__message_follower_ids
 msgid "Followers"
 msgstr "المتابعون"
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__message_partner_ids
 msgid "Followers (Partners)"
 msgstr "المتابعون (الشركاء)"
 
 #. module: amnus_projects
+#: model:res.groups,comment:amnus_projects.group_amnus_project_admin
 msgid "Full AMNUS project administration."
 msgstr "إدارة كاملة لمشاريع AMNUS."
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__has_message
 msgid "Has Message"
 msgstr "لديه رسالة"
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_crm_project_request__id
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__id
+#: model:ir.model.fields,field_description:amnus_projects.field_project_project__id
+#: model:ir.model.fields,field_description:amnus_projects.field_project_task__id
 msgid "ID"
 msgstr "المعرّف"
 
 #. module: amnus_projects
+#: model:ir.model.fields,help:amnus_projects.field_amnus_project_deliverable__message_needaction
 msgid "If checked, new messages require your attention."
 msgstr "إذا تم التحديد، تتطلب الرسائل الجديدة انتباهك."
 
 #. module: amnus_projects
+#: model:ir.model.fields,help:amnus_projects.field_amnus_project_deliverable__message_has_error
 msgid "If checked, some messages have a delivery error."
 msgstr "إذا تم التحديد، فإن بعض الرسائل بها خطأ في التسليم."
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/project_project.py
+#: code:addons/amnus_projects/models/project_project.py:0
+#: model:ir.model.fields,field_description:amnus_projects.field_project_project__amnus_request_id
 msgid "Implementation Request"
 msgstr "طلب التنفيذ"
 
 #. module: amnus_projects
+#: model:ir.model.fields.selection,name:amnus_projects.selection__amnus_project_deliverable__type__integration
 msgid "Integration"
 msgstr "تكامل"
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__message_is_follower
 msgid "Is Follower"
 msgstr "متابع"
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__write_uid
 msgid "Last Updated by"
 msgstr "آخر تحديث بواسطة"
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__write_date
 msgid "Last Updated on"
 msgstr "آخر تحديث في"
 
 #. module: amnus_projects
+#: model:res.groups,comment:amnus_projects.group_amnus_project_manager
 msgid "Manage AMNUS projects, handover requests and deliverable sign-off."
 msgstr "إدارة مشاريع AMNUS وطلبات التسليم واعتماد المخرَجات."
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__message_has_error
 msgid "Message Delivery error"
 msgstr "خطأ في تسليم الرسالة"
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__message_ids
 msgid "Messages"
 msgstr "الرسائل"
 
 #. module: amnus_projects
+#: model_terms:ir.ui.view,arch_db:amnus_projects.view_amnus_project_deliverable_search
 msgid "My Deliverables"
 msgstr "مخرَجاتي"
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__name
 msgid "Name"
 msgstr "الاسم"
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_crm_project_request.py
+#: code:addons/amnus_projects/models/amnus_crm_project_request.py:0
 msgid "No project is linked to this implementation request."
 msgstr "لا يوجد مشروع مرتبط بطلب التنفيذ هذا."
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__message_needaction_counter
 msgid "Number of Actions"
 msgstr "عدد الإجراءات"
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__message_has_error_counter
 msgid "Number of errors"
 msgstr "عدد الأخطاء"
 
 #. module: amnus_projects
+#: model:ir.model.fields,help:amnus_projects.field_amnus_project_deliverable__message_needaction_counter
 msgid "Number of messages requiring action"
 msgstr "عدد الرسائل التي تتطلب إجراءً"
 
 #. module: amnus_projects
+#: model:ir.model.fields,help:amnus_projects.field_amnus_project_deliverable__message_has_error_counter
 msgid "Number of messages with delivery error"
 msgstr "عدد الرسائل التي بها خطأ في التسليم"
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_crm_project_request.py
+#: code:addons/amnus_projects/models/amnus_crm_project_request.py:0
 msgid "Only an AMNUS Project Manager can create a project from a request."
 msgstr "لا يمكن لغير مدير مشاريع AMNUS إنشاء مشروع من طلب."
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py:0
 msgid "Only an AMNUS Project Manager can perform this action."
 msgstr "لا يمكن لغير مدير مشاريع AMNUS تنفيذ هذا الإجراء."
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_crm_project_request.py
+#: code:addons/amnus_projects/models/amnus_crm_project_request.py:0
 msgid "Only approved implementation requests can be converted into a project."
 msgstr "لا يمكن تحويل إلا طلبات التنفيذ المعتمدة إلى مشروع."
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py:0
 msgid "Only draft or rejected deliverables can be submitted."
 msgstr "لا يمكن تقديم إلا المخرَجات في حالة المسودة أو المرفوضة."
 
 #. module: amnus_projects
+#: model:ir.model.constraint,message:amnus_projects.constraint_project_project_amnus_request_unique
 msgid "Only one project can be linked to an implementation request."
 msgstr "لا يمكن ربط إلا مشروع واحد بطلب تنفيذ."
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py:0
 msgid "Only submitted deliverables can be accepted."
 msgstr "لا يمكن قبول إلا المخرَجات المقدَّمة."
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py:0
 msgid "Only submitted deliverables can be rejected."
 msgstr "لا يمكن رفض إلا المخرَجات المقدَّمة."
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py:0
 msgid "Only submitted or rejected deliverables can be reset to draft."
 msgstr "لا يمكن إعادة إلى المسودة إلا المخرَجات المقدَّمة أو المرفوضة."
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_project_deliverable.py
-msgid "Only the responsible user or an AMNUS Project Manager can submit this deliverable."
-msgstr "لا يمكن تقديم هذا المخرَج إلا من قبل المستخدم المسؤول أو مدير مشاريع AMNUS."
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py:0
+msgid ""
+"Only the responsible user or an AMNUS Project Manager can submit this "
+"deliverable."
+msgstr ""
+"لا يمكن تقديم هذا المخرَج إلا من قبل المستخدم المسؤول أو مدير مشاريع AMNUS."
 
 #. module: amnus_projects
+#: model:ir.model.fields.selection,name:amnus_projects.selection__amnus_project_deliverable__type__other
 msgid "Other"
 msgstr "أخرى"
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_crm_project_request.py
+#: code:addons/amnus_projects/models/amnus_crm_project_request.py:0
+#: model:ir.model,name:amnus_projects.model_project_project
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_crm_project_request__project_id
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__project_id
+#: model_terms:ir.ui.view,arch_db:amnus_projects.view_amnus_project_deliverable_search
 msgid "Project"
 msgstr "المشروع"
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_crm_project_request.py
-#, python-format
+#: code:addons/amnus_projects/models/amnus_crm_project_request.py:0
 msgid "Project %(project)s created from implementation request %(request)s."
 msgstr "أُنشئ المشروع %(project)s من طلب التنفيذ %(request)s."
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_crm_project_request.py
+#: code:addons/amnus_projects/models/amnus_crm_project_request.py:0
 msgid "Project Created from Implementation Request"
 msgstr "تم إنشاء المشروع من طلب تنفيذ"
 
 #. module: amnus_projects
+#: model:ir.ui.menu,name:amnus_projects.menu_amnus_project_stages
 msgid "Project Stages"
 msgstr "مراحل المشروع"
 
 #. module: amnus_projects
+#: model:ir.model.fields,help:amnus_projects.field_amnus_crm_project_request__project_id
 msgid "Project created from this implementation request."
 msgstr "المشروع المنشأ من طلب التنفيذ هذا."
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_crm_project_request__project_count
+#: model:ir.ui.menu,name:amnus_projects.menu_amnus_projects
+#: model:ir.ui.menu,name:amnus_projects.menu_amnus_projects_root
 msgid "Projects"
 msgstr "المشاريع"
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__rating_ids
 msgid "Ratings"
 msgstr "التقييمات"
 
 #. module: amnus_projects
+#: model_terms:ir.ui.view,arch_db:amnus_projects.view_amnus_project_deliverable_form
 msgid "Reject"
 msgstr "رفض"
 
 #. module: amnus_projects
+#: model:ir.model.fields.selection,name:amnus_projects.selection__amnus_project_deliverable__state__rejected
+#: model_terms:ir.ui.view,arch_db:amnus_projects.view_amnus_project_deliverable_search
 msgid "Rejected"
 msgstr "مرفوض"
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__rejected_by
 msgid "Rejected By"
 msgstr "رُفض بواسطة"
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__rejected_date
 msgid "Rejected On"
 msgstr "رُفض في"
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__rejection_reason
 msgid "Rejection Reason"
 msgstr "سبب الرفض"
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_project_project__amnus_request_type
 msgid "Request Type"
 msgstr "نوع الطلب"
 
 #. module: amnus_projects
+#: model_terms:ir.ui.view,arch_db:amnus_projects.view_amnus_project_deliverable_form
 msgid "Required when rejecting a deliverable"
 msgstr "مطلوب عند رفض مخرَج"
 
 #. module: amnus_projects
+#: model_terms:ir.ui.view,arch_db:amnus_projects.view_amnus_project_deliverable_form
 msgid "Reset to Draft"
 msgstr "إعادة إلى المسودة"
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__responsible_id
+#: model_terms:ir.ui.view,arch_db:amnus_projects.view_amnus_project_deliverable_search
 msgid "Responsible"
 msgstr "المسؤول"
 
 #. module: amnus_projects
+#: model_terms:ir.ui.view,arch_db:amnus_projects.view_amnus_project_deliverable_search
 msgid "Search Deliverables"
 msgstr "البحث في المخرَجات"
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__sequence
 msgid "Sequence"
 msgstr "التسلسل"
 
 #. module: amnus_projects
+#: model_terms:ir.ui.view,arch_db:amnus_projects.view_amnus_project_deliverable_form
 msgid "Sign-off"
 msgstr "الاعتماد"
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py:0
 msgid "Sign-off information cannot be modified directly."
 msgstr "لا يمكن تعديل معلومات الاعتماد مباشرة."
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py:0
 msgid "Sign-off information cannot be set when creating a deliverable."
 msgstr "لا يمكن تعيين معلومات الاعتماد عند إنشاء مخرَج."
 
 #. module: amnus_projects
+#: model:ir.model.fields.selection,name:amnus_projects.selection__amnus_project_deliverable__type__software
 msgid "Software"
 msgstr "برنامج"
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__state
+#: model_terms:ir.ui.view,arch_db:amnus_projects.view_amnus_project_deliverable_search
 msgid "Status"
 msgstr "الحالة"
 
 #. module: amnus_projects
+#: model_terms:ir.ui.view,arch_db:amnus_projects.view_amnus_project_deliverable_form
 msgid "Submission"
 msgstr "التقديم"
 
 #. module: amnus_projects
+#: model_terms:ir.ui.view,arch_db:amnus_projects.view_amnus_project_deliverable_form
 msgid "Submit"
 msgstr "تقديم"
 
 #. module: amnus_projects
+#: model:ir.model.fields.selection,name:amnus_projects.selection__amnus_project_deliverable__state__submitted
+#: model_terms:ir.ui.view,arch_db:amnus_projects.view_amnus_project_deliverable_search
 msgid "Submitted"
 msgstr "مقدَّم"
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__submitted_by
 msgid "Submitted By"
 msgstr "قُدّم بواسطة"
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__submitted_date
 msgid "Submitted On"
 msgstr "قُدّم في"
 
 #. module: amnus_projects
+#: model:ir.model,name:amnus_projects.model_project_task
 msgid "Task"
 msgstr "المهمة"
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py:0
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__task_count
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__task_ids
+#: model_terms:ir.ui.view,arch_db:amnus_projects.view_amnus_project_deliverable_form
 msgid "Tasks"
 msgstr "المهام"
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_crm_project_request.py
+#: code:addons/amnus_projects/models/amnus_crm_project_request.py:0
 msgid "The customer company does not match the request company."
 msgstr "شركة العميل لا تطابق شركة الطلب."
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/project_task.py
+#: code:addons/amnus_projects/models/project_task.py:0
 msgid "The deliverable must belong to the same project as the task."
 msgstr "يجب أن ينتمي المخرَج إلى نفس مشروع المهمة."
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_project_deliverable.py
-msgid "The deliverable status can only be changed through the workflow buttons."
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py:0
+msgid ""
+"The deliverable status can only be changed through the workflow buttons."
 msgstr "لا يمكن تغيير حالة المخرَج إلا عبر أزرار سير العمل."
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_crm_project_request.py
+#: code:addons/amnus_projects/models/amnus_crm_project_request.py:0
 msgid "The implementation request has no company."
 msgstr "طلب التنفيذ ليس له شركة."
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/project_project.py
+#: code:addons/amnus_projects/models/project_project.py:0
 msgid "The implementation request link cannot be modified directly."
 msgstr "لا يمكن تعديل رابط طلب التنفيذ مباشرة."
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_crm_project_request.py
+#: code:addons/amnus_projects/models/amnus_crm_project_request.py:0
 msgid "The implementation request no longer exists."
 msgstr "طلب التنفيذ لم يعد موجوداً."
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_crm_project_request.py
+#: code:addons/amnus_projects/models/amnus_crm_project_request.py:0
 msgid "The linked project is not attached to this implementation request."
 msgstr "المشروع المرتبط غير مرتبط بطلب التنفيذ هذا."
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_crm_project_request.py
+#: code:addons/amnus_projects/models/amnus_crm_project_request.py:0
 msgid "The opportunity company does not match the request company."
 msgstr "شركة الفرصة لا تطابق شركة الطلب."
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py:0
 msgid "The project cannot be changed after the deliverable is submitted."
 msgstr "لا يمكن تغيير المشروع بعد تقديم المخرَج."
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_project_deliverable.py
-msgid "The project cannot be changed while tasks are linked to the deliverable."
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py:0
+msgid ""
+"The project cannot be changed while tasks are linked to the deliverable."
 msgstr "لا يمكن تغيير المشروع أثناء ارتباط مهام بالمخرَج."
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/project_project.py
+#: code:addons/amnus_projects/models/project_project.py:0
 msgid "The project company must match the implementation request company."
 msgstr "يجب أن تطابق شركة المشروع شركة طلب التنفيذ."
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_crm_project_request.py
+#: code:addons/amnus_projects/models/amnus_crm_project_request.py:0
 msgid "The project link can only be set through the handover action."
 msgstr "لا يمكن تعيين رابط المشروع إلا من خلال إجراء التسليم."
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_crm_project_request.py code:addons/amnus_projects/models/project_project.py
+#: code:addons/amnus_projects/models/amnus_crm_project_request.py:0
+#: code:addons/amnus_projects/models/project_project.py:0
 msgid "This implementation request is already linked to a project."
 msgstr "طلب التنفيذ هذا مرتبط بالفعل بمشروع."
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/project_project.py
+#: code:addons/amnus_projects/models/project_project.py:0
 msgid "This project contains accepted deliverables and cannot be deleted."
 msgstr "يحتوي هذا المشروع على مخرَجات مقبولة ولا يمكن حذفه."
 
 #. module: amnus_projects
+#: model_terms:ir.actions.act_window,help:amnus_projects.action_amnus_project_deliverables
 msgid "Track the contractual outputs of your implementation projects."
 msgstr "تابع المخرَجات التعاقدية لمشاريع التنفيذ الخاصة بك."
 
 #. module: amnus_projects
+#: model:ir.model.fields.selection,name:amnus_projects.selection__amnus_project_deliverable__type__training
 msgid "Training"
 msgstr "تدريب"
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__type
+#: model_terms:ir.ui.view,arch_db:amnus_projects.view_amnus_project_deliverable_search
 msgid "Type"
 msgstr "النوع"
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_crm_project_request.py
+#: code:addons/amnus_projects/models/amnus_crm_project_request.py:0
 msgid "Unknown customer"
 msgstr "عميل غير معروف"
 
 #. module: amnus_projects
+#: model:res.groups,comment:amnus_projects.group_amnus_project_user
 msgid "Use AMNUS projects, deliverables and linked tasks."
 msgstr "استخدام مشاريع AMNUS والمخرَجات والمهام المرتبطة."
 
 #. module: amnus_projects
+#: model:ir.model.fields,help:amnus_projects.field_project_task__display_name
 msgid ""
 "Use these keywords in the title to set new tasks:\n"
 "\n"
@@ -692,34 +832,38 @@ msgstr ""
 "            تأكد من استخدام التنسيق والترتيب الصحيحين، مثلاً: تحسين شاشة الإعدادات #feature #v16 @Mitchell !"
 
 #. module: amnus_projects
+#: model_terms:ir.ui.view,arch_db:amnus_projects.view_amnus_crm_project_request_form_amnus
 msgid "View Project"
 msgstr "عرض المشروع"
 
 #. module: amnus_projects
+#: model:ir.model.fields,field_description:amnus_projects.field_amnus_project_deliverable__website_message_ids
 msgid "Website Messages"
 msgstr "رسائل الموقع"
 
 #. module: amnus_projects
+#: model:ir.model.fields,help:amnus_projects.field_amnus_project_deliverable__website_message_ids
 msgid "Website communication history"
 msgstr "سجل اتصالات الموقع"
 
 #. module: amnus_projects
+#: model:ir.model.fields,help:amnus_projects.field_project_project__amnus_is_amnus_project
 msgid "Whether this project is managed through the AMNUS lifecycle."
 msgstr "ما إذا كان هذا المشروع يُدار عبر دورة حياة AMNUS."
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_crm_project_request.py
+#: code:addons/amnus_projects/models/amnus_crm_project_request.py:0
 msgid "You are not allowed to create a project for this company."
 msgstr "غير مسموح لك بإنشاء مشروع لهذه الشركة."
 
 #. module: amnus_projects
 #. odoo-python
-#: code:addons/amnus_projects/models/amnus_project_deliverable.py
+#: code:addons/amnus_projects/models/amnus_project_deliverable.py:0
 msgid "amnus_deliverable_id"
 msgstr ""
 
 #. module: amnus_projects
+#: model_terms:ir.ui.view,arch_db:amnus_projects.view_amnus_project_deliverable_form
 msgid "e.g. Signed functional specification"
 msgstr "مثال: مواصفات وظيفية موقعة"
-

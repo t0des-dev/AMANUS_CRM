@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- ==================== USER STORY LIST ==================== -->
+        <record id="view_amnus_agile_user_story_list" model="ir.ui.view">
+            <field name="name">amnus.agile.user.story.list</field>
+            <field name="model">amnus.agile.user.story</field>
+            <field name="arch" type="xml">
+                <list string="User Stories">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                    <field name="project_id"/>
+                    <field name="epic_id"/>
+                    <field name="priority"/>
+                    <field name="story_points"/>
+                    <field name="sprint_id"/>
+                    <field name="state" widget="badge"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- ==================== USER STORY KANBAN ==================== -->
+        <record id="view_amnus_agile_user_story_kanban" model="ir.ui.view">
+            <field name="name">amnus.agile.user.story.kanban</field>
+            <field name="model">amnus.agile.user.story</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name"/>
+                    <field name="priority"/>
+                    <field name="story_points"/>
+                    <field name="state"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_card">
+                                <div class="oe_kanban_details">
+                                    <field name="name"/>
+                                    <field name="story_points"/>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- ==================== USER STORY FORM ==================== -->
+        <record id="view_amnus_agile_user_story_form" model="ir.ui.view">
+            <field name="name">amnus.agile.user.story.form</field>
+            <field name="model">amnus.agile.user.story</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_plan" type="object" string="Plan"
+                                class="btn-primary" invisible="state != 'backlog'"/>
+                        <button name="action_start" type="object" string="Start"
+                                class="btn-primary" invisible="state != 'planned'"/>
+                        <button name="action_done" type="object" string="Done"
+                                class="btn-success" invisible="state != 'in_progress'"/>
+                        <button name="action_cancel" type="object" string="Cancel"
+                                class="btn-danger" invisible="state in ('done', 'cancelled')"/>
+                        <button name="action_create_task" type="object" string="Create Task"
+                                invisible="task_id != False"/>
+                        <button name="action_remove_from_sprint" type="object"
+                                string="Remove from Sprint" invisible="sprint_id == False"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="state" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="project_id"/>
+                            <field name="epic_id"/>
+                            <field name="sprint_id"/>
+                            <field name="task_id"/>
+                            <field name="task_state"/>
+                            <field name="task_user_ids" widget="many2many_tags"/>
+                        </group>
+                        <group>
+                            <field name="priority"/>
+                            <field name="story_points"/>
+                            <field name="sequence"/>
+                            <field name="tag_ids" widget="many2many_tags"/>
+                        </group>
+                        <notebook>
+                            <page string="Description">
+                                <field name="description"/>
+                            </page>
+                            <page string="Acceptance">
+                                <field name="acceptance_criteria"/>
+                            </page>
+                            <page string="Business Value">
+                                <field name="business_value"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- ==================== USER STORY SEARCH ==================== -->
+        <record id="view_amnus_agile_user_story_search" model="ir.ui.view">
+            <field name="name">amnus.agile.user.story.search</field>
+            <field name="model">amnus.agile.user.story</field>
+            <field name="arch" type="xml">
+                <search string="User Stories">
+                    <field name="name"/>
+                    <field name="project_id"/>
+                    <field name="epic_id"/>
+                    <field name="sprint_id"/>
+                    <field name="priority"/>
+                    <field name="story_points"/>
+                    <filter string="Backlog" name="backlog" domain="[('state', '=', 'backlog')]"/>
+                    <filter string="Planned" name="planned" domain="[('state', '=', 'planned')]"/>
+                    <filter string="In Progress" name="in_progress" domain="[('state', '=', 'in_progress')]"/>
+                    <filter string="Done" name="done" domain="[('state', '=', 'done')]"/>
+                    <filter string="Cancelled" name="cancelled" domain="[('state', '=', 'cancelled')]"/>
+                    <separator/>
+                    <filter string="Project" name="group_project" context="{'group_by': 'project_id'}"/>
+                    <filter string="Epic" name="group_epic" context="{'group_by': 'epic_id'}"/>
+                    <filter string="Sprint" name="group_sprint" context="{'group_by': 'sprint_id'}"/>
+                    <filter string="State" name="group_state" context="{'group_by': 'state'}"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- ==================== USER STORY ACTION ==================== -->
+        <record id="action_amnus_agile_user_story" model="ir.actions.act_window">
+            <field name="name">User Stories</field>
+            <field name="res_model">amnus.agile.user.story</field>
+            <field name="view_mode">list,form,kanban,search</field>
+            <field name="target">current</field>
+            <field name="help" type="html">
+                <p class="o_view_nocenter_empty_smiley">Track planned and executed Agile user stories.</p>
+            </field>
+        </record>
+    </data>
+</odoo>

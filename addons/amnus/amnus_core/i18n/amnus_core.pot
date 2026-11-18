@@ -1,217 +1,352 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* amnus_core
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: AMNUS Core 19.0.1.0.0\n"
+"Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-13\n"
-"PO-Revision-Date: \n"
+"POT-Creation-Date: 2026-11-17 22:55+0000\n"
+"PO-Revision-Date: 2026-11-17 22:55+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
 
-msgid "AMNUS Core"
+#. module: amnus_core
+#. odoo-python
+#: code:addons/amnus_core/models/amnus_tag.py:0
+msgid ""
+"A tag with the name '%(name)s' and category '%(category)s' already exists in"
+" this scope."
 msgstr ""
 
-msgid "AMNUS Platform — Core Foundation"
-msgstr ""
-
-msgid "Shared infrastructure for all AMNUS (Odoo Project Lifecycle Management Platform) modules."
-msgstr ""
-
-msgid "Reusable tags (``amnus.tag``) for classifying records across AMNUS modules."
-msgstr ""
-
-msgid "A shared audit log (``amnus.audit.log``) for recording important business operations."
-msgstr ""
-
-msgid "Foundational AMNUS configuration via ``res.config.settings``."
-msgstr ""
-
-msgid "The AMNUS root menu and security groups (AMNUS User, Manager, Administrator)."
-msgstr ""
-
-msgid "It is the foundation layer of the AMNUS platform and must be installed before any"
-msgstr ""
-
-msgid "other AMNUS addon."
-msgstr ""
-
-msgid "Odoo 19 Community Edition only. No Enterprise dependencies."
-msgstr ""
-
-msgid "AMNUS Tag"
-msgstr ""
-
-msgid "Name"
-msgstr ""
-
-msgid "Color Index"
-msgstr ""
-
-msgid "Active"
-msgstr ""
-
-msgid "Category"
-msgstr ""
-
-msgid "General"
-msgstr ""
-
-msgid "Project"
-msgstr ""
-
-msgid "Analysis"
-msgstr ""
-
-msgid "Agile"
-msgstr ""
-
-msgid "Development"
-msgstr ""
-
-msgid "Quality Assurance"
-msgstr ""
-
-msgid "Support"
-msgstr ""
-
-msgid "Description"
-msgstr ""
-
-msgid "Company"
-msgstr ""
-
-msgid "Leave empty for a global tag shared across all companies."
-msgstr ""
-
-msgid "A tag with the same name and category already exists for this company."
-msgstr ""
-
-msgid "The tag name cannot be empty."
-msgstr ""
-
-msgid "A tag with the name '%(name)s' and category '%(category)s' already exists in this scope."
-msgstr ""
-
-msgid "AMNUS Audit Log"
-msgstr ""
-
-msgid "Event"
-msgstr ""
-
-msgid "Date"
-msgstr ""
-
-msgid "User"
-msgstr ""
-
-msgid "Model"
-msgstr ""
-
-msgid "Record ID"
-msgstr ""
-
-msgid "Action"
-msgstr ""
-
-msgid "Description"
-msgstr ""
-
-msgid "Create"
-msgstr ""
-
-msgid "Update"
-msgstr ""
-
-msgid "Delete"
-msgstr ""
-
-msgid "State Change"
-msgstr ""
-
-msgid "Login"
-msgstr ""
-
-msgid "Export"
-msgstr ""
-
-msgid "Other"
-msgstr ""
-
-msgid "Audit log records cannot be modified."
-msgstr ""
-
-msgid "Audit log records cannot be deleted."
-msgstr ""
-
+#. module: amnus_core
+#: model:ir.ui.menu,name:amnus_core.menu_amnus_root
+#: model_terms:ir.ui.view,arch_db:amnus_core.view_amnus_res_config_settings
 msgid "AMNUS"
 msgstr ""
 
-msgid "Overview"
-msgstr ""
-
-msgid "Configuration"
-msgstr ""
-
-msgid "Tags"
-msgstr ""
-
-msgid "Settings"
-msgstr ""
-
-msgid "Administration"
-msgstr ""
-
-msgid "Audit Logs"
-msgstr ""
-
-msgid "AMNUS Tags"
-msgstr ""
-
-msgid "AMNUS Tag"
-msgstr ""
-
-msgid "Create tags to classify AMNUS records across modules."
-msgstr ""
-
-msgid "AMNUS Audit Logs"
-msgstr ""
-
-msgid "Audit trail of important AMNUS business operations."
-msgstr ""
-
-msgid "AMNUS Settings"
-msgstr ""
-
-msgid "AMNUS Core"
-msgstr ""
-
-msgid "Enable or disable the AMNUS platform globally."
-msgstr ""
-
-msgid "Enable or disable audit logging for AMNUS business operations."
-msgstr ""
-
-msgid "AMNUS Enabled"
-msgstr ""
-
-msgid "Audit Logging Enabled"
-msgstr ""
-
-msgid "AMNUS User"
-msgstr ""
-
-msgid "AMNUS Manager"
-msgstr ""
-
+#. module: amnus_core
+#: model:res.groups,name:amnus_core.group_amnus_admin
 msgid "AMNUS Administrator"
 msgstr ""
 
-msgid "AMNUS Tag — company isolation"
+#. module: amnus_core
+#: model:ir.model,name:amnus_core.model_amnus_audit_log
+#: model_terms:ir.ui.view,arch_db:amnus_core.view_amnus_audit_log_form
+msgid "AMNUS Audit Log"
 msgstr ""
 
-msgid "AMNUS Audit Log — company isolation"
+#. module: amnus_core
+#: model:ir.actions.act_window,name:amnus_core.action_amnus_audit_log
+#: model_terms:ir.ui.view,arch_db:amnus_core.view_amnus_audit_log_tree
+msgid "AMNUS Audit Logs"
+msgstr ""
+
+#. module: amnus_core
+#: model_terms:ir.ui.view,arch_db:amnus_core.view_amnus_res_config_settings
+msgid "AMNUS Core"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_res_config_settings__amnus_enabled
+#: model_terms:ir.ui.view,arch_db:amnus_core.view_amnus_res_config_settings
+msgid "AMNUS Enabled"
+msgstr ""
+
+#. module: amnus_core
+#: model:res.groups,name:amnus_core.group_amnus_manager
+msgid "AMNUS Manager"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.actions.act_window,name:amnus_core.action_amnus_settings
+msgid "AMNUS Settings"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.model,name:amnus_core.model_amnus_tag
+#: model_terms:ir.ui.view,arch_db:amnus_core.view_amnus_tag_form
+msgid "AMNUS Tag"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.actions.act_window,name:amnus_core.action_amnus_tag
+#: model_terms:ir.ui.view,arch_db:amnus_core.view_amnus_tag_tree
+msgid "AMNUS Tags"
+msgstr ""
+
+#. module: amnus_core
+#: model:res.groups,name:amnus_core.group_amnus_user
+msgid "AMNUS User"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_audit_log__action
+msgid "Action"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_tag__active
+msgid "Active"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.ui.menu,name:amnus_core.menu_amnus_administration
+msgid "Administration"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.model.fields.selection,name:amnus_core.selection__amnus_tag__category__agile
+msgid "Agile"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.model.fields.selection,name:amnus_core.selection__amnus_tag__category__analysis
+msgid "Analysis"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_res_config_settings__amnus_audit_logging
+#: model_terms:ir.ui.view,arch_db:amnus_core.view_amnus_res_config_settings
+msgid "Audit Logging Enabled"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.ui.menu,name:amnus_core.menu_amnus_audit_logs
+#: model:ir.ui.menu,name:amnus_core.menu_amnus_audit_logs_action
+msgid "Audit Logs"
+msgstr ""
+
+#. module: amnus_core
+#. odoo-python
+#: code:addons/amnus_core/models/amnus_audit_log.py:0
+msgid "Audit log records cannot be deleted."
+msgstr ""
+
+#. module: amnus_core
+#. odoo-python
+#: code:addons/amnus_core/models/amnus_audit_log.py:0
+msgid "Audit log records cannot be modified."
+msgstr ""
+
+#. module: amnus_core
+#: model_terms:ir.actions.act_window,help:amnus_core.action_amnus_audit_log
+msgid "Audit trail of important AMNUS business operations."
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_tag__category
+msgid "Category"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_tag__color
+msgid "Color Index"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_audit_log__company_id
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_tag__company_id
+msgid "Company"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.model,name:amnus_core.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.ui.menu,name:amnus_core.menu_amnus_configuration
+msgid "Configuration"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.model.fields.selection,name:amnus_core.selection__amnus_audit_log__action__create
+msgid "Create"
+msgstr ""
+
+#. module: amnus_core
+#: model_terms:ir.actions.act_window,help:amnus_core.action_amnus_tag
+msgid "Create tags to classify AMNUS records across modules."
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_audit_log__create_uid
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_tag__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_audit_log__create_date
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_tag__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_audit_log__date
+msgid "Date"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.model.fields.selection,name:amnus_core.selection__amnus_audit_log__action__delete
+msgid "Delete"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_audit_log__description
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_tag__description
+msgid "Description"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.model.fields.selection,name:amnus_core.selection__amnus_tag__category__development
+msgid "Development"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_audit_log__display_name
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_tag__display_name
+#: model:ir.model.fields,field_description:amnus_core.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: amnus_core
+#: model_terms:ir.ui.view,arch_db:amnus_core.view_amnus_res_config_settings
+msgid "Enable or disable audit logging for AMNUS business operations."
+msgstr ""
+
+#. module: amnus_core
+#: model_terms:ir.ui.view,arch_db:amnus_core.view_amnus_res_config_settings
+msgid "Enable or disable the AMNUS platform globally."
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_audit_log__name
+msgid "Event"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.model.fields.selection,name:amnus_core.selection__amnus_audit_log__action__export
+msgid "Export"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.model.fields.selection,name:amnus_core.selection__amnus_tag__category__general
+msgid "General"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_audit_log__id
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_tag__id
+#: model:ir.model.fields,field_description:amnus_core.field_res_config_settings__id
+msgid "ID"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_audit_log__write_uid
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_tag__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_audit_log__write_date
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_tag__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.model.fields,help:amnus_core.field_amnus_tag__company_id
+msgid "Leave empty for a global tag shared across all companies."
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.model.fields.selection,name:amnus_core.selection__amnus_audit_log__action__login
+msgid "Login"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_audit_log__model_name
+msgid "Model"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_tag__name
+msgid "Name"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.model.fields.selection,name:amnus_core.selection__amnus_audit_log__action__other
+msgid "Other"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.ui.menu,name:amnus_core.menu_amnus_overview
+msgid "Overview"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.model.fields.selection,name:amnus_core.selection__amnus_tag__category__project
+msgid "Project"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.model.fields.selection,name:amnus_core.selection__amnus_tag__category__qa
+msgid "Quality Assurance"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_audit_log__record_id
+msgid "Record ID"
+msgstr ""
+
+#. module: amnus_core
+#: model_terms:ir.ui.view,arch_db:amnus_core.view_amnus_audit_log_search
+msgid "Search Audit Logs"
+msgstr ""
+
+#. module: amnus_core
+#: model_terms:ir.ui.view,arch_db:amnus_core.view_amnus_tag_search
+msgid "Search Tags"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.ui.menu,name:amnus_core.menu_amnus_settings
+#: model:ir.ui.menu,name:amnus_core.menu_amnus_settings_action
+msgid "Settings"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.model.fields.selection,name:amnus_core.selection__amnus_audit_log__action__state_change
+msgid "State Change"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.model.fields.selection,name:amnus_core.selection__amnus_tag__category__support
+msgid "Support"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.ui.menu,name:amnus_core.menu_amnus_tags
+#: model:ir.ui.menu,name:amnus_core.menu_amnus_tags_action
+msgid "Tags"
+msgstr ""
+
+#. module: amnus_core
+#. odoo-python
+#: code:addons/amnus_core/models/amnus_tag.py:0
+msgid "The tag name cannot be empty."
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.model.fields.selection,name:amnus_core.selection__amnus_audit_log__action__update
+msgid "Update"
+msgstr ""
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_audit_log__user_id
+msgid "User"
 msgstr ""

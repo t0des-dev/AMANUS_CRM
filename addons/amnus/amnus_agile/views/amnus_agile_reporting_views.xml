@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- ==================== BURNDOWN REPORTING ==================== -->
+        <record id="view_amnus_agile_burndown_list" model="ir.ui.view">
+            <field name="name">amnus.agile.burndown.list</field>
+            <field name="model">amnus.agile.burndown</field>
+            <field name="arch" type="xml">
+                <list string="Burndown Points" create="0" edit="0" delete="0">
+                    <field name="sprint_id"/>
+                    <field name="date"/>
+                    <field name="remaining_points"/>
+                    <field name="completed_points"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_amnus_agile_burndown_graph" model="ir.ui.view">
+            <field name="name">amnus.agile.burndown.graph</field>
+            <field name="model">amnus.agile.burndown</field>
+            <field name="arch" type="xml">
+                <graph type="line" string="Burndown">
+                    <field name="date" interval="day"/>
+                    <field name="remaining_points" type="measure"/>
+                    <field name="completed_points" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id="view_amnus_agile_burndown_search" model="ir.ui.view">
+            <field name="name">amnus.agile.burndown.search</field>
+            <field name="model">amnus.agile.burndown</field>
+            <field name="arch" type="xml">
+                <search string="Burndown Points">
+                    <field name="sprint_id"/>
+                    <field name="date"/>
+                    <filter string="Sprint" name="group_sprint" context="{'group_by': 'sprint_id'}"/>
+                    <filter string="Date" name="group_date" context="{'group_by': 'date'}"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_amnus_agile_burndown" model="ir.actions.act_window">
+            <field name="name">Burndown</field>
+            <field name="res_model">amnus.agile.burndown</field>
+            <field name="view_mode">graph,list,search</field>
+            <field name="target">current</field>
+            <field name="context">{'search_default_group_sprint': 1}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocenter_empty_smiley">
+                    Burndown points are recorded from dated sprint events only.
+                </p>
+            </field>
+        </record>
+
+        <!-- ==================== VELOCITY REPORTING ==================== -->
+        <record id="view_amnus_agile_sprint_velocity_list" model="ir.ui.view">
+            <field name="name">amnus.agile.sprint.velocity.list</field>
+            <field name="model">amnus.agile.sprint</field>
+            <field name="arch" type="xml">
+                <list string="Sprint Velocity" create="0" edit="0" delete="0">
+                    <field name="name"/>
+                    <field name="project_id"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="final_committed_points"/>
+                    <field name="final_completed_points"/>
+                    <field name="final_carry_over_points"/>
+                    <field name="velocity_points"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_amnus_agile_sprint_velocity_graph" model="ir.ui.view">
+            <field name="name">amnus.agile.sprint.velocity.graph</field>
+            <field name="model">amnus.agile.sprint</field>
+            <field name="arch" type="xml">
+                <graph type="bar" string="Velocity">
+                    <field name="date_start" interval="week"/>
+                    <field name="velocity_points" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id="action_amnus_agile_sprint_velocity" model="ir.actions.act_window">
+            <field name="name">Velocity</field>
+            <field name="res_model">amnus.agile.sprint</field>
+            <field name="view_mode">graph,list</field>
+            <field name="domain">[('state', '=', 'closed')]</field>
+            <field name="context">{'search_default_group_project': 1}</field>
+            <field name="target">current</field>
+            <field name="help" type="html">
+                <p class="o_view_nocenter_empty_smiley">
+                    Velocity uses the completed Story Points frozen at sprint closure.
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

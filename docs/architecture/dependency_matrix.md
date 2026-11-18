@@ -27,7 +27,7 @@
 | amnus_crm | crm, mail, contacts | ✓ Verified — Implemented (Sprint 02) |
 | amnus_projects | project, mail | ✓ Verified — Implemented (Sprint 03); `sale` intentionally deferred |
 | amnus_analysis | project | ✓ Verified |
-| amnus_agile | project | ✓ Verified |
+| amnus_agile | project, mail | ✓ Verified — Implemented (Sprint 04) |
 | amnus_development | project | ✓ Verified |
 | amnus_devops | project | ✓ Verified |
 | amnus_qa | project | ✓ Verified |

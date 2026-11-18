@@ -1,0 +1,442 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-17 22:55+0000\n"
+"PO-Revision-Date: 2026-11-17 23:00+0000\n"
+"Last-Translator: AMNUS Sprint 04.5 P1\n"
+"Language-Team: Arabic\n"
+"Language: ar_SA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=6; plural=n==0?0:n==1?1:n==2?2:n%100>=3&&n%100<=10?3:n%100>=11&&n%100<=99?4:5;\n"
+
+#. module: amnus_crm
+#: model:ir.model.fields.selection,name:amnus_crm.selection__crm_lead__amnus_company_size__small
+msgid "1-10 employees"
+msgstr "1-10 موظف"
+
+#. module: amnus_crm
+#: model:ir.model.fields.selection,name:amnus_crm.selection__crm_lead__amnus_company_size__medium
+msgid "11-50 employees"
+msgstr "11-50 موظف"
+
+#. module: amnus_crm
+#: model:ir.model.fields.selection,name:amnus_crm.selection__crm_lead__amnus_company_size__enterprise
+msgid "250+ employees"
+msgstr "250+ موظف"
+
+#. module: amnus_crm
+#: model:ir.model.fields.selection,name:amnus_crm.selection__crm_lead__amnus_company_size__large
+msgid "51-250 employees"
+msgstr "51-250 موظف"
+
+#. module: amnus_crm
+#: model:ir.model,name:amnus_crm.model_amnus_crm_project_request
+msgid "AMNUS CRM Project Implementation Request"
+msgstr "طلب تنفيذ مشروع CRM لـ AMNUS"
+
+#. module: amnus_crm
+#: model:ir.model.fields,field_description:amnus_crm.field_crm_lead__amnus_is_implementation
+#: model_terms:ir.ui.view,arch_db:amnus_crm.view_crm_lead_form_amnus
+#: model_terms:ir.ui.view,arch_db:amnus_crm.view_crm_lead_search_amnus
+msgid "AMNUS Implementation"
+msgstr "تنفيذ AMNUS"
+
+#. module: amnus_crm
+#: model:ir.model.fields,field_description:amnus_crm.field_crm_lead__amnus_tag_ids
+msgid "AMNUS Tags"
+msgstr "وسوم AMNUS"
+
+#. module: amnus_crm
+#: model_terms:ir.ui.view,arch_db:amnus_crm.view_amnus_crm_project_request_form
+msgid "Approve"
+msgstr "موافقة"
+
+#. module: amnus_crm
+#: model:ir.model.fields.selection,name:amnus_crm.selection__amnus_crm_project_request__state__approved
+msgid "Approved"
+msgstr "موافق عليه"
+
+#. module: amnus_crm
+#: model:ir.ui.menu,name:amnus_crm.menu_amnus_crm
+msgid "CRM"
+msgstr "CRM"
+
+#. module: amnus_crm
+#. odoo-python
+#: code:addons/amnus_crm/models/amnus_crm_project_request.py:0
+msgid "CRM Request Approved"
+msgstr "تم اعتماد طلب CRM"
+
+#. module: amnus_crm
+#. odoo-python
+#: code:addons/amnus_crm/models/amnus_crm_project_request.py:0
+msgid "CRM Request Submitted"
+msgstr "تم تقديم طلب CRM"
+
+#. module: amnus_crm
+#: model_terms:ir.ui.view,arch_db:amnus_crm.view_amnus_crm_project_request_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: amnus_crm
+#: model:ir.model.fields.selection,name:amnus_crm.selection__amnus_crm_project_request__state__cancelled
+msgid "Cancelled"
+msgstr "ملغي"
+
+#. module: amnus_crm
+#: model:ir.model.fields,field_description:amnus_crm.field_amnus_crm_project_request__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: amnus_crm
+#: model:ir.model.fields,field_description:amnus_crm.field_crm_lead__amnus_company_size
+msgid "Company Size"
+msgstr "حجم الشركة"
+
+#. module: amnus_crm
+#: model:ir.model.fields.selection,name:amnus_crm.selection__amnus_crm_project_request__request_type__consulting
+#: model:ir.model.fields.selection,name:amnus_crm.selection__crm_lead__amnus_request_type__consulting
+msgid "Consulting"
+msgstr "استشارات"
+
+#. module: amnus_crm
+#: model:ir.model.fields,field_description:amnus_crm.field_amnus_crm_project_request__contact_id
+msgid "Contact"
+msgstr "جهة اتصال"
+
+#. module: amnus_crm
+#: model_terms:ir.actions.act_window,help:amnus_crm.action_amnus_crm_project_request
+msgid "Create implementation requests from CRM opportunities."
+msgstr "إنشاء طلبات تنفيذ من فرص CRM."
+
+#. module: amnus_crm
+#: model:ir.model.fields,field_description:amnus_crm.field_amnus_crm_project_request__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: amnus_crm
+#: model:ir.model.fields,field_description:amnus_crm.field_amnus_crm_project_request__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: amnus_crm
+#: model:ir.model.fields,field_description:amnus_crm.field_crm_lead__amnus_current_system
+msgid "Current System"
+msgstr "النظام الحالي"
+
+#. module: amnus_crm
+#: model:ir.model.fields,field_description:amnus_crm.field_amnus_crm_project_request__partner_id
+msgid "Customer"
+msgstr "العميل"
+
+#. module: amnus_crm
+#: model:ir.model.fields.selection,name:amnus_crm.selection__amnus_crm_project_request__request_type__customization
+#: model:ir.model.fields.selection,name:amnus_crm.selection__crm_lead__amnus_request_type__customization
+msgid "Customization"
+msgstr "تخصيص"
+
+#. module: amnus_crm
+#: model:ir.model.fields,field_description:amnus_crm.field_amnus_crm_project_request__description
+#: model_terms:ir.ui.view,arch_db:amnus_crm.view_amnus_crm_project_request_form
+msgid "Description"
+msgstr "الوصف"
+
+#. module: amnus_crm
+#: model:ir.model.fields,help:amnus_crm.field_crm_lead__amnus_project_summary
+msgid "Description of the requested Odoo solution."
+msgstr "وصف حل Odoo المطلوب."
+
+#. module: amnus_crm
+#: model:ir.model.fields,field_description:amnus_crm.field_amnus_crm_project_request__display_name
+#: model:ir.model.fields,field_description:amnus_crm.field_crm_lead__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: amnus_crm
+#: model:ir.model.fields.selection,name:amnus_crm.selection__amnus_crm_project_request__state__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: amnus_crm
+#: model:ir.model.fields,field_description:amnus_crm.field_amnus_crm_project_request__estimated_users
+#: model:ir.model.fields,field_description:amnus_crm.field_crm_lead__amnus_estimated_users
+msgid "Estimated Users"
+msgstr "المستخدمون المقدرون"
+
+#. module: amnus_crm
+#. odoo-python
+#: code:addons/amnus_crm/models/amnus_crm_project_request.py:0
+#: code:addons/amnus_crm/models/crm_lead.py:0
+msgid "Estimated users must not be negative."
+msgstr "لا يجوز أن يكون عدد المستخدمين المقدر سالبًا."
+
+#. module: amnus_crm
+#: model:ir.model.fields,field_description:amnus_crm.field_amnus_crm_project_request__expected_go_live
+#: model:ir.model.fields,field_description:amnus_crm.field_crm_lead__amnus_expected_go_live
+msgid "Expected Go-Live"
+msgstr "تاريخ التشغيل المتوقع"
+
+#. module: amnus_crm
+#: model:ir.model.fields,field_description:amnus_crm.field_amnus_crm_project_request__expected_start_date
+#: model:ir.model.fields,field_description:amnus_crm.field_crm_lead__amnus_expected_start_date
+msgid "Expected Start Date"
+msgstr "تاريخ البدء المتوقع"
+
+#. module: amnus_crm
+#. odoo-python
+#: code:addons/amnus_crm/models/amnus_crm_project_request.py:0
+#: code:addons/amnus_crm/models/crm_lead.py:0
+msgid "Expected go-live date must not precede the expected start date."
+msgstr "لا يجوز أن يسبق تاريخ التشغيل المتوقع تاريخ البدء المتوقع."
+
+#. module: amnus_crm
+#: model:ir.model.fields,field_description:amnus_crm.field_amnus_crm_project_request__id
+#: model:ir.model.fields,field_description:amnus_crm.field_crm_lead__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: amnus_crm
+#: model_terms:ir.ui.view,arch_db:amnus_crm.view_amnus_crm_project_request_form
+msgid "Implementation Request"
+msgstr "طلب تنفيذ"
+
+#. module: amnus_crm
+#: model:ir.actions.act_window,name:amnus_crm.action_amnus_crm_project_request
+#: model:ir.ui.menu,name:amnus_crm.menu_amnus_crm_requests
+#: model_terms:ir.ui.view,arch_db:amnus_crm.view_amnus_crm_project_request_list
+msgid "Implementation Requests"
+msgstr "طلبات تنفيذ"
+
+#. module: amnus_crm
+#: model:ir.model.fields.selection,name:amnus_crm.selection__amnus_crm_project_request__request_type__integration
+#: model:ir.model.fields.selection,name:amnus_crm.selection__crm_lead__amnus_request_type__integration
+msgid "Integration"
+msgstr "تكامل"
+
+#. module: amnus_crm
+#: model:ir.model.fields,field_description:amnus_crm.field_amnus_crm_project_request__notes
+msgid "Internal Notes"
+msgstr "ملاحظات داخلية"
+
+#. module: amnus_crm
+#: model:ir.model.fields,help:amnus_crm.field_crm_lead__amnus_technical_notes
+msgid "Internal technical notes for the implementation team."
+msgstr "ملاحظات تقنية داخلية لفريق التنفيذ."
+
+#. module: amnus_crm
+#: model:ir.model.fields,field_description:amnus_crm.field_amnus_crm_project_request__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: amnus_crm
+#: model:ir.model.fields,field_description:amnus_crm.field_amnus_crm_project_request__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: amnus_crm
+#: model:ir.model,name:amnus_crm.model_crm_lead
+msgid "Lead"
+msgstr "فرصة"
+
+#. module: amnus_crm
+#: model:ir.model.fields,help:amnus_crm.field_amnus_crm_project_request__contact_id
+#: model:ir.model.fields,help:amnus_crm.field_amnus_crm_project_request__partner_id
+msgid ""
+"Linked partner (optional). Usually created when converting the lead. You can"
+" find a partner by its Name, TIN, Email or Internal Reference."
+msgstr ""
+"الشريك المرتبط (اختياري). يُنشأ عادةً عند تحويل الفرصة. يمكنك العثور على "
+"شريك عبر اسمه أو رقم تعريفه الضريبي أو بريده الإلكتروني أو مرجعه الداخلي."
+
+#. module: amnus_crm
+#: model:ir.model.fields.selection,name:amnus_crm.selection__amnus_crm_project_request__request_type__migration
+#: model:ir.model.fields.selection,name:amnus_crm.selection__crm_lead__amnus_request_type__migration
+msgid "Migration"
+msgstr "نقل"
+
+#. module: amnus_crm
+#. odoo-python
+#: code:addons/amnus_crm/models/amnus_crm_project_request.py:0
+msgid "New"
+msgstr "جديد"
+
+#. module: amnus_crm
+#: model:ir.model.fields.selection,name:amnus_crm.selection__amnus_crm_project_request__request_type__new_implementation
+#: model:ir.model.fields.selection,name:amnus_crm.selection__crm_lead__amnus_request_type__new_implementation
+msgid "New Implementation"
+msgstr "تنفيذ جديد"
+
+#. module: amnus_crm
+#: model_terms:ir.ui.view,arch_db:amnus_crm.view_amnus_crm_project_request_form
+msgid "Notes"
+msgstr "ملاحظات"
+
+#. module: amnus_crm
+#. odoo-python
+#: code:addons/amnus_crm/models/amnus_crm_project_request.py:0
+msgid "Only draft requests can be submitted."
+msgstr "يمكن تقديم الطلبات المسودة فقط."
+
+#. module: amnus_crm
+#. odoo-python
+#: code:addons/amnus_crm/models/amnus_crm_project_request.py:0
+msgid "Only submitted or reviewed requests can be approved."
+msgstr "يمكن الموافقة على الطلبات المقدمة أو المراجعة فقط."
+
+#. module: amnus_crm
+#. odoo-python
+#: code:addons/amnus_crm/models/amnus_crm_project_request.py:0
+msgid "Only submitted or reviewed requests can be rejected."
+msgstr "يمكن رفض الطلبات المقدمة أو المراجعة فقط."
+
+#. module: amnus_crm
+#. odoo-python
+#: code:addons/amnus_crm/models/amnus_crm_project_request.py:0
+msgid "Only submitted requests can be reviewed."
+msgstr "يمكن مراجعة الطلبات المقدمة فقط."
+
+#. module: amnus_crm
+#: model:ir.model.fields,field_description:amnus_crm.field_amnus_crm_project_request__lead_id
+msgid "Opportunity"
+msgstr "فرصة"
+
+#. module: amnus_crm
+#: model:ir.model.fields.selection,name:amnus_crm.selection__amnus_crm_project_request__request_type__other
+#: model:ir.model.fields.selection,name:amnus_crm.selection__crm_lead__amnus_request_type__other
+msgid "Other"
+msgstr "غير ذلك"
+
+#. module: amnus_crm
+#: model:ir.model.fields,field_description:amnus_crm.field_crm_lead__amnus_project_summary
+msgid "Project Summary"
+msgstr "ملخص المشروع"
+
+#. module: amnus_crm
+#: model:ir.model.fields,field_description:amnus_crm.field_amnus_crm_project_request__name
+msgid "Reference"
+msgstr "المرجع"
+
+#. module: amnus_crm
+#: model_terms:ir.ui.view,arch_db:amnus_crm.view_amnus_crm_project_request_form
+msgid "Reject"
+msgstr "رفض"
+
+#. module: amnus_crm
+#: model:ir.model.fields.selection,name:amnus_crm.selection__amnus_crm_project_request__state__rejected
+msgid "Rejected"
+msgstr "مرفوض"
+
+#. module: amnus_crm
+#. odoo-python
+#: code:addons/amnus_crm/models/amnus_crm_project_request.py:0
+msgid "Request %s approved."
+msgstr "تم اعتماد الطلب %s."
+
+#. module: amnus_crm
+#. odoo-python
+#: code:addons/amnus_crm/models/amnus_crm_project_request.py:0
+msgid "Request %s submitted."
+msgstr "تم تقديم الطلب %s."
+
+#. module: amnus_crm
+#: model:ir.model.fields,field_description:amnus_crm.field_amnus_crm_project_request__request_type
+#: model:ir.model.fields,field_description:amnus_crm.field_crm_lead__amnus_request_type
+#: model_terms:ir.ui.view,arch_db:amnus_crm.view_crm_lead_search_amnus
+msgid "Request Type"
+msgstr "نوع الطلب"
+
+#. module: amnus_crm
+#: model:ir.model.fields,field_description:amnus_crm.field_amnus_crm_project_request__user_id
+msgid "Responsible"
+msgstr "المسؤول"
+
+#. module: amnus_crm
+#: model_terms:ir.ui.view,arch_db:amnus_crm.view_amnus_crm_project_request_form
+msgid "Review"
+msgstr "مراجعة"
+
+#. module: amnus_crm
+#: model:ir.model.fields.selection,name:amnus_crm.selection__amnus_crm_project_request__state__reviewed
+msgid "Reviewed"
+msgstr "تم المراجعة"
+
+#. module: amnus_crm
+#: model_terms:ir.ui.view,arch_db:amnus_crm.view_amnus_crm_project_request_form
+msgid "Scope"
+msgstr "النطاق"
+
+#. module: amnus_crm
+#: model:ir.model.fields,field_description:amnus_crm.field_amnus_crm_project_request__scope_summary
+msgid "Scope Summary"
+msgstr "ملخص النطاق"
+
+#. module: amnus_crm
+#: model_terms:ir.ui.view,arch_db:amnus_crm.view_amnus_crm_project_request_search
+msgid "Search Implementation Requests"
+msgstr "البحث في طلبات التنفيذ"
+
+#. module: amnus_crm
+#: model:ir.model.fields,field_description:amnus_crm.field_amnus_crm_project_request__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: amnus_crm
+#: model_terms:ir.ui.view,arch_db:amnus_crm.view_amnus_crm_project_request_form
+msgid "Submit"
+msgstr "تقديم"
+
+#. module: amnus_crm
+#: model:ir.model.fields.selection,name:amnus_crm.selection__amnus_crm_project_request__state__submitted
+msgid "Submitted"
+msgstr "مقدم"
+
+#. module: amnus_crm
+#: model:ir.model.fields.selection,name:amnus_crm.selection__amnus_crm_project_request__request_type__support
+#: model:ir.model.fields.selection,name:amnus_crm.selection__crm_lead__amnus_request_type__support
+msgid "Support"
+msgstr "الدعم"
+
+#. module: amnus_crm
+#: model:ir.model.fields,field_description:amnus_crm.field_crm_lead__amnus_technical_notes
+msgid "Technical Notes"
+msgstr "ملاحظات تقنية"
+
+#. module: amnus_crm
+#: model:ir.model.fields,help:amnus_crm.field_crm_lead__amnus_current_system
+msgid "The customer's current system or ERP."
+msgstr "النظام الحالي أو تخطيط موارد المؤسسات الخاص بالعميل."
+
+#. module: amnus_crm
+#. odoo-python
+#: code:addons/amnus_crm/models/amnus_crm_project_request.py:0
+msgid "This request cannot be cancelled."
+msgstr "لا يمكن إلغاء هذا الطلب."
+
+#. module: amnus_crm
+#: model:ir.model.fields.selection,name:amnus_crm.selection__amnus_crm_project_request__request_type__training
+#: model:ir.model.fields.selection,name:amnus_crm.selection__crm_lead__amnus_request_type__training
+msgid "Training"
+msgstr "تدريب"
+
+#. module: amnus_crm
+#: model:ir.model.fields,help:amnus_crm.field_crm_lead__amnus_is_implementation
+msgid ""
+"Whether this opportunity concerns an Odoo implementation or development "
+"project."
+msgstr "ما إذا كانت هذه الفرصة تتعلق بتنفيذ Odoo أو مشروع تطوير."
+
+#. module: amnus_crm
+#. odoo-python
+#: code:addons/amnus_crm/models/amnus_crm_project_request.py:0
+msgid "You do not have permission to approve requests."
+msgstr "ليس لديك إذن لاعتماد الطلبات."
+
+#. module: amnus_crm
+#. odoo-python
+#: code:addons/amnus_crm/models/amnus_crm_project_request.py:0
+msgid "You do not have permission to reject requests."
+msgstr "ليس لديك إذن لرفض الطلبات."

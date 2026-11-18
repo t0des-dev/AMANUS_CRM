@@ -1,220 +1,350 @@
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: AMNUS Core 19.0.1.0.0\n"
+"Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-13\n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2026-11-17 22:55+0000\n"
+"PO-Revision-Date: 2026-11-17 23:00+0000\n"
+"Last-Translator: AMNUS Sprint 04.5 P1\n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-# Arabic (ar_SA) translations are intentionally pending a native review.
-# RTL layout must be tested in the actual Odoo 19 client before being claimed.
-# Untranslated entries fall back to the English msgid.
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=6; plural=n==0?0:n==1?1:n==2?2:n%100>=3&&n%100<=10?3:n%100>=11&&n%100<=99?4:5;\n"
 
-msgid "AMNUS Core"
-msgstr ""
+#. module: amnus_core
+#. odoo-python
+#: code:addons/amnus_core/models/amnus_tag.py:0
+msgid ""
+"A tag with the name '%(name)s' and category '%(category)s' already exists in"
+" this scope."
+msgstr "يوجد بالفعل وسم باسم '%(name)s' والفئة '%(category)s' في هذا النطاق."
 
-msgid "AMNUS Platform — Core Foundation"
-msgstr ""
-
-msgid "Shared infrastructure for all AMNUS (Odoo Project Lifecycle Management Platform) modules."
-msgstr ""
-
-msgid "Reusable tags (``amnus.tag``) for classifying records across AMNUS modules."
-msgstr ""
-
-msgid "A shared audit log (``amnus.audit.log``) for recording important business operations."
-msgstr ""
-
-msgid "Foundational AMNUS configuration via ``res.config.settings``."
-msgstr ""
-
-msgid "The AMNUS root menu and security groups (AMNUS User, Manager, Administrator)."
-msgstr ""
-
-msgid "It is the foundation layer of the AMNUS platform and must be installed before any"
-msgstr ""
-
-msgid "other AMNUS addon."
-msgstr ""
-
-msgid "Odoo 19 Community Edition only. No Enterprise dependencies."
-msgstr ""
-
-msgid "AMNUS Tag"
-msgstr ""
-
-msgid "Name"
-msgstr ""
-
-msgid "Color Index"
-msgstr ""
-
-msgid "Active"
-msgstr ""
-
-msgid "Category"
-msgstr ""
-
-msgid "General"
-msgstr ""
-
-msgid "Project"
-msgstr ""
-
-msgid "Analysis"
-msgstr ""
-
-msgid "Agile"
-msgstr ""
-
-msgid "Development"
-msgstr ""
-
-msgid "Quality Assurance"
-msgstr ""
-
-msgid "Support"
-msgstr ""
-
-msgid "Description"
-msgstr ""
-
-msgid "Company"
-msgstr ""
-
-msgid "Leave empty for a global tag shared across all companies."
-msgstr ""
-
-msgid "A tag with the same name and category already exists for this company."
-msgstr ""
-
-msgid "The tag name cannot be empty."
-msgstr ""
-
-msgid "A tag with the name '%(name)s' and category '%(category)s' already exists in this scope."
-msgstr ""
-
-msgid "AMNUS Audit Log"
-msgstr ""
-
-msgid "Event"
-msgstr ""
-
-msgid "Date"
-msgstr ""
-
-msgid "User"
-msgstr ""
-
-msgid "Model"
-msgstr ""
-
-msgid "Record ID"
-msgstr ""
-
-msgid "Action"
-msgstr ""
-
-msgid "Description"
-msgstr ""
-
-msgid "Create"
-msgstr ""
-
-msgid "Update"
-msgstr ""
-
-msgid "Delete"
-msgstr ""
-
-msgid "State Change"
-msgstr ""
-
-msgid "Login"
-msgstr ""
-
-msgid "Export"
-msgstr ""
-
-msgid "Other"
-msgstr ""
-
-msgid "Audit log records cannot be modified."
-msgstr ""
-
-msgid "Audit log records cannot be deleted."
-msgstr ""
-
+#. module: amnus_core
+#: model:ir.ui.menu,name:amnus_core.menu_amnus_root
+#: model_terms:ir.ui.view,arch_db:amnus_core.view_amnus_res_config_settings
 msgid "AMNUS"
-msgstr ""
+msgstr "AMNUS"
 
-msgid "Overview"
-msgstr ""
-
-msgid "Configuration"
-msgstr ""
-
-msgid "Tags"
-msgstr ""
-
-msgid "Settings"
-msgstr ""
-
-msgid "Administration"
-msgstr ""
-
-msgid "Audit Logs"
-msgstr ""
-
-msgid "AMNUS Tags"
-msgstr ""
-
-msgid "AMNUS Tag"
-msgstr ""
-
-msgid "Create tags to classify AMNUS records across modules."
-msgstr ""
-
-msgid "AMNUS Audit Logs"
-msgstr ""
-
-msgid "Audit trail of important AMNUS business operations."
-msgstr ""
-
-msgid "AMNUS Settings"
-msgstr ""
-
-msgid "AMNUS Core"
-msgstr ""
-
-msgid "Enable or disable the AMNUS platform globally."
-msgstr ""
-
-msgid "Enable or disable audit logging for AMNUS business operations."
-msgstr ""
-
-msgid "AMNUS Enabled"
-msgstr ""
-
-msgid "Audit Logging Enabled"
-msgstr ""
-
-msgid "AMNUS User"
-msgstr ""
-
-msgid "AMNUS Manager"
-msgstr ""
-
+#. module: amnus_core
+#: model:res.groups,name:amnus_core.group_amnus_admin
 msgid "AMNUS Administrator"
-msgstr ""
+msgstr "مدير AMNUS"
 
-msgid "AMNUS Tag — company isolation"
-msgstr ""
+#. module: amnus_core
+#: model:ir.model,name:amnus_core.model_amnus_audit_log
+#: model_terms:ir.ui.view,arch_db:amnus_core.view_amnus_audit_log_form
+msgid "AMNUS Audit Log"
+msgstr "سجل تدقيق AMNUS"
 
-msgid "AMNUS Audit Log — company isolation"
-msgstr ""
+#. module: amnus_core
+#: model:ir.actions.act_window,name:amnus_core.action_amnus_audit_log
+#: model_terms:ir.ui.view,arch_db:amnus_core.view_amnus_audit_log_tree
+msgid "AMNUS Audit Logs"
+msgstr "سجلات تدقيق AMNUS"
+
+#. module: amnus_core
+#: model_terms:ir.ui.view,arch_db:amnus_core.view_amnus_res_config_settings
+msgid "AMNUS Core"
+msgstr "نواة AMNUS"
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_res_config_settings__amnus_enabled
+#: model_terms:ir.ui.view,arch_db:amnus_core.view_amnus_res_config_settings
+msgid "AMNUS Enabled"
+msgstr "تم تفعيل AMNUS"
+
+#. module: amnus_core
+#: model:res.groups,name:amnus_core.group_amnus_manager
+msgid "AMNUS Manager"
+msgstr "مدير AMNUS"
+
+#. module: amnus_core
+#: model:ir.actions.act_window,name:amnus_core.action_amnus_settings
+msgid "AMNUS Settings"
+msgstr "إعدادات AMNUS"
+
+#. module: amnus_core
+#: model:ir.model,name:amnus_core.model_amnus_tag
+#: model_terms:ir.ui.view,arch_db:amnus_core.view_amnus_tag_form
+msgid "AMNUS Tag"
+msgstr "وسم AMNUS"
+
+#. module: amnus_core
+#: model:ir.actions.act_window,name:amnus_core.action_amnus_tag
+#: model_terms:ir.ui.view,arch_db:amnus_core.view_amnus_tag_tree
+msgid "AMNUS Tags"
+msgstr "وسوم AMNUS"
+
+#. module: amnus_core
+#: model:res.groups,name:amnus_core.group_amnus_user
+msgid "AMNUS User"
+msgstr "مستخدم AMNUS"
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_audit_log__action
+msgid "Action"
+msgstr "إجراء"
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_tag__active
+msgid "Active"
+msgstr "نشط"
+
+#. module: amnus_core
+#: model:ir.ui.menu,name:amnus_core.menu_amnus_administration
+msgid "Administration"
+msgstr "الإدارة"
+
+#. module: amnus_core
+#: model:ir.model.fields.selection,name:amnus_core.selection__amnus_tag__category__agile
+msgid "Agile"
+msgstr "أجايل"
+
+#. module: amnus_core
+#: model:ir.model.fields.selection,name:amnus_core.selection__amnus_tag__category__analysis
+msgid "Analysis"
+msgstr "التحليل"
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_res_config_settings__amnus_audit_logging
+#: model_terms:ir.ui.view,arch_db:amnus_core.view_amnus_res_config_settings
+msgid "Audit Logging Enabled"
+msgstr "تم تفعيل تسجيل التدقيق"
+
+#. module: amnus_core
+#: model:ir.ui.menu,name:amnus_core.menu_amnus_audit_logs
+#: model:ir.ui.menu,name:amnus_core.menu_amnus_audit_logs_action
+msgid "Audit Logs"
+msgstr "سجلات التدقيق"
+
+#. module: amnus_core
+#. odoo-python
+#: code:addons/amnus_core/models/amnus_audit_log.py:0
+msgid "Audit log records cannot be deleted."
+msgstr "لا يمكن حذف سجلات التدقيق."
+
+#. module: amnus_core
+#. odoo-python
+#: code:addons/amnus_core/models/amnus_audit_log.py:0
+msgid "Audit log records cannot be modified."
+msgstr "لا يمكن تعديل سجلات التدقيق."
+
+#. module: amnus_core
+#: model_terms:ir.actions.act_window,help:amnus_core.action_amnus_audit_log
+msgid "Audit trail of important AMNUS business operations."
+msgstr "مسار تدقيق للعمليات التجارية الهامة لـ AMNUS."
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_tag__category
+msgid "Category"
+msgstr "الفئة"
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_tag__color
+msgid "Color Index"
+msgstr "مؤشر اللون"
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_audit_log__company_id
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_tag__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: amnus_core
+#: model:ir.model,name:amnus_core.model_res_config_settings
+msgid "Config Settings"
+msgstr "تهيئة الإعدادات"
+
+#. module: amnus_core
+#: model:ir.ui.menu,name:amnus_core.menu_amnus_configuration
+msgid "Configuration"
+msgstr "التهيئة"
+
+#. module: amnus_core
+#: model:ir.model.fields.selection,name:amnus_core.selection__amnus_audit_log__action__create
+msgid "Create"
+msgstr "إنشاء"
+
+#. module: amnus_core
+#: model_terms:ir.actions.act_window,help:amnus_core.action_amnus_tag
+msgid "Create tags to classify AMNUS records across modules."
+msgstr "إنشاء وسوم لتصنيف سجلات AMNUS عبر الوحدات."
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_audit_log__create_uid
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_tag__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_audit_log__create_date
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_tag__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_audit_log__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: amnus_core
+#: model:ir.model.fields.selection,name:amnus_core.selection__amnus_audit_log__action__delete
+msgid "Delete"
+msgstr "حذف"
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_audit_log__description
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_tag__description
+msgid "Description"
+msgstr "الوصف"
+
+#. module: amnus_core
+#: model:ir.model.fields.selection,name:amnus_core.selection__amnus_tag__category__development
+msgid "Development"
+msgstr "التطوير"
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_audit_log__display_name
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_tag__display_name
+#: model:ir.model.fields,field_description:amnus_core.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: amnus_core
+#: model_terms:ir.ui.view,arch_db:amnus_core.view_amnus_res_config_settings
+msgid "Enable or disable audit logging for AMNUS business operations."
+msgstr "تمكين أو تعطيل تسجيل التدقيق لعمليات AMNUS التجارية."
+
+#. module: amnus_core
+#: model_terms:ir.ui.view,arch_db:amnus_core.view_amnus_res_config_settings
+msgid "Enable or disable the AMNUS platform globally."
+msgstr "تمكين أو تعطيل منصة AMNUS عالميًا."
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_audit_log__name
+msgid "Event"
+msgstr "حدث"
+
+#. module: amnus_core
+#: model:ir.model.fields.selection,name:amnus_core.selection__amnus_audit_log__action__export
+msgid "Export"
+msgstr "تصدير"
+
+#. module: amnus_core
+#: model:ir.model.fields.selection,name:amnus_core.selection__amnus_tag__category__general
+msgid "General"
+msgstr "عام"
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_audit_log__id
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_tag__id
+#: model:ir.model.fields,field_description:amnus_core.field_res_config_settings__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_audit_log__write_uid
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_tag__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_audit_log__write_date
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_tag__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: amnus_core
+#: model:ir.model.fields,help:amnus_core.field_amnus_tag__company_id
+msgid "Leave empty for a global tag shared across all companies."
+msgstr "اتركه فارغًا لوسم عالمي مشترك عبر جميع الشركات."
+
+#. module: amnus_core
+#: model:ir.model.fields.selection,name:amnus_core.selection__amnus_audit_log__action__login
+msgid "Login"
+msgstr "تسجيل الدخول"
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_audit_log__model_name
+msgid "Model"
+msgstr "النموذج"
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_tag__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: amnus_core
+#: model:ir.model.fields.selection,name:amnus_core.selection__amnus_audit_log__action__other
+msgid "Other"
+msgstr "غير ذلك"
+
+#. module: amnus_core
+#: model:ir.ui.menu,name:amnus_core.menu_amnus_overview
+msgid "Overview"
+msgstr "نظرة عامة"
+
+#. module: amnus_core
+#: model:ir.model.fields.selection,name:amnus_core.selection__amnus_tag__category__project
+msgid "Project"
+msgstr "المشروع"
+
+#. module: amnus_core
+#: model:ir.model.fields.selection,name:amnus_core.selection__amnus_tag__category__qa
+msgid "Quality Assurance"
+msgstr "ضمان الجودة"
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_audit_log__record_id
+msgid "Record ID"
+msgstr "معرف السجل"
+
+#. module: amnus_core
+#: model_terms:ir.ui.view,arch_db:amnus_core.view_amnus_audit_log_search
+msgid "Search Audit Logs"
+msgstr "البحث في سجلات التدقيق"
+
+#. module: amnus_core
+#: model_terms:ir.ui.view,arch_db:amnus_core.view_amnus_tag_search
+msgid "Search Tags"
+msgstr "البحث في الوسوم"
+
+#. module: amnus_core
+#: model:ir.ui.menu,name:amnus_core.menu_amnus_settings
+#: model:ir.ui.menu,name:amnus_core.menu_amnus_settings_action
+msgid "Settings"
+msgstr "الإعدادات"
+
+#. module: amnus_core
+#: model:ir.model.fields.selection,name:amnus_core.selection__amnus_audit_log__action__state_change
+msgid "State Change"
+msgstr "تغيير الحالة"
+
+#. module: amnus_core
+#: model:ir.model.fields.selection,name:amnus_core.selection__amnus_tag__category__support
+msgid "Support"
+msgstr "الدعم"
+
+#. module: amnus_core
+#: model:ir.ui.menu,name:amnus_core.menu_amnus_tags
+#: model:ir.ui.menu,name:amnus_core.menu_amnus_tags_action
+msgid "Tags"
+msgstr "الوسوم"
+
+#. module: amnus_core
+#. odoo-python
+#: code:addons/amnus_core/models/amnus_tag.py:0
+msgid "The tag name cannot be empty."
+msgstr "لا يمكن أن يكون اسم الوسم فارغًا."
+
+#. module: amnus_core
+#: model:ir.model.fields.selection,name:amnus_core.selection__amnus_audit_log__action__update
+msgid "Update"
+msgstr "تحديث"
+
+#. module: amnus_core
+#: model:ir.model.fields,field_description:amnus_core.field_amnus_audit_log__user_id
+msgid "User"
+msgstr "المستخدم"

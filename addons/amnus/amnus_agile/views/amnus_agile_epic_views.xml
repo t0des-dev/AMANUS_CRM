@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- ==================== EPIC LIST ==================== -->
+        <record id="view_amnus_agile_epic_list" model="ir.ui.view">
+            <field name="name">amnus.agile.epic.list</field>
+            <field name="model">amnus.agile.epic</field>
+            <field name="arch" type="xml">
+                <list string="Epics">
+                    <field name="name"/>
+                    <field name="project_id"/>
+                    <field name="state"/>
+                    <field name="story_count"/>
+                    <field name="completed_story_count"/>
+                    <field name="progress"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- ==================== EPIC KANBAN ==================== -->
+        <record id="view_amnus_agile_epic_kanban" model="ir.ui.view">
+            <field name="name">amnus.agile.epic.kanban</field>
+            <field name="model">amnus.agile.epic</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name"/>
+                    <field name="story_count"/>
+                    <field name="completed_story_count"/>
+                    <field name="progress"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_card">
+                                <div class="oe_kanban_details">
+                                    <field name="name"/>
+                                    <field name="progress"/>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- ==================== EPIC FORM ==================== -->
+        <record id="view_amnus_agile_epic_form" model="ir.ui.view">
+            <field name="name">amnus.agile.epic.form</field>
+            <field name="model">amnus.agile.epic</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_done" type="object" string="Mark Done"
+                                class="btn-success"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="state" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="project_id"/>
+                            <field name="sequence"/>
+                        </group>
+                        <field name="description"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- ==================== EPIC SEARCH ==================== -->
+        <record id="view_amnus_agile_epic_search" model="ir.ui.view">
+            <field name="name">amnus.agile.epic.search</field>
+            <field name="model">amnus.agile.epic</field>
+            <field name="arch" type="xml">
+                <search string="Epics">
+                    <field name="name"/>
+                    <field name="project_id"/>
+                    <filter string="Open" name="open" domain="[('state', '=', 'open')]"/>
+                    <filter string="Done" name="done" domain="[('state', '=', 'done')]"/>
+                    <filter string="Project" name="group_project" context="{'group_by': 'project_id'}"/>
+                    <filter string="State" name="group_state" context="{'group_by': 'state'}"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- ==================== EPIC ACTION ==================== -->
+        <record id="action_amnus_agile_epic" model="ir.actions.act_window">
+            <field name="name">Epics</field>
+            <field name="res_model">amnus.agile.epic</field>
+            <field name="view_mode">list,form,kanban,search</field>
+            <field name="target">current</field>
+            <field name="help" type="html">
+                <p class="o_view_nocenter_empty_smiley">Track large bodies of Agile work.</p>
+            </field>
+        </record>
+    </data>
+</odoo>
