@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- ==================== REQUIREMENT LIST VIEW ==================== -->
+        <record id="amnus_analysis_requirement_list" model="ir.ui.view">
+            <field name="name">AMNUS Analysis Requirement List</field>
+            <field name="model">amnus.analysis.requirement</field>
+            <field name="arch" type="xml">
+                <list string="Requirements" editable="bottom">
+                    <field name="reference"/>
+                    <field name="name"/>
+                    <field name="requirement_type"/>
+                    <field name="priority"/>
+                    <field name="state"/>
+                    <field name="project_id"/>
+                    <field name="owner_id"/>
+                    <field name="analyst_id"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- ==================== REQUIREMENT KANBAN VIEW ==================== -->
+        <record id="amnus_analysis_requirement_kanban" model="ir.ui.view">
+            <field name="name">AMNUS Analysis Requirement Kanban</field>
+            <field name="model">amnus.analysis.requirement</field>
+            <field name="arch" type="xml">
+                <kanban string="Requirements" default_group_by="state">
+                    <field name="reference"/>
+                    <field name="name"/>
+                    <field name="requirement_type"/>
+                    <field name="priority"/>
+                    <field name="state"/>
+                    <field name="project_id"/>
+                    <field name="owner_id"/>
+                    <field name="analyst_id"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_card oe_semantic_html_override">
+                                <div class="oe_kanban_content">
+                                    <span class="oe_kanban_record_title">
+                                        <field name="reference"/>
+                                    </span>
+                                    <ul>
+                                        <li><strong>Type:</strong> <field name="requirement_type"/></li>
+                                        <li><strong>Priority:</strong> <field name="priority"/></li>
+                                        <li><strong>Project:</strong> <field name="project_id"/></li>
+                                        <li><strong>Owner:</strong> <field name="owner_id"/></li>
+                                        <li><strong>Analyst:</strong> <field name="analyst_id"/></li>
+                                    </ul>
+                                </div>
+                                <div class="oe_kanban_footer">
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- ==================== REQUIREMENT FORM VIEW ==================== -->
+        <record id="amnus_analysis_requirement_form" model="ir.ui.view">
+            <field name="name">AMNUS Analysis Requirement Form</field>
+            <field name="model">amnus.analysis.requirement</field>
+            <field name="arch" type="xml">
+                <form string="Requirement">
+                    <header>
+                        <button name="action_submit_for_review"
+                                type="object"
+                                invisible="state != 'draft'"
+                                string="Submit for Review"
+                                class="oe_highlight"
+                                groups="amnus_analysis.group_amnus_analysis_user,amnus_analysis.group_amnus_analysis_manager"/>
+                        <button name="action_approve"
+                                type="object"
+                                invisible="state != 'under_review'"
+                                string="Approve"
+                                class="oe_highlight"
+                                groups="amnus_analysis.group_amnus_analysis_manager"/>
+                        <button name="action_reject"
+                                type="object"
+                                invisible="state != 'under_review'"
+                                string="Reject"
+                                class="oe_highlight"
+                                groups="amnus_analysis.group_amnus_analysis_manager"/>
+                        <button name="action_request_revision"
+                                type="object"
+                                invisible="state != 'approved'"
+                                string="Request Revision"
+                                groups="amnus_analysis.group_amnus_analysis_manager"/>
+                        <button name="action_cancel"
+                                type="object"
+                                invisible="state not in ('draft', 'under_review')"
+                                string="Cancel"
+                                groups="amnus_analysis.group_amnus_analysis_user,amnus_analysis.group_amnus_analysis_manager"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,under_review,approved,rejected,cancelled"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="reference" readonly="1"/>
+                                <field name="name" required="1"/>
+                            </h1>
+                        </div>
+                        <group string="Identification">
+                            <group>
+                                <field name="reference" readonly="1"/>
+                                <field name="name" required="1"/>
+                                <field name="requirement_type"/>
+                                <field name="priority"/>
+                                <field name="source"/>
+                            </group>
+                            <group>
+                                <field name="project_id" required="1"/>
+                                <field name="customer_id" readonly="1"/>
+                                <field name="target_stage_id"/>
+                                <field name="company_id" readonly="1"/>
+                            </group>
+                        </group>
+                        <group string="Ownership">
+                            <group>
+                                <field name="owner_id"/>
+                                <field name="analyst_id"/>
+                                <field name="stakeholder_id"/>
+                            </group>
+                            <group>
+                                <field name="priority"/>
+                                <field name="business_value"/>
+                            </group>
+                        </group>
+                        <group string="Content">
+                            <field name="description"/>
+                            <field name="acceptance_criteria"/>
+                            <field name="notes"/>
+                        </group>
+                        <group string="Traceability">
+                            <group>
+                                <field name="task_id"/>
+                                <field name="story_id"/>
+                                <field name="deliverable_id"/>
+                            </group>
+                        </group>
+                        <group string="Approval" invisible="context.get('hide_approval', True)">
+                            <group>
+                                <field name="approved_by" readonly="1"/>
+                                <field name="approved_date" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="rejected_by" readonly="1"/>
+                                <field name="rejected_date" readonly="1"/>
+                                <field name="rejection_reason" readonly="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- ==================== REQUIREMENT SEARCH VIEW ==================== -->
+        <record id="amnus_analysis_requirement_search" model="ir.ui.view">
+            <field name="name">AMNUS Analysis Requirement Search</field>
+            <field name="model">amnus.analysis.requirement</field>
+            <field name="arch" type="xml">
+                <search string="Requirements">
+                    <field name="reference"/>
+                    <field name="name"/>
+                    <field name="requirement_type"/>
+                    <field name="priority"/>
+                    <field name="state"/>
+                    <field name="project_id"/>
+                    <field name="owner_id"/>
+                    <field name="analyst_id"/>
+                    <filter name="filter_draft"
+                            string="Draft"
+                            domain="[('state', '=', 'draft')]"/>
+                    <filter name="filter_under_review"
+                            string="Under Review"
+                            domain="[('state', '=', 'under_review')]"/>
+                    <filter name="filter_approved"
+                            string="Approved"
+                            domain="[('state', '=', 'approved')]"/>
+                    <filter name="filter_rejected"
+                            string="Rejected"
+                            domain="[('state', '=', 'rejected')]"/>
+                    <filter name="filter_cancelled"
+                            string="Cancelled"
+                            domain="[('state', '=', 'cancelled')]"/>
+                    <filter name="filter_critical"
+                            string="Critical Priority"
+                            domain="[('priority', '=', 'critical')]"/>
+                    <group name="group_by">
+                        <filter name="group_by_state"
+                                string="Status"
+                                domain="[]"
+                                context="{'group_by': 'state'}"/>
+                        <filter name="group_by_priority"
+                                string="Priority"
+                                domain="[]"
+                                context="{'group_by': 'priority'}"/>
+                        <filter name="group_by_type"
+                                string="Type"
+                                domain="[]"
+                                context="{'group_by': 'requirement_type'}"/>
+                        <filter name="group_by_project"
+                                string="Project"
+                                domain="[]"
+                                context="{'group_by': 'project_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- ==================== REQUIREMENT ACTION ==================== -->
+        <record id="action_amnus_analysis_requirements" model="ir.actions.act_window">
+            <field name="name">Requirements</field>
+            <field name="res_model">amnus.analysis.requirement</field>
+            <field name="view_mode">list,kanban,form,search</field>
+            <field name="search_view_id" ref="amnus_analysis_requirement_search"/>
+            <field name="context">{'search_default_my_requirements': 0}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create your first requirement.</p>
+            </field>
+        </record>
+    </data>
+</odoo>

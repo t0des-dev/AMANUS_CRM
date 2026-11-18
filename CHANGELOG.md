@@ -1,5 +1,51 @@
 # Changelog — AMNUS
 
+## Version 19.0.5.1.0 — Sprint 05.1 (Requirements Management)
+
+### Added
+- `addons/amnus/amnus_analysis` addon (implemented)
+  - Manifest: name "AMNUS Analysis", version 19.0.1.0.0, depends `amnus_core`, `amnus_projects`, `project`, `mail`, LGPL-3
+  - Model `amnus.analysis.requirement`: dedicated requirement record linked to an implementation project with controlled lifecycle (draft, under review, approved, rejected, cancelled). Fields: reference, name, description, requirement_type (business/functional/non-functional), priority (critical/high/medium/low), business_value, source, acceptance_criteria, notes, project_id, customer_id, stakeholder_id, owner_id, analyst_id, target_stage_id, task_id, story_id, deliverable_id, company_id, approved_by/approved_date, rejected_by/rejected_date/rejection_reason.
+  - Model `amnus.analysis.workshop`: structured discovery workshop with reference, type, date/duration, location, facilitator, internal/customer participants, agenda, discussion notes, decisions, outcomes, follow-up actions, related requirements, status.
+  - Model `amnus.analysis.process`: AS-IS / TO-BE business process documentation with reference, category, AS-IS/TO-BE descriptions, related requirements, owner, status.
+  - Sequence-based references: REQ-00001, WKS-00001, PRC-00001 (native `ir.sequence`, concurrency-safe via `next_by_code`).
+  - Workflow actions: `action_submit_for_review`, `action_approve`, `action_reject`, `action_cancel`, `action_request_revision` (requirement); `action_mark_held`, `action_cancel` (workshop); `action_submit_for_review`, `action_approve`, `action_cancel` (process).
+  - Security groups: `group_amnus_analysis_user` / `manager` / `admin` (implication hierarchy, never auto-assigned), reusing `amnus_core.group_amnus_user` and `amnus_projects.group_amnus_project_manager`.
+  - ACLs in `security/ir.model.access.csv`; record rules in `security/amnus_analysis_security.xml` (multi-company + project visibility + manager sees all).
+  - Views: list/kanban/form/search for requirements; list/form/search for workshops and processes; menus under AMNUS → Analysis.
+  - Data: `data/amnus_analysis_sequence.xml` (3 sequences).
+  - Tests: 42 tests (test_requirement 18, test_workshop 7, test_process 8, test_security 9).
+  - README, static description, `fr_FR` and `ar_SA` translations (164 messages each).
+- Documentation: `docs/sprints/SPRINT_05_1.md`
+
+### Changed
+- `README.md`: `amnus_analysis` status updated to implemented (Sprint 05.1).
+
+### Runtime validation
+- `amnus_analysis` installed on `amnus_test_19`: state = installed
+- Python compile: OK (all files)
+- XML validation: OK (all files well-formed)
+- Manifest validation: OK (version 19.0.1.0.0, LGPL-3, depends amnus_core/amnus_projects/project/mail)
+- Translation catalogs: Odoo reader + polib + MO compile OK; coverage 100% (fr_FR and ar_SA)
+- Automated tests: 42 tests, 0 failures, 0 errors (via Odoo test runner)
+- Core regression: 34 tests, 0 failures, 0 errors
+- CRM regression: 23 tests, 0 failures, 0 errors
+- Projects regression: 61 tests, 0 failures, 0 errors
+- Agile regression: 98 tests, 0 failures, 0 errors
+- Combined total: 258 tests, 0 failures, 0 errors
+- No Enterprise dependencies
+- Existing `amanus_*` modules and Odoo core untouched
+
+### Notes
+- `project.task` remains the single execution model; requirements are planning artifacts that may link to tasks, stories, and deliverables.
+- Requirement completion does not complete tasks; task closure does not complete requirements.
+- Requirements approval is internal (analyst review + manager approval); portal-based customer approval is out of scope.
+- No visual BPMN process designer; process documentation is text-based.
+- Arabic translations reviewed for meaning; visual RTL review not performed.
+- Not merged to `main` (feature branch `feature/sprint-05-1-amnus-analysis` retained).
+
+---
+
 ## Version 19.0.4.5.0 — Sprint 04.5 (P0-A concurrency verification & hardening)
 
 ### Fixed

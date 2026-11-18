@@ -47,7 +47,7 @@ amnus/
 | amnus_core | **Implemented (Sprint 01)** | Core foundation, shared models, security base |
 | amnus_crm | **Implemented (Sprint 02)** | CRM & customer relationship management |
 | amnus_projects | **Implemented (Sprint 03)** | Project lifecycle, CRM handover, deliverables |
-| amnus_analysis | Planned | Requirements analysis, specs, functional analysis |
+| amnus_analysis | **Implemented (Sprint 05.1)** | Requirements management, workshops, AS-IS/TO-BE processes |
 | amnus_agile | **Implemented (Sprint 04)** | Agile ceremonies, sprints, backlogs |
 | amnus_development | Planned | Development tracking, tasks, version control links |
 | amnus_devops | Planned | CI/CD, environments, deployment pipelines |

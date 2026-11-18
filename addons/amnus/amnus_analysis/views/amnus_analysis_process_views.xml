@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- ==================== PROCESS LIST VIEW ==================== -->
+        <record id="amnus_analysis_process_list" model="ir.ui.view">
+            <field name="name">AMNUS Analysis Process List</field>
+            <field name="model">amnus.analysis.process</field>
+            <field name="arch" type="xml">
+                <list string="Business Processes" editable="bottom">
+                    <field name="reference"/>
+                    <field name="name"/>
+                    <field name="category"/>
+                    <field name="state"/>
+                    <field name="project_id"/>
+                    <field name="owner_id"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- ==================== PROCESS FORM VIEW ==================== -->
+        <record id="amnus_analysis_process_form" model="ir.ui.view">
+            <field name="name">AMNUS Analysis Process Form</field>
+            <field name="model">amnus.analysis.process</field>
+            <field name="arch" type="xml">
+                <form string="Business Process">
+                    <header>
+                        <button name="action_submit_for_review"
+                                type="object"
+                                invisible="state != 'draft'"
+                                string="Submit for Review"
+                                class="oe_highlight"
+                                groups="amnus_analysis.group_amnus_analysis_user,amnus_analysis.group_amnus_analysis_manager"/>
+                        <button name="action_approve"
+                                type="object"
+                                invisible="state != 'reviewed'"
+                                string="Approve"
+                                class="oe_highlight"
+                                groups="amnus_analysis.group_amnus_analysis_manager"/>
+                        <button name="action_cancel"
+                                type="object"
+                                invisible="state not in ('draft', 'reviewed')"
+                                string="Cancel"
+                                groups="amnus_analysis.group_amnus_analysis_user,amnus_analysis.group_amnus_analysis_manager"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,reviewed,approved,cancelled"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="reference" readonly="1"/>
+                                <field name="name" required="1"/>
+                            </h1>
+                        </div>
+                        <group string="Identification">
+                            <group>
+                                <field name="reference" readonly="1"/>
+                                <field name="name" required="1"/>
+                                <field name="category"/>
+                                <field name="state" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="project_id" required="1"/>
+                                <field name="customer_id" readonly="1"/>
+                                <field name="company_id" readonly="1"/>
+                            </group>
+                        </group>
+                        <group string="Process Content">
+                            <group string="AS-IS (Existing)">
+                                <field name="as_is_description"/>
+                            </group>
+                            <group string="TO-BE (Proposed)">
+                                <field name="to_be_description"/>
+                            </group>
+                        </group>
+                        <group string="Ownership">
+                            <group>
+                                <field name="owner_id"/>
+                            </group>
+                        </group>
+                        <group string="Related Requirements">
+                            <field name="requirement_ids"
+                                   widget="many2many_tags"
+                                   domain="[('project_id', '=', project_id)]"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- ==================== PROCESS SEARCH VIEW ==================== -->
+        <record id="amnus_analysis_process_search" model="ir.ui.view">
+            <field name="name">AMNUS Analysis Process Search</field>
+            <field name="model">amnus.analysis.process</field>
+            <field name="arch" type="xml">
+                <search string="Business Processes">
+                    <field name="reference"/>
+                    <field name="name"/>
+                    <field name="category"/>
+                    <field name="state"/>
+                    <field name="project_id"/>
+                    <field name="owner_id"/>
+                    <filter name="filter_draft"
+                            string="Draft"
+                            domain="[('state', '=', 'draft')]"/>
+                    <filter name="filter_reviewed"
+                            string="Reviewed"
+                            domain="[('state', '=', 'reviewed')]"/>
+                    <filter name="filter_approved"
+                            string="Approved"
+                            domain="[('state', '=', 'approved')]"/>
+                    <filter name="filter_cancelled"
+                            string="Cancelled"
+                            domain="[('state', '=', 'cancelled')]"/>
+                    <group name="group_by">
+                        <filter name="group_by_state"
+                                string="Status"
+                                domain="[]"
+                                context="{'group_by': 'state'}"/>
+                        <filter name="group_by_category"
+                                string="Category"
+                                domain="[]"
+                                context="{'group_by': 'category'}"/>
+                        <filter name="group_by_project"
+                                string="Project"
+                                domain="[]"
+                                context="{'group_by': 'project_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- ==================== PROCESS ACTION ==================== -->
+        <record id="action_amnus_analysis_processes" model="ir.actions.act_window">
+            <field name="name">Business Processes</field>
+            <field name="res_model">amnus.analysis.process</field>
+            <field name="view_mode">list,form,search</field>
+            <field name="search_view_id" ref="amnus_analysis_process_search"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create your first business process.</p>
+            </field>
+        </record>
+    </data>
+</odoo>

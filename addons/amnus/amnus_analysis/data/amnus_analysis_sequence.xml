@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- ==================== SEQUENCES ==================== -->
+        <record id="seq_amnus_analysis_requirement" model="ir.sequence">
+            <field name="name">AMNUS Analysis Requirement</field>
+            <field name="code">amnus.analysis.requirement</field>
+            <field name="prefix">REQ-</field>
+            <field name="padding">5</field>
+            <field name="number_increment">1</field>
+            <field name="number_next_actual">1</field>
+            <field name="use_date_range">False</field>
+        </record>
+        <record id="seq_amnus_analysis_workshop" model="ir.sequence">
+            <field name="name">AMNUS Analysis Workshop</field>
+            <field name="code">amnus.analysis.workshop</field>
+            <field name="prefix">WKS-</field>
+            <field name="padding">5</field>
+            <field name="number_increment">1</field>
+            <field name="number_next_actual">1</field>
+            <field name="use_date_range">False</field>
+        </record>
+        <record id="seq_amnus_analysis_process" model="ir.sequence">
+            <field name="name">AMNUS Analysis Process</field>
+            <field name="code">amnus.analysis.process</field>
+            <field name="prefix">PRC-</field>
+            <field name="padding">5</field>
+            <field name="number_increment">1</field>
+            <field name="number_next_actual">1</field>
+            <field name="use_date_range">False</field>
+        </record>
+    </data>
+</odoo>

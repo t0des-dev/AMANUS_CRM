@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- ==================== REQUIREMENT RECORD RULES ==================== -->
+        <record id="rule_amnus_analysis_requirement_company" model="ir.rule">
+            <field name="name">AMNUS Analysis Requirement: multi-company</field>
+            <field name="model_id" ref="model_amnus_analysis_requirement"/>
+            <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="rule_amnus_analysis_requirement_visibility" model="ir.rule">
+            <field name="name">AMNUS Analysis Requirement: project visibility</field>
+            <field name="model_id" ref="model_amnus_analysis_requirement"/>
+            <field name="domain_force">[
+                '|',
+                    ('project_id.privacy_visibility', 'in', ['employees', 'portal']),
+                '|',
+                    ('project_id.message_partner_ids', 'in', [user.partner_id.id]),
+                    '|',
+                        ('project_id.user_id', '=', user.id),
+                        ('owner_id', '=', user.id),
+            ]</field>
+            <field name="groups" eval="[(4, ref('amnus_analysis.group_amnus_analysis_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="rule_amnus_analysis_requirement_manager" model="ir.rule">
+            <field name="name">AMNUS Analysis Requirement: analysis manager sees all</field>
+            <field name="model_id" ref="model_amnus_analysis_requirement"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <field name="groups" eval="[(4, ref('amnus_analysis.group_amnus_analysis_manager'))]"/>
+        </record>
+
+        <!-- ==================== WORKSHOP RECORD RULES ==================== -->
+        <record id="rule_amnus_analysis_workshop_company" model="ir.rule">
+            <field name="name">AMNUS Analysis Workshop: multi-company</field>
+            <field name="model_id" ref="model_amnus_analysis_workshop"/>
+            <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="rule_amnus_analysis_workshop_visibility" model="ir.rule">
+            <field name="name">AMNUS Analysis Workshop: project visibility</field>
+            <field name="model_id" ref="model_amnus_analysis_workshop"/>
+            <field name="domain_force">[
+                '|',
+                    ('project_id.privacy_visibility', 'in', ['employees', 'portal']),
+                '|',
+                    ('project_id.message_partner_ids', 'in', [user.partner_id.id]),
+                    '|',
+                        ('project_id.user_id', '=', user.id),
+                        ('facilitator_id', '=', user.id),
+            ]</field>
+            <field name="groups" eval="[(4, ref('amnus_analysis.group_amnus_analysis_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="rule_amnus_analysis_workshop_manager" model="ir.rule">
+            <field name="name">AMNUS Analysis Workshop: analysis manager sees all</field>
+            <field name="model_id" ref="model_amnus_analysis_workshop"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <field name="groups" eval="[(4, ref('amnus_analysis.group_amnus_analysis_manager'))]"/>
+        </record>
+
+        <!-- ==================== PROCESS RECORD RULES ==================== -->
+        <record id="rule_amnus_analysis_process_company" model="ir.rule">
+            <field name="name">AMNUS Analysis Process: multi-company</field>
+            <field name="model_id" ref="model_amnus_analysis_process"/>
+            <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="rule_amnus_analysis_process_visibility" model="ir.rule">
+            <field name="name">AMNUS Analysis Process: project visibility</field>
+            <field name="model_id" ref="model_amnus_analysis_process"/>
+            <field name="domain_force">[
+                '|',
+                    ('project_id.privacy_visibility', 'in', ['employees', 'portal']),
+                '|',
+                    ('project_id.message_partner_ids', 'in', [user.partner_id.id]),
+                    '|',
+                        ('project_id.user_id', '=', user.id),
+                        ('owner_id', '=', user.id),
+            ]</field>
+            <field name="groups" eval="[(4, ref('amnus_analysis.group_amnus_analysis_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="rule_amnus_analysis_process_manager" model="ir.rule">
+            <field name="name">AMNUS Analysis Process: analysis manager sees all</field>
+            <field name="model_id" ref="model_amnus_analysis_process"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <field name="groups" eval="[(4, ref('amnus_analysis.group_amnus_analysis_manager'))]"/>
+        </record>
+    </data>
+</odoo>

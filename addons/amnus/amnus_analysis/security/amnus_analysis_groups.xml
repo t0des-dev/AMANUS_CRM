@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- ==================== AMNUS ANALYSIS SECURITY GROUPS ====================
+             Dedicated Analysis groups. Implied groups reuse the existing AMNUS core
+             and project groups; no standard Odoo group or AMNUS core group is
+             modified.
+        -->
+        <record id="group_amnus_analysis_user" model="res.groups">
+            <field name="name">AMNUS Analysis User</field>
+            <field name="comment">Use AMNUS Analysis: requirements, workshops, processes.</field>
+            <field name="implied_ids" eval="[
+                (4, ref('amnus_core.group_amnus_user')),
+            ]"/>
+        </record>
+
+        <record id="group_amnus_analysis_manager" model="res.groups">
+            <field name="name">AMNUS Analysis Manager</field>
+            <field name="comment">Manage AMNUS Analysis requirements, workshops and processes.</field>
+            <field name="implied_ids" eval="[
+                (4, ref('amnus_analysis.group_amnus_analysis_user')),
+                (4, ref('amnus_projects.group_amnus_project_manager')),
+            ]"/>
+        </record>
+
+        <record id="group_amnus_analysis_admin" model="res.groups">
+            <field name="name">AMNUS Analysis Administrator</field>
+            <field name="comment">Full AMNUS Analysis administration.</field>
+            <field name="implied_ids" eval="[(4, ref('amnus_analysis.group_amnus_analysis_manager'))]"/>
+        </record>
+    </data>
+</odoo>

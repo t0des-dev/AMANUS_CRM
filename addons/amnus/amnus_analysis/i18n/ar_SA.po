@@ -1,0 +1,997 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: AMNUS Analysis 19.0.1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-18\n"
+"PO-Revision-Date: 2026-11-18\n"
+"Last-Translator: AMNUS Sprint 05.1\n"
+"Language-Team: Arabic\n"
+"Language: ar_SA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0?0:n==1?1:n==2?2:n%100>=3&&n%100<=10?3:n%100>=11&&n%100<=99?4:5;\n"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:49
+msgid "Requirement Title"
+msgstr "عنوان المتطلب"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:52
+msgid "Short title of the requirement."
+msgstr "عنوان قصير للمتطلب."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:55
+msgid "Requirement Reference"
+msgstr "رقم مرجع المتطلب"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:59
+msgid "Stable, human-readable requirement identifier (e.g. REQ-00001)."
+msgstr "رقم مرجع متطلب مستقر يمكن قراءته (مثال: REQ-00001)."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:62
+msgid "Description"
+msgstr "الوصف"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:63
+msgid "Detailed requirement description."
+msgstr "وصف مفصل للمتطلب."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:68
+msgid "Requirement Type"
+msgstr "نوع المتطلب"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:69
+msgid "Business Requirement"
+msgstr "متطلب عمل"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:70
+msgid "Functional Requirement"
+msgstr "متطلب وظيفي"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:71
+msgid "Non-Functional Requirement"
+msgstr "متطلب غير وظيفي"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:74
+msgid "Priority"
+msgstr "الأولوية"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:75
+msgid "Critical"
+msgstr "حرجة"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:76
+msgid "High"
+msgstr "عالية"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:77
+msgid "Medium"
+msgstr "متوسطة"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:78
+msgid "Low"
+msgstr "منخفضة"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:81
+msgid "Business Value"
+msgstr "قيمة العمل"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:82
+msgid "Business value delivered when this requirement is implemented."
+msgstr "قيمة العمل التي يتم تقديمها عند تنفيذ هذا المتطلب."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:85
+msgid "Source"
+msgstr "المصدر"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:86
+msgid "Origin of the requirement."
+msgstr "مصدر المتطلب."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:89
+msgid "Acceptance Criteria"
+msgstr "معايير القبول"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:90
+msgid "Criteria that must be satisfied for the requirement to be implemented."
+msgstr "معايير يجب استيفاؤها لتنفيذ هذا المتطلب."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:93
+msgid "Internal Notes"
+msgstr "ملاحظات داخلية"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:96
+msgid "Project"
+msgstr "المشروع"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:99
+msgid "Implementation project this requirement belongs to."
+msgstr "المشروع التنفيذي الذي ينتمي إليه هذا المتطلب."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:102
+msgid "Customer"
+msgstr "العميل"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:105
+msgid "Customer of the project, derived from the project."
+msgstr "عميل المشروع، مشتق من المشروع."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:108
+msgid "Primary Stakeholder"
+msgstr "صاحب المصلحة الرئيسي"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:111
+msgid "Primary customer stakeholder for this requirement."
+msgstr "صاحب المصلحة الرئيسي للعميل لهذا المتطلب."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:114
+msgid "Business Owner"
+msgstr "مالك العمل"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:117
+msgid "Business owner responsible for the requirement."
+msgstr "مالك العمل المسؤول عن هذا المتطلب."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:120
+msgid "Responsible Analyst"
+msgstr "المحلل المسؤول"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:123
+msgid "Analyst responsible for eliciting and analyzing the requirement."
+msgstr "المحلل المسؤول عن استخراج وتحليل هذا المتطلب."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:126
+msgid "Target Project Stage"
+msgstr "مرحلة المشروع المستهدفة"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:129
+msgid "Target project stage / phase this requirement is planned for."
+msgstr "مرحلة / مرحلة المشروع المستهدفة التي يخطط لها هذا المتطلب."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:132
+msgid "Status"
+msgstr "الحالة"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:140
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:141
+msgid "Under Review"
+msgstr "قيد المراجعة"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:142
+msgid "Approved"
+msgstr "معتمد"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:143
+msgid "Rejected"
+msgstr "مرفوض"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:144
+msgid "Cancelled"
+msgstr "ملغاة"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:147
+msgid "Approved By"
+msgstr "اعتمد بواسطة"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:150
+msgid "Approved On"
+msgstr "تم الاعتماد في"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:153
+msgid "Rejected By"
+msgstr "رفض بواسطة"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:156
+msgid "Rejected On"
+msgstr "تم الرفض في"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:159
+msgid "Rejection Reason"
+msgstr "سبب الرفض"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:162
+msgid "Linked Task"
+msgstr "المهمة المرتبطة"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:165
+msgid "Optional project task that implements this requirement."
+msgstr "مهمة مشروع اختيارية تنفذ هذا المتطلب."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:168
+msgid "Linked User Story"
+msgstr "قصة المستخدم المرتبطة"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:171
+msgid "Optional Agile user story that plans this requirement."
+msgstr "قصة مستخدم أجايل اختيارية تخطط لهذا المتطلب."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:174
+msgid "Linked Deliverable"
+msgstr "المخرج المرتبط"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:177
+msgid "Optional contractual deliverable that satisfies this requirement."
+msgstr "مخرج تعاقدي اختياري يلبي هذا المتطلب."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:180
+msgid "Company"
+msgstr "الشركة"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:190
+msgid "Requirement reference must be unique."
+msgstr "رقم مرجع المتطلب يجب أن يكون فريداً."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:221
+msgid "A requirement must be created in Draft state."
+msgstr "يجب إنشاء المتطلب بحالة مسودة."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:227
+msgid "Requirement status cannot be changed directly. Use the workflow actions."
+msgstr "لا يمكن تغيير حالة المتطلب مباشرة. استخدم إجراءات سير العمل."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:230
+msgid "Approval and rejection information cannot be modified directly."
+msgstr "لا يمكن تعديل معلومات الاعتماد والرفض مباشرة."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:235
+msgid "Approved or rejected requirements cannot be deleted. Archive them instead."
+msgstr "لا يمكن حذف المتطلبات المعتمدة أو المرفوضة. أرشيفها بدلاً من ذلك."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:242
+msgid "Submit for Review"
+msgstr "إرسال للمراجعة"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:246
+msgid "Requirement %(ref)s submitted for review."
+msgstr "تم إرسال المتطلب %(ref)s للمراجعة."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:253
+msgid "Approve"
+msgstr "اعتماد"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:257
+msgid "Requirement %(ref)s approved."
+msgstr "تم اعتماد المتطلب %(ref)s."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:264
+msgid "Reject"
+msgstr "رفض"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:268
+msgid "Requirement %(ref)s rejected."
+msgstr "تم رفض المتطلب %(ref)s."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:275
+msgid "Requirement status cannot be changed directly. Use the workflow actions."
+msgstr "لا يمكن تغيير حالة المتطلب مباشرة. استخدم إجراءات سير العمل."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:281
+msgid "Only requirements under review can be approved."
+msgstr "فقط المتطلبات قيد المراجعة يمكن اعتمادها."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:286
+msgid "Only requirements under review can be rejected."
+msgstr "فقط المتطلبات قيد المراجعة يمكن رفضها."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:293
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:297
+msgid "Only draft or under-review requirements can be cancelled."
+msgstr "فقط المتطلبات المسودة أو قيد المراجعة يمكن إلغاؤها."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:304
+msgid "Request Revision"
+msgstr "طلب مراجعة"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:308
+msgid "Only approved requirements can be revised."
+msgstr "فقط المتطلبات المعتمدة يمكن مراجعتها."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_requirement.py:313
+msgid "Requirement %(ref)s returned to review for revision."
+msgstr "تم إرجاع المتطلب %(ref)s للمراجعة لإجراء مراجعة."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_workshop.py:49
+msgid "Workshop Title"
+msgstr "عنوان ورشة العمل"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_workshop.py:52
+msgid "Short title of the workshop."
+msgstr "عنوان قصير لورشة العمل."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_workshop.py:55
+msgid "Workshop Reference"
+msgstr "رقم مرجع ورشة العمل"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_workshop.py:59
+msgid "Stable workshop identifier (e.g. WKS-00001)."
+msgstr "معرف مستقر لورشة العمل (مثال: WKS-00001)."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_workshop.py:62
+msgid "Project"
+msgstr "المشروع"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_workshop.py:65
+msgid "Customer"
+msgstr "العميل"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_workshop.py:68
+msgid "Workshop Type"
+msgstr "نوع ورشة العمل"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_workshop.py=69
+msgid "Discovery"
+msgstr "اكتشاف"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_workshop.py=70
+msgid "Interview"
+msgstr "مقابلة"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_workshop.py=71
+msgid "Review"
+msgstr "مراجعة"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_workshop.py=72
+msgid "Demonstration"
+msgstr "عرض توضيحي"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_workshop.py=73
+msgid "Other"
+msgstr "أخرى"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_workshop.py=75
+msgid "Start Date/Time"
+msgstr "تاريخ ووقت البدء"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_workshop.py=78
+msgid "Duration (Hours)"
+msgstr "المدة (ساعات)"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_workshop.py=79
+msgid "Duration of the workshop in hours."
+msgstr "مدة ورشة العمل بالساعات."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_workshop.py=82
+msgid "Location / Meeting Link"
+msgstr "الموقع / رابط الاجتماع"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_workshop.py=83
+msgid "Physical location or online meeting link."
+msgstr "الموقع الفعلي أو رابط الاجتماع عبر الإنترنت."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_workshop.py=86
+msgid "Facilitator"
+msgstr "المنسق"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_workshop.py=89
+msgid "AMNUS team members attending the workshop."
+msgstr "أعضاء فريق AMNUS الحاضرون لورشة العمل."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_workshop.py=92
+msgid "Internal Participants"
+msgstr "المشاركون الداخليون"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_workshop.py=95
+msgid "Customer Participants"
+msgstr "المشاركون العملاء"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_workshop.py=98
+msgid "Customer stakeholders attending the workshop."
+msgstr "أصحاب المصلحة من العملاء الحاضرون لورشة العمل."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_workshop.py=101
+msgid "Agenda"
+msgstr "جدول الأعمال"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_workshop.py=102
+msgid "Discussion Notes"
+msgstr "ملاحظات المناقشة"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_workshop.py=103
+msgid "Decisions"
+msgstr "القرارات"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_workshop.py=104
+msgid "Outcomes"
+msgstr "النتائج"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_workshop.py=105
+msgid "Follow-up Actions"
+msgstr "إجراءات المتابعة"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_workshop.py=108
+msgid "Related Requirements"
+msgstr "المتطلبات المرتبطة"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_workshop.py=111
+msgid "Requirements identified or refined during this workshop."
+msgstr "المتطلبات التي تم تحديدها أو تحسينها خلال هذه الورشة."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_workshop.py=114
+msgid "Workshop reference must be unique."
+msgstr "رقم مرجع ورشة العمل يجب أن يكون فريداً."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_workshop.py=124
+msgid "A workshop must be created in Draft state."
+msgstr "يجب إنشاء ورشة العمل بحالة مسودة."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_workshop.py=130
+msgid "Workshop status cannot be changed directly. Use the workflow actions."
+msgstr "لا يمكن تغيير حالة ورشة العمل مباشرة. استخدم إجراءات سير العمل."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_workshop.py=139
+msgid "Held workshops cannot be deleted. Archive them instead."
+msgstr "لا يمكن حذف ورش العمل المنعقدة. أرشفها بدلاً من ذلك."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_workshop.py=143
+msgid "Mark as Held"
+msgstr "تعيين كمنعقدة"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_process.py=49
+msgid "Business Process"
+msgstr "عملية عمل"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_process.py=52
+msgid "Process Name"
+msgstr "اسم العملية"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_process.py=55
+msgid "Process Reference"
+msgstr "رقم مرجع العملية"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_process.py=59
+msgid "Stable process identifier (e.g. PRC-00001)."
+msgstr "معرف عملية مستقر (مثال: PRC-00001)."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_process.py=62
+msgid "Process Category"
+msgstr "فئة العملية"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_process.py=63
+msgid "Business Process"
+msgstr "عملية عمل"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_process.py=64
+msgid "Technical Process"
+msgstr "عملية تقنية"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_process.py=65
+msgid "Data Process"
+msgstr "عملية بيانات"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_process.py=66
+msgid "Integration Process"
+msgstr "عملية تكامل"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_process.py=69
+msgid "AS-IS Description"
+msgstr "وصف الحالة الحالية (كما هي)"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_process.py=70
+msgid "Description of the customer's existing process."
+msgstr "وصف العملية الحالية للعميل."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_process.py=73
+msgid "TO-BE Description"
+msgstr "وصف الحالة المستهدفة (كما ينبغي أن تكون)"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_process.py=74
+msgid "Description of the proposed target process."
+msgstr "وصف العملية المستهدفة المقترحة."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_process.py=77
+msgid "Process Owner"
+msgstr "مالك العملية"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_process.py=80
+msgid "Internal Notes"
+msgstr "ملاحظات داخلية"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_process.py=83
+msgid "Process reference must be unique."
+msgstr "رقم مرجع العملية يجب أن يكون فريداً."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_process.py=93
+msgid "A process must be created in Draft state."
+msgstr "يجب إنشاء العملية بحالة مسودة."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_process.py=99
+msgid "Process status cannot be changed directly. Use the workflow actions."
+msgstr "لا يمكن تغيير حالة العملية مباشرة. استخدم إجراءات سير العمل."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_process.py=104
+msgid "Approved processes cannot be deleted. Archive them instead."
+msgstr "لا يمكن حذف العمليات المعتمدة. أرشِفها بدلاً من ذلك."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_process.py=108
+msgid "Submit for Review"
+msgstr "إرسال للمراجعة"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_process.py=112
+msgid "Only draft processes can be submitted for review."
+msgstr "فقط العمليات المسودة يمكن إرسالها للمراجعة."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_process.py=119
+msgid "Approve"
+msgstr "اعتماد"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_process.py=123
+msgid "Only reviewed processes can be approved."
+msgstr "فقط العمليات التي تمت مراجعتها يمكن اعتمادها."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_process.py=128
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/models/amnus_analysis_process.py=132
+msgid "Only draft or reviewed processes can be cancelled."
+msgstr "فقط العمليات المسودة أو التي تمت مراجعتها يمكن إلغاؤها."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/security/amnus_analysis_groups.py
+msgid "AMNUS Analysis"
+msgstr "تحليل AMNUS"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/security/amnus_analysis_groups.py
+msgid "Requirements management layer for the AMNUS Odoo Project Lifecycle Management Platform."
+msgstr "طبقة إدارة المتطلبات لمنصة AMNUS لإدارة دورة حياة مشاريع Odoo."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/security/amnus_analysis_groups.py
+msgid "This addon provides structured requirements discovery and functional analysis for"
+msgstr "توفر هذه الإضافة اكتشافاً هيكلياً للمتطلبات وتحليلاً وظيفياً لـ"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/security/amnus_analysis_groups.py
+msgid "Odoo implementation projects:"
+msgstr "مشاريع تنفيذ Odoo:"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/security/amnus_analysis_groups.py
+msgid "Business, functional and non-functional requirements"
+msgstr "المتطلبات الوظيفية وغير الوظيفية والمتطلبات التجارية"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/security/amnus_analysis_groups.py
+msgid "Discovery workshops"
+msgstr "ورش العمل الاستكشافية"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/security/amnus_analysis_groups.py
+msgid "AS-IS / TO-BE business process documentation"
+msgstr "توثيق عمليات العمل (كما هي / كما ينبغي أن تكون)"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/security/amnus_analysis_groups.py
+msgid "Requirements are linked to an implementation project and carry a full lifecycle:"
+msgstr "المتطلبات مرتبطة بمشروع تنفيذي وتحمل دورة حياة كاملة:"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/security/amnus_analysis_groups.py
+msgid "draft, under review, approved, rejected and cancelled. Approved requirements are"
+msgstr "مسودة، قيد المراجعة، معتمد، مرفوض، ملغاة. المتطلبات المعتمدة هي"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/security/amnus_analysis_groups.py
+msgid "protected from silent rewrites and can only be changed through a controlled"
+msgstr "محمية من إعادة الكتابة الصامتة ويمكن تغييرها فقط عبر"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/security/amnus_analysis_groups.py
+msgid "revision (return-to-review) workflow."
+msgstr "سير عمل المراجعة (العودة للمراجعة) المتحكم فيه."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/security/amnus_analysis_groups.py
+msgid "Requirement traceability links requirements to the implementation work that"
+msgstr "تربط قابلية تتبع المتطلبات المتطلبات بالعمل التنفيذي الذي"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/security/amnus_analysis_groups.py
+msgid "realizes them (project tasks, Agile user stories, deliverables) without"
+msgstr "ينفذها (مهام المشروع، قصص المستخدم الأجايل، المخرجات) دون"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/security/amnus_analysis_groups.py
+msgid "duplicating the standard Odoo execution model or the AMNUS Agile planning model."
+msgstr "تكرار نموذج التنفيذ القياسي في Odoo أو نموذج تخطيط أجايل في AMNUS."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/security/amnus_analysis_groups.py
+msgid "Odoo 19 Community Edition only. No Enterprise dependencies."
+msgstr "إصدار Odoo 19 المجتمعي فقط. لا توجد تبعيات Enterprise."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/security/amnus_analysis_groups.py
+msgid "Requirements"
+msgstr "المتطلبات"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/security/amnus_analysis_groups.py
+msgid "Workshops"
+msgstr "ورش العمل"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/security/amnus_analysis_groups.py
+msgid "Business Processes"
+msgstr "عمليات العمل"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/security/amnus_analysis_groups.py
+msgid "Analysis"
+msgstr "التحليل"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/security/amnus_analysis_groups.py
+msgid "AMNUS Analysis User"
+msgstr "مستخدم تحليل AMNUS"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/security/amnus_analysis_groups.py
+msgid "Use AMNUS Analysis: requirements, workshops, processes."
+msgstr "استخدم تحليل AMNUS: المتطلبات، ورش العمل، العمليات."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/security/amnus_analysis_groups.py
+msgid "AMNUS Analysis Manager"
+msgstr "مدير تحليل AMNUS"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/security/amnus_analysis_groups.py
+msgid "Manage AMNUS Analysis requirements, workshops and processes."
+msgstr "إدارة المتطلبات وورش العمل وعمليات تحليل AMNUS."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/security/amnus_analysis_groups.py
+msgid "AMNUS Analysis Administrator"
+msgstr "مسؤول تحليل AMNUS"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/security/amnus_analysis_groups.py
+msgid "Full AMNUS Analysis administration."
+msgstr "إدارة كاملة لتحليل AMNUS."
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/security/amnus_analysis_security.xml
+msgid "AMNUS Analysis Requirement: multi-company"
+msgstr "متطلب تحليل AMNUS: متعدد الشركات"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/security/amnus_analysis_security.xml
+msgid "AMNUS Analysis Requirement: project visibility"
+msgstr "متطلب تحليل AMNUS: رؤية المشروع"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/security/amnus_analysis_security.xml
+msgid "AMNUS Analysis Requirement: analysis manager sees all"
+msgstr "مدير تحليل AMNUS: يرى كل شيء"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/security/amnus_analysis_security.xml
+msgid "AMNUS Analysis Workshop: multi-company"
+msgstr "ورشة تحليل AMNUS: متعدد الشركات"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/security/amnus_analysis_security.xml
+msgid "AMNUS Analysis Workshop: project visibility"
+msgstr "ورشة تحليل AMNUS: رؤية المشروع"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/security/amnus_analysis_security.xml
+msgid "AMNUS Analysis Workshop: analysis manager sees all"
+msgstr "مدير تحليل AMNUS: يرى كل شيء"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/security/amnus_analysis_security.xml
+msgid "AMNUS Analysis Process: multi-company"
+msgstr "عملية تحليل AMNUS: متعدد الشركات"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/security/amnus_analysis_security.xml
+msgid "AMNUS Analysis Process: project visibility"
+msgstr "عملية تحليل AMNUS: رؤية المشروع"
+
+#. module: amnus_analysis
+#. odoo-python
+#: addons/amnus/amnus_analysis/security/amnus_analysis_security.xml
+msgid "AMNUS Analysis Process: analysis manager sees all"
+msgstr "مدير تحليل AMNUS: يرى كل شيء"
