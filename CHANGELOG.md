@@ -20,6 +20,16 @@
 - Pre-fix defects demonstrated on `amnus_test_19`: C-04a 0/10, C-05b 0/10, C-06 0/10, S-01 deadlock 10/10; post-fix: **12/12 scenarios × 10 reps all pass, 0 deadlocks, 0 unique violations, residue all zeros**.
 - P0-B fix record: `docs/sprints/SPRINT_04_5_P0B_FIX.md` (commit `37c0bfc`).
 
+### Internationalization (P1 — translation validation)
+- Catalogs regenerated via Odoo's own `i18n export` for all four modules (`amnus_core`, `amnus_crm`, `amnus_projects`, `amnus_agile`); `amnus_crm` gained its previously missing `i18n/` directory.
+- `amnus_core` PO/POT structurally repaired: entries now carry Odoo-required `#. module:` comments and `#:` occurrences (previously crashed Odoo's `PoFileReader` with `AttributeError` and made `_(…)` silently return source for non-English users).
+- `fr_FR.po` / `ar_SA.po` rebuilt per module from the fresh `.pot`, merging prior translations by `msgid`; all 323 remaining empty entries translated (French + Arabic). `amnus_deliverable_id` correctly left untranslated (technical field identifier, not user-facing).
+- Every `.po` validated: Odoo `translation_file_reader` parse, `polib` parse, MO compile via `polib.save_as_mofile`, coverage table (agile/core/crm 100%, projects 99.3% — sole gap is the intentional `amnus_deliverable_id`).
+- Languages installed in `amnus_test_19` (`fr_FR`, `ar_SA` with `direction='rtl'`) and module terms loaded via `-u amnus_core,amnus_crm,amnus_projects,amnus_agile` (never `-u all`).
+- DB verified: jsonb translation values present for sample menus/models/fields in both `fr_FR` and `ar_SA`; `res.lang ar_SA direction='rtl'`; no custom OWL/CSS/asset bundles in any module (only `static/description/index.html`), so Odoo web-client RTL applies unbroken.
+- Sequential regressions re-run green after i18n: core 34, crm 23, projects 61, agile 98 — all `0 failed, 0 error(s)`, exit 0.
+- Evidence report: `docs/sprints/SPRINT_04_5_P1_I18N.md`.
+
 ## Version 19.0.4.1.0 — Sprint 04.2 (Agile Security & Data Integrity Remediation)
 
 ### Fixed

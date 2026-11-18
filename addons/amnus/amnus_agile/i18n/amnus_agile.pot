@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-16 09:06+0000\n"
-"PO-Revision-Date: 2026-11-16 09:06+0000\n"
+"POT-Creation-Date: 2026-11-17 22:55+0000\n"
+"PO-Revision-Date: 2026-11-17 22:55+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -1143,6 +1143,12 @@ msgstr ""
 #: code:addons/amnus_agile/models/amnus_agile_sprint.py:0
 #: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
 msgid "Stories cannot be carried over from a closed or cancelled sprint."
+msgstr ""
+
+#. module: amnus_agile
+#. odoo-python
+#: code:addons/amnus_agile/models/amnus_agile_user_story.py:0
+msgid "Stories in a closed or cancelled sprint cannot be re-estimated."
 msgstr ""
 
 #. module: amnus_agile
