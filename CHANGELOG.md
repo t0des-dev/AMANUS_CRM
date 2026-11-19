@@ -1,5 +1,115 @@
 # Changelog — AMNUS
 
+## Version 19.0.5.1.4 — Sprint 05.1.4 (Dependency & Translation Remediation)
+
+### Fixed
+- **F-A05 (undeclared `amnus_agile` dependency):** Resolved via separate optional integration addon `amnus_analysis_agile` that depends on both `amnus_analysis` and `amnus_agile`. Core `amnus_analysis` no longer references `amnus.agile.user.story` and loads successfully without Agile. Story traceability preserved when integration addon is installed.
+- **Translation catalog gap:** Regenerated `amnus_analysis.pot` via Odoo `i18n export` (237 entries, up from 164). Rebuilt `fr_FR.po` and `ar_SA.po` from fresh .pot, merging existing translations. All 100 gaps per language filled with French and Arabic translations. 100% coverage (237/237) for both languages. Catalogs validated (Odoo reader + polib + MO compile).
+- **Cancellation audit logging:** Added audit event logging to `action_cancel()` in requirement, workshop, and process models. Event created in same transaction as cancellation.
+
+### Added
+- Addon `amnus_analysis_agile` (optional integration): depends on `amnus_analysis` and `amnus_agile`. Adds `story_id` field + `_check_story_project` constraint via `_inherit`. Adds view inheritance showing `story_id` in requirement form.
+- `docs/sprints/SPRINT_05_1_4_REMEDIATION_REPORT.md` — remediation report.
+
+### Changed
+- `amnus_analysis_requirement_views.xml`: removed `story_id` field reference (moved to integration addon).
+- `amnus_analysis_requirement.py`: removed `story_id` field, `_check_story_project` constraint, `story_id` from `CONTENT_FIELDS`; added conditional project_id guard; added cancellation audit logging.
+- `amnus_analysis_requirement_version.py`: made `story_reference` conditional on field existence.
+- `tests/test_requirement.py`: added skip guards for story-related tests when Agile is not installed.
+
+### Notes
+- Combined test total: 274 tests (58 analysis + 34 core + 23 crm + 61 projects + 98 agile), 0 failures, 0 errors.
+- Reverse-direction traceability guards deferred (cross-module concern, requires changes to `amnus_projects` and `amnus_agile`).
+- Visual RTL review not performed (structural assessment only).
+- `amnus_analysis_agile` has no test files (story traceability tests are in main addon with skip guards).
+
+---
+
+## Version 19.0.5.1.2 — Sprint 05.1.2 (HIGH Findings Remediation)
+
+### Fixed
+- **F-A01 (Rejection reason never captured):** `rejection_reason` is now a writable field; `action_reject()` requires and captures a non-empty rejection reason. Reason is stored in the field and included in the audit event description.
+- **F-A02 (No immutable approval snapshot):** New model `amnus.analysis.requirement.version` creates an immutable snapshot on approval, capturing all approved content, related record snapshots (IDs + text names), approval metadata, and company context. Versions are append-only (create requires `env.su`, write/unlink always raise `UserError`). Transactional: if snapshot creation fails, approval rolls back.
+- **F-A03 (Protected content freely editable):** `write()` now rejects content field changes on approved/rejected/cancelled records (unless `env.su`). `CONTENT_FIELDS` set defines protected fields. Per-record guard in multi-record writes.
+- **F-A04 (Project freely changeable):** `write()` now rejects `project_id` changes on approved/rejected/cancelled records, and when traceability links (task/story/deliverable) exist.
+- **F-A06 (Cancellation not manager-restricted):** `action_cancel()` now requires manager authorization for under-review cancellation. Analysts can still cancel their own drafts.
+- **F-A07 (Workshop cancel not manager-restricted):** `action_cancel()` on workshops now requires manager authorization.
+- **F-A08 (Process cancel not manager-restricted):** `action_cancel()` on processes now requires manager authorization for reviewed processes.
+- **F-A09 (Rejection reason not validated):** Fixed via F-A01 — `action_reject()` validates non-empty reason.
+- **F-A11 (Revision doesn't clear metadata):** `action_request_revision()` now clears `approved_by`, `approved_date`, `approval_notes`.
+- **F-A13 (Cancelled requirements deletable):** `unlink()` now protects cancelled requirements in addition to approved/rejected.
+- **F-A18/F-A19 (Metadata clearing, approval notes):** `action_approve()` now sets `approval_notes`; `action_reject()` clears approval metadata; `action_request_revision()` clears both.
+
+### Added
+- Model `amnus.analysis.requirement.version` (immutable approval snapshot).
+- Fields on `amnus.analysis.requirement`: `approval_notes` (Text), `version_ids` (One2many), `current_version` (Integer). `rejection_reason` changed from readonly to writable.
+- Security: ACLs and record rules for version model (read-only for all groups).
+- Views: approval_notes and rejection_reason fields (writable) in form view; version history section.
+- Tests: 16 new tests (58 total, 0 failures, 0 errors).
+- `docs/sprints/SPRINT_05_1_2_REMEDIATION_REPORT.md` — remediation report.
+
+### Changed
+- `action_approve()` now creates an immutable version snapshot before returning. Version number = previous + 1.
+- `action_reject()` now requires and captures a non-empty rejection reason.
+- `action_cancel()` now requires manager authorization for under-review cancellation.
+- `write()` now protects content fields and project_id on approved/rejected/cancelled records.
+- `unlink()` now protects cancelled requirements.
+
+### Notes
+- F-A05 (undeclared `amnus_agile` dependency): documented as optional integration. `story_id` field references `amnus.agile.user.story` which requires `amnus_agile` to be installed. No cycle is created by adding it as a dependency, but the sprint spec prefers optional integration. Known limitation documented.
+- F-A15 (source default "other"): deferred — minor data quality issue.
+- Audit event for cancellation: not logged (minor gap, deferred).
+- New strings ("Approval Notes", version model labels) need i18n catalog regeneration before final merge.
+- Combined test total: 274 tests (58 analysis + 34 core + 23 crm + 61 projects + 98 agile), 0 failures, 0 errors.
+
+---
+
+## Version 19.0.5.1.0 — Sprint 05.1 (Requirements Management)
+
+### Added
+- `addons/amnus/amnus_analysis` addon (implemented)
+  - Manifest: name "AMNUS Analysis", version 19.0.1.0.0, depends `amnus_core`, `amnus_projects`, `project`, `mail`, LGPL-3
+  - Model `amnus.analysis.requirement`: dedicated requirement record linked to an implementation project with controlled lifecycle (draft, under review, approved, rejected, cancelled). Fields: reference, name, description, requirement_type (business/functional/non-functional), priority (critical/high/medium/low), business_value, source, acceptance_criteria, notes, project_id, customer_id, stakeholder_id, owner_id, analyst_id, target_stage_id, task_id, story_id, deliverable_id, company_id, approved_by/approved_date, rejected_by/rejected_date/rejection_reason.
+  - Model `amnus.analysis.workshop`: structured discovery workshop with reference, type, date/duration, location, facilitator, internal/customer participants, agenda, discussion notes, decisions, outcomes, follow-up actions, related requirements, status.
+  - Model `amnus.analysis.process`: AS-IS / TO-BE business process documentation with reference, category, AS-IS/TO-BE descriptions, related requirements, owner, status.
+  - Sequence-based references: REQ-00001, WKS-00001, PRC-00001 (native `ir.sequence`, concurrency-safe via `next_by_code`).
+  - Workflow actions: `action_submit_for_review`, `action_approve`, `action_reject`, `action_cancel`, `action_request_revision` (requirement); `action_mark_held`, `action_cancel` (workshop); `action_submit_for_review`, `action_approve`, `action_cancel` (process).
+  - Security groups: `group_amnus_analysis_user` / `manager` / `admin` (implication hierarchy, never auto-assigned), reusing `amnus_core.group_amnus_user` and `amnus_projects.group_amnus_project_manager`.
+  - ACLs in `security/ir.model.access.csv`; record rules in `security/amnus_analysis_security.xml` (multi-company + project visibility + manager sees all).
+  - Views: list/kanban/form/search for requirements; list/form/search for workshops and processes; menus under AMNUS → Analysis.
+  - Data: `data/amnus_analysis_sequence.xml` (3 sequences).
+  - Tests: 42 tests (test_requirement 18, test_workshop 7, test_process 8, test_security 9).
+  - README, static description, `fr_FR` and `ar_SA` translations (164 messages each).
+- Documentation: `docs/sprints/SPRINT_05_1.md`
+
+### Changed
+- `README.md`: `amnus_analysis` status updated to implemented (Sprint 05.1).
+
+### Runtime validation
+- `amnus_analysis` installed on `amnus_test_19`: state = installed
+- Python compile: OK (all files)
+- XML validation: OK (all files well-formed)
+- Manifest validation: OK (version 19.0.1.0.0, LGPL-3, depends amnus_core/amnus_projects/project/mail)
+- Translation catalogs: Odoo reader + polib + MO compile OK; coverage 100% (fr_FR and ar_SA)
+- Automated tests: 42 tests, 0 failures, 0 errors (via Odoo test runner)
+- Core regression: 34 tests, 0 failures, 0 errors
+- CRM regression: 23 tests, 0 failures, 0 errors
+- Projects regression: 61 tests, 0 failures, 0 errors
+- Agile regression: 98 tests, 0 failures, 0 errors
+- Combined total: 258 tests, 0 failures, 0 errors
+- No Enterprise dependencies
+- Existing `amanus_*` modules and Odoo core untouched
+
+### Notes
+- `project.task` remains the single execution model; requirements are planning artifacts that may link to tasks, stories, and deliverables.
+- Requirement completion does not complete tasks; task closure does not complete requirements.
+- Requirements approval is internal (analyst review + manager approval); portal-based customer approval is out of scope.
+- No visual BPMN process designer; process documentation is text-based.
+- Arabic translations reviewed for meaning; visual RTL review not performed.
+- Not merged to `main` (feature branch `feature/sprint-05-1-amnus-analysis` retained).
+
+---
+
 ## Version 19.0.4.5.0 — Sprint 04.5 (P0-A concurrency verification & hardening)
 
 ### Fixed

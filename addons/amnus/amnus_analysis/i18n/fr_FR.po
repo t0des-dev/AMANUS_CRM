@@ -1,0 +1,1439 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-18 14:16+0000\n"
+"PO-Revision-Date: 2026-11-18 14:00+0000\n"
+"Last-Translator: AMNUS Sprint 05.1.4\n"
+"Language-Team: French\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: amnus_analysis
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_requirement_kanban
+msgid "<strong>Analyst:</strong>"
+msgstr "<strong>Analyste :</strong>"
+
+#. module: amnus_analysis
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_requirement_kanban
+msgid "<strong>Owner:</strong>"
+msgstr "<strong>Propriétaire :</strong>"
+
+#. module: amnus_analysis
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_requirement_kanban
+msgid "<strong>Priority:</strong>"
+msgstr "<strong>Priorité :</strong>"
+
+#. module: amnus_analysis
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_requirement_kanban
+msgid "<strong>Project:</strong>"
+msgstr "<strong>Projet :</strong>"
+
+#. module: amnus_analysis
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_requirement_kanban
+msgid "<strong>Type:</strong>"
+msgstr "<strong>Type :</strong>"
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_process.py:0
+msgid "A process must be created in Draft state."
+msgstr "Un processus doit être créé à l'état Brouillon."
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_requirement.py:0
+msgid "A rejection reason is required."
+msgstr "Un motif de rejet est requis."
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_requirement.py:0
+msgid "A requirement must be created in Draft state."
+msgstr "Une exigence doit être créée à l'état Brouillon."
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_workshop.py:0
+msgid "A workshop must be created in Draft state."
+msgstr "Un atelier doit être créé à l'état Brouillon."
+
+#. module: amnus_analysis
+#: model:res.groups,name:amnus_analysis.group_amnus_analysis_admin
+msgid "AMNUS Analysis Administrator"
+msgstr "Administrateur AMNUS Analysis"
+
+#. module: amnus_analysis
+#: model:res.groups,name:amnus_analysis.group_amnus_analysis_manager
+msgid "AMNUS Analysis Manager"
+msgstr "Responsable AMNUS Analysis"
+
+#. module: amnus_analysis
+#: model:ir.model,name:amnus_analysis.model_amnus_analysis_process
+msgid "AMNUS Analysis Process"
+msgstr "Processus d'analyse AMNUS"
+
+#. module: amnus_analysis
+#: model:ir.model,name:amnus_analysis.model_amnus_analysis_requirement
+msgid "AMNUS Analysis Requirement"
+msgstr "Exigence d'analyse AMNUS"
+
+#. module: amnus_analysis
+#: model:ir.model,name:amnus_analysis.model_amnus_analysis_requirement_version
+msgid "AMNUS Analysis Requirement Version"
+msgstr "Version d'exigence d'analyse AMNUS"
+
+#. module: amnus_analysis
+#: model:res.groups,name:amnus_analysis.group_amnus_analysis_user
+msgid "AMNUS Analysis User"
+msgstr "Utilisateur AMNUS Analysis"
+
+#. module: amnus_analysis
+#: model:ir.model,name:amnus_analysis.model_amnus_analysis_workshop
+msgid "AMNUS Analysis Workshop"
+msgstr "Atelier d'analyse AMNUS"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_workshop__internal_participant_ids
+msgid "AMNUS team members attending the workshop."
+msgstr "Membres de l'équipe AMNUS assistant à l'atelier."
+
+#. module: amnus_analysis
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_process_form
+msgid "AS-IS (Existing)"
+msgstr "AS-IS (Existant)"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_process__as_is_description
+msgid "AS-IS Description"
+msgstr "Description AS-IS"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__acceptance_criteria
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement_version__acceptance_criteria
+msgid "Acceptance Criteria"
+msgstr "Critères d'acceptation"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_process__message_needaction
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__message_needaction
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_workshop__message_needaction
+msgid "Action Needed"
+msgstr "Action requise"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_workshop__agenda
+msgid "Agenda"
+msgstr "Ordre du jour"
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_process.py:0
+msgid ""
+"All related requirements must belong to the same project as the process."
+msgstr ""
+"Toutes les exigences liées doivent appartenir au même projet que le "
+"processus."
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_workshop.py:0
+msgid ""
+"All related requirements must belong to the same project as the workshop."
+msgstr ""
+"Toutes les exigences liées doivent appartenir au même projet que l'atelier."
+
+#. module: amnus_analysis
+#: model:ir.ui.menu,name:amnus_analysis.menu_amnus_analysis_root
+msgid "Analysis"
+msgstr "Analyse"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement_version__analyst_name
+msgid "Analyst Name (snapshot)"
+msgstr "Nom de l'analyste (instantané)"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_requirement__analyst_id
+msgid "Analyst responsible for eliciting and analyzing the requirement."
+msgstr "Analyste responsable de l'élucidation et de l'analyse de l'exigence."
+
+#. module: amnus_analysis
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_requirement_form
+msgid "Approval"
+msgstr "Approbation"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__approval_notes
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement_version__approval_notes
+msgid "Approval Notes"
+msgstr "Notes d'approbation"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__version_ids
+msgid "Approval Versions"
+msgstr "Versions d'approbation"
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_requirement.py:0
+msgid "Approval and rejection information cannot be modified directly."
+msgstr ""
+"Les informations d'approbation et de rejet ne peuvent pas être modifiées "
+"directement."
+
+#. module: amnus_analysis
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_requirement_form
+msgid "Approval notes..."
+msgstr "Notes d'approbation..."
+
+#. module: amnus_analysis
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_process_form
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_requirement_form
+msgid "Approve"
+msgstr "Approuver"
+
+#. module: amnus_analysis
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_process__state__approved
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_requirement__state__approved
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_process_search
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_requirement_search
+msgid "Approved"
+msgstr "Approuvé"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__approved_by
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement_version__approved_by
+msgid "Approved By"
+msgstr "Approuvé par"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__approved_date
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement_version__approved_date
+msgid "Approved On"
+msgstr "Approuvé le"
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_process.py:0
+msgid "Approved processes cannot be deleted. Archive them instead."
+msgstr ""
+"Les processus approuvés ne peuvent pas être supprimés. Archivez-les plutôt."
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_requirement.py:0
+msgid ""
+"Approved, rejected or cancelled requirements cannot be deleted. Archive them"
+" instead."
+msgstr ""
+"Les exigences approuvées, rejetées ou annulées ne peuvent pas être "
+"supprimées. Archivez-les plutôt."
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_process__message_attachment_count
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__message_attachment_count
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_workshop__message_attachment_count
+msgid "Attachment Count"
+msgstr "Nombre de pièces jointes"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__owner_id
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement_version__owner_id
+msgid "Business Owner"
+msgstr "Propriétaire métier"
+
+#. module: amnus_analysis
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_process__category__business
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_process_form
+msgid "Business Process"
+msgstr "Processus métier"
+
+#. module: amnus_analysis
+#: model:ir.actions.act_window,name:amnus_analysis.action_amnus_analysis_processes
+#: model:ir.ui.menu,name:amnus_analysis.menu_amnus_analysis_processes
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_process_list
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_process_search
+msgid "Business Processes"
+msgstr "Processus métier"
+
+#. module: amnus_analysis
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_requirement__requirement_type__business
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_requirement_version__requirement_type__business
+msgid "Business Requirement"
+msgstr "Exigence métier"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__business_value
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement_version__business_value
+msgid "Business Value"
+msgstr "Valeur métier"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_requirement__owner_id
+msgid "Business owner responsible for the requirement."
+msgstr "Propriétaire métier responsable de l'exigence."
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_requirement__business_value
+msgid "Business value delivered when this requirement is implemented."
+msgstr "Valeur métier livrée lorsque cette exigence est mise en œuvre."
+
+#. module: amnus_analysis
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_process_form
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_requirement_form
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_workshop_form
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: amnus_analysis
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_process__state__cancelled
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_requirement__state__cancelled
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_workshop__state__cancelled
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_process_search
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_requirement_search
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_workshop_search
+msgid "Cancelled"
+msgstr "Annulé"
+
+#. module: amnus_analysis
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_process_search
+msgid "Category"
+msgstr "Catégorie"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_process__company_id
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__company_id
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement_version__company_id
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_workshop__company_id
+msgid "Company"
+msgstr "Société"
+
+#. module: amnus_analysis
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_requirement_form
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_workshop_form
+msgid "Content"
+msgstr "Contenu"
+
+#. module: amnus_analysis
+#: model_terms:ir.actions.act_window,help:amnus_analysis.action_amnus_analysis_processes
+msgid "Create your first business process."
+msgstr "Créez votre premier processus métier."
+
+#. module: amnus_analysis
+#: model_terms:ir.actions.act_window,help:amnus_analysis.action_amnus_analysis_requirements
+msgid "Create your first requirement."
+msgstr "Créez votre première exigence."
+
+#. module: amnus_analysis
+#: model_terms:ir.actions.act_window,help:amnus_analysis.action_amnus_analysis_workshops
+msgid "Create your first workshop."
+msgstr "Créez votre premier atelier."
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_process__create_uid
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__create_uid
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement_version__create_uid
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_workshop__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_process__create_date
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__create_date
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement_version__create_date
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_workshop__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_requirement__acceptance_criteria
+msgid "Criteria that must be satisfied for the requirement to be implemented."
+msgstr ""
+"Critères qui doivent être satisfaits pour que l'exigence soit mise en œuvre."
+
+#. module: amnus_analysis
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_requirement__priority__critical
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_requirement_version__priority__critical
+msgid "Critical"
+msgstr "Critique"
+
+#. module: amnus_analysis
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_requirement_search
+msgid "Critical Priority"
+msgstr "Priorité critique"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__current_version
+msgid "Current Approved Version"
+msgstr "Version approuvée actuelle"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_process__customer_id
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__customer_id
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_workshop__customer_id
+msgid "Customer"
+msgstr "Client"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement_version__customer_name
+msgid "Customer Name (snapshot)"
+msgstr "Nom du client (instantané)"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_workshop__customer_participant_ids
+msgid "Customer Participants"
+msgstr "Participants client"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_requirement_version__customer_name
+msgid "Customer name captured at approval time."
+msgstr "Nom du client capturé au moment de l'approbation."
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_requirement__customer_id
+msgid "Customer of the project, derived from the project."
+msgstr "Client du projet, dérivé du projet."
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_workshop__customer_participant_ids
+msgid "Customer stakeholders attending the workshop."
+msgstr "Parties prenantes client assistant à l'atelier."
+
+#. module: amnus_analysis
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_process__category__data
+msgid "Data Process"
+msgstr "Processus de données"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_workshop__decisions
+msgid "Decisions"
+msgstr "Décisions"
+
+#. module: amnus_analysis
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_workshop__workshop_type__demo
+msgid "Demonstration"
+msgstr "Démonstration"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__description
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement_version__description
+msgid "Description"
+msgstr "Description"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_process__as_is_description
+msgid "Description of the customer's existing process."
+msgstr "Description du processus existant du client."
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_process__to_be_description
+msgid "Description of the proposed target process."
+msgstr "Description du processus cible proposé."
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_requirement__description
+msgid "Detailed requirement description."
+msgstr "Description détaillée de l'exigence."
+
+#. module: amnus_analysis
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_workshop__workshop_type__discovery
+msgid "Discovery"
+msgstr "Découverte"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_workshop__discussion_notes
+msgid "Discussion Notes"
+msgstr "Notes de discussion"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_process__display_name
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__display_name
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement_version__display_name
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_workshop__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: amnus_analysis
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_requirement__source__document
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_requirement_version__source__document
+msgid "Document"
+msgstr "Document"
+
+#. module: amnus_analysis
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_process__state__draft
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_requirement__state__draft
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_workshop__state__draft
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_process_search
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_requirement_search
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_workshop_search
+msgid "Draft"
+msgstr "Brouillon"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_workshop__duration_hours
+msgid "Duration (Hours)"
+msgstr "Durée (heures)"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_workshop__duration_hours
+msgid "Duration of the workshop in hours."
+msgstr "Durée de l'atelier en heures."
+
+#. module: amnus_analysis
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_requirement__source__email
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_requirement_version__source__email
+msgid "Email"
+msgstr "E-mail"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_workshop__facilitator_id
+msgid "Facilitator"
+msgstr "Facilitateur"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_workshop__follow_up_actions
+msgid "Follow-up Actions"
+msgstr "Actions de suivi"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_process__message_follower_ids
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__message_follower_ids
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_workshop__message_follower_ids
+msgid "Followers"
+msgstr "Abonnés"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_process__message_partner_ids
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__message_partner_ids
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_workshop__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Abonnés (partenaires)"
+
+#. module: amnus_analysis
+#: model:res.groups,comment:amnus_analysis.group_amnus_analysis_admin
+msgid "Full AMNUS Analysis administration."
+msgstr "Administration complète AMNUS Analysis."
+
+#. module: amnus_analysis
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_requirement__requirement_type__functional
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_requirement_version__requirement_type__functional
+msgid "Functional Requirement"
+msgstr "Exigence fonctionnelle"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_process__has_message
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__has_message
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_workshop__has_message
+msgid "Has Message"
+msgstr "A un message"
+
+#. module: amnus_analysis
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_workshop__state__held
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_workshop_search
+msgid "Held"
+msgstr "Tenu"
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_workshop.py:0
+msgid "Held workshops cannot be deleted. Archive them instead."
+msgstr ""
+"Les ateliers tenus ne peuvent pas être supprimés. Archivez-les plutôt."
+
+#. module: amnus_analysis
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_requirement__priority__high
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_requirement_version__priority__high
+msgid "High"
+msgstr "Élevée"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_process__id
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__id
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement_version__id
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_workshop__id
+msgid "ID"
+msgstr "ID"
+
+#. module: amnus_analysis
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_process_form
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_requirement_form
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_workshop_form
+msgid "Identification"
+msgstr "Identification"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_process__message_needaction
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_requirement__message_needaction
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_workshop__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Si coché, les nouveaux messages requièrent votre attention."
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_process__message_has_error
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_requirement__message_has_error
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_workshop__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Si coché, certains messages ont une erreur de livraison."
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_process__project_id
+msgid "Implementation project this process belongs to."
+msgstr "Projet d'implémentation auquel ce processus appartient."
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_requirement__project_id
+msgid "Implementation project this requirement belongs to."
+msgstr "Projet d'implémentation auquel cette exigence appartient."
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_workshop__project_id
+msgid "Implementation project this workshop belongs to."
+msgstr "Projet d'implémentation auquel cet atelier appartient."
+
+#. module: amnus_analysis
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_process__category__integration
+msgid "Integration Process"
+msgstr "Processus d'intégration"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_process__notes
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__notes
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement_version__notes
+msgid "Internal Notes"
+msgstr "Notes internes"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_workshop__internal_participant_ids
+msgid "Internal Participants"
+msgstr "Participants internes"
+
+#. module: amnus_analysis
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_requirement__source__interview
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_requirement_version__source__interview
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_workshop__workshop_type__interview
+msgid "Interview"
+msgstr "Entretien"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_process__message_is_follower
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__message_is_follower
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_workshop__message_is_follower
+msgid "Is Follower"
+msgstr "Est abonné"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_process__write_uid
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__write_uid
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement_version__write_uid
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_workshop__write_uid
+msgid "Last Updated by"
+msgstr "Mis à jour par"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_process__write_date
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__write_date
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement_version__write_date
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_workshop__write_date
+msgid "Last Updated on"
+msgstr "Mis à jour le"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__deliverable_id
+msgid "Linked Deliverable"
+msgstr "Livrable lié"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement_version__deliverable_name
+msgid "Linked Deliverable (snapshot)"
+msgstr "Livrable lié (instantané)"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement_version__story_reference
+msgid "Linked Story Reference (snapshot)"
+msgstr "Référence de la user story liée (instantané)"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__task_id
+msgid "Linked Task"
+msgstr "Tâche liée"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement_version__task_reference
+msgid "Linked Task Reference (snapshot)"
+msgstr "Référence de la tâche liée (instantané)"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_workshop__location
+msgid "Location / Meeting Link"
+msgstr "Lieu / Lien de réunion"
+
+#. module: amnus_analysis
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_requirement__priority__low
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_requirement_version__priority__low
+msgid "Low"
+msgstr "Faible"
+
+#. module: amnus_analysis
+#: model:res.groups,comment:amnus_analysis.group_amnus_analysis_manager
+msgid "Manage AMNUS Analysis requirements, workshops and processes."
+msgstr "Gérez les exigences, ateliers et processus AMNUS Analysis."
+
+#. module: amnus_analysis
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_workshop_form
+msgid "Mark as Held"
+msgstr "Marquer comme tenu"
+
+#. module: amnus_analysis
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_requirement__priority__medium
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_requirement_version__priority__medium
+msgid "Medium"
+msgstr "Moyenne"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_process__message_has_error
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__message_has_error
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_workshop__message_has_error
+msgid "Message Delivery error"
+msgstr "Erreur de livraison du message"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_process__message_ids
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__message_ids
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_workshop__message_ids
+msgid "Messages"
+msgstr "Messages"
+
+#. module: amnus_analysis
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_workshop_search
+msgid "My Workshops"
+msgstr "Mes ateliers"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_process__name
+msgid "Name of the business process."
+msgstr "Nom du processus métier."
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_process.py:0
+#: code:addons/amnus_analysis/models/amnus_analysis_requirement.py:0
+#: code:addons/amnus_analysis/models/amnus_analysis_workshop.py:0
+msgid "New"
+msgstr "Nouveau"
+
+#. module: amnus_analysis
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_requirement__requirement_type__non_functional
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_requirement_version__requirement_type__non_functional
+msgid "Non-Functional Requirement"
+msgstr "Exigence non fonctionnelle"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_requirement__approval_notes
+msgid "Notes recorded during approval."
+msgstr "Notes enregistrées lors de l'approbation."
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_process__message_needaction_counter
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__message_needaction_counter
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_workshop__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Nombre d'actions"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_process__message_has_error_counter
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__message_has_error_counter
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_workshop__message_has_error_counter
+msgid "Number of errors"
+msgstr "Nombre d'erreurs"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_process__message_needaction_counter
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_requirement__message_needaction_counter
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_workshop__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Nombre de messages nécessitant une action"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_process__message_has_error_counter
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_requirement__message_has_error_counter
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_workshop__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Nombre de messages avec erreur de livraison"
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_process.py:0
+msgid "Only an AMNUS Analysis Manager can approve processes."
+msgstr "Seul un responsable AMNUS Analysis peut approuver les processus."
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_requirement.py:0
+msgid "Only an AMNUS Analysis Manager can cancel a requirement under review."
+msgstr ""
+"Seul un responsable AMNUS Analysis peut annuler une exigence en cours de "
+"révision."
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_process.py:0
+msgid "Only an AMNUS Analysis Manager can cancel a reviewed process."
+msgstr "Seul un responsable AMNUS Analysis peut annuler un processus révisé."
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_requirement.py:0
+msgid "Only an AMNUS Analysis Manager can perform this action."
+msgstr "Seul un responsable AMNUS Analysis peut effectuer cette action."
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_requirement.py:0
+msgid "Only approved requirements can be revised."
+msgstr "Seules les exigences approuvées peuvent être révisées."
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_process.py:0
+msgid "Only draft or reviewed processes can be cancelled."
+msgstr ""
+"Seuls les processus à l'état Brouillon ou Révisés peuvent être annulés."
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_requirement.py:0
+msgid "Only draft or under-review requirements can be cancelled."
+msgstr ""
+"Seules les exigences à l'état Brouillon ou En cours de révision peuvent être"
+" annulées."
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_process.py:0
+msgid "Only draft processes can be submitted for review."
+msgstr ""
+"Seuls les processus à l'état Brouillon peuvent être soumis pour révision."
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_requirement.py:0
+msgid "Only draft requirements can be submitted for review."
+msgstr ""
+"Seules les exigences à l'état brouillon peuvent être soumises pour révision."
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_workshop.py:0
+msgid "Only draft workshops can be cancelled."
+msgstr "Seuls les ateliers à l'état brouillon peuvent être annulés."
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_workshop.py:0
+msgid "Only draft workshops can be marked as held."
+msgstr ""
+"Seuls les ateliers à l'état brouillon peuvent être marqués comme tenus."
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_requirement.py:0
+msgid "Only requirements under review can be approved."
+msgstr "Seules les exigences en cours de révision peuvent être approuvées."
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_requirement.py:0
+msgid "Only requirements under review can be rejected."
+msgstr "Seules les exigences en cours de révision peuvent être rejetées."
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_process.py:0
+msgid "Only reviewed processes can be approved."
+msgstr "Seuls les processus révisés peuvent être approuvés."
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_requirement__deliverable_id
+msgid "Optional contractual deliverable that satisfies this requirement."
+msgstr "Livrable contractuel optionnel qui satisfait cette exigence."
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_requirement__task_id
+msgid "Optional project task that implements this requirement."
+msgstr "Tâche de projet optionnelle qui met en œuvre cette exigence."
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_requirement__source
+msgid "Origin of the requirement."
+msgstr "Origine de l'exigence."
+
+#. module: amnus_analysis
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_process__category__other
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_requirement__source__other
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_requirement_version__source__other
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_workshop__workshop_type__other
+msgid "Other"
+msgstr "Autre"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_workshop__outcomes
+msgid "Outcomes"
+msgstr "Résultats"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement_version__owner_name
+msgid "Owner Name (snapshot)"
+msgstr "Nom du propriétaire (instantané)"
+
+#. module: amnus_analysis
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_process_form
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_requirement_form
+msgid "Ownership"
+msgstr "Propriété"
+
+#. module: amnus_analysis
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_workshop_form
+msgid "Participants"
+msgstr "Participants"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_workshop__location
+msgid "Physical location or online meeting link."
+msgstr "Lieu physique ou lien de réunion en ligne."
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__stakeholder_id
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement_version__stakeholder_id
+msgid "Primary Stakeholder"
+msgstr "Partie prenante principale"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_requirement__stakeholder_id
+msgid "Primary customer stakeholder for this requirement."
+msgstr "Partie prenante client principale pour cette exigence."
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__priority
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement_version__priority
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_requirement_search
+msgid "Priority"
+msgstr "Priorité"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_process__category
+msgid "Process Category"
+msgstr "Catégorie de processus"
+
+#. module: amnus_analysis
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_process_form
+msgid "Process Content"
+msgstr "Contenu du processus"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_process__name
+msgid "Process Name"
+msgstr "Nom du processus"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_process__owner_id
+msgid "Process Owner"
+msgstr "Responsable du processus"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_process__reference
+msgid "Process Reference"
+msgstr "Référence du processus"
+
+#. module: amnus_analysis
+#: model:ir.model.constraint,message:amnus_analysis.constraint_amnus_analysis_process_process_reference_unique
+msgid "Process reference must be unique."
+msgstr "La référence du processus doit être unique."
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_process.py:0
+msgid "Process status cannot be changed directly. Use the workflow actions."
+msgstr ""
+"Le statut du processus ne peut pas être modifié directement. Utilisez les "
+"actions du workflow."
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_process__project_id
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__project_id
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement_version__project_id
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_workshop__project_id
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_process_search
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_requirement_search
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_workshop_search
+msgid "Project"
+msgstr "Projet"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement_version__project_name
+msgid "Project Name (snapshot)"
+msgstr "Nom du projet (instantané)"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_requirement_version__project_name
+msgid "Project name captured at approval time."
+msgstr "Nom du projet capturé au moment de l'approbation."
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_process__rating_ids
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__rating_ids
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_workshop__rating_ids
+msgid "Ratings"
+msgstr "Évaluations"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_requirement__rejection_reason
+msgid "Reason provided when rejecting the requirement."
+msgstr "Motif fourni lors du rejet de l'exigence."
+
+#. module: amnus_analysis
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_requirement_form
+msgid "Reject"
+msgstr "Rejeter"
+
+#. module: amnus_analysis
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_requirement__state__rejected
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_requirement_search
+msgid "Rejected"
+msgstr "Rejeté"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__rejected_by
+msgid "Rejected By"
+msgstr "Rejeté par"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__rejected_date
+msgid "Rejected On"
+msgstr "Rejeté le"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__rejection_reason
+msgid "Rejection Reason"
+msgstr "Motif du rejet"
+
+#. module: amnus_analysis
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_requirement_form
+msgid "Rejection reason (required)..."
+msgstr "Motif du rejet (requis)..."
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_process__requirement_ids
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_workshop__requirement_ids
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_process_form
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_workshop_form
+msgid "Related Requirements"
+msgstr "Exigences liées"
+
+#. module: amnus_analysis
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_requirement_form
+msgid "Request Revision"
+msgstr "Demander une révision"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement_version__requirement_id
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_requirement_form
+msgid "Requirement"
+msgstr "Exigence"
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_requirement.py:0
+msgid "Requirement %(ref)s approved (version %(ver)s)."
+msgstr "Exigence %(ref)s approuvée (version %(ver)s)."
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_requirement.py:0
+msgid "Requirement %(ref)s cancelled."
+msgstr "Exigence %(ref)s annulée."
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_requirement.py:0
+msgid "Requirement %(ref)s rejected: %(reason)s."
+msgstr "Exigence %(ref)s rejetée : %(reason)s."
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_requirement.py:0
+msgid "Requirement %(ref)s returned to review for revision."
+msgstr "L'exigence %(ref)s a été retournée en révision pour révision."
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_requirement.py:0
+msgid "Requirement %(ref)s submitted for review."
+msgstr "L'exigence %(ref)s a été soumise pour révision."
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_requirement.py:0
+msgid "Requirement Approved"
+msgstr "Exigence approuvée"
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_requirement.py:0
+msgid "Requirement Cancelled"
+msgstr "Exigence annulée"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__reference
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement_version__reference
+msgid "Requirement Reference"
+msgstr "Référence de l'exigence"
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_requirement.py:0
+msgid "Requirement Rejected"
+msgstr "Exigence rejetée"
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_requirement.py:0
+msgid "Requirement Revision Requested"
+msgstr "Révision de l'exigence demandée"
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_requirement.py:0
+msgid "Requirement Submitted for Review"
+msgstr "Exigence soumise pour révision"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__name
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement_version__name
+msgid "Requirement Title"
+msgstr "Titre de l'exigence"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__requirement_type
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement_version__requirement_type
+msgid "Requirement Type"
+msgstr "Type d'exigence"
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_requirement.py:0
+msgid ""
+"Requirement content cannot be modified in its current state. Use the "
+"revision workflow."
+msgstr ""
+"Le contenu de l'exigence ne peut pas être modifié dans son état actuel. "
+"Utilisez le workflow de révision."
+
+#. module: amnus_analysis
+#: model:ir.model.constraint,message:amnus_analysis.constraint_amnus_analysis_requirement_requirement_reference_unique
+msgid "Requirement reference must be unique."
+msgstr "La référence de l'exigence doit être unique."
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_requirement.py:0
+msgid ""
+"Requirement status cannot be changed directly. Use the workflow actions."
+msgstr ""
+"Le statut de l'exigence ne peut pas être modifié directement. Utilisez les "
+"actions du workflow."
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_requirement_version.py:0
+msgid ""
+"Requirement versions are created by the approval workflow and cannot be "
+"created manually."
+msgstr ""
+"Les versions d'exigence sont créées par le workflow d'approbation et ne "
+"peuvent pas être créées manuellement."
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_requirement_version.py:0
+msgid "Requirement versions are immutable and cannot be modified."
+msgstr ""
+"Les versions d'exigence sont immuables et ne peuvent pas être modifiées."
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_requirement_version.py:0
+msgid "Requirement versions cannot be deleted."
+msgstr "Les versions d'exigence ne peuvent pas être supprimées."
+
+#. module: amnus_analysis
+#: model:ir.actions.act_window,name:amnus_analysis.action_amnus_analysis_requirements
+#: model:ir.ui.menu,name:amnus_analysis.menu_amnus_analysis_requirements
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_requirement_kanban
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_requirement_list
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_requirement_search
+msgid "Requirements"
+msgstr "Exigences"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_workshop__requirement_ids
+msgid "Requirements identified or refined during this workshop."
+msgstr "Exigences identifiées ou affinées durant cet atelier."
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_process__requirement_ids
+msgid "Requirements that relate to this process."
+msgstr "Exigences liées à ce processus."
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__analyst_id
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement_version__analyst_id
+msgid "Responsible Analyst"
+msgstr "Analyste responsable"
+
+#. module: amnus_analysis
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_workshop__workshop_type__review
+msgid "Review"
+msgstr "Révision"
+
+#. module: amnus_analysis
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_process__state__reviewed
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_process_search
+msgid "Reviewed"
+msgstr "Révisé"
+
+#. module: amnus_analysis
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_workshop_form
+msgid "Schedule"
+msgstr "Planning"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_requirement_version__version_number
+msgid "Sequential version number within the requirement."
+msgstr "Numéro de version séquentiel au sein de l'exigence."
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_requirement__name
+msgid "Short title of the requirement."
+msgstr "Titre court de l'exigence."
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_workshop__name
+msgid "Short title of the workshop."
+msgstr "Titre court de l'atelier."
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__source
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement_version__source
+msgid "Source"
+msgstr "Source"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_process__reference
+msgid "Stable process identifier (e.g. PRC-00001)."
+msgstr "Identifiant de processus stable (ex. PRC-00001)."
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_workshop__reference
+msgid "Stable workshop identifier (e.g. WKS-00001)."
+msgstr "Identifiant d'atelier stable (ex. WKS-00001)."
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_requirement__reference
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_requirement_version__reference
+msgid "Stable, human-readable requirement identifier (e.g. REQ-00001)."
+msgstr "Identifiant d'exigence stable et lisible (ex. REQ-00001)."
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement_version__stakeholder_name
+msgid "Stakeholder Name (snapshot)"
+msgstr "Nom de la partie prenante (instantané)"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_workshop__date_start
+msgid "Start Date/Time"
+msgstr "Date/heure de début"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_process__state
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__state
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_workshop__state
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_process_search
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_requirement_search
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_workshop_search
+msgid "Status"
+msgstr "Statut"
+
+#. module: amnus_analysis
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_process_form
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_requirement_form
+msgid "Submit for Review"
+msgstr "Soumettre pour révision"
+
+#. module: amnus_analysis
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_process_form
+msgid "TO-BE (Proposed)"
+msgstr "TO-BE (Proposé)"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_process__to_be_description
+msgid "TO-BE Description"
+msgstr "Description TO-BE"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__target_stage_id
+msgid "Target Project Stage"
+msgstr "Étape cible du projet"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement_version__target_stage_name
+msgid "Target Stage (snapshot)"
+msgstr "Étape cible (instantané)"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_requirement__target_stage_id
+msgid "Target project stage / phase this requirement is planned for."
+msgstr ""
+"Étape / phase cible du projet pour laquelle cette exigence est planifiée."
+
+#. module: amnus_analysis
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_process__category__technical
+msgid "Technical Process"
+msgstr "Processus technique"
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_requirement.py:0
+msgid ""
+"The linked deliverable must belong to the same project as the requirement."
+msgstr "Le livrable lié doit appartenir au même projet que l'exigence."
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_requirement.py:0
+msgid "The linked task must belong to the same project as the requirement."
+msgstr "La tâche liée doit appartenir au même projet que l'exigence."
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_requirement.py:0
+msgid ""
+"The project of a requirement with traceability links cannot be changed."
+msgstr ""
+"Le projet d'une exigence avec des liens de traçabilité ne peut pas être "
+"modifié."
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_requirement.py:0
+msgid ""
+"The project of an approved, rejected or cancelled requirement cannot be "
+"changed."
+msgstr ""
+"Le projet d'une exigence approuvée, rejetée ou annulée ne peut pas être "
+"modifié."
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_requirement_version__requirement_id
+msgid "The requirement this version belongs to."
+msgstr "L'exigence à laquelle cette version appartient."
+
+#. module: amnus_analysis
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_requirement_form
+msgid "Traceability"
+msgstr "Traçabilité"
+
+#. module: amnus_analysis
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_requirement_search
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_workshop_search
+msgid "Type"
+msgstr "Type"
+
+#. module: amnus_analysis
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_requirement__state__under_review
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_requirement_search
+msgid "Under Review"
+msgstr "En cours de révision"
+
+#. module: amnus_analysis
+#: model:res.groups,comment:amnus_analysis.group_amnus_analysis_user
+msgid "Use AMNUS Analysis: requirements, workshops, processes."
+msgstr "Utilisez AMNUS Analysis : exigences, ateliers, processus."
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement_version__version_number
+msgid "Version"
+msgstr "Version"
+
+#. module: amnus_analysis
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_requirement_form
+msgid "Version History"
+msgstr "Historique des versions"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_requirement__current_version
+msgid ""
+"Version number of the most recently approved version (0 if never approved)."
+msgstr ""
+"Numéro de version de la dernière version approuvée (0 si jamais approuvée)."
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_process__website_message_ids
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_requirement__website_message_ids
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_workshop__website_message_ids
+msgid "Website Messages"
+msgstr "Messages du site web"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_process__website_message_ids
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_requirement__website_message_ids
+#: model:ir.model.fields,help:amnus_analysis.field_amnus_analysis_workshop__website_message_ids
+msgid "Website communication history"
+msgstr "Historique des communications du site web"
+
+#. module: amnus_analysis
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_requirement__source__workshop
+#: model:ir.model.fields.selection,name:amnus_analysis.selection__amnus_analysis_requirement_version__source__workshop
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_workshop_form
+msgid "Workshop"
+msgstr "Atelier"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_workshop__reference
+msgid "Workshop Reference"
+msgstr "Référence de l'atelier"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_workshop__name
+msgid "Workshop Title"
+msgstr "Titre de l'atelier"
+
+#. module: amnus_analysis
+#: model:ir.model.fields,field_description:amnus_analysis.field_amnus_analysis_workshop__workshop_type
+msgid "Workshop Type"
+msgstr "Type d'atelier"
+
+#. module: amnus_analysis
+#: model:ir.model.constraint,message:amnus_analysis.constraint_amnus_analysis_workshop_workshop_reference_unique
+msgid "Workshop reference must be unique."
+msgstr "La référence de l'atelier doit être unique."
+
+#. module: amnus_analysis
+#. odoo-python
+#: code:addons/amnus_analysis/models/amnus_analysis_workshop.py:0
+msgid "Workshop status cannot be changed directly. Use the workflow actions."
+msgstr ""
+"Le statut de l'atelier ne peut pas être modifié directement. Utilisez les "
+"actions du workflow."
+
+#. module: amnus_analysis
+#: model:ir.actions.act_window,name:amnus_analysis.action_amnus_analysis_workshops
+#: model:ir.ui.menu,name:amnus_analysis.menu_amnus_analysis_workshops
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_workshop_list
+#: model_terms:ir.ui.view,arch_db:amnus_analysis.amnus_analysis_workshop_search
+msgid "Workshops"
+msgstr "Ateliers"

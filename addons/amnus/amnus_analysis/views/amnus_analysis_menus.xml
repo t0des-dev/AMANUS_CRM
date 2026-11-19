@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- ==================== AMNUS ANALYSIS MENUS ==================== -->
+        <menuitem id="menu_amnus_analysis_root"
+                  name="Analysis"
+                  parent="amnus_core.menu_amnus_root"
+                  sequence="25"
+                  groups="amnus_analysis.group_amnus_analysis_user"/>
+
+        <menuitem id="menu_amnus_analysis_requirements"
+                  name="Requirements"
+                  parent="menu_amnus_analysis_root"
+                  action="action_amnus_analysis_requirements"
+                  sequence="10"
+                  groups="amnus_analysis.group_amnus_analysis_user"/>
+
+        <menuitem id="menu_amnus_analysis_workshops"
+                  name="Workshops"
+                  parent="menu_amnus_analysis_root"
+                  action="action_amnus_analysis_workshops"
+                  sequence="20"
+                  groups="amnus_analysis.group_amnus_analysis_user"/>
+
+        <menuitem id="menu_amnus_analysis_processes"
+                  name="Business Processes"
+                  parent="menu_amnus_analysis_root"
+                  action="action_amnus_analysis_processes"
+                  sequence="30"
+                  groups="amnus_analysis.group_amnus_analysis_user"/>
+    </data>
+</odoo>

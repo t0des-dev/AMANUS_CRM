@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- ==================== WORKSHOP LIST VIEW ==================== -->
+        <record id="amnus_analysis_workshop_list" model="ir.ui.view">
+            <field name="name">AMNUS Analysis Workshop List</field>
+            <field name="model">amnus.analysis.workshop</field>
+            <field name="arch" type="xml">
+                <list string="Workshops" editable="bottom">
+                    <field name="reference"/>
+                    <field name="name"/>
+                    <field name="workshop_type"/>
+                    <field name="date_start"/>
+                    <field name="duration_hours"/>
+                    <field name="state"/>
+                    <field name="project_id"/>
+                    <field name="facilitator_id"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- ==================== WORKSHOP FORM VIEW ==================== -->
+        <record id="amnus_analysis_workshop_form" model="ir.ui.view">
+            <field name="name">AMNUS Analysis Workshop Form</field>
+            <field name="model">amnus.analysis.workshop</field>
+            <field name="arch" type="xml">
+                <form string="Workshop">
+                    <header>
+                        <button name="action_mark_held"
+                                type="object"
+                                invisible="state != 'draft'"
+                                string="Mark as Held"
+                                class="oe_highlight"
+                                groups="amnus_analysis.group_amnus_analysis_user,amnus_analysis.group_amnus_analysis_manager"/>
+                        <button name="action_cancel"
+                                type="object"
+                                invisible="state != 'draft'"
+                                string="Cancel"
+                                groups="amnus_analysis.group_amnus_analysis_user,amnus_analysis.group_amnus_analysis_manager"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,held,cancelled"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="reference" readonly="1"/>
+                                <field name="name" required="1"/>
+                            </h1>
+                        </div>
+                        <group string="Identification">
+                            <group>
+                                <field name="reference" readonly="1"/>
+                                <field name="name" required="1"/>
+                                <field name="workshop_type"/>
+                                <field name="state" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="project_id" required="1"/>
+                                <field name="customer_id" readonly="1"/>
+                                <field name="company_id" readonly="1"/>
+                            </group>
+                        </group>
+                        <group string="Schedule">
+                            <group>
+                                <field name="date_start"/>
+                                <field name="duration_hours"/>
+                                <field name="location"/>
+                                <field name="facilitator_id"/>
+                            </group>
+                        </group>
+                        <group string="Participants">
+                            <group>
+                                <field name="internal_participant_ids"
+                                       widget="many2many_tags"/>
+                            </group>
+                            <group>
+                                <field name="customer_participant_ids"
+                                       widget="many2many_tags"/>
+                            </group>
+                        </group>
+                        <group string="Content">
+                            <field name="agenda"/>
+                            <field name="discussion_notes"/>
+                            <field name="decisions"/>
+                            <field name="outcomes"/>
+                            <field name="follow_up_actions"/>
+                        </group>
+                        <group string="Related Requirements">
+                            <field name="requirement_ids"
+                                   widget="many2many_tags"
+                                   domain="[('project_id', '=', project_id)]"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- ==================== WORKSHOP SEARCH VIEW ==================== -->
+        <record id="amnus_analysis_workshop_search" model="ir.ui.view">
+            <field name="name">AMNUS Analysis Workshop Search</field>
+            <field name="model">amnus.analysis.workshop</field>
+            <field name="arch" type="xml">
+                <search string="Workshops">
+                    <field name="reference"/>
+                    <field name="name"/>
+                    <field name="workshop_type"/>
+                    <field name="state"/>
+                    <field name="project_id"/>
+                    <field name="facilitator_id"/>
+                    <filter name="filter_draft"
+                            string="Draft"
+                            domain="[('state', '=', 'draft')]"/>
+                    <filter name="filter_held"
+                            string="Held"
+                            domain="[('state', '=', 'held')]"/>
+                    <filter name="filter_cancelled"
+                            string="Cancelled"
+                            domain="[('state', '=', 'cancelled')]"/>
+                    <filter name="filter_my_workshops"
+                            string="My Workshops"
+                            domain="[('facilitator_id', '=', uid)]"/>
+                    <group name="group_by">
+                        <filter name="group_by_state"
+                                string="Status"
+                                domain="[]"
+                                context="{'group_by': 'state'}"/>
+                        <filter name="group_by_type"
+                                string="Type"
+                                domain="[]"
+                                context="{'group_by': 'workshop_type'}"/>
+                        <filter name="group_by_project"
+                                string="Project"
+                                domain="[]"
+                                context="{'group_by': 'project_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- ==================== WORKSHOP ACTION ==================== -->
+        <record id="action_amnus_analysis_workshops" model="ir.actions.act_window">
+            <field name="name">Workshops</field>
+            <field name="res_model">amnus.analysis.workshop</field>
+            <field name="view_mode">list,form,search</field>
+            <field name="search_view_id" ref="amnus_analysis_workshop_search"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create your first workshop.</p>
+            </field>
+        </record>
+    </data>
+</odoo>
