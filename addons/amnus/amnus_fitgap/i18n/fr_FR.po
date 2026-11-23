@@ -1,0 +1,1168 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* amnus_fitgap
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-23 19:59+0000\n"
+"PO-Revision-Date: 2026-11-23 19:59+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: amnus_fitgap
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_kanban
+msgid "<strong>Assessor:</strong>"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_kanban
+msgid "<strong>Effort:</strong>"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_kanban
+msgid "<strong>Outcome:</strong>"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_kanban
+msgid "<strong>Project:</strong>"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_kanban
+msgid "<strong>Risk:</strong>"
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment.py:0
+msgid "A Fit-Gap assessment can only be created for an approved requirement."
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment.py:0
+msgid "A Fit-Gap assessment must be created in Draft state."
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment.py:0
+msgid "A rejection reason is required."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:res.groups,name:amnus_fitgap.group_amnus_fitgap_admin
+msgid "AMNUS Fit-Gap Administrator"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model,name:amnus_fitgap.model_amnus_fitgap_assessment
+msgid "AMNUS Fit-Gap Assessment"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model,name:amnus_fitgap.model_amnus_fitgap_assessment_version
+msgid "AMNUS Fit-Gap Assessment Version"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:res.groups,name:amnus_fitgap.group_amnus_fitgap_manager
+msgid "AMNUS Fit-Gap Manager"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:res.groups,name:amnus_fitgap.group_amnus_fitgap_user
+msgid "AMNUS Fit-Gap User"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__workaround_description
+msgid "Alternative process description."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__assessor_id
+msgid "Analyst performing the assessment."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_form
+msgid "Approval"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__approval_notes
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__approval_notes
+msgid "Approval Notes"
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment.py:0
+msgid "Approval and rejection information cannot be modified directly."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_form
+msgid "Approve"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields.selection,name:amnus_fitgap.selection__amnus_fitgap_assessment__state__approved
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_search
+msgid "Approved"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__approved_by
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__approved_by
+msgid "Approved By"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__approved_date
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__approved_date
+msgid "Approved On"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__requirement_id
+msgid "Approved requirement this assessment addresses."
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment.py:0
+msgid ""
+"Approved, rejected, cancelled or superseded assessments cannot be deleted. "
+"Archive them instead."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_reject_wizard__assessment_id
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__assessment_id
+msgid "Assessment"
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment.py:0
+msgid "Assessment %(ref)s approved (version %(ver)s)."
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment.py:0
+msgid "Assessment %(ref)s cancelled."
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment.py:0
+msgid "Assessment %(ref)s moved to analysis."
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment.py:0
+msgid "Assessment %(ref)s rejected: %(reason)s."
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment.py:0
+msgid "Assessment %(ref)s submitted for review."
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment.py:0
+msgid "Assessment Analysis Started"
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment.py:0
+msgid "Assessment Approved"
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment.py:0
+msgid "Assessment Cancelled"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__assessment_date
+msgid "Assessment Date"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__reference
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__reference
+msgid "Assessment Reference"
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment.py:0
+msgid "Assessment Rejected"
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment.py:0
+msgid "Assessment Revision Candidate Created"
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment.py:0
+msgid "Assessment Submitted for Review"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__name
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__name
+msgid "Assessment Title"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__version_ids
+msgid "Assessment Versions"
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment.py:0
+msgid ""
+"Assessment content cannot be modified in its current state. Use the revision"
+" workflow."
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment.py:0
+msgid "Assessment reference cannot be modified."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.constraint,message:amnus_fitgap.constraint_amnus_fitgap_assessment_assessment_reference_unique
+msgid "Assessment reference must be unique."
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment.py:0
+msgid ""
+"Assessment status cannot be changed directly. Use the workflow actions."
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment_version.py:0
+msgid ""
+"Assessment versions are created by the approval workflow and cannot be "
+"created manually."
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment_version.py:0
+msgid "Assessment versions are immutable and cannot be modified."
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment_version.py:0
+msgid "Assessment versions cannot be deleted."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.ui.menu,name:amnus_fitgap.menu_amnus_fitgap_assessments
+msgid "Assessments"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__assessor_id
+msgid "Assessor"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__assumptions
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__assumptions
+msgid "Assumptions"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__assumptions
+msgid "Assumptions made during assessment."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__business_impact
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__business_impact
+msgid "Business Impact"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_form
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_reject_wizard_form
+msgid "Cancel"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields.selection,name:amnus_fitgap.selection__amnus_fitgap_assessment__state__cancelled
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_search
+msgid "Cancelled"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__company_id
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__company_id
+msgid "Company"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__company_id
+msgid "Company, derived from the project."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields.selection,name:amnus_fitgap.selection__amnus_fitgap_assessment__outcome__configuration
+#: model:ir.model.fields.selection,name:amnus_fitgap.selection__amnus_fitgap_assessment_version__outcome__configuration
+msgid "Configuration"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__configuration_approach
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__configuration_approach
+msgid "Configuration Approach"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__configuration_effort
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__configuration_effort
+msgid "Configuration Effort (hours)"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__configuration_effort
+msgid "Configuration and setup effort."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__configuration_approach
+msgid "Configuration steps needed."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model_terms:ir.actions.act_window,help:amnus_fitgap.action_amnus_fitgap_assessments
+msgid "Create your first Fit-Gap assessment."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__create_uid
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_reject_wizard__create_uid
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__create_date
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_reject_wizard__create_date
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields.selection,name:amnus_fitgap.selection__amnus_fitgap_assessment__risk_level__critical
+#: model:ir.model.fields.selection,name:amnus_fitgap.selection__amnus_fitgap_assessment_version__risk_level__critical
+msgid "Critical"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__current_version
+msgid "Current Approved Version"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__is_current
+msgid "Current Assessment"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields.selection,name:amnus_fitgap.selection__amnus_fitgap_assessment__outcome__custom_development
+#: model:ir.model.fields.selection,name:amnus_fitgap.selection__amnus_fitgap_assessment_version__outcome__custom_development
+msgid "Custom Development"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__development_effort
+msgid "Custom development effort."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__development_approach
+msgid "Custom development needed."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__customer_id
+msgid "Customer"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__customer_name
+msgid "Customer Name (snapshot)"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__customer_id
+msgid "Customer of the project, derived from the project."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__decision_rationale
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__decision_rationale
+msgid "Decision Rationale"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields.selection,name:amnus_fitgap.selection__amnus_fitgap_assessment__outcome__deferred
+#: model:ir.model.fields.selection,name:amnus_fitgap.selection__amnus_fitgap_assessment_version__outcome__deferred
+msgid "Deferred"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__dependencies
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__dependencies
+msgid "Dependencies"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__dependencies
+msgid "Dependencies on other requirements or modules."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__gap_description
+msgid "Description of the gap between the requirement and standard Odoo."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__development_approach
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__development_approach
+msgid "Development Approach"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__development_effort
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__development_effort
+msgid "Development Effort (hours)"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__display_name
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_reject_wizard__display_name
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields.selection,name:amnus_fitgap.selection__amnus_fitgap_assessment__state__draft
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_search
+msgid "Draft"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_form
+msgid "Effort Estimation"
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment.py:0
+msgid "Effort values cannot be negative."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__estimation_confidence
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__estimation_confidence
+msgid "Estimation Confidence"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__evidence_ids
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_form
+msgid "Evidence"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__evidence_ids
+msgid "Evidence attachments (screenshots, documentation references, etc.)."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.ui.menu,name:amnus_fitgap.menu_amnus_fitgap_root
+msgid "Fit-Gap"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_form
+msgid "Fit-Gap Assessment"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.actions.act_window,name:amnus_fitgap.action_amnus_fitgap_assessments
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_kanban
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_list
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_search
+msgid "Fit-Gap Assessments"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:res.groups,comment:amnus_fitgap.group_amnus_fitgap_admin
+msgid "Full AMNUS Fit-Gap administration."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__functional_analysis_effort
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__functional_analysis_effort
+msgid "Functional Analysis Effort (hours)"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_form
+msgid "Gap Analysis"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__gap_description
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__gap_description
+msgid "Gap Description"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields.selection,name:amnus_fitgap.selection__amnus_fitgap_assessment__estimation_confidence__high
+#: model:ir.model.fields.selection,name:amnus_fitgap.selection__amnus_fitgap_assessment__risk_level__high
+#: model:ir.model.fields.selection,name:amnus_fitgap.selection__amnus_fitgap_assessment_version__estimation_confidence__high
+#: model:ir.model.fields.selection,name:amnus_fitgap.selection__amnus_fitgap_assessment_version__risk_level__high
+msgid "High"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__standard_behavior_description
+msgid "How standard Odoo supports (or does not support) the requirement."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__id
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_reject_wizard__id
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__id
+msgid "ID"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__business_impact
+msgid "Impact on the business if the gap is not addressed."
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment.py:0
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__outcome
+msgid ""
+"Implementation approach classification: standard fit, configuration, custom "
+"development, integration, workaround, not supported, deferred, or requires "
+"further analysis."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__project_id
+msgid "Implementation project, derived from the requirement."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields.selection,name:amnus_fitgap.selection__amnus_fitgap_assessment__state__in_analysis
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_search
+msgid "In Analysis"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields.selection,name:amnus_fitgap.selection__amnus_fitgap_assessment__outcome__integration
+#: model:ir.model.fields.selection,name:amnus_fitgap.selection__amnus_fitgap_assessment_version__outcome__integration
+msgid "Integration"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__integration_approach
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__integration_approach
+msgid "Integration Approach"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__integration_effort
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__integration_effort
+msgid "Integration Effort (hours)"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__integration_effort
+msgid "Integration development effort."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__integration_approach
+msgid "Integration requirements."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__write_uid
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_reject_wizard__write_uid
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__write_date
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_reject_wizard__write_date
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields.selection,name:amnus_fitgap.selection__amnus_fitgap_assessment__estimation_confidence__low
+#: model:ir.model.fields.selection,name:amnus_fitgap.selection__amnus_fitgap_assessment__risk_level__low
+#: model:ir.model.fields.selection,name:amnus_fitgap.selection__amnus_fitgap_assessment_version__estimation_confidence__low
+#: model:ir.model.fields.selection,name:amnus_fitgap.selection__amnus_fitgap_assessment_version__risk_level__low
+msgid "Low"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:res.groups,comment:amnus_fitgap.group_amnus_fitgap_manager
+msgid "Manage AMNUS Fit-Gap assessments, reviews and approvals."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__reviewer_id
+msgid "Manager reviewing the assessment."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields.selection,name:amnus_fitgap.selection__amnus_fitgap_assessment__estimation_confidence__medium
+#: model:ir.model.fields.selection,name:amnus_fitgap.selection__amnus_fitgap_assessment__risk_level__medium
+#: model:ir.model.fields.selection,name:amnus_fitgap.selection__amnus_fitgap_assessment_version__estimation_confidence__medium
+#: model:ir.model.fields.selection,name:amnus_fitgap.selection__amnus_fitgap_assessment_version__risk_level__medium
+msgid "Medium"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_search
+msgid "My Assessments"
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment.py:0
+msgid "New"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields.selection,name:amnus_fitgap.selection__amnus_fitgap_assessment__outcome__not_supported
+#: model:ir.model.fields.selection,name:amnus_fitgap.selection__amnus_fitgap_assessment_version__outcome__not_supported
+msgid "Not Supported"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__revision_notes
+msgid "Notes on revision."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__approval_notes
+msgid "Notes recorded during approval."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment.py:0
+msgid "Only an AMNUS Fit-Gap Manager can cancel an assessment under review."
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment.py:0
+msgid "Only an AMNUS Fit-Gap Manager can perform this action."
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment.py:0
+msgid "Only approved assessments can be revised."
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment.py:0
+msgid "Only assessments under review can be approved."
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment.py:0
+msgid "Only assessments under review can be rejected."
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment.py:0
+msgid "Only draft assessments can be moved to analysis."
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment.py:0
+msgid "Only draft or in-analysis assessments can be submitted for review."
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment.py:0
+msgid "Only draft, in-analysis or under-review assessments can be cancelled."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__outcome
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__outcome
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_search
+msgid "Outcome"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__project_id
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_search
+msgid "Project"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__project_name
+msgid "Project Name (snapshot)"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__proposed_solution
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__proposed_solution
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_form
+msgid "Proposed Solution"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__proposed_solution
+msgid "Proposed implementation solution."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__rating_ids
+msgid "Ratings"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__decision_rationale
+msgid "Rationale for the implementation decision."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__rejection_reason
+msgid "Reason provided when rejecting the assessment."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_form
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_reject_wizard_form
+msgid "Reject"
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment.py:0
+#: model:ir.actions.act_window,name:amnus_fitgap.action_amnus_fitgap_assessment_reject_wizard
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_reject_wizard_form
+msgid "Reject Assessment"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model,name:amnus_fitgap.model_amnus_fitgap_assessment_reject_wizard
+msgid "Reject Fit-Gap Assessment Wizard"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields.selection,name:amnus_fitgap.selection__amnus_fitgap_assessment__state__rejected
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_search
+msgid "Rejected"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__rejected_by
+msgid "Rejected By"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__rejected_date
+msgid "Rejected On"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__rejection_reason
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_reject_wizard__rejection_reason
+msgid "Rejection Reason"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_form
+msgid "Request Revision"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__requirement_id
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_search
+msgid "Requirement"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_form
+msgid "Requirement & Project Context"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__requirement_reference
+msgid "Requirement Reference (snapshot)"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__requirement_title
+msgid "Requirement Title (snapshot)"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__functional_analysis_effort
+msgid "Requirements analysis and design effort."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields.selection,name:amnus_fitgap.selection__amnus_fitgap_assessment__outcome__requires_analysis
+#: model:ir.model.fields.selection,name:amnus_fitgap.selection__amnus_fitgap_assessment_version__outcome__requires_analysis
+msgid "Requires Further Analysis"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__reviewer_id
+msgid "Reviewer"
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment.py:0
+msgid "Revision Candidate"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__revision_notes
+msgid "Revision Notes"
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment.py:0
+msgid "Revision candidate %(ref)s created from %(old)s."
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment.py:0
+msgid "Revision of %(ref)s."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__risk_level
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__risk_level
+msgid "Risk Level"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__root_cause
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__root_cause
+msgid "Root Cause"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__name
+msgid "Short title of the assessment."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__reference
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment_version__reference
+msgid "Stable, human-readable assessment identifier (e.g. FG-00001)."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__standard_behavior_description
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__standard_behavior_description
+msgid "Standard Behavior Description"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields.selection,name:amnus_fitgap.selection__amnus_fitgap_assessment__outcome__standard_fit
+#: model:ir.model.fields.selection,name:amnus_fitgap.selection__amnus_fitgap_assessment_version__outcome__standard_fit
+msgid "Standard Fit"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_form
+msgid "Standard Odoo Capability"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__standard_odoo_feature
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__standard_odoo_feature
+msgid "Standard Odoo Feature"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__standard_odoo_module
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__standard_odoo_module
+msgid "Standard Odoo Module"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__standard_odoo_feature
+msgid ""
+"Standard Odoo feature that supports the requirement (e.g. Task stages, "
+"Kanban view)."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__standard_odoo_module
+msgid ""
+"Standard Odoo module that supports (or partially supports) the requirement "
+"(e.g. project, crm)."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_form
+msgid "Start Analysis"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__state
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_search
+msgid "Status"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_form
+msgid "Submit for Review"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__total_effort
+msgid "Sum of all effort categories."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields.selection,name:amnus_fitgap.selection__amnus_fitgap_assessment__state__superseded
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_search
+msgid "Superseded"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__technical_impact
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__technical_impact
+msgid "Technical Impact"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__technical_notes
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__technical_notes
+msgid "Technical Notes"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__technical_impact
+msgid "Technical impact of the proposed approach."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__technical_notes
+msgid "Technical notes."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__testing_effort
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__testing_effort
+msgid "Testing Effort (hours)"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__testing_effort
+msgid "Testing effort."
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment.py:0
+msgid "The assessment company must match the requirement company."
+msgstr ""
+
+#. module: amnus_fitgap
+#. odoo-python
+#: code:addons/amnus_fitgap/models/amnus_fitgap_assessment.py:0
+msgid ""
+"The project of an approved, rejected, cancelled or superseded assessment "
+"cannot be changed."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__total_effort
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__total_effort
+msgid "Total Effort (hours)"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields.selection,name:amnus_fitgap.selection__amnus_fitgap_assessment__state__under_review
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_search
+msgid "Under Review"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:res.groups,comment:amnus_fitgap.group_amnus_fitgap_user
+msgid "Use AMNUS Fit-Gap: view assessments and evidence."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__version_number
+msgid "Version"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model_terms:ir.ui.view,arch_db:amnus_fitgap.amnus_fitgap_assessment_form
+msgid "Version History"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__current_version
+msgid ""
+"Version number of the most recently approved version (0 if never approved)."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__is_current
+msgid ""
+"Whether this is the current (authoritative) assessment for the requirement."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,help:amnus_fitgap.field_amnus_fitgap_assessment__root_cause
+msgid "Why the gap exists (standard limitation, missing feature, etc.)."
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields.selection,name:amnus_fitgap.selection__amnus_fitgap_assessment__outcome__workaround
+#: model:ir.model.fields.selection,name:amnus_fitgap.selection__amnus_fitgap_assessment_version__outcome__workaround
+msgid "Workaround"
+msgstr ""
+
+#. module: amnus_fitgap
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment__workaround_description
+#: model:ir.model.fields,field_description:amnus_fitgap.field_amnus_fitgap_assessment_version__workaround_description
+msgid "Workaround Description"
+msgstr ""

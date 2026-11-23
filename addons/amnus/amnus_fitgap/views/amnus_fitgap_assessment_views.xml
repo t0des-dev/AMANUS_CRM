@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- ==================== ASSESSMENT LIST VIEW ==================== -->
+        <record id="amnus_fitgap_assessment_list" model="ir.ui.view">
+            <field name="name">AMNUS Fit-Gap Assessment List</field>
+            <field name="model">amnus.fitgap.assessment</field>
+            <field name="arch" type="xml">
+                <list string="Fit-Gap Assessments" editable="bottom">
+                    <field name="reference"/>
+                    <field name="name"/>
+                    <field name="outcome"/>
+                    <field name="state"/>
+                    <field name="requirement_id"/>
+                    <field name="project_id"/>
+                    <field name="assessor_id"/>
+                    <field name="total_effort"/>
+                    <field name="risk_level"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- ==================== ASSESSMENT KANBAN VIEW ==================== -->
+        <record id="amnus_fitgap_assessment_kanban" model="ir.ui.view">
+            <field name="name">AMNUS Fit-Gap Assessment Kanban</field>
+            <field name="model">amnus.fitgap.assessment</field>
+            <field name="arch" type="xml">
+                <kanban string="Fit-Gap Assessments" default_group_by="state">
+                    <field name="reference"/>
+                    <field name="name"/>
+                    <field name="outcome"/>
+                    <field name="state"/>
+                    <field name="requirement_id"/>
+                    <field name="project_id"/>
+                    <field name="assessor_id"/>
+                    <field name="total_effort"/>
+                    <field name="risk_level"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_card oe_semantic_html_override">
+                                <div class="oe_kanban_content">
+                                    <span class="oe_kanban_record_title">
+                                        <field name="reference"/>
+                                    </span>
+                                    <ul>
+                                        <li><strong>Outcome:</strong> <field name="outcome"/></li>
+                                        <li><strong>Project:</strong> <field name="project_id"/></li>
+                                        <li><strong>Assessor:</strong> <field name="assessor_id"/></li>
+                                        <li><strong>Effort:</strong> <field name="total_effort"/></li>
+                                        <li><strong>Risk:</strong> <field name="risk_level"/></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- ==================== ASSESSMENT FORM VIEW ==================== -->
+        <record id="amnus_fitgap_assessment_form" model="ir.ui.view">
+            <field name="name">AMNUS Fit-Gap Assessment Form</field>
+            <field name="model">amnus.fitgap.assessment</field>
+            <field name="arch" type="xml">
+                <form string="Fit-Gap Assessment">
+                    <header>
+                        <button name="action_start_analysis"
+                                type="object"
+                                invisible="state != 'draft'"
+                                string="Start Analysis"
+                                class="oe_highlight"
+                                groups="amnus_fitgap.group_amnus_fitgap_user,amnus_fitgap.group_amnus_fitgap_manager"/>
+                        <button name="action_submit_for_review"
+                                type="object"
+                                invisible="state not in ('draft', 'in_analysis')"
+                                string="Submit for Review"
+                                class="oe_highlight"
+                                groups="amnus_fitgap.group_amnus_fitgap_user,amnus_fitgap.group_amnus_fitgap_manager"/>
+                        <button name="action_approve"
+                                type="object"
+                                invisible="state != 'under_review'"
+                                string="Approve"
+                                class="oe_highlight"
+                                groups="amnus_fitgap.group_amnus_fitgap_manager"/>
+                        <button name="action_open_reject_wizard"
+                                type="object"
+                                invisible="state != 'under_review'"
+                                string="Reject"
+                                class="oe_highlight"
+                                groups="amnus_fitgap.group_amnus_fitgap_manager"/>
+                        <button name="action_request_revision"
+                                type="object"
+                                invisible="state != 'approved'"
+                                string="Request Revision"
+                                groups="amnus_fitgap.group_amnus_fitgap_manager"/>
+                        <button name="action_cancel"
+                                type="object"
+                                invisible="state not in ('draft', 'in_analysis', 'under_review')"
+                                string="Cancel"
+                                groups="amnus_fitgap.group_amnus_fitgap_user,amnus_fitgap.group_amnus_fitgap_manager"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,in_analysis,under_review,approved,rejected,cancelled,superseded"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="reference" readonly="1"/>
+                                <field name="name" required="1"/>
+                            </h1>
+                        </div>
+                        <group string="Requirement &amp; Project Context">
+                            <group>
+                                <field name="reference" readonly="1"/>
+                                <field name="name" required="1"/>
+                                <field name="requirement_id" required="1"/>
+                                <field name="project_id" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="customer_id" readonly="1"/>
+                                <field name="company_id" readonly="1"/>
+                                <field name="assessor_id"/>
+                                <field name="reviewer_id"/>
+                                <field name="assessment_date"/>
+                            </group>
+                        </group>
+                        <group string="Standard Odoo Capability">
+                            <group>
+                                <field name="standard_odoo_module"/>
+                                <field name="standard_odoo_feature"/>
+                            </group>
+                            <group>
+                                <field name="standard_behavior_description"/>
+                            </group>
+                        </group>
+                        <group string="Gap Analysis">
+                            <group>
+                                <field name="outcome" required="1"/>
+                                <field name="gap_description"/>
+                                <field name="root_cause"/>
+                            </group>
+                            <group>
+                                <field name="business_impact"/>
+                                <field name="technical_impact"/>
+                            </group>
+                        </group>
+                        <group string="Proposed Solution">
+                            <group>
+                                <field name="configuration_approach"/>
+                                <field name="development_approach"/>
+                                <field name="integration_approach"/>
+                                <field name="workaround_description"/>
+                            </group>
+                            <group>
+                                <field name="proposed_solution"/>
+                                <field name="technical_notes"/>
+                                <field name="dependencies"/>
+                                <field name="assumptions"/>
+                            </group>
+                        </group>
+                        <group string="Effort Estimation">
+                            <group>
+                                <field name="functional_analysis_effort"/>
+                                <field name="configuration_effort"/>
+                                <field name="development_effort"/>
+                                <field name="integration_effort"/>
+                                <field name="testing_effort"/>
+                                <field name="total_effort" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="estimation_confidence"/>
+                                <field name="risk_level"/>
+                                <field name="decision_rationale"/>
+                            </group>
+                        </group>
+                        <group string="Evidence">
+                            <field name="evidence_ids" widget="many2many_binary"/>
+                        </group>
+                        <group string="Approval">
+                            <group>
+                                <field name="approved_by" readonly="1"/>
+                                <field name="approved_date" readonly="1"/>
+                                <field name="approval_notes"/>
+                            </group>
+                            <group>
+                                <field name="rejected_by" readonly="1"/>
+                                <field name="rejected_date" readonly="1"/>
+                                <field name="rejection_reason"/>
+                            </group>
+                        </group>
+                        <group string="Version History" invisible="not version_ids">
+                            <field name="current_version" readonly="1"/>
+                            <field name="version_ids" readonly="1">
+                                <list>
+                                    <field name="version_number"/>
+                                    <field name="outcome"/>
+                                    <field name="approved_by"/>
+                                    <field name="approved_date"/>
+                                    <field name="approval_notes"/>
+                                    <field name="total_effort"/>
+                                </list>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- ==================== ASSESSMENT SEARCH VIEW ==================== -->
+        <record id="amnus_fitgap_assessment_search" model="ir.ui.view">
+            <field name="name">AMNUS Fit-Gap Assessment Search</field>
+            <field name="model">amnus.fitgap.assessment</field>
+            <field name="arch" type="xml">
+                <search string="Fit-Gap Assessments">
+                    <field name="reference"/>
+                    <field name="name"/>
+                    <field name="outcome"/>
+                    <field name="state"/>
+                    <field name="requirement_id"/>
+                    <field name="project_id"/>
+                    <field name="assessor_id"/>
+                    <field name="reviewer_id"/>
+                    <filter name="filter_draft"
+                            string="Draft"
+                            domain="[('state', '=', 'draft')]"/>
+                    <filter name="filter_in_analysis"
+                            string="In Analysis"
+                            domain="[('state', '=', 'in_analysis')]"/>
+                    <filter name="filter_under_review"
+                            string="Under Review"
+                            domain="[('state', '=', 'under_review')]"/>
+                    <filter name="filter_approved"
+                            string="Approved"
+                            domain="[('state', '=', 'approved')]"/>
+                    <filter name="filter_rejected"
+                            string="Rejected"
+                            domain="[('state', '=', 'rejected')]"/>
+                    <filter name="filter_cancelled"
+                            string="Cancelled"
+                            domain="[('state', '=', 'cancelled')]"/>
+                    <filter name="filter_superseded"
+                            string="Superseded"
+                            domain="[('state', '=', 'superseded')]"/>
+                    <filter name="filter_my_assessments"
+                            string="My Assessments"
+                            domain="[('assessor_id', '=', uid)]"/>
+                    <group name="group_by">
+                        <filter name="group_by_state"
+                                string="Status"
+                                domain="[]"
+                                context="{'group_by': 'state'}"/>
+                        <filter name="group_by_outcome"
+                                string="Outcome"
+                                domain="[]"
+                                context="{'group_by': 'outcome'}"/>
+                        <filter name="group_by_project"
+                                string="Project"
+                                domain="[]"
+                                context="{'group_by': 'project_id'}"/>
+                        <filter name="group_by_requirement"
+                                string="Requirement"
+                                domain="[]"
+                                context="{'group_by': 'requirement_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- ==================== ASSESSMENT ACTION ==================== -->
+        <record id="action_amnus_fitgap_assessments" model="ir.actions.act_window">
+            <field name="name">Fit-Gap Assessments</field>
+            <field name="res_model">amnus.fitgap.assessment</field>
+            <field name="view_mode">list,kanban,form,search</field>
+            <field name="search_view_id" ref="amnus_fitgap_assessment_search"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create your first Fit-Gap assessment.</p>
+            </field>
+        </record>
+    </data>
+</odoo>

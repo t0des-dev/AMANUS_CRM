@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- ==================== AMNUS FIT-GAP MENUS ==================== -->
+        <menuitem id="menu_amnus_fitgap_root"
+                  name="Fit-Gap"
+                  parent="amnus_core.menu_amnus_root"
+                  sequence="26"
+                  groups="amnus_fitgap.group_amnus_fitgap_user"/>
+
+        <menuitem id="menu_amnus_fitgap_assessments"
+                  name="Assessments"
+                  parent="menu_amnus_fitgap_root"
+                  action="action_amnus_fitgap_assessments"
+                  sequence="10"
+                  groups="amnus_fitgap.group_amnus_fitgap_user"/>
+    </data>
+</odoo>
