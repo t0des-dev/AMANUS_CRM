@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="amnus_fitgap_assessment_reject_wizard_form" model="ir.ui.view">
+            <field name="name">AMNUS Fit-Gap Reject Wizard Form</field>
+            <field name="model">amnus.fitgap.assessment.reject.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Reject Assessment">
+                    <group>
+                        <field name="assessment_id" readonly="1"/>
+                        <field name="rejection_reason" required="1"/>
+                    </group>
+                    <footer>
+                        <button name="action_confirm" type="object" string="Reject" class="oe_highlight"/>
+                        <button string="Cancel" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_amnus_fitgap_assessment_reject_wizard" model="ir.actions.act_window">
+            <field name="name">Reject Assessment</field>
+            <field name="res_model">amnus.fitgap.assessment.reject.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

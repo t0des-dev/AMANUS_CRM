@@ -1,5 +1,24 @@
 # Changelog — AMNUS
 
+## Version 19.0.6.0.0 — Sprint 06 (Fit-Gap & Solution Design)
+
+### Added
+- Addon `amnus_fitgap`: Fit-Gap & Solution Design layer.
+- Models: `amnus.fitgap.assessment`, `amnus.fitgap.assessment.version`.
+- Controlled workflow: draft, in_analysis, under_review, approved, rejected, superseded, cancelled.
+- Explicit `is_current` marker with PostgreSQL partial unique index.
+- Atomic replacement approval with version snapshot.
+- Security groups, ACLs, multi-company and project visibility rules.
+- Native list/kanban/form/search views and menus.
+- Translations: `amnus_fitgap.pot`, `fr_FR.po`, `ar_SA.po`.
+- Tests: 41 tests (model, workflow, security, version).
+
+### Notes
+- Depends only on `amnus_core` and `amnus_analysis`.
+- No Enterprise dependencies, no OWL/JS, no custom evidence model.
+
+---
+
 ## Version 19.0.5.1.4 — Sprint 05.1.4 (Dependency & Translation Remediation)
 
 ### Fixed
