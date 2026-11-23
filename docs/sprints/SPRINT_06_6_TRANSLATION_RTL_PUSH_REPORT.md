@@ -57,10 +57,11 @@ image review.
 ## Commit and Push
 
 Status: COMPLETED
-- Commit hash: `2cf7729fc74ee1e0e13e6a7ee1675a507ea4e78f`
+- Translation commit hash: `2cf7729fc74ee1e0e13e6a7ee1675a507ea4e78f`
+- Report commit hash: `1148ab1f0faeac17872f53028fa0d5a274e9e360`
 - Remote name: `origin`
 - Branch: `main`
-- Remote HEAD: `2cf7729fc74ee1e0e13e6a7ee1675a507ea4e78f` (verified)
+- Remote HEAD: `1148ab1f0faeac17872f53028fa0d5a274e9e360` (verified)
 
 ## Remaining Limitations
 
